@@ -1,0 +1,9 @@
+. ${ROOT_DIR}/${KERNEL_VER}/build.config.arm
+. ${ROOT_DIR}/${KERNEL_VER}/build.config.mtktv
+
+POST_DEFCONFIG_CMDS="
+pushd ${KERNEL_DIR} && \
+KCONFIG_CONFIG=${OUT_DIR}/${KERNEL_DIR}/.config scripts/kconfig/merge_config.sh -m -r ${OUT_DIR}/${KERNEL_DIR}/.config arch/arm64/configs/${KERNEL_CONFIG_FILENAME} &&\
+make -f ${KERNEL_MK_PATH}/build_patch.mk O=${OUT_DIR}/${KERNEL_DIR} cdiff &&\
+popd
+"

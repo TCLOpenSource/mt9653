@@ -1,0 +1,52 @@
+#!/bin/sh
+# devtmpfs does not get automounted for initramfs
+[ -d /dev ] || mkdir -m 0755 /dev
+[ -d /root ] || mkdir -m 0700 /root
+[ -d /sys ] || mkdir /sys
+[ -d /proc ] || mkdir /proc
+[ -d /tmp ] || mkdir /tmp
+
+echo "mount -t sysfs -o nodev,noexec,nosuid none /sys"
+mount -t sysfs -o nodev,noexec,nosuid none /sys
+echo "mount -t proc -o nodev,noexec,nosuid none /proc "
+mount -t proc -o nodev,noexec,nosuid none /proc
+
+echo "mount"
+/bin/mount -t devtmpfs devtmpfs /dev
+echo "make device node ttyS0 "
+
+# early setup 8250 & irq-mt58xx driver
+modprobe irq-mt58xx
+modprobe 8250-mtk-tv
+modprobe 8250
+
+mknod /dev/ttyS0  c   4 64
+mknod /dev/ttyUSB0 c 188 0
+mknod /dev/console  c   5 1
+mknod /dev/null  c   1 3
+
+# load kernel driver
+modprobe mtk-miup
+modprobe wdt-mtk-dtv
+modprobe mtk-mmc-fcie
+modprobe mdrv-miu
+modprobe mdrv-ir
+
+# mdev for device node
+mdev -s
+
+# setup console
+exec 0</dev/console
+exec 1>/dev/console
+exec 2>/dev/console
+
+echo "mount /dev/mmcblk0p4 /root"
+sleep 3 # for mtk-mmc-fcie ready
+mount  /dev/mmcblk0p4 /root
+
+# debug initramfs
+# /bin/sh
+
+echo "switch_root /root /sbin/init "
+exec switch_root /root /sbin/init
+

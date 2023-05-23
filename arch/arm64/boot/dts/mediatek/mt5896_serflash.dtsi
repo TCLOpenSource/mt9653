@@ -1,0 +1,11 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2021 MediaTek Inc.
+ */
+
+/ {
+	serflash:serflash@1c060400 {
+		compatible = "mediatek,mt5896-nor";
+		reg = <0 0x1c060400 0 0x200>;
+	};
+};

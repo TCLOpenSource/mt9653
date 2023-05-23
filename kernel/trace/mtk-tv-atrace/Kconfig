@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: GPL-2.0-only
+#
+
+config MTK_TV_ATRACE
+	tristate "MTK TV atrace"
+	depends on TRACING
+	help
+	  This option measures the module time and counts

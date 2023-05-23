@@ -1,0 +1,39 @@
+// SPDX-License-Identifier: GPL-2.0
+
+#include "mt5896_i2c.dtsi"
+
+/ {
+	mtk_sound_machine:mtk-sound-machine {
+
+	};
+
+	mtk_sound_soc:mtk-sound-soc {
+
+	};
+
+	mtk_tv_machine:mtk-tvsnd-machine {
+
+	};
+};
+
+/* Device(s) attach on hardware IP I2C #0 */
+&i2c0 {
+	rt9114: mtk-amp9114 {
+		compatible = "mediatek, rt9114";
+		reg = <0x1B>;
+		status = "disabled";
+	};
+	rt9120: mtk-amp9120 {
+		compatible = "mediatek, rt9120";
+		reg = <0x1B>;
+		status = "disabled";
+	};
+};
+
+&i2c1 {
+	rt9120_1: mtk-amp9120 {
+		compatible = "mediatek, rt9120";
+		reg = <0x1B>;
+		status = "disabled";
+	};
+};

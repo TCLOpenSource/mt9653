@@ -1,0 +1,67 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+
+/ {
+	pm_fix: pm_fix {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_fix";
+		num = <CLK_PM_FIX_N>;
+
+		xtal_pm_vcod1_24m_ck {
+			id = <CLK_PM_XTAL_PM_VCOD1_24M_CK>;
+			clock-frequency = <24>;
+		};
+
+		xtal_pm_vcod2_12m_ck {
+			id = <CLK_PM_XTAL_PM_VCOD2_12M_CK>;
+			clock-frequency = <12>;
+		};
+
+		xtal_pm_vcod4_6m_ck {
+			id = <CLK_PM_XTAL_PM_VCOD4_6M_CK>;
+			clock-frequency = <6>;
+		};
+
+		xtal_pm_vcod6_4m_ck {
+			id = <CLK_PM_XTAL_PM_VCOD6_4M_CK>;
+			clock-frequency = <4>;
+		};
+
+		xtal_pm_vcod8_3m_ck {
+			id = <CLK_PM_XTAL_PM_VCOD8_3M_CK>;
+			clock-frequency = <3>;
+		};
+
+		xtal_pm_vcod12_2m_ck {
+			id = <CLK_PM_XTAL_PM_VCOD12_2M_CK>;
+			clock-frequency = <2>;
+		};
+
+		xtal_pm_vcod24_1m_ck {
+			id = <CLK_PM_XTAL_PM_VCOD24_1M_CK>;
+			clock-frequency = <1>;
+		};
+
+	};
+
+	pm_fixdiv: pm_fixdiv {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_fix_factor";
+		num = <CLK_PM_FIXDIV_N>;
+
+		xtal_pm_vcod1_24m_ck {
+			xtal_pm_vcod16_1p5m_ck {
+				id = <CLK_PM_XTAL_PM_VCOD16_1P5M_CK>;
+				div_factor = <1 16>;
+			};
+
+			xtal_pm_vcod32_750k_ck {
+				id = <CLK_PM_XTAL_PM_VCOD32_750K_CK>;
+				div_factor = <1 32>;
+			};
+		};
+	};
+};

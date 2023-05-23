@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	#address-cells = <2>;
+	#size-cells = <2>;
+
+	mtk_miup: miup@1c37e800 {
+		compatible = "mediatek,mtk-miup";
+		reg = <0 0x1c37e800 0 0x200>,
+			<0 0x1c37e000 0 0x200>,
+			<0 0x1c37e200 0 0x200>,
+			<0 0x1c37e400 0 0x200>;
+		interrupt-parent = <&mtk_intc1_irq_high>;
+		interrupts = <0x0 0x1e 0x4>;
+		mediatek,max_prot_blk = <8>;
+		mediatek,max_cid_number = <16>;
+	};
+};

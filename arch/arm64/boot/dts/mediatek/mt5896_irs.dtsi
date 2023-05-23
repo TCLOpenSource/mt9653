@@ -1,0 +1,18 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+/ {
+
+	irs: irs@1C4A2200{
+					compatible = "mediatek,mtk-irs";
+					reg = <0x0 0x1C4A2200 0x0 0x200>,//irs_map_membase
+						<0x0 0x1c204000 0x0 0x4000>; //clkgen_bank_membase
+
+					interrupt-parent = <&mtk_intc0_fiq>;
+					interrupts = <0x0 0x14 0x4>;
+                                        irs_default_status = <0>;
+					};
+
+
+};

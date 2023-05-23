@@ -1,0 +1,22 @@
+// SPDX-License-Identifier: GPL-2.0
+//
+// Copyright (c) 2020 MediaTek Inc.
+//
+
+/ {
+
+	mtk_demod: mtk-demod {
+		compatible = "mediatek, mtk-merak-demod";
+		reg = <0x0 0x1CE00000 0x0 0xA0000>;
+		unique_id = <0>;
+		cmas = <0>;
+		memory-region = <&cma_23 &MI_DMD_DVBT>;
+		banks {
+			ts_reg = <0x1C205F80>;
+			clk_reg = <0x1C204000>;
+			pmux_reg = <0x1C022060>;
+			vagc_reg = <0x1C2E4040>;
+		};
+	};
+
+};

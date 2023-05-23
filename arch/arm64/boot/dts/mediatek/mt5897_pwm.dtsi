@@ -1,0 +1,39 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2021 MediaTek Inc.
+ */
+
+/ {
+	pwm0@1c487200 {
+		compatible = "mediatek,mt5896-pwm";
+		reg = <0 0x1c487200 0 0x200>;
+		clocks = <&pwm_clk 2>,
+				 <&pwm_clk 1>;
+		clock-names = "xtal_12m2pwm", "pwm_ck";
+	};
+	pwm@1c487700 {
+		compatible = "mediatek,mt5896-scanpwm";
+		reg = <0 0x1c487700 0 0x40>,<0 0x1c4877C0 0 0x40>;
+		div = <0>;
+		clocks = <&pwm_clk 2>,
+				 <&pwm_clk 1>;
+		clock-names = "xtal_12m2pwm", "pwm_ck";
+	};
+	pwm_scan4:pwm_bl@0{
+		compatible = "mediatek,mt5896-scanpwm";
+		reg = <0 0x1c487700 0 0x40>,<0 0x1c4877C0 0 0x40>;
+		#pwm-cells = <2>;
+		div = <0>;
+		clocks = <&pwm_clk 2>,
+				 <&pwm_clk 1>;
+		clock-names = "xtal_12m2pwm", "pwm_ck";
+	};
+	backlight {
+		compatible = "pwm-backlight";
+		pwms = <&pwm_scan4 0 500000>;
+		enable-gpios = <&gpio0 9 1>;
+		brightness-levels = <0 1023>;
+		num-interpolated-steps = <1023>;
+		default-brightness-level = <120>;
+	};
+};

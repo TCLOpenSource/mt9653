@@ -1,0 +1,32 @@
+Device-Tree bindings for MediaTek MT5896 SoC based KeyPad
+
+Required properties:
+- compatible	    : Should be
+			"mediatek,mt5896-spi" : for MT5896 SoC
+- reg 		    : Specifies base physical address and size of the registers;
+- mtk, keypad-chanel : keypad PCB channel
+- mtk, keypad-lowbd  : keypad low bound adc trigger interrupt
+- mtk, keypad-upwbd  : keypad high bound adc trigger interrupt
+- mtk, keypad-num    : keypad PCB key supported
+
+Example:
+
+	keypad {
+		compatible = "mediatek,mt5896-keypad";
+		interrupt-parent = <&mtk_intc2_irq_high>;
+		reg = <0 0x1f020a00 0 0x200>;
+		interrupts = <0x0 0x10 0x4>;
+		mtk,keypad-chanel = <1>;
+		mtk,keypad-lowbd = <848>;
+		mtk,keypad-upwbd = <1023>;
+		mtk,keypad-num = <2>;
+
+		key_1 {
+			linux,code = <0x8b>;
+			keypad,threshold = <0x339>;
+		};
+		key_2 {
+			linux,code = <0x4F>;
+			keypad,threshold = <0x2DB>;
+		};
+	};

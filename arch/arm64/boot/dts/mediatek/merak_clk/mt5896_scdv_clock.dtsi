@@ -1,0 +1,52 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+/ {
+	scdv_mux_gate: scdv {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_mux_gate";
+		num = <CLK_SCDV_NR>;
+
+		scdv_xtal_12m_int_ck {
+			id = <CLK_SCDV_XTAL_12M_INT_CK>;
+			parents = "xtal_12m_ck";
+		};
+
+		scdv_xtal_24m_int_ck {
+			id = <CLK_SCDV_XTAL_24M_INT_CK>;
+			parents = "xtal_24m_ck";
+		};
+
+		scdv_mcu_nonpm_int_ck {
+			id = <CLK_SCDV_MCU_NONPM_INT_CK>;
+			parents = "mcu_nonpm_ck";
+		};
+
+		scdv_smi_int_ck {
+			id = <CLK_SCDV_SMI_INT_CK>;
+			parents = "smi_ck";
+		};
+
+		scdv_mcu_xc_int_ck {
+			id = <CLK_SCDV_MCU_XC_INT_CK>;
+			parents = "mcu_sc_ck";
+		};
+
+		scdv_xc_fn_int_ck {
+			id = <CLK_SCDV_XC_FN_INT_CK>;
+			parents = "xc_fn_ck";
+		};
+
+		xc_fn_2_int_ck {
+			id = <CLK_SCDV_XC_FN_2_INT_CK>;
+			parents = "xc_fn_ck";
+		};
+
+		dv_hw5_sram_int_ck {
+			id = <CLK_SCDV_DV_HW5_SRAM_INT_CK>;
+			parents = "xc_fn_ck","smi_ck";
+		};
+
+		};
+};

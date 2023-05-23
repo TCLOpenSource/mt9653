@@ -1,0 +1,46 @@
+/* SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause) */
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+#ifndef _DT_BINDINGS_CLK_MT5896_TSP_FIX_H_
+#define _DT_BINDINGS_CLK_MT5896_TSP_FIX_H_
+#define CLK_TSP_CILINK_2B_RX_IN_CK				0
+#define CLK_TSP_CLK_432_CK						1
+#define CLK_TSP_CLK_352_CK						2
+#define CLK_TSP_CLK_288_CK						3
+#define CLK_TSP_SYS2PLL_VCOD6_240M_CK			4
+#define CLK_TSP_CLK_216_CK						5
+#define CLK_TSP_CLK_172_CK						6
+#define CLK_TSP_CLK_144_CK						7
+#define CLK_TSP_CLK_123_CK						8
+#define CLK_TSP_SYS2PLL_VCOD12_120M_CK			9
+#define CLK_TSP_SYS2PLL_VCOD12_120M_DIV2_CK		10
+#define CLK_TSP_CLK_36_CK						11
+#define CLK_TSP_SYS2PLL_VCOD48_30M_CK			12
+#define CLK_TSP_CLK_27_CK						13
+#define CLK_TSP_CLK_DUMMY_CK					14
+#define CLK_TSP_CLK_TS0_IN_CK					15
+#define CLK_TSP_CLK_TS1_IN_CK					16
+#define CLK_TSP_CLK_TS2_IN_CK					17
+#define CLK_TSP_CLK_TS3_IN_CK					18
+#define CLK_TSP_CLK_TS4_IN_CK					19
+#define CLK_TSP_CLK_TS5_IN_CK					20
+#define CLK_TSP_DEMOD_TS_INT_CK					21
+#define CLK_TSP_DEMOD_TS_CK						22
+#define CLK_TSP_TSO_OUT_DIV_CK					23
+#define CLK_TSP_TSO_OUT_DIVMN_CK				24
+#define CLK_TSP_TSO_OUT_DIV2PAD_CK				25
+#define CLK_TSP_TSO_SRCSEL_DIV8_CK				26
+#define CLK_TSP_TSO_S2P_OUT_CK					27
+#define CLK_TSP_TSO_S2P1_OUT_CK					28
+#define CLK_TSP_TSO2_OUT_DIV_CK					29
+#define CLK_TSP_TSO2_OUT_DIVMN_CK				30
+#define CLK_TSP_TSO2_OUT_DIV2PAD_CK				31
+#define CLK_TSP_TSO2_SRCSEL_DIV8_CK				32
+#define CLK_TSP_TSO2_S2P_OUT_CK					33
+#define CLK_TSP_TSO2_S2P1_OUT_CK				34
+#define CLK_TSP_CILINK_C1_EXT_DIV8_CK			35
+#define CLK_TSP_CILINK_C2_EXT_DIV8_CK			36
+#define CLK_TSP_FIX_N							37
+#endif
+

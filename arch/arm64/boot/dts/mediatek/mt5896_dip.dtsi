@@ -1,0 +1,13 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	dip0:dip0 {
+		compatible = "mediatek,mixed-sti--dip0";
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupts = <0x0 0x26 0x4>;
+		iommus = <&iommu 0>;
+	};
+};

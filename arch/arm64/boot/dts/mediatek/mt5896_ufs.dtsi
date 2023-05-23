@@ -1,0 +1,22 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2021 MediaTek Inc.
+ */
+
+/ {
+	ufs0: mtk-dtv-ufs {
+		compatible = "mediatek,mt8183-ufshci";
+		reg = <0 0x1c710000 0 0x2300>;
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupts = <0x0 0x3e 0x4>;
+		clocks = <&topgen_mux_gate CLK_TOPGEN_UFS_CK>,
+				 <&topgen_mux_gate CLK_TOPGEN_UFS_AES_CK>,
+				 <&topgen_mux_gate CLK_TOPGEN_UFS_UNIPRO_CG_SYN_CK>,
+				 <&ufs_swEN CLK_UFS_EN_SMI2UFS>;
+		clock-names = "ufs", "ufs_aes", "ufs_unipro_cg_syn", "smi2ufs";
+		freq-table-hz = <0 0>, <0 0>, <0 0>, <0 0>;
+		mediatek,ufs-proprietary-crypto;
+		mediatek,ufs-suspend-shundown;
+		crypto-disable-list = <0x0 0x0 0x0 0x1600000>;
+	};
+};

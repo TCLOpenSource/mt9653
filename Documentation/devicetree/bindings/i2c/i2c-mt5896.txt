@@ -1,0 +1,59 @@
+* MediaTek MT5896 I2C master controller
+
+The MediaTek MT5896 I2C controller is used to interface with I2C devices.
+
+Required properties:
+
+  - compatible: must be "mediatek,mt5896-i2c"
+  - reg: physical base address and length of the control registers.
+  - interrupts: interrupt number to the cpu.
+  #- TODO: add clocks after clock framework ready
+  - #address-cells: should be <1>
+  - #size-cells: should be <0>
+  #- TODO: remove pad-mode after pinctrl ready
+  - pad-mode: pad mux setting for SDA, SCL
+  #- TODO: add pinctrl-names and pinctrl-0 after pinctrl ready
+
+Optional properties:
+
+  - clock-frequency: Frequency in Hz of the bus when transfer, the default value
+    is 100000.
+  - start-count: Start condition count, ie. clock(s) between SDA falling and SCL
+    falling. The default value is 73.
+  - stop-count: Stop condition count, ie. clock(s) between SCL rising and SDA
+    rising. The default value is 73.
+  - sda-count: SDA hold time, ie. clock(s) between falling edge SCL and SDA
+    output. The default value is 5.
+  - latch-count: Data latch timing. The default value is 5.
+  - scl-stretch: Enable/disable i2c clock stretch
+
+  May specify i2c bus number by adding aliases.
+
+Example:
+
+	aliases {
+		/* let i2c sub system set i2c bus index by aliases */
+		/* bus index = &bus module */
+		i2c0 = &i2c_3;
+	};
+
+	i2c_3: I2C_3 {
+		compatible = "mediatek,mt5896-i2c";
+		reg = <0 0x1c644c00 0 0x200>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+		/* TODO: set clock after clock driver ready */
+		/* clocks = <&CLK_miic3>; */
+		interrupts=<0x0 0x3f 0x4>;
+		clock-frequency = <100000>; /* bus speed 100 KHz */
+		/* pad mux setting for SDA, SCL */
+		/* TODO: modify after pinctrl finish */
+		pad-mode = <2>;
+		/* proprietary i2c parameter */
+		start-count = <73>;
+		stop-count = <73>;
+		sda-count = <5>;
+		latch-count = <5>;
+        scl-stretch;
+		status = "okay";
+	};

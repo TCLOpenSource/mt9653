@@ -1,0 +1,102 @@
+/*
+ * ARM Ltd.
+ *
+ * ARMv8 Foundation model DTS
+ */
+/dts-v1/;
+
+#include "mt5870.dtsi"
+
+/ {
+	model = "M7332";
+	compatible = "arm,foundation-aarch64", "arm,m7332";
+
+	chosen {
+		bootargs = "root=/dev/ram0 rw init=/sbin/init ip=dhcp console=ttyS0,38400,LX_MEM=0x03000000";
+	};
+
+
+	lx_mem: lx_memory {
+		device_type = "memory";
+		reg = <0x00000000 0x20000000 0x00000000 0x60000000>;
+	};
+
+	lx_mem2: lx_memory2 {
+		device_type = "memory";
+	};
+
+	lx_mem3: lx_memory3 {
+		device_type = "memory";
+	};
+
+	lx_mem4: lx_memory4 {
+		device_type = "memory";
+	};
+
+	reserved-memory {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+
+		reserve-optee-entry {
+			compatible = "reserve-memory-optee-entry";
+			reg = <0 0x20201000 0 0x4000>;
+		};
+
+		hw_reserved_1: hw_reserved_1 {
+			reg = <0x00000000 0x20000000 0x00000000 0x00200000>;
+			no-map;
+		};
+
+		hw_reserved_2: hw_reserved_2 {
+			reg = <0x00000000 0x3DF00000 0x00000000 0x09900000>;
+			no-map;
+		};
+
+		hw_reserved_3: hw_reserved_3 {
+			reg = <0x00000000 0x7C100000 0x00000000 0x03F00000>;
+			no-map;
+		};
+
+		default_cma_range: default_cma {
+			compatible = "shared-dma-pool";
+			reusable;
+			reg = <0x00000000 0x7BC00000 0x00000000 0x00400000>;
+			linux,cma-default;
+		};
+
+		cma_0: RETURN {
+			compatible = "shared-dma-pool";
+			reusable;
+			reg = <0x00000000 0x27400000 0x00000000 0x04000000>;
+		};
+
+		cma_1: AUDIO_CPU_1 {
+			compatible = "shared-dma-pool";
+			reusable;
+			reg = <0x00000000 0x2B400000 0x00000000 0x00400000>;
+		};
+
+		cma_2: AUDIO_CPU_2 {
+			compatible = "shared-dma-pool";
+			reusable;
+			reg = <0x00000000 0x2B800000 0x00000000 0x00400000>;
+		};
+
+		cma_3: OTHERS_RETURN {
+			compatible = "shared-dma-pool";
+			reusable;
+			reg = <0x00000000 0x47800000 0x00000000 0x01000000>;
+		};
+/*
+ *		nullmem_1: nullmem_1 {
+ *			reg = <0x00000000 0xE0000000 0x00000000 0x10000000>;
+ *		};
+ */
+	};
+
+	odm: odm {
+		/* reserved for overlay by odm */
+	};
+};
+

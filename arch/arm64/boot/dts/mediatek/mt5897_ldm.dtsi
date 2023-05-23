@@ -1,0 +1,108 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	mediatek_ldm: mediatek-ldm {
+		compatible = "mediatek,mediatek-ldm";
+		status = "okay";
+		LDM_SUPPORT=<0x00>;
+		LDM_MMAP_ADDR=<0x24900000>;
+		MX_LDM_VERSION = <2>;        /*M6:1, M6L:2*/
+		ldm-panel-info {
+			PanelWidth = <3840>;
+			PanelHeight = <2160>;
+			LEDType = <2>;
+			LDFWidth = <8>;
+			LDFHeight = <6>;
+			LEDWidth = <8>;
+			LEDHeight = <6>;
+			LSFWidth = <128>;
+			LSFHeight = <72>;
+			Edge2D_Local_h = <5>;
+			Edge2D_Local_v = <5>;
+			PanelHz = <60>;
+
+		};
+		ldm-misc-info {
+			MarqueeDelay = <255>;
+			LDEn = <1>;
+			OLEDEn = <0>;
+			OLED_LSP_En = <0>;
+			OLED_GSP_En = <0>;
+			OLED_HBP_En = <0>;
+			OLED_CRP_En = <0>;
+			OLED_LSPHDR_En = <0>;
+			SPIBits = <0>;
+			ClkHz = <120>;
+			MirrorPanel = <0>;
+
+		};
+		ldm-mspi-info {
+			MspiChanel = <0>;
+			MspiMode = <0>;
+			TrStart = <4>;
+			TrEnd = <0>;
+			TB = <0>;
+			TRW = <4>;
+			MspiClk = <1200000>;
+			BClkPolarity = <0>;
+			BClkPhase = <0>;
+			MAXClk = <2000000>;
+			MspiBuffSizes = <2>;
+			WBitConfig = <7 7 7 7 7 7 7 7>;
+			RBitConfig = <7 7 7 7 7 7 7 7>;
+		};
+	  ldm-dma-info {
+			LDMAchanel = <0>;
+			LDMATrimode = <2>;
+			LDMACheckSumMode = <1>;
+			MspiHead = <0x5550 0x0010 0x0000 0x0000
+			0x0000 0x0000 0x0000 0x0000>;
+			DMADelay = <0x138 0x00 0x139 0x00>;
+			cmdlength = <2>;
+			BLWidth = <8>;
+			BLHeight = <6>;
+			LedNum = <0x30>;
+			DataPackMode = <1>;
+			DMAPackLength = <1>;
+			DataInvert = <1>;
+			DMABaseOffset = <1>;
+			ExtData = <0x10 0x20 0x30 0x40 0x00 0x00 0x00 0x00
+			0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00>;
+			ExtDataLength = <2>;
+			BDACNum = <1>;
+			BDACcmdlength = <1>;
+			BDACHead = <0x1111 0x23dd 0xefef 0x1234
+			0x4321 0x0000 0x0000 0x0000>;
+		};
+		ldm-led-device-info {
+		 Rsense = <864>;
+		 VDAC_MBR_OFF = <0x4050>;
+		 VDAC_MBR_NO = <0x1020>;
+		 BDAC_High = <0xA0>;
+		 BDAC_Low = <0x80>;
+		 SPINUM = <1>;
+		 AS3824 = <0>;
+		 NT50585 = <0>;
+		 IW7039 = <0>;
+		 MCUswmode  = <0>;
+		 SPIDutybit  = <12>;
+		};
+		ldm-cus-setting {
+			PanelWidth = <3840>;
+			PanelHeight = <2160>;
+			LEDType = <3>;
+			LDFWidth = <34>;
+			LDFHeight = <10>;
+			LEDWidth = <17>;
+			LEDHeight = <10>;
+			LSFWidth = <128>;
+			LSFHeight = <72>;
+			Edge2D_Local_h = <9>;
+			Edge2D_Local_v = <9>;
+		};
+	};
+
+};

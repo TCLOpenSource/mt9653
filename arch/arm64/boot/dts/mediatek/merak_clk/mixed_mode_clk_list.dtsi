@@ -1,0 +1,192 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+
+/ {
+
+	TOP_DUMMY: TOP_DUMMY {
+		#clock-cells = <0>;
+		compatible = "fixed-clock";
+		clock-frequency = <123456789>;
+		clock-output-names = "top_dummy";
+	};
+
+	topgen_mux_gate: topgen_mg {
+		#clock-cells = <1>;
+	};
+
+	test_ctrl_data: test_ctrl_data {
+	};
+
+	tsp_mux_gate: tsp {
+		#clock-cells = <1>;
+	};
+
+	tsp_sw_en: tsp_swen {
+		#clock-cells = <1>;
+	};
+
+	ADC_fix: ADC_fix {
+	};
+
+	adcpll_mux_gate: adcpll {
+	};
+
+	nonpm_adc_OOXX: nonpm_adc_swen {
+	};
+
+	uart_mux_gate: uart_mg {
+	};
+
+	uart_synth: uart_synth {
+	};
+
+	uart_enable_clock_list: uart_enable_clock_swen {
+	};
+
+	fuart_mux_gate: fuart_mg {
+	};
+/*
+	smart_OOXX: smart_swen {
+	};
+
+	smart2_OOXX: smart2_swen {
+	};
+*/
+	sc_fix: sc_fix {
+	};
+
+	scdv_mux_gate: scdv {
+	};
+
+	scace_mux_gate: scace {
+	};
+
+	scmw_mux_gate: scmw {
+	};
+
+	sctcon_mux_gate: sctcon {
+	};
+
+	scsr_mux_gate: scsr {
+	};
+
+	scpq_mux_gate: scpq {
+	};
+
+	scscl_mux_gate: scscl {
+	};
+
+	scip_mux_gate: scip {
+	};
+
+	usb_nonpm_ssusb: usb_nonpm_ssusb_swen {
+		#clock-cells = <1>;
+	};
+
+	usb_pm_ssusb: usb_pm_ssusb_swen {
+	};
+
+	vd_en_reg: vd_en_reg_swen {
+	};
+
+	vd_mux_gate: vd {
+	};
+
+	vd_fix: vd_fix {
+	};
+
+	hdmi_mux_gate: hdmi {
+	};
+
+	miic_mux_gate: miic_mg {
+	};
+
+	miic_nonpm_OOXX: miic_nonpm_swen {
+	};
+
+	miic_mheg5_mux_gate: miic2miic_int_ck {
+	};
+
+	miic_enable_clock_list: miic_enable_clock_swen {
+	};
+
+	mheg5_mux_gate: mheg5 {
+	};
+
+	pm_mux_gate: pm {
+	};
+
+	pm_fix: pm_fix {
+	};
+
+	pm_fixdiv: pm_fixdiv {
+	};
+
+	ge_OOXX: ge_swen {
+	};
+
+	earc_OOXX: earc_swen {
+	};
+
+	earc_fix: earc_fix {
+	};
+
+	earc_mux_gate: earc {
+	};
+
+	b2r_swen: b2r_swen {
+	};
+
+	cvbso_mux_gate: cvbso {
+	};
+
+	hdmirx_clkmg: hdmirx_swen {
+	};
+
+	jpd_OOXX: jpd_swen {
+		#clock-cells = <1>;
+	};
+
+	memc_OOXX: memc_OOXX {
+	};
+
+	memc_mux_gate: memc {
+	};
+
+	pm_adc_OOXX: pm_adc_swen {
+	};
+
+	scnr_mux_gate: scnr {
+	};
+
+	ufs_swEN: ufs_swen {
+		#clock-cells = <1>;
+	};
+
+	venc_clk_swen: venc_swen {
+	};
+
+	frccore1_mux_gate: frccore1_mg {
+	};
+
+	frccore3_mux_gate: frccore3_mg {
+	};
+
+	scdisp_mux_gate: scdisp_mg {
+	};
+
+	vdec_mux_gate: vdec_mg {
+	};
+
+	vdec_sw_en: vdec_swen {
+	};
+
+	venc_clk_swen: venc_swen {
+	};
+
+	xcgate_mux_gate: xcgate_mg {
+	};
+};

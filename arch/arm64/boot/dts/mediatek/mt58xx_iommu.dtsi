@@ -1,0 +1,77 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+/ {
+
+	reserved_memory: reserved-memory {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+		iommu_cma1: iommu_cma1@cm1 {
+		};
+
+		iommu_cma2: iommu_cma2@cm2 {
+		};
+
+		iommu_carveout: iommu_carveout@cv0 {
+		};
+
+	};
+	iommu: iommu {
+		compatible = "mediatek,dtv-iommu";
+		#iommu-cells = <1>;
+		interrupt-parent = <&mtk_intc1_irq_high>;
+		interrupts = <0x0 0x1e 0x4>;
+		status = "disabled";
+		reg = <0x0 0x1c240400 0 0x200>;
+		reg-names = "seal";
+	};
+
+	iommu_test: iommu_test {
+		compatible = "mediatek,dtv-iommu-test";
+		iommus = <&iommu 0>;
+		status = "disabled";
+	};
+
+	ion_iommu: ion {
+		compatible = "mediatek,dtv-iommu-ion";
+		iommus = <&iommu 0>;
+		status = "disabled";
+	};
+
+	iommu_dmaheap: iommu_dmaheap {
+		compatible = "mediatek,dtv-iommu-dmaheap";
+		iommus = <&iommu 0>;
+		status = "disabled";
+	};
+
+	iommu_carveout0: iommu_carveout0 {
+		compatible = "mediatek,dtv-iommu-carveout";
+		memory-region = <&iommu_carveout>;
+		status = "disabled";
+	};
+
+	iommu_cmaheap1: iommu_cmaheap1 {
+		compatible = "mediatek,dtv-iommu-cma1";
+		memory-region = <&iommu_cma1>;
+		status = "disabled";
+	};
+
+	buf_tag: buf_tag {
+		vdec_fb: vdec_fb {
+		};
+
+		venc_work: venc_work {
+		};
+
+		shm_buf_vdec: shm_buf_vdec {
+		};
+	};
+
+	mem_cust_policy: mem_cust_policy {
+		cma_region_maxsize = <0x0 0x0>;
+		mali_threshold = <0>;
+		mali_reduce_migration = <0>;
+	};
+};

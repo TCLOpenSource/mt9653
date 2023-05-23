@@ -1,0 +1,117 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+/ {
+	scscl_mux_gate: scscl {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_mux_gate";
+		num = <CLK_SCSCL_NR>;
+
+		scscl_xtal_12m_int_ck {
+			id = <CLK_SCSCL_XTAL_12M_INT_CK>;
+			parents = "xtal_12m_ck";
+		};
+
+		scscl_xtal_24m_int_ck {
+			id = <CLK_SCSCL_XTAL_24M_INT_CK>;
+			parents = "xtal_24m_ck";
+		};
+
+		scscl_mcu_nonpm_int_ck {
+			id = <CLK_SCSCL_MCU_NONPM_INT_CK>;
+			parents = "mcu_nonpm_ck";
+		};
+
+		v2_odclk_int_ck {
+			id = <CLK_SCSCL_V2_ODCLK_INT_CK>;
+			parents = "xtal_24m_ck","xc_od_src_ck";
+		};
+
+		scscl_smi_int_ck {
+			id = <CLK_SCSCL_SMI_INT_CK>;
+			parents = "smi_ck";
+		};
+
+		scscl_mcu_xc_int_ck {
+			id = <CLK_SCSCL_MCU_XC_INT_CK>;
+			parents = "mcu_sc_ck";
+		};
+
+		scscl_mcu_bus_int_ck {
+			id = <CLK_SCSCL_MCU_BUS_INT_CK>;
+			parents = "mcu_bus_ck";
+		};
+
+		scscl_xc_fd_int_ck {
+			id = <CLK_SCSCL_XC_FD_INT_CK>;
+			parents = "xc_fd_ck";
+		};
+
+		scscl_xc_od_int_ck {
+			id = <CLK_SCSCL_XC_OD_INT_CK>;
+			parents = "v1_odclk_int_ck";
+		};
+
+		scscl_xc_od_delta_int_ck {
+			id = <CLK_SCSCL_XC_OD_DELTA_INT_CK>;
+			parents = "v2_odclk_int_ck";
+		};
+
+		scscl_xc_fs_int_ck {
+			id = <CLK_SCSCL_XC_FS_INT_CK>;
+			parents = "xc_fs_ck";
+		};
+
+		scscl_xc_fn_int_ck {
+			id = <CLK_SCSCL_XC_FN_INT_CK>;
+			parents = "xc_fn_ck";
+		};
+
+		hsy_sp_sram_int_ck {
+			id = <CLK_SCSCL_HSY_SP_SRAM_INT_CK>;
+			parents = "xc_fn_ck","smi_ck";
+		};
+
+		hsy_sp3_sram_int_ck {
+			id = <CLK_SCSCL_HSY_SP3_SRAM_INT_CK>;
+			parents = "xc_fn_ck","smi_ck";
+		};
+
+		hvsp_stp2_sram_int_ck {
+			id = <CLK_SCSCL_HVSP_STP2_SRAM_INT_CK>;
+			parents = "xc_fs_ck","smi_ck";
+		};
+
+		hvsp_stp1_sram_int_ck {
+			id = <CLK_SCSCL_HVSP_STP1_SRAM_INT_CK>;
+			parents = "xc_fn_ck","smi_ck";
+		};
+
+		vip_pq_sram_int_ck {
+			id = <CLK_SCSCL_VIP_PQ_SRAM_INT_CK>;
+			parents = "xc_fn_ck","smi_ck";
+		};
+
+		gucd_18_sram_int_ck {
+			id = <CLK_SCSCL_GUCD_18_SRAM_INT_CK>;
+			parents = "xc_fn_ck","smi_ck";
+		};
+
+		gucd_256_sram_int_ck {
+			id = <CLK_SCSCL_GUCD_256_SRAM_INT_CK>;
+			parents = "xc_fn_ck","smi_ck";
+		};
+
+		delta_b2p_sram_int_ck {
+			id = <CLK_SCSCL_DELTA_B2P_SRAM_INT_CK>;
+			parents = "xc_fn_ck","smi_ck";
+		};
+
+		lce_scl_sram_int_ck {
+			id = <CLK_SCSCL_LCE_SCL_SRAM_INT_CK>;
+			parents = "xc_fn_ck","smi_ck";
+		};
+
+		};
+};

@@ -1,0 +1,11 @@
+Mediatek DTV SRC PCM Controller for mt5870
+
+Required properties:
+- compatible: "mediatek,mtk-duplex-platform"
+- mediatek DTV,platform: MT5870 ASoC platform
+
+Example:
+
+mtk-sound-duplex-platform {
+		compatible = "mediatek,mtk-duplex-platform";
+	};

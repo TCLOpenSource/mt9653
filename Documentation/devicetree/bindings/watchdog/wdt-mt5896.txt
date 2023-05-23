@@ -1,0 +1,16 @@
+Device-Tree bindings for MediaTek MT5896 SoC based wdt
+
+Required properties:
+- compatible	    : Should be
+			"mediatek,mt5896-wdt" : for MT5896 SoC
+- reg 		    : Specifies base physical address and size of the registers;
+
+Example:
+
+	wdt0 {
+		compatible = "mediatek,mt5896-wdt";
+		interrupt-parent = <&mtk_intc2_fiq_high>;
+		interrupts = <0x0 0x1 0x4>;
+		reg = <0 0x1c400600 0 0x200>,
+			<0 0x1c020000 0 0x200>;
+	};

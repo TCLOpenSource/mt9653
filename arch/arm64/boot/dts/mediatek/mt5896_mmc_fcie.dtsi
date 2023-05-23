@@ -1,0 +1,53 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+
+/{
+	mmc0: mtk-mmc-fcie {
+		compatible = "mediatek,mt5896-mmc-fcie";
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupts = <0x0 0x38 0x4>;
+		status ="okay";
+		reg =   <0x0 0x1c660000 0 0x400>,
+				<0x0 0x1c660400 0 0x200>,
+				<0x0 0x1c661e00 0 0x200>,
+				<0x0 0x1c206f78 0  0x40>,
+				<0x0 0x1c661e00 0 0x200>,
+				<0x0 0x1c660a00 0 0x200>,
+				<0x0 0x1c204000 0 0x200>,
+				<0x0 0x1c206000 0 0x200>,
+				<0x0 0x1c660800 0 0x200>;
+
+		reg-names = "fcie",
+					"psm",
+					"emmcpll",
+					"clkreg",
+					"riubase",
+					"fde",
+					"clkgen0",
+					"clkgen1",
+					"taskdesc";
+
+		clocks = <&topgen_mux_gate CLK_TOPGEN_FCIE_SYN_CK>,
+				<&topgen_mux_gate CLK_TOPGEN_FCIE_CK>,
+				<&fcie_sw_en CLK_FCIE_EN_SMI_FCIE2FCIE>;
+		clock-names = "fcie_syn", "clk_fcie", "smi_fcie2fcie";
+
+		miu0-base = <0x20000000>;
+		clk-mask = <0xF00>;
+		clk-shift = <0xA>;
+		clk-1xp = <0x2>;
+		clk-2xp = <0x1>;
+		crypto-disable-list = <0x0 0x0 0x0 0x1600000>;
+
+		cap-mmc-hw-reset;
+		cap-mmc-highspeed;
+		bus-width = <8>;
+		non-removable;
+		max-frequency = <200000000>;
+		device-driving =<0>;
+	};
+};
+

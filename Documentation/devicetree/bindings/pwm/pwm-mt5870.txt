@@ -1,0 +1,18 @@
+Mediatek MT5870 PWM controller
+
+Required properties:
+
+ - compatible: must be "mediatek,mt5870-pwm"
+ - reg: physical base address and length for this controller
+ - #pwm-cells: must be 2. See pwm.txt in this directory for a description of
+   the cell format.
+ - clocks: XTAL
+
+
+Example:
+
+	pwm: pwm {
+		compatible = "mediatek,mt5870-pwm";
+		reg = <0 0x1f206400 0 0x200>;
+		#pwm-cells = <2>;
+	};

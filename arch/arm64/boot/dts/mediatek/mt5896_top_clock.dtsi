@@ -1,0 +1,393 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	clk_general: clk_general {
+		compatible = "mediatek,mtk_dtv_clk_general";
+		reg = <0 0x1C001800 0 0x0400>,
+			<0 0x1C204000 0 0x4000>;
+		reg-names = "PM", "NONPM";
+	};
+
+	P_DUMMY: P_DUMMY {
+		#clock-cells = <0>;
+		compatible = "fixed-clock";
+		clock-frequency = <123456789>;
+		clock-output-names = "p_dummy";
+	};
+
+	topgen_fix: topgen_fix {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_fix";
+		num = <CLK_TOPGEN_FIX_N>;
+
+		apubuspll_ck {
+			id = <CLK_TOPGEN_APUBUSPLL_CK>;
+			clock-frequency = <624>;
+		};
+
+		clk_src_rc100_src_ck {
+			id = <CLK_TOPGEN_CLK_SRC_RC100_SRC_CK>;
+			clock-frequency = <100>;
+		};
+
+		clk_demod_864m_p {
+			id = <CLK_TOPGEN_CLK_DEMOD_864M_P>;
+			clock-frequency = <864>;
+		};
+
+		dmpll {
+			id = <CLK_TOPGEN_DMPLL>;
+			clock-frequency = <864>;
+		};
+
+		rv55frcpll {
+			id = <CLK_TOPGEN_RV55FRCPLL>;
+			clock-frequency = <1000>;
+		};
+
+		sys0pll {
+			id = <CLK_TOPGEN_SYS0PLL>;
+			clock-frequency = <2112>;
+		};
+
+		sys1pll {
+			id = <CLK_TOPGEN_SYS1PLL>;
+			clock-frequency = <1248>;
+		};
+
+		sys2pll {
+			id = <CLK_TOPGEN_SYS2PLL>;
+			clock-frequency = <1440>;
+		};
+
+		sys3pll {
+			id = <CLK_TOPGEN_SYS3PLL>;
+			clock-frequency = <864>;
+		};
+
+		vdecpll {
+			id = <CLK_TOPGEN_VDECPLL>;
+			clock-frequency = <624>;
+		};
+
+		xcpll {
+			id = <CLK_TOPGEN_XCPLL>;
+			clock-frequency = <720>;
+		};
+
+		xcsrpll {
+			id = <CLK_TOPGEN_XCSRPLL>;
+			clock-frequency = <630>;
+		};
+
+		xtal {
+			id = <CLK_TOPGEN_XTAL>;
+			clock-frequency = <24>;
+		};
+
+	};
+
+	topgen_fix_factor: topgen_fix_factor {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_fix_factor";
+		num = <CLK_TOPGEN_FIXDIV_N>;
+
+		dmpll {
+			mpll_vcod4_216m_ck {
+				id = <CLK_TOPGEN_MPLL_VCOD4_216M_CK>;
+				div_factor = <1 4>;
+			};
+
+			mpll_vcod6_144m_ck {
+				id = <CLK_TOPGEN_MPLL_VCOD6_144M_CK>;
+				div_factor = <1 6>;
+			};
+
+			mpll_vcod7_123m_ck {
+				id = <CLK_TOPGEN_MPLL_VCOD7_123M_CK>;
+				div_factor = <1 7>;
+			};
+
+			mpll_vcod8_108m_ck {
+				id = <CLK_TOPGEN_MPLL_VCOD8_108M_CK>;
+				div_factor = <1 8>;
+			};
+
+			mpll_vcod10_86m_ck {
+				id = <CLK_TOPGEN_MPLL_VCOD10_86M_CK>;
+				div_factor = <1 10>;
+			};
+
+			mpll_vcod12_72m_ck {
+				id = <CLK_TOPGEN_MPLL_VCOD12_72M_CK>;
+				div_factor = <1 12>;
+			};
+
+			mpll_vcod14_62m_ck {
+				id = <CLK_TOPGEN_MPLL_VCOD14_62M_CK>;
+				div_factor = <1 14>;
+			};
+
+			mpll_vcod16_54m_ck {
+				id = <CLK_TOPGEN_MPLL_VCOD16_54M_CK>;
+				div_factor = <1 16>;
+			};
+
+			mpll_vcod20_43p2m_ck {
+				id = <CLK_TOPGEN_MPLL_VCOD20_43P2M_CK>;
+				div_factor = <1 20>;
+			};
+
+			mpll_vcod24_36m_ck {
+				id = <CLK_TOPGEN_MPLL_VCOD24_36M_CK>;
+				div_factor = <1 24>;
+			};
+
+			mpll_vcod32_27m_ck {
+				id = <CLK_TOPGEN_MPLL_VCOD32_27M_CK>;
+				div_factor = <1 32>;
+			};
+
+			dmplldiv2_in_ck {
+				id = <CLK_TOPGEN_DMPLLDIV2_IN_CK>;
+				div_factor = <1 2>;
+			};
+
+			dmplldiv3_in_ck {
+				id = <CLK_TOPGEN_DMPLLDIV3_IN_CK>;
+				div_factor = <1 3>;
+			};
+
+			dmplldiv4_in_ck {
+				id = <CLK_TOPGEN_DMPLLDIV4_IN_CK>;
+				div_factor = <1 4>;
+			};
+
+			dmplldiv5_in_ck {
+				id = <CLK_TOPGEN_DMPLLDIV5_IN_CK>;
+				div_factor = <1 5>;
+			};
+
+			dmplldiv10_in_ck {
+				id = <CLK_TOPGEN_DMPLLDIV10_IN_CK>;
+				div_factor = <1 10>;
+			};
+
+			dmplldiv17_in_ck {
+				id = <CLK_TOPGEN_DMPLLDIV17_IN_CK>;
+				div_factor = <1 17>;
+			};
+
+		};
+
+		rv55frcpll {
+			rv55frcpll_vcod1_1000m_ck {
+				id = <CLK_TOPGEN_RV55FRCPLL_VCOD1_1000M_CK>;
+				div_factor = <1 1>;
+			};
+
+		};
+
+		sys0pll {
+			sys0pll_vcod4_528m_ck {
+				id = <CLK_TOPGEN_SYS0PLL_VCOD4_528M_CK>;
+				div_factor = <1 4>;
+			};
+
+			sys0pll_vcod6_352m_ck {
+				id = <CLK_TOPGEN_SYS0PLL_VCOD6_352M_CK>;
+				div_factor = <1 6>;
+			};
+
+			sys0pll_vcod8_264m_ck {
+				id = <CLK_TOPGEN_SYS0PLL_VCOD8_264M_CK>;
+				div_factor = <1 8>;
+			};
+
+		};
+
+		sys1pll {
+			sys1pll_vcod2_624m_ck {
+				id = <CLK_TOPGEN_SYS1PLL_VCOD2_624M_CK>;
+				div_factor = <1 2>;
+			};
+
+			sys1pll_vcod3_416m_ck {
+				id = <CLK_TOPGEN_SYS1PLL_VCOD3_416M_CK>;
+				div_factor = <1 3>;
+			};
+
+			sys1pll_vcod4_312m_ck {
+				id = <CLK_TOPGEN_SYS1PLL_VCOD4_312M_CK>;
+				div_factor = <1 4>;
+			};
+
+			sys1pll_vcod6_208m_ck {
+				id = <CLK_TOPGEN_SYS1PLL_VCOD6_208M_CK>;
+				div_factor = <1 6>;
+			};
+
+			sys1pll_vcod8_156m_ck {
+				id = <CLK_TOPGEN_SYS1PLL_VCOD8_156M_CK>;
+				div_factor = <1 8>;
+			};
+
+			sys1pll_vcod10_124m_ck {
+				id = <CLK_TOPGEN_SYS1PLL_VCOD10_124M_CK>;
+				div_factor = <1 10>;
+			};
+
+		};
+
+		sys2pll {
+			sys2pll_vcod2_720m_ck {
+				id = <CLK_TOPGEN_SYS2PLL_VCOD2_720M_CK>;
+				div_factor = <1 2>;
+			};
+
+			sys2pll_vcod2p5_576m_ck {
+				id = <CLK_TOPGEN_SYS2PLL_VCOD2P5_576M_CK>;
+				div_factor = <2 5>;
+			};
+
+			sys2pll_vcod3_480m_ck {
+				id = <CLK_TOPGEN_SYS2PLL_VCOD3_480M_CK>;
+				div_factor = <1 3>;
+			};
+
+			sys2pll_vcod4_360m_ck {
+				id = <CLK_TOPGEN_SYS2PLL_VCOD4_360M_CK>;
+				div_factor = <1 4>;
+			};
+
+			sys2pll_vcod6_240m_ck {
+				id = <CLK_TOPGEN_SYS2PLL_VCOD6_240M_CK>;
+				div_factor = <1 6>;
+			};
+
+			sys2pll_vcod8_180m_ck {
+				id = <CLK_TOPGEN_SYS2PLL_VCOD8_180M_CK>;
+				div_factor = <1 8>;
+			};
+
+			sys2pll_vcod10_144m_ck {
+				id = <CLK_TOPGEN_SYS2PLL_VCOD10_144M_CK>;
+				div_factor = <1 10>;
+			};
+
+			sys2pll_vcod15_96m_ck {
+				id = <CLK_TOPGEN_SYS2PLL_VCOD15_96M_CK>;
+				div_factor = <1 15>;
+			};
+
+			sys2pll_vcod30_48m_ck {
+				id = <CLK_TOPGEN_SYS2PLL_VCOD30_48M_CK>;
+				div_factor = <1 30>;
+			};
+
+			sys2pll_vcod48_30m_ck {
+				id = <CLK_TOPGEN_SYS2PLL_VCOD48_30M_CK>;
+				div_factor = <1 48>;
+			};
+
+		};
+
+		sys3pll {
+			mpll_vcod2_432m_ck {
+				id = <CLK_TOPGEN_MPLL_VCOD2_432M_CK>;
+				div_factor = <1 2>;
+			};
+
+			mpll_vcod3_288m_ck {
+				id = <CLK_TOPGEN_MPLL_VCOD3_288M_CK>;
+				div_factor = <1 3>;
+			};
+
+			mpll_vcod5_172m_ck {
+				id = <CLK_TOPGEN_MPLL_VCOD5_172M_CK>;
+				div_factor = <1 5>;
+			};
+
+		};
+
+		vdecpll {
+			vdecpll_vcod1_624m_ck {
+				id = <CLK_TOPGEN_VDECPLL_VCOD1_624M_CK>;
+				div_factor = <1 1>;
+			};
+
+		};
+
+		xcpll {
+			xcpll_vcod1_720m_ck {
+				id = <CLK_TOPGEN_XCPLL_VCOD1_720M_CK>;
+				div_factor = <1 1>;
+			};
+
+			xcpll_vcod1_720m_xc_ed_buf_ck {
+				id = <CLK_TOPGEN_XCPLL_VCOD1_720M_XC_ED_BUF_CK>;
+				div_factor = <1 1>;
+			};
+
+			xcpll_vcod1_720m_xc_fn_buf_ck {
+				id = <CLK_TOPGEN_XCPLL_VCOD1_720M_XC_FN_BUF_CK>;
+				div_factor = <1 1>;
+			};
+
+			xcpll_vcod1_720m_xc_fs_buf_ck {
+				id = <CLK_TOPGEN_XCPLL_VCOD1_720M_XC_FS_BUF_CK>;
+				div_factor = <1 1>;
+			};
+
+			xcpll_vcod1_720m_xc_fd_buf_ck {
+				id = <CLK_TOPGEN_XCPLL_VCOD1_720M_XC_FD_BUF_CK>;
+				div_factor = <1 1>;
+			};
+
+		};
+
+		xcsrpll {
+			xcsrpll_vcod1_630m_ck {
+				id = <CLK_TOPGEN_XCSRPLL_VCOD1_630M_CK>;
+				div_factor = <1 1>;
+			};
+
+		};
+
+		xtal {
+			xtal_vcod1_24m_ck {
+				id = <CLK_TOPGEN_XTAL_VCOD1_24M_CK>;
+				div_factor = <1 1>;
+			};
+
+			xtal_vcod2_12m_ck {
+				id = <CLK_TOPGEN_XTAL_VCOD2_12M_CK>;
+				div_factor = <1 2>;
+			};
+
+			xtal_vcod4_6m_ck {
+				id = <CLK_TOPGEN_XTAL_VCOD4_6M_CK>;
+				div_factor = <1 4>;
+			};
+
+			xtal_vcod8_3m_ck {
+				id = <CLK_TOPGEN_XTAL_VCOD8_3M_CK>;
+				div_factor = <1 8>;
+			};
+
+			xtal_vcod16_1p5m_ck {
+				id = <CLK_TOPGEN_XTAL_VCOD16_1P5M_CK>;
+				div_factor = <1 16>;
+			};
+
+			xtal_vcod80_300k_ck {
+				id = <CLK_TOPGEN_XTAL_VCOD80_300K_CK>;
+				div_factor = <1 80>;
+			};
+		};
+	};
+
+};

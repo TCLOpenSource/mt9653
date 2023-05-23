@@ -1,0 +1,16 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+/ {
+	crypto: mtk-dtv-crypto {
+		compatible = "mediatek,dtv-crypto";
+		reg = <0x0 0x1c538600 0 0x200>,
+			  <0x0 0x1c538800 0 0x200>,
+			  <0x0 0x1c538b00 0 0x100>;
+		reg-names = "dscrmb4",
+					"dscrmb5",
+					"dscrmb7";
+		iommus = <&iommu 0>;
+	};
+};

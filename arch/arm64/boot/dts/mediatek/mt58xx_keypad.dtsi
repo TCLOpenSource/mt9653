@@ -1,0 +1,24 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+/ {
+	keypad:keypad {
+		compatible = "mediatek,mt5896-keypad";
+		reg = <0 0x1c020a00 0 0x200>,<0 0x1c020200 0 0x200>;
+		interrupt-parent = <&mtk_intc2_irq_high>;
+		interrupts = <0x0 0x9 0x4>;
+		mtk,keypad-chanel = <1>;
+		mtk,keypad-lowbd = <848>;
+		mtk,keypad-upwbd = <1023>;
+		mtk,keypad-num = <1>;
+		linux,input-no-autorepeat;
+		wakeup-source;
+
+		key_1 {
+			linux,code = <0x8b>;
+			keypad,threshold = <0x339>;
+		};
+
+	};
+};

@@ -1,0 +1,43 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	scdisp_mux_gate: scdisp_mg {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_mux_gate";
+		num = <MT5897_SCDISP_NR>;
+
+		scdisp_v1_odclk_int_ck {
+			id = <CLK_SCDISP_SCDISP_V1_ODCLK_INT_CK>;
+			parents = "xtal_24m_ck","xc_od_src_ck";
+		};
+
+		xc_lpll_div4_int_ck {
+			id = <CLK_SCDISP_XC_LPLL_DIV4_INT_CK>;
+			parents = "xc_lpll_div4_ck","xc_ld_fix_ck";
+		};
+
+		ld_edge2d_sram_int_ck {
+			id = <CLK_SCDISP_LD_EDGE2D_SRAM_INT_CK>;
+			parents = "v1_odclk_ck","smi_ck";
+		};
+
+		ldcomp_sram_int_ck {
+			id = <CLK_SCDISP_LDCOMP_SRAM_INT_CK>;
+			parents = "v1_odclk_ck","smi_ck";
+		};
+
+		ldmcg_sram_int_ck {
+			id = <CLK_SCDISP_LDMCG_SRAM_INT_CK>;
+			parents = "v1_odclk_ck","smi_ck";
+		};
+
+		pq_ga_sram_int_ck {
+			id = <CLK_SCDISP_PQ_GA_SRAM_INT_CK>;
+			parents = "v1_odclk_ck","smi_ck";
+		};
+
+	};
+};

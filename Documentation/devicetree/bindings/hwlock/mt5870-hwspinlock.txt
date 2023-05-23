@@ -1,0 +1,28 @@
+MTK MT5870 Hardware spinlock device Binding
+-----------------------------------------------
+
+Required properties :
+- compatible : shall contain only one of the following:
+	"mediatek,mt5870-hwspinlock"
+
+- reg : the register address of hwspinlock
+
+- #hwlock-cells : hwlock users only use the hwlock id to represent a specific
+	hwlock, so the number of cells should be <1> here.
+
+Please look at the generic hwlock binding for usage information for consumers,
+"Documentation/devicetree/bindings/hwlock/hwlock.txt"
+
+Example of hwlock provider:
+	hwlock: hwspinlock@0x1f203000 {
+		compatible = "mediatek,mt5870-hwspinlock";
+		reg = <0x0 0x1f203000 0x0 0x40>;
+		#hwlock-cells = <1>;
+	};
+
+Example of hwlock users:
+	node {
+		...
+		hwlocks = <&hwlock 2>;
+		...
+	};

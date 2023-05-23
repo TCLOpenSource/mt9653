@@ -1,0 +1,869 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+
+/ {
+
+	TOP_DUMMY: TOP_DUMMY {
+		#clock-cells = <0>;
+		compatible = "fixed-clock";
+		clock-frequency = <123456789>;
+		clock-output-names = "top_dummy";
+	};
+
+	topgen_mux_gate: topgen_mg {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_mux_gate";
+		num = <CLK_TOPGEN_NR>;
+
+		xtal_24m_ck {
+			id = <CLK_TOPGEN_XTAL_24M_CK>;
+			parents = "xtal_vcod1_24m_ck";
+		};
+
+		xtal_12m_ck {
+			id = <CLK_TOPGEN_XTAL_12M_CK>;
+			parents = "xtal_vcod2_12m_ck";
+		};
+
+		extra_scan_432m_ck {
+			id = <CLK_TOPGEN_EXTRA_SCAN_432M_CK>;
+			parents = "1'b0";
+		};
+
+		dramc_ch0_ck {
+			id = <CLK_TOPGEN_DRAMC_CH0_CK>;
+			parents = "xtal_vcod1_24m_ck","DRAMC_CH0_CGCLK_OUT",
+					"sys0pll_vcod6_352m_ck","DUMMY_MIMI";
+		};
+
+		dramc_ch2_ck {
+			id = <CLK_TOPGEN_DRAMC_CH2_CK>;
+			parents = "xtal_vcod1_24m_ck","DRAMC_CH2_CGCLK_OUT",
+					"sys0pll_vcod6_352m_ck","DUMMY_MIMI";
+		};
+
+		dramc_ch4_ck {
+			id = <CLK_TOPGEN_DRAMC_CH4_CK>;
+			parents = "xtal_vcod1_24m_ck","DRAMC_CH4_CGCLK_OUT",
+					"sys0pll_vcod6_352m_ck","DUMMY_MIMI";
+		};
+
+		smi_ck {
+			id = <CLK_TOPGEN_SMI_CK>;
+			parents = "xtal_vcod1_24m_ck","sys0pll_vcod4_528m_ck";
+		};
+
+		rc_ck {
+			id = <CLK_TOPGEN_RC_CK>;
+			parents = "clk_src_rc100_src_ck";
+		};
+
+		miic0_ck {
+			id = <CLK_TOPGEN_MIIC0_CK>;
+			parents = "xtal_vcod2_12m_ck","mpll_vcod12_72m_ck",
+					"mpll_vcod16_54m_ck","mpll_vcod24_36m_ck";
+		};
+
+		miic1_ck {
+			id = <CLK_TOPGEN_MIIC1_CK>;
+			parents = "xtal_vcod2_12m_ck","mpll_vcod12_72m_ck",
+					"mpll_vcod16_54m_ck","mpll_vcod24_36m_ck";
+		};
+
+		miic2_ck {
+			id = <CLK_TOPGEN_MIIC2_CK>;
+			parents = "xtal_vcod2_12m_ck","mpll_vcod12_72m_ck",
+					"mpll_vcod16_54m_ck","mpll_vcod24_36m_ck";
+		};
+
+		miic3_ck {
+			id = <CLK_TOPGEN_MIIC3_CK>;
+			parents = "xtal_vcod2_12m_ck","mpll_vcod12_72m_ck",
+					"mpll_vcod16_54m_ck","mpll_vcod24_36m_ck";
+		};
+
+		fuart0_synth_ck {
+			id = <CLK_TOPGEN_FUART0_SYNTH_CK>;
+			parents = "mpll_vcod2_432m_ck","sys2pll_vcod4_360m_ck",
+					"mpll_vcod3_288m_ck","mpll_vcod4_216m_ck";
+		};
+
+		fuart0_ck {
+			id = <CLK_TOPGEN_FUART0_CK>;
+			parents = "xtal_vcod1_24m_ck","fuart0_synth_out_ck",
+					"mpll_vcod4_216m_ck","DUMMY_MIMI";
+		};
+
+		uart0_synth_ck {
+			id = <CLK_TOPGEN_UART0_SYNTH_CK>;
+			parents = "mpll_vcod2_432m_ck","sys2pll_vcod4_360m_ck",
+					"mpll_vcod3_288m_ck","mpll_vcod4_216m_ck";
+		};
+
+		uart0_ck {
+			id = <CLK_TOPGEN_UART0_CK>;
+			parents = "xtal_vcod1_24m_ck","uart0_synth_out_ck",
+					"mpll_vcod4_216m_ck","DUMMY_MIMI";
+		};
+
+		uart1_synth_ck {
+			id = <CLK_TOPGEN_UART1_SYNTH_CK>;
+			parents = "mpll_vcod2_432m_ck","sys2pll_vcod4_360m_ck",
+					"mpll_vcod3_288m_ck","mpll_vcod4_216m_ck";
+		};
+
+		uart1_ck {
+			id = <CLK_TOPGEN_UART1_CK>;
+			parents = "xtal_vcod1_24m_ck","uart1_synth_out_ck",
+					"mpll_vcod4_216m_ck","DUMMY_MIMI";
+		};
+
+		uart2_synth_ck {
+			id = <CLK_TOPGEN_UART2_SYNTH_CK>;
+			parents = "mpll_vcod2_432m_ck","sys2pll_vcod4_360m_ck",
+					"mpll_vcod3_288m_ck","mpll_vcod4_216m_ck";
+		};
+
+		uart2_ck {
+			id = <CLK_TOPGEN_UART2_CK>;
+			parents = "xtal_vcod1_24m_ck","uart2_synth_out_ck",
+					"mpll_vcod4_216m_ck","DUMMY_MIMI";
+		};
+
+		frc_uart0_synth_ck {
+			id = <CLK_TOPGEN_FRC_UART0_SYNTH_CK>;
+			parents = "mpll_vcod2_432m_ck","sys2pll_vcod4_360m_ck",
+					"mpll_vcod3_288m_ck","mpll_vcod4_216m_ck";
+		};
+
+		frc_uart0_ck {
+			id = <CLK_TOPGEN_FRC_UART0_CK>;
+			parents = "xtal_vcod1_24m_ck","frc_uart0_synth_out_ck",
+					"mpll_vcod4_216m_ck","DUMMY_MIMI";
+		};
+
+		frc_uart1_synth_ck {
+			id = <CLK_TOPGEN_FRC_UART1_SYNTH_CK>;
+			parents = "mpll_vcod2_432m_ck","sys2pll_vcod4_360m_ck",
+					"mpll_vcod3_288m_ck","mpll_vcod4_216m_ck";
+		};
+
+		frc_uart1_ck {
+			id = <CLK_TOPGEN_FRC_UART1_CK>;
+			parents = "xtal_vcod1_24m_ck","frc_uart1_synth_out_ck",
+					"mpll_vcod4_216m_ck","DUMMY_MIMI";
+		};
+
+		au_uart0_synth_ck {
+			id = <CLK_TOPGEN_AU_UART0_SYNTH_CK>;
+			parents = "mpll_vcod2_432m_ck","sys2pll_vcod4_360m_ck",
+					"mpll_vcod3_288m_ck","mpll_vcod4_216m_ck";
+		};
+
+		au_uart0_ck {
+			id = <CLK_TOPGEN_AU_UART0_CK>;
+			parents = "xtal_vcod1_24m_ck","au_uart0_synth_out_ck",
+					"mpll_vcod4_216m_ck","DUMMY_MIMI";
+		};
+
+		frc_fuart0_synth_ck {
+			id = <CLK_TOPGEN_FRC_FUART0_SYNTH_CK>;
+			parents = "mpll_vcod2_432m_ck","sys2pll_vcod4_360m_ck",
+					"mpll_vcod3_288m_ck","mpll_vcod4_216m_ck";
+		};
+
+		frc_fuart0_ck {
+			id = <CLK_TOPGEN_FRC_FUART0_CK>;
+			parents = "xtal_vcod1_24m_ck","frc_fuart0_synth_out_ck",
+					"mpll_vcod4_216m_ck","DUMMY_MIMI";
+		};
+
+		riu_nonpm_ck {
+			id = <CLK_TOPGEN_RIU_NONPM_CK>;
+			parents = "riu_nonpm_out_ck";
+		};
+
+		riu_codec_ck {
+			id = <CLK_TOPGEN_RIU_CODEC_CK>;
+			parents = "riu_codec_out_ck";
+		};
+
+		mcu_bus_ck {
+			id = <CLK_TOPGEN_MCU_BUS_CK>;
+			parents = "xtal_vcod2_12m_ck","mpll_vcod4_216m_ck","sys1pll_vcod6_208m_ck",
+				"mpll_vcod5_172m_ck","sys1pll_vcod8_156m_ck","mpll_vcod6_144m_ck",
+				"mpll_vcod8_108m_ck","mpll_vcod10_86m_ck";
+		};
+
+		mcu_nonpm_ck {
+			id = <CLK_TOPGEN_MCU_NONPM_CK>;
+			parents = "xtal_vcod2_12m_ck","mpll_vcod4_216m_ck","sys1pll_vcod6_208m_ck",
+				"mpll_vcod5_172m_ck","sys1pll_vcod8_156m_ck","mpll_vcod6_144m_ck",
+				"mpll_vcod8_108m_ck","mpll_vcod10_86m_ck";
+		};
+
+		mcu_codec_ck {
+			id = <CLK_TOPGEN_MCU_CODEC_CK>;
+			parents = "xtal_vcod2_12m_ck","mpll_vcod4_216m_ck","sys1pll_vcod6_208m_ck",
+				"mpll_vcod5_172m_ck","sys1pll_vcod8_156m_ck","mpll_vcod6_144m_ck",
+				"mpll_vcod8_108m_ck","mpll_vcod10_86m_ck";
+		};
+
+		mcu_vd_ck {
+			id = <CLK_TOPGEN_MCU_VD_CK>;
+			parents = "xtal_vcod2_12m_ck","mpll_vcod5_172m_ck","sys1pll_vcod8_156m_ck",
+				"mpll_vcod6_144m_ck","mpll_vcod7_123m_ck","mpll_vcod8_108m_ck",
+				"mpll_vcod10_86m_ck","mpll_vcod12_72m_ck";
+		};
+
+		mcu_dmd_ck {
+			id = <CLK_TOPGEN_MCU_DMD_CK>;
+			parents = "xtal_vcod2_12m_ck","mpll_vcod5_172m_ck","sys1pll_vcod8_156m_ck",
+				"mpll_vcod6_144m_ck","mpll_vcod7_123m_ck","mpll_vcod8_108m_ck",
+				"mpll_vcod10_86m_ck","mpll_vcod12_72m_ck";
+		};
+
+		mcu_frc_ck {
+			id = <CLK_TOPGEN_MCU_FRC_CK>;
+			parents = "xtal_vcod2_12m_ck","sys2pll_vcod4_360m_ck",
+				"sys0pll_vcod6_352m_ck","mpll_vcod3_288m_ck",
+				"mpll_vcod4_216m_ck","sys1pll_vcod6_208m_ck",
+				"mpll_vcod5_172m_ck","sys1pll_vcod8_156m_ck";
+		};
+
+		mcu_sc_ck {
+			id = <CLK_TOPGEN_MCU_SC_CK>;
+			parents = "xtal_vcod2_12m_ck","sys2pll_vcod4_360m_ck",
+				"sys0pll_vcod6_352m_ck","mpll_vcod3_288m_ck",
+				"mpll_vcod4_216m_ck","sys1pll_vcod6_208m_ck",
+				"mpll_vcod5_172m_ck","sys1pll_vcod8_156m_ck";
+		};
+
+		mcu_au_ck {
+			id = <CLK_TOPGEN_MCU_AU_CK>;
+			parents = "xtal_vcod2_12m_ck","mpll_vcod4_216m_ck","sys1pll_vcod6_208m_ck",
+				"mpll_vcod5_172m_ck","sys1pll_vcod8_156m_ck","mpll_vcod6_144m_ck",
+				"mpll_vcod8_108m_ck","mpll_vcod10_86m_ck";
+		};
+
+		mcu_hdmi_ck {
+			id = <CLK_TOPGEN_MCU_HDMI_CK>;
+			parents = "xtal_vcod2_12m_ck","mpll_vcod4_216m_ck","sys1pll_vcod6_208m_ck",
+				"mpll_vcod5_172m_ck","sys1pll_vcod8_156m_ck","mpll_vcod6_144m_ck",
+				"mpll_vcod8_108m_ck","mpll_vcod10_86m_ck";
+		};
+
+		spi_ck {
+			id = <CLK_TOPGEN_SPI_CK>;
+			parents = "xtal_vcod2_12m_ck","mpll_vcod8_108m_ck","mpll_vcod10_86m_ck",
+				"mpll_vcod12_72m_ck","mpll_vcod14_62m_ck","mpll_vcod16_54m_ck",
+				"sys2pll_vcod30_48m_ck","mpll_vcod24_36m_ck";
+		};
+
+		mspi0_div_ck {
+			id = <CLK_TOPGEN_MSPI0_DIV_CK>;
+			parents = "mpll_vcod5_172m_ck","mpll_vcod7_123m_ck","mpll_vcod8_108m_ck",
+				"mpll_vcod10_86m_ck","mpll_vcod12_72m_ck","mpll_vcod14_62m_ck",
+				"sys2pll_vcod30_48m_ck","sys2pll_vcod48_30m_ck";
+		};
+
+		mspi0_ck {
+			id = <CLK_TOPGEN_MSPI0_CK>;
+			parents = "xtal_vcod1_24m_ck","mspi0_div_out_ck";
+		};
+
+		mspi1_div_ck {
+			id = <CLK_TOPGEN_MSPI1_DIV_CK>;
+			parents = "mpll_vcod5_172m_ck","mpll_vcod7_123m_ck","mpll_vcod8_108m_ck",
+				"mpll_vcod10_86m_ck","mpll_vcod12_72m_ck","mpll_vcod14_62m_ck",
+				"sys2pll_vcod30_48m_ck","sys2pll_vcod48_30m_ck";
+		};
+
+		mspi1_ck {
+			id = <CLK_TOPGEN_MSPI1_CK>;
+			parents = "xtal_vcod1_24m_ck","mspi1_div_out_ck";
+		};
+
+		mspi2_div_ck {
+			id = <CLK_TOPGEN_MSPI2_DIV_CK>;
+			parents = "mpll_vcod5_172m_ck","mpll_vcod7_123m_ck","mpll_vcod8_108m_ck",
+				"mpll_vcod10_86m_ck","mpll_vcod12_72m_ck","mpll_vcod14_62m_ck",
+				"sys2pll_vcod30_48m_ck","sys2pll_vcod48_30m_ck";
+		};
+
+		mspi2_ck {
+			id = <CLK_TOPGEN_MSPI2_CK>;
+			parents = "xtal_vcod1_24m_ck","mspi2_div_out_ck";
+		};
+
+		mspi3_div_ck {
+			id = <CLK_TOPGEN_MSPI3_DIV_CK>;
+			parents = "mpll_vcod5_172m_ck","mpll_vcod7_123m_ck","mpll_vcod8_108m_ck",
+				"mpll_vcod10_86m_ck","mpll_vcod12_72m_ck","mpll_vcod14_62m_ck",
+				"sys2pll_vcod30_48m_ck","sys2pll_vcod48_30m_ck";
+		};
+
+		mspi3_ck {
+			id = <CLK_TOPGEN_MSPI3_CK>;
+			parents = "xtal_vcod1_24m_ck","mspi3_div_out_ck";
+		};
+
+		mspi4_div_ck {
+			id = <CLK_TOPGEN_MSPI4_DIV_CK>;
+			parents = "mpll_vcod5_172m_ck","mpll_vcod7_123m_ck","mpll_vcod8_108m_ck",
+				"mpll_vcod10_86m_ck","mpll_vcod12_72m_ck","mpll_vcod14_62m_ck",
+				"sys2pll_vcod30_48m_ck","sys2pll_vcod48_30m_ck";
+		};
+
+		mspi4_ck {
+			id = <CLK_TOPGEN_MSPI4_CK>;
+			parents = "xtal_vcod1_24m_ck","mspi4_div_out_ck";
+		};
+
+		mspi5_div_ck {
+			id = <CLK_TOPGEN_MSPI5_DIV_CK>;
+			parents = "mpll_vcod5_172m_ck","mpll_vcod7_123m_ck","mpll_vcod8_108m_ck",
+				"mpll_vcod10_86m_ck","mpll_vcod12_72m_ck","mpll_vcod14_62m_ck",
+				"sys2pll_vcod30_48m_ck","sys2pll_vcod48_30m_ck";
+		};
+
+		mspi5_ck {
+			id = <CLK_TOPGEN_MSPI5_CK>;
+			parents = "xtal_vcod1_24m_ck","mspi5_div_out_ck";
+		};
+
+		mspi6_div_ck {
+			id = <CLK_TOPGEN_MSPI6_DIV_CK>;
+			parents = "mpll_vcod5_172m_ck","mpll_vcod7_123m_ck","mpll_vcod8_108m_ck",
+				"mpll_vcod10_86m_ck","mpll_vcod12_72m_ck","mpll_vcod14_62m_ck",
+				"sys2pll_vcod30_48m_ck","sys2pll_vcod48_30m_ck";
+		};
+
+		mspi6_ck {
+			id = <CLK_TOPGEN_MSPI6_CK>;
+			parents = "xtal_vcod1_24m_ck","mspi6_div_out_ck";
+		};
+
+		mspi7_div_ck {
+			id = <CLK_TOPGEN_MSPI7_DIV_CK>;
+			parents = "mpll_vcod5_172m_ck","mpll_vcod7_123m_ck","mpll_vcod8_108m_ck",
+				"mpll_vcod10_86m_ck","mpll_vcod12_72m_ck","mpll_vcod14_62m_ck",
+				"sys2pll_vcod30_48m_ck","sys2pll_vcod48_30m_ck";
+		};
+
+		mspi7_ck {
+			id = <CLK_TOPGEN_MSPI7_CK>;
+			parents = "xtal_vcod1_24m_ck","mspi7_div_out_ck";
+		};
+
+		mspi_cilink_div_ck {
+			id = <CLK_TOPGEN_MSPI_CILINK_DIV_CK>;
+			parents = "mpll_vcod5_172m_ck","mpll_vcod7_123m_ck","mpll_vcod8_108m_ck",
+				"mpll_vcod10_86m_ck","mpll_vcod12_72m_ck","mpll_vcod14_62m_ck",
+				"sys2pll_vcod30_48m_ck","sys2pll_vcod48_30m_ck";
+		};
+
+		mspi_cilink_ck {
+			id = <CLK_TOPGEN_MSPI_CILINK_CK>;
+			parents = "xtal_vcod1_24m_ck","mspi_cilink_div_out_ck";
+		};
+
+		frc_mspi0_div_ck {
+			id = <CLK_TOPGEN_FRC_MSPI0_DIV_CK>;
+			parents = "mpll_vcod5_172m_ck","mpll_vcod7_123m_ck","mpll_vcod8_108m_ck",
+				"mpll_vcod10_86m_ck","mpll_vcod12_72m_ck","mpll_vcod14_62m_ck",
+				"sys2pll_vcod30_48m_ck","sys2pll_vcod48_30m_ck";
+		};
+
+		frc_mspi0_ck {
+			id = <CLK_TOPGEN_FRC_MSPI0_CK>;
+			parents = "xtal_vcod1_24m_ck","frc_mspi0_div_out_ck";
+		};
+
+		hdmi_r2_ck {
+			id = <CLK_TOPGEN_HDMI_R2_CK>;
+			parents = "xtal_vcod1_24m_ck","mpll_vcod2_432m_ck",
+					"mpll_vcod3_288m_ck","mpll_vcod4_216m_ck";
+		};
+
+		adcpll_ck {
+			id = <CLK_TOPGEN_ADCPLL_CK>;
+			parents = "clk_adc_buf";
+		};
+
+		vd_adc_ck {
+			id = <CLK_TOPGEN_VD_ADC_CK>;
+			parents = "clk_vd_adc_buf";
+		};
+
+		clkd_adc_ck {
+			id = <CLK_TOPGEN_CLKD_ADC_CK>;
+			parents = "clkd_adc_src_ck";
+		};
+
+		clkd_adc2sc_ck {
+			id = <CLK_TOPGEN_CLKD_ADC2SC_CK>;
+			parents = "clkd_adc2sc_src_ck";
+		};
+
+		clkd_adc2gemiu_ck {
+			id = <CLK_TOPGEN_CLKD_ADC2GEMIU_CK>;
+			parents = "clkd_adc2gemiu_src_ck";
+		};
+
+		clkd_vd_ck {
+			id = <CLK_TOPGEN_CLKD_VD_CK>;
+			parents = "clkd_vd_src_ck";
+		};
+
+		clkfscx2_vd_ck {
+			id = <CLK_TOPGEN_CLKFSCX2_VD_CK>;
+			parents = "clkfscx2_vd_src_ck";
+		};
+
+		vd_ck {
+			id = <CLK_TOPGEN_VD_CK>;
+			parents = "clk_vd_buf","clk_vd_testmode_buf",
+					"DUMMY_MIMI","mpll_vcod20_43p2m_ck";
+		};
+
+		vd2x_ck {
+			id = <CLK_TOPGEN_VD2X_CK>;
+			parents = "clk_vd_adc_mux_buf","vd_ad_clk_div2_buf",
+					"DUMMY_MIMI","mpll_vcod12_72m_ck";
+		};
+
+		vd_32fsc_ck {
+			id = <CLK_TOPGEN_VD_32FSC_CK>;
+			parents = "clk_vd_adc_buf","mpll_vcod6_144m_ck";
+		};
+
+		ve_ck {
+			id = <CLK_TOPGEN_VE_CK>;
+			parents = "mpll_vcod32_27m_ck","DUMMY_MIMI",
+					"xtal_vcod2_12m_ck","DUMMY_MIMI";
+		};
+
+		vedac_digital_ck {
+			id = <CLK_TOPGEN_VEDAC_DIGITAL_CK>;
+			parents = "mpll_vcod32_27m_ck","mpll_vcod16_54m_ck",
+					"mpll_vcod8_108m_ck","xtal_vcod2_12m_ck",
+					"clk_dac_external_buf","DUMMY_MIMI",
+					"DUMMY_MIMI","DUMMY_MIMI";
+		};
+
+		njpd_ck {
+			id = <CLK_TOPGEN_NJPD_CK>;
+			parents = "mpll_vcod2_432m_ck","sys1pll_vcod3_416m_ck",
+					"sys2pll_vcod4_360m_ck","mpll_vcod3_288m_ck";
+		};
+
+		gpd_ck {
+			id = <CLK_TOPGEN_GPD_CK>;
+			parents = "mpll_vcod4_216m_ck","sys1pll_vcod6_208m_ck",
+					"mpll_vcod5_172m_ck","mpll_vcod6_144m_ck";
+		};
+
+		fcie_ck {
+			id = <CLK_TOPGEN_FCIE_CK>;
+			parents = "xtal_vcod2_12m_ck","mpll_vcod16_54m_ck",
+					"mpll_vcod14_62m_ck","sys1pll_vcod10_124m_ck",
+					"DUMMY_MIMI","xtal_vcod80_300k_ck",
+					"xtal_vcod1_24m_ck","sys2pll_vcod30_48m_ck";
+		};
+
+		ecc_ck {
+			id = <CLK_TOPGEN_ECC_CK>;
+			parents = "xtal_vcod2_12m_ck","mpll_vcod16_54m_ck","mpll_vcod8_108m_ck",
+					"mpll_vcod5_172m_ck","mpll_vcod4_216m_ck",
+					"DUMMY_MIMI","DUMMY_MIMI","DUMMY_MIMI";
+		};
+
+		fcie_syn_ck {
+			id = <CLK_TOPGEN_FCIE_SYN_CK>;
+			parents = "mpll_vcod4_216m_ck","mpll_vcod2_432m_ck",
+					"xtal_vcod2_12m_ck","DUMMY_MIMI";
+		};
+
+		gmac_ahb_ck {
+			id = <CLK_TOPGEN_GMAC_AHB_CK>;
+			parents = "mpll_vcod4_216m_ck","mpll_vcod5_172m_ck",
+					"mpll_vcod6_144m_ck","clk_emac_testrx125_in_lan";
+		};
+
+		aesdma_ck {
+			id = <CLK_TOPGEN_AESDMA_CK>;
+			parents = "xtal_vcod2_12m_ck","mpll_vcod5_172m_ck",
+					"mpll_vcod4_216m_ck","mpll_vcod3_288m_ck";
+		};
+
+		tsp_ck {
+			id = <CLK_TOPGEN_TSP_CK>;
+			parents = "xtal_vcod1_24m_ck","mpll_vcod3_288m_ck",
+					"mpll_vcod4_216m_ck","mpll_vcod6_144m_ck";
+		};
+
+		parser_ck {
+			id = <CLK_TOPGEN_PARSER_CK>;
+			parents = "xtal_vcod1_24m_ck","mpll_vcod3_288m_ck",
+					"mpll_vcod4_216m_ck","mpll_vcod6_144m_ck";
+		};
+
+		tso_out_div_mn_src_ck {
+			id = <CLK_TOPGEN_TSO_OUT_DIV_MN_SRC_CK>;
+			parents = "xtal_vcod1_24m_ck","mpll_vcod2_432m_ck","sys2pll_vcod4_360m_ck",
+				"mpll_vcod3_288m_ck","sys2pll_vcod6_240m_ck","mpll_vcod4_216m_ck",
+				"mpll_vcod5_172m_ck","mpll_vcod7_123m_ck";
+		};
+
+		tso2_out_div_mn_src_ck {
+			id = <CLK_TOPGEN_TSO2_OUT_DIV_MN_SRC_CK>;
+			parents = "xtal_vcod1_24m_ck","mpll_vcod2_432m_ck","sys2pll_vcod4_360m_ck",
+				"mpll_vcod3_288m_ck","sys2pll_vcod6_240m_ck","mpll_vcod4_216m_ck",
+				"mpll_vcod5_172m_ck","mpll_vcod7_123m_ck";
+		};
+
+		demod_864m_ck {
+			id = <CLK_TOPGEN_DEMOD_864M_CK>;
+			parents = "clk_demod_864m_p";
+		};
+
+		xc_dc0_ck {
+			id = <CLK_TOPGEN_XC_DC0_CK>;
+			parents = "xcpll_vcod1_720m_ck","clk_dc0_frun_buf","sys1pll_vcod8_156m_ck",
+				"sys2pll_vcod4_360m_ck","sys1pll_vcod4_312m_ck","clk_v_root_buf",
+				"clk_dc0_sync_buf","xcsrpll_vcod1_630m_ck";
+		};
+
+		xc_sub_dc0_ck {
+			id = <CLK_TOPGEN_XC_SUB_DC0_CK>;
+			parents = "xcpll_vcod1_720m_ck","clk_dc1_frun_buf","sys1pll_vcod8_156m_ck",
+				"mpll_vcod6_144m_ck","sys1pll_vcod4_312m_ck",
+				"sys2pll_vcod4_360m_ck","clk_dc1_sync_buf","xcsrpll_vcod1_630m_ck";
+		};
+
+		xc_sub1_dc0_ck {
+			id = <CLK_TOPGEN_XC_SUB1_DC0_CK>;
+			parents = "xcpll_vcod1_720m_ck","clk_dc1_frun_buf","sys1pll_vcod8_156m_ck",
+				"mpll_vcod6_144m_ck","sys1pll_vcod4_312m_ck",
+				"sys2pll_vcod4_360m_ck","clk_dc1_sync_buf",
+				"xcsrpll_vcod1_630m_ck";
+		};
+
+		xc_ed_ck {
+			id = <CLK_TOPGEN_XC_ED_CK>;
+			parents = "xtal_vcod1_24m_ck","xcpll_vcod1_720m_xc_ed_buf_ck",
+					"xcpll_vcod1_720m_ck","DUMMY_MIMI";
+		};
+
+		xc_fn_ck {
+			id = <CLK_TOPGEN_XC_FN_CK>;
+			parents = "xtal_vcod1_24m_ck","xcpll_vcod1_720m_xc_fn_buf_ck",
+					"xcpll_vcod1_720m_ck","DUMMY_MIMI";
+		};
+
+		xc_fs_ck {
+			id = <CLK_TOPGEN_XC_FS_CK>;
+			parents = "xtal_vcod1_24m_ck","xcpll_vcod1_720m_xc_fs_buf_ck",
+					"xcpll_vcod1_720m_ck","DUMMY_MIMI";
+		};
+
+		xc_fd_ck {
+			id = <CLK_TOPGEN_XC_FD_CK>;
+			parents = "xtal_vcod1_24m_ck","xcpll_vcod1_720m_xc_fd_buf_ck",
+					"xcpll_vcod1_720m_ck","DUMMY_MIMI";
+		};
+
+		xc_srs_ck {
+			id = <CLK_TOPGEN_XC_SRS_CK>;
+			parents = "xtal_vcod1_24m_ck","sys2pll_vcod3_480m_ck";
+		};
+
+		xc_od_ck {
+			id = <CLK_TOPGEN_XC_OD_CK>;
+			parents = "xtal_vcod1_24m_ck","DUMMY_MIMI";
+		};
+
+		xc_slow_ck {
+			id = <CLK_TOPGEN_XC_SLOW_CK>;
+			parents = "xtal_vcod1_24m_ck","sys2pll_vcod4_360m_ck";
+		};
+
+		xc_b2r_ck {
+			id = <CLK_TOPGEN_XC_B2R_CK>;
+			parents = "xtal_vcod1_24m_ck","DUMMY_MIMI";
+		};
+
+		xc_b2r_sub_ck {
+			id = <CLK_TOPGEN_XC_B2R_SUB_CK>;
+			parents = "xtal_vcod1_24m_ck","DUMMY_MIMI";
+		};
+
+		frc_fclk_ck {
+			id = <CLK_TOPGEN_FRC_FCLK_CK>;
+			parents = "sys2pll_vcod4_360m_ck","mpll_vcod3_288m_ck",
+					"sys1pll_vcod4_312m_ck","sys2pll_vcod6_240m_ck";
+		};
+
+		frc_fclk_2x_ck {
+			id = <CLK_TOPGEN_FRC_FCLK_2X_CK>;
+			parents = "xcsrpll_vcod1_630m_ck","sys2pll_vcod4_360m_ck",
+					"mpll_vcod3_288m_ck","mpll_vcod4_216m_ck";
+		};
+
+		frc_fclk_2xplus_ck {
+			id = <CLK_TOPGEN_FRC_FCLK_2XPLUS_CK>;
+			parents = "xcpll_vcod1_720m_ck","DUMMY_MIMI",
+					"sys2pll_vcod4_360m_ck","mpll_vcod3_288m_ck";
+		};
+
+		dap_ck {
+			id = <CLK_TOPGEN_DAP_CK>;
+			parents = "mpll_vcod4_216m_ck";
+		};
+
+		frc_imi_ck {
+			id = <CLK_TOPGEN_FRC_IMI_CK>;
+			parents = "xtal_vcod1_24m_ck","sys0pll_vcod4_528m_ck",
+					"mpll_vcod2_432m_ck","mpll_vcod4_216m_ck";
+		};
+
+		rv55frc_ck {
+			id = <CLK_TOPGEN_RV55FRC_CK>;
+			parents = "xtal_vcod1_24m_ck","rv55frcpll_vcod1_1000m_ck";
+		};
+
+		rv55pqu_ck {
+			id = <CLK_TOPGEN_RV55PQU_CK>;
+			parents = "xtal_vcod1_24m_ck","rv55frcpll_vcod1_1000m_ck";
+		};
+
+		disp_mfdec_ck {
+			id = <CLK_TOPGEN_DISP_MFDEC_CK>;
+			parents = "sys1pll_vcod2_624m_ck","sys0pll_vcod4_528m_ck",
+					"mpll_vcod2_432m_ck","DUMMY_MIMI";
+		};
+
+		vdec_lae_ck {
+			id = <CLK_TOPGEN_VDEC_LAE_CK>;
+			parents = "xtal_vcod2_12m_ck","DUMMY_MIMI","DUMMY_MIMI",
+					"DUMMY_MIMI","DUMMY_MIMI","DUMMY_MIMI",
+					"DUMMY_MIMI","xtal_vcod1_24m_ck";
+		};
+
+		vdec_lae_slow_ck {
+			id = <CLK_TOPGEN_VDEC_LAE_SLOW_CK>;
+			parents = "sys1pll_vcod3_416m_ck","sys2pll_vcod4_360m_ck",
+				"sys1pll_vcod4_312m_ck","mpll_vcod3_288m_ck",
+				"sys0pll_vcod8_264m_ck","sys2pll_vcod6_240m_ck",
+				"mpll_vcod4_216m_ck","sys2pll_vcod8_180m_ck";
+		};
+
+		vdec_sys_ck {
+			id = <CLK_TOPGEN_VDEC_SYS_CK>;
+			parents = "vdecpll_vcod1_624m_ck","DUMMY_MIMI",
+				"DUMMY_MIMI","DUMMY_MIMI",
+				"DUMMY_MIMI","DUMMY_MIMI","DUMMY_MIMI",
+				"xtal_vcod1_24m_ck";
+		};
+
+		vdec_sys_slow_ck {
+			id = <CLK_TOPGEN_VDEC_SYS_SLOW_CK>;
+			parents = "sys1pll_vcod4_312m_ck","mpll_vcod3_288m_ck",
+				"sys0pll_vcod8_264m_ck","sys2pll_vcod6_240m_ck";
+		};
+
+		venc_ck {
+			id = <CLK_TOPGEN_VENC_CK>;
+			parents = "sys2pll_vcod3_480m_ck","mpll_vcod2_432m_ck",
+					"mpll_vcod3_288m_ck","sys2pll_vcod6_240m_ck";
+		};
+
+		smart_ck {
+			id = <CLK_TOPGEN_SMART_CK>;
+			parents = "mpll_vcod5_172m_ck","mpll_vcod6_144m_ck",
+					"mpll_vcod7_123m_ck","mpll_vcod8_108m_ck";
+		};
+
+		smart_synth_432_ck {
+			id = <CLK_TOPGEN_SMART_SYNTH_432_CK>;
+			parents = "mpll_vcod2_432m_ck";
+		};
+
+		smart_synth_27_ck {
+			id = <CLK_TOPGEN_SMART_SYNTH_27_CK>;
+			parents = "mpll_vcod32_27m_ck";
+		};
+
+		smart2_ck {
+			id = <CLK_TOPGEN_SMART2_CK>;
+			parents = "mpll_vcod5_172m_ck","mpll_vcod6_144m_ck",
+					"mpll_vcod7_123m_ck","mpll_vcod8_108m_ck";
+		};
+
+		smart2_synth_432_ck {
+			id = <CLK_TOPGEN_SMART2_SYNTH_432_CK>;
+			parents = "mpll_vcod2_432m_ck";
+		};
+
+		smart2_synth_27_ck {
+			id = <CLK_TOPGEN_SMART2_SYNTH_27_CK>;
+			parents = "mpll_vcod32_27m_ck";
+		};
+
+		imi_ck {
+			id = <CLK_TOPGEN_IMI_CK>;
+			parents = "xtal_vcod1_24m_ck","mpll_vcod5_172m_ck",
+					"mpll_vcod4_216m_ck","mpll_vcod8_108m_ck";
+		};
+
+		ge_ck {
+			id = <CLK_TOPGEN_GE_CK>;
+			parents = "xtal_vcod1_24m_ck","sys2pll_vcod6_240m_ck","mpll_vcod4_216m_ck",
+				"mpll_vcod5_172m_ck","sys0pll_vcod4_528m_ck","mpll_vcod3_288m_ck",
+				"mpll_vcod2_432m_ck","DUMMY_MIMI";
+		};
+
+		ausdm_3m_ck {
+			id = <CLK_TOPGEN_AUSDM_3M_CK>;
+			parents = "xtal_vcod8_3m_ck","xtal_vcod4_6m_ck","xtal_vcod1_24m_ck",
+					"xtal_vcod16_1p5m_ck";
+		};
+
+		lzma_ck {
+			id = <CLK_TOPGEN_LZMA_CK>;
+			parents = "sys2pll_vcod2_720m_ck","sys1pll_vcod2_624m_ck",
+					"sys0pll_vcod4_528m_ck","sys2pll_vcod3_480m_ck";
+		};
+
+		hdmirx_timestamp_ck {
+			id = <CLK_TOPGEN_HDMIRX_TIMESTAMP_CK>;
+			parents = "xtal_vcod2_12m_ck";
+		};
+
+		demod_adc_int_ck {
+			id = <CLK_TOPGEN_DEMOD_ADC_INT_CK>;
+			parents = "demod_adc_in_ck","mpll_vcod6_144m_ck";
+		};
+
+		dmplldiv2_atsc_int_ck {
+			id = <CLK_TOPGEN_DMPLLDIV2_ATSC_INT_CK>;
+			parents = "dmplldiv2_in_ck";
+		};
+
+		dmplldiv2_dtmb_int_ck {
+			id = <CLK_TOPGEN_DMPLLDIV2_DTMB_INT_CK>;
+			parents = "dmplldiv2_in_ck";
+		};
+
+		dmplldiv2_int_ck {
+			id = <CLK_TOPGEN_DMPLLDIV2_INT_CK>;
+			parents = "dmplldiv2_in_ck";
+		};
+
+		dmplldiv3_dtmb_int_ck {
+			id = <CLK_TOPGEN_DMPLLDIV3_DTMB_INT_CK>;
+			parents = "dmplldiv3_in_ck";
+		};
+
+		dmplldiv3_dvbc_int_ck {
+			id = <CLK_TOPGEN_DMPLLDIV3_DVBC_INT_CK>;
+			parents = "dmplldiv3_in_ck";
+		};
+
+		dmplldiv3_dvbt2_int_ck {
+			id = <CLK_TOPGEN_DMPLLDIV3_DVBT2_INT_CK>;
+			parents = "dmplldiv3_in_ck";
+		};
+
+		dmplldiv3_int_ck {
+			id = <CLK_TOPGEN_DMPLLDIV3_INT_CK>;
+			parents = "dmplldiv3_in_ck";
+		};
+
+		dmplldiv3_isdbt_int_ck {
+			id = <CLK_TOPGEN_DMPLLDIV3_ISDBT_INT_CK>;
+			parents = "dmplldiv3_in_ck";
+		};
+
+		dmplldiv3_isdbt_outer_rs_m_over_n_int_ck {
+			id = <CLK_TOPGEN_DMPLLDIV3_ISDBT_OUTER_RS_M_OVER_N_INT_CK>;
+			parents = "dmplldiv3_in_ck";
+		};
+
+		dmplldiv4_dvb_oppro_m_over_n_int_ck {
+			id = <CLK_TOPGEN_DMPLLDIV4_DVB_OPPRO_M_OVER_N_INT_CK>;
+			parents = "dmplldiv4_in_ck";
+		};
+
+		dmplldiv4_dvbs2_bch_m_over_n_int_ck {
+			id = <CLK_TOPGEN_DMPLLDIV4_DVBS2_BCH_M_OVER_N_INT_CK>;
+			parents = "dmplldiv4_in_ck";
+		};
+
+		dmplldiv4_dvbtc_rs_m_over_n_int_ck {
+			id = <CLK_TOPGEN_DMPLLDIV4_DVBTC_RS_M_OVER_N_INT_CK>;
+			parents = "dmplldiv4_in_ck";
+		};
+
+		dmplldiv4_int_ck {
+			id = <CLK_TOPGEN_DMPLLDIV4_INT_CK>;
+			parents = "dmplldiv4_in_ck";
+		};
+
+		dmplldiv5_int_ck {
+			id = <CLK_TOPGEN_DMPLLDIV5_INT_CK>;
+			parents = "dmplldiv5_in_ck";
+		};
+
+		dmplldiv10_int_ck {
+			id = <CLK_TOPGEN_DMPLLDIV10_INT_CK>;
+			parents = "dmplldiv10_in_ck";
+		};
+
+		dmplldiv17_int_ck {
+			id = <CLK_TOPGEN_DMPLLDIV17_INT_CK>;
+			parents = "dmplldiv17_in_ck";
+		};
+
+		pextp_tl_clk_ck {
+			id = <CLK_TOPGEN_PEXTP_TL_CLK_CK>;
+			parents = "mpll_vcod7_123m_ck","sys2pll_vcod15_96m_ck","xtal_vcod2_12m_ck",
+					"DUMMY_MIMI";
+		};
+
+		ufs_ck {
+			id = <CLK_TOPGEN_UFS_CK>;
+			parents = "sys1pll_vcod6_208m_ck","sys2pll_vcod8_180m_ck",
+					"sys2pll_vcod10_144m_ck","mpll_vcod8_108m_ck";
+		};
+
+		ufs_aes_ck {
+			id = <CLK_TOPGEN_UFS_AES_CK>;
+			parents = "sys1pll_vcod3_416m_ck","sys2pll_vcod4_360m_ck",
+					"mpll_vcod3_288m_ck","mpll_vcod4_216m_ck";
+		};
+
+		ufs_unipro_cg_syn_ck {
+			id = <CLK_TOPGEN_UFS_UNIPRO_CG_SYN_CK>;
+			parents = "mpll_vcod7_123m_ck","mpll_vcod8_108m_ck",
+					"mpll_vcod10_86m_ck","mpll_vcod14_62m_ck";
+		};
+
+		aia_bus_ck {
+			id = <CLK_TOPGEN_AIA_BUS_CK>;
+			parents = "xtal_vcod1_24m_ck","DUMMY_MIMI","DUMMY_MIMI","DUMMY_MIMI",
+					"DUMMY_MIMI","DUMMY_MIMI","DUMMY_MIMI","apubuspll_ck";
+		};
+
+		aia_mdla_ck {
+			id = <CLK_TOPGEN_AIA_MDLA_CK>;
+			parents = "xtal_vcod1_24m_ck","DUMMY_MIMI","DUMMY_MIMI","DUMMY_MIMI",
+					"DUMMY_MIMI","DUMMY_MIMI","DUMMY_MIMI","apupll_ck";
+		};
+
+	};
+};

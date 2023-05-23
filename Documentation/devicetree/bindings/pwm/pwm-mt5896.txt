@@ -1,0 +1,13 @@
+Device-Tree bindings for MediaTek MT5896 SoC based RTC
+
+Required properties:
+- compatible	    : Should be
+			"mediatek,mt5896-pwm" : for MT5896 SoC
+- reg 		    : Specifies base physical address and size of the registers;
+
+Example:
+
+	pwm0@1c487200 {
+		compatible = "mediatek,mt5896-pwm";
+		reg = <0 0x1c487200 0 0x200>;
+	};

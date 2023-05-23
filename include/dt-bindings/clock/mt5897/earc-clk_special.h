@@ -1,0 +1,13 @@
+/* SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause) *//* * Copyright (c) 2020 MediaTek Inc. */
+
+#define CLK_EARC_EARC_ATOP_TXPLL_CK	1
+#define CLK_EARC_EARC_ATOP_AUDIO_CK	2
+#define CLK_EARC_FIX_N	3
+
+#define CLK_HDMIRX_EARC_DEBOUNCE_INT_CK	1
+#define CLK_HDMIRX_EARC_DM_PRBS_INT_CK	2
+#define CLK_HDMIRX_EARC_CM_INT_CK	3
+#define CLK_HDMIRX_EARC_AUDIO_INT_CK	4
+#define CLK_EARC_EARC_AUDIO_INT_CK	5
+#define CLK_EARC_NR	6
+

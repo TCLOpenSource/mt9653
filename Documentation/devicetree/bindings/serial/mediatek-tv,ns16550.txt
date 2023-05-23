@@ -1,0 +1,32 @@
+* MediaTek Universal Asynchronous Receiver/Transmitter (UART)
+
+Required properties:
+- compatible should contain:
+  * "mediatek_tv,ns16550" for MT5870 compatible UARTs
+
+- reg: The base address of the UART register bank.
+
+- interrupts:
+  index 0: an interrupt specifier for the UART controller itself
+  index 1: optional, an interrupt specifier with edge sensitivity on Rx pin to
+           support Rx in-band wake up.
+
+- clocks : Must contain an entry for each entry in clock-names.
+  See ../clocks/clock-bindings.txt for details.
+
+For compatibility with older device trees an unnamed clock is used for the
+baud clock if the baudclk does not exist. Do not use this for new designs.
+
+Example:
+
+	uart0: serial@1f201300{
+		compatible = "mediatek_tv,ns16550";
+		reg = <0x0 0x1f201300 0 0x20>;
+		current-speed = <115200>;
+		device_type = "serial";
+		clock-frequency = <123000000>;
+		interrupt-parent = <&mtk_intc0>;
+		interrupts = <0x0 0x0 0x4>;
+		reg-shift = <3>;
+		uart-device-id = <0>;
+	};

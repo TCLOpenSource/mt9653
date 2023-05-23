@@ -1,0 +1,153 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	dip0:dip0 {
+		compatible = "mediatek,mtk-dtv-dip0";
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupts = <0x0 0x26 0x4>;
+		reg = <0x0 0x1D497E00 0 0x600>,
+		      <0x0 0x1D499000 0 0x400>,
+		      <0x0 0x1D497C00 0 0x200>,
+		      <0x0 0x1D497600 0 0x0>,
+		      <0x0 0x1D499400 0 0x0>,
+		      <0x0 0x1D499C00 0 0x0>,
+		      <0x0 0x1D482C00 0 0x200>,
+		      <0x0 0x1D486600 0 0x400>,
+		      <0x0 0x1D475CC8 0 0x4>;
+		iommus = <&iommu 0>;
+		clocks = <&scip_mux_gate CLK_SCIP_XC_DIP0_INT_CK>,
+				<&topgen_mux_gate CLK_TOPGEN_XC_SUB_DC0_CK>,
+				<&topgen_mux_gate CLK_TOPGEN_SMI_CK>,
+				<&topgen_mux_gate CLK_TOPGEN_DISP_MFDEC_CK>;
+		clock-names = "scip_dip",
+					"top_subdc",
+					"top_smi",
+					"top_mfdec";
+		capability {
+			DSCL = <0x01>;
+			USCL = <0x00>;
+			Rotate = <0x00>;
+			RWSep = <0x00>;
+			B2R = <0x01>;
+			MFDEC = <0x00>;
+			3DDI = <0x00>;
+			DNR = <0x00>;
+			HDR = <0x00>;
+			LetterBox = <0x00>;
+			DIPR = <0x01>;
+			DiprBlending = <0x00>;
+			DiprPixelNum = <1>;
+			B2rPixelNum = <2>;
+			DipPixelNum = <2>;
+			FrontPack = <2>;
+			CropAlign = <1>;
+			HMirrorSz = <0>;
+			RWSepVer = <0>;
+			VsdInW = <3840>;
+			B2rHttPixelUnit = <1>;
+			fixed_dd_index = <40>;
+			TileWidthMax = <4096>;
+			SDCCap = <0>;
+		};
+	};
+
+	dip1:dip1 {
+		compatible = "mediatek,mtk-dtv-dip1";
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupts = <0x0 0x26 0x4>;
+		reg = <0x0 0x1D498400 0 0x600>,
+		      <0x0 0x1D499000 0 0x400>,
+		      <0x0 0x1D497C00 0 0x200>,
+		      <0x0 0x1D497600 0 0x600>,
+		      <0x0 0x1D499400 0 0x200>,
+		      <0x0 0x1D499C00 0 0x400>,
+		      <0x0 0x1D482C00 0 0x200>,
+		      <0x0 0x1D486600 0 0x400>,
+		      <0x0 0x1D475CC8 0 0x4>;
+		iommus = <&iommu 0>;
+		clocks = <&scip_mux_gate CLK_SCIP_XC_DIP1_INT_CK>,
+				<&topgen_mux_gate CLK_TOPGEN_XC_SUB_DC0_CK>,
+				<&topgen_mux_gate CLK_TOPGEN_SMI_CK>,
+				<&topgen_mux_gate CLK_TOPGEN_DISP_MFDEC_CK>;
+		clock-names = "scip_dip",
+					"top_subdc",
+					"top_smi",
+					"top_mfdec";
+		capability {
+			DSCL = <0x01>;
+			USCL = <0x01>;
+			Rotate = <0x03>;
+			RWSep = <0x01>;
+			B2R = <0x01>;
+			MFDEC = <0x00>;
+			3DDI = <0x01>;
+			DNR = <0x01>;
+			HDR = <0x01>;
+			LetterBox = <0x01>;
+			DIPR = <0x01>;
+			DiprBlending = <0x00>;
+			DiprPixelNum = <1>;
+			B2rPixelNum = <2>;
+			DipPixelNum = <2>;
+			FrontPack = <2>;
+			CropAlign = <1>;
+			HMirrorSz = <4096>;
+			RWSepVer = <1>;
+			VsdInW = <3840>;
+			B2rHttPixelUnit = <1>;
+			fixed_dd_index = <41>;
+			TileWidthMax = <4096>;
+			SDCCap = <0>;
+		};
+		iommu_buf_tag {
+			di_buf = <43>;
+		};
+	};
+
+	dip2:dip2 {
+		compatible = "mediatek,mtk-dtv-dip2";
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupts = <0x0 0x26 0x4>;
+		reg = <0x0 0x1D498A00 0 0x600>,
+		      <0x0 0x1D499000 0 0x400>,
+		      <0x0 0x1D497C00 0 0x200>,
+		      <0x0 0x1D497600 0 0x0>,
+		      <0x0 0x1D499400 0 0x0>,
+		      <0x0 0x1D499C00 0 0x0>,
+		      <0x0 0x1D482C00 0 0x0>,
+		      <0x0 0x1D486600 0 0x0>,
+		      <0x0 0x1D475CC8 0 0x4>;
+		iommus = <&iommu 0>;
+		clocks = <&scip_mux_gate CLK_SCIP_XC_DIP2_INT_CK>;
+		clock-names = "scip_dip";
+		capability {
+			DSCL = <0x01>;
+			USCL = <0x00>;
+			Rotate = <0x00>;
+			RWSep = <0x00>;
+			B2R = <0x00>;
+			MFDEC = <0x00>;
+			3DDI = <0x00>;
+			DNR = <0x00>;
+			HDR = <0x00>;
+			LetterBox = <0x00>;
+			DIPR = <0x01>;
+			DiprBlending = <0x00>;
+			DiprPixelNum = <1>;
+			B2rPixelNum = <0>;
+			DipPixelNum = <1>;
+			FrontPack = <2>;
+			CropAlign = <1>;
+			HMirrorSz = <0>;
+			RWSepVer = <0>;
+			VsdInW = <1920>;
+			B2rHttPixelUnit = <1>;
+			fixed_dd_index = <42>;
+			TileWidthMax = <4096>;
+			SDCCap = <0>;
+		};
+	};
+};

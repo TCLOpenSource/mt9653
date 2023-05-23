@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	mtk_g2d:mtk-g2d {
+		ip-version = <0x0100>;
+		reg = <0x0 0x1c482000 0x0 0x800>;
+		compatible = "mtk-g2d";
+		fixed_dd_index = <0xff>; /*specify device num  0xff:not specify*/
+		clocks =  <&topgen_mux_gate CLK_TOPGEN_GE_CK>,
+			  <&ge_OOXX CLK_GE_EN_GE_FIFO_R2GE>,
+			  <&ge_OOXX CLK_GE_EN_GE_FIFO_W2GE>,
+			  <&ge_OOXX CLK_GE_EN_GE2GE>,
+			  <&ge_OOXX CLK_GE_EN_GE_PSRAM2GE>,
+			  <&ge_OOXX CLK_GE_EN_MCU_NONPM2GE>,
+			  <&ge_OOXX CLK_GE_EN_SMI2GE>;
+		clock-names = "clk_ge",
+			      "clk_ge_swen_r2ge",
+			      "clk_ge_swen_w2ge",
+			      "clk_ge_swen_ge2ge",
+			      "clk_ge_swen_psram2ge",
+			      "clk_ge_swen_mcu_nonpm2ge",
+			      "clk_ge_swen_smi2ge";
+	};
+};

@@ -1,0 +1,24 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2021 MediaTek Inc.
+ */
+
+/ {
+	tsensor_apu: mtk-sensor@14 {
+		compatible = "mt58xx-thermal";
+		#thermal-sensor-cells = <1>;
+		io-channels = <&saradc 14>;
+		io-channel-names = "thermal";
+		mediatek,thermal-config = <772 24000 770>;
+	};
+
+	test_cdev0: test_cdev0 {
+		compatible = "mtk-test-cdev";
+		#cooling-cells = <0x2>;
+	};
+
+	test_cdev1: test_cdev1 {
+		compatible = "mtk-test-cdev";
+		#cooling-cells = <0x2>;
+	};
+};

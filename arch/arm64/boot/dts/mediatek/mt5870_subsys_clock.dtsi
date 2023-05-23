@@ -1,0 +1,189 @@
+#include <dt-bindings/clock/mt5870-clk.h>
+
+/ {
+
+	subsys_mux_gate: subsys_mg {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_mux_gate";
+		num = <CLK_SUBSYS_MG_NR>;
+		reg = <0 0x1f000000 0 0xA00000>; /* this is riu start address */
+
+		CLKGEN_0_BANK = <0x100B00>;
+		CLKGEN_1_BANK = <0x103300>;
+		CLKGEN_2_BANK = <0x100A00>;
+		CHIP_BANK = <0x101E00>;
+
+/*
+		mux gate clock Template
+		clk_xxxx {
+			id = <>;
+			reg_bank_offset = <BANK 16bit_addr>;
+			BIT = <>;
+			mux_shift = <2>; --> start bit of mux control
+			mux_width = <3>; --> bit number of mux control
+			gate_shift = <0>; --> start_bit of gate conctrol
+			parents = "clk_XXXX" , "clk_XXXXX" , "clk_XXXX" ;
+		};
+*/
+		clk_subsys_mg_test {
+			id = <CLK_SUBSYS_MG_TEST>;
+			reg_bank_offset = <0x600 0x1>; /* bank: 0x6, 16-bit addr : 0x1 */
+			BIT = <8 15>; /* control bit 8 to 15 */
+			mux_shift = <2>; /* --> start bit of mux control */
+			mux_width = <3>; /* --> bit number of mux control */
+			gate_shift = <0>; /* --> start_bit of gate conctrol */
+			parents = "clk_172_buf", "clk_36_buf", "clk_123_buf", "clk_192_buf", "clk_375k_buf", "clk_5p4_buf", "clk_evdpll_div2p5_buf";
+		};
+
+		clk_stc_sys_time0 {
+			id = <CLK_SUBSYS_MG_STC0>;
+			reg_bank_offset = <0x100A00 0x2A>;
+			BIT = <8 12>;
+			mux_shift = <2>;
+			mux_width = <3>;
+			gate_shift = <0>;
+			parents = "clk_syn_stc0", "clk_syn_stc1", "dummy_clk", "dummy_clk", "dummy_clk", "dummy_clk", "dummy_clk", "clk_27_buf";
+		};
+
+		clk_stc_sys_time1 {
+			id = <CLK_SUBSYS_MG_STC1>;
+			reg_bank_offset = <0x100A00 0x2C>;
+			BIT = <0 4>;
+			mux_shift = <2>;
+			mux_width = <3>;
+			gate_shift = <0>;
+			parents = "clk_syn_stc0", "clk_syn_stc1", "dummy_clk", "dummy_clk", "dummy_clk", "dummy_clk", "dummy_clk", "clk_27_buf";
+		};
+
+		clk_stc_tsif0 {
+			id = <CLK_SUBSYS_MG_STC_TSIF0>;
+			reg_bank_offset = <0x100A00 0x2D>;
+			BIT = <0 4>;
+			mux_shift = <2>;
+			mux_width = <3>;
+			gate_shift = <0>;
+			parents = "clk_syn_stc0", "clk_syn_stc1", "dummy_clk", "dummy_clk", "dummy_clk", "dummy_clk", "dummy_clk", "clk_27_buf";
+		};
+
+		clk_stc_mm0 {
+			id = <CLK_SUBSYS_MG_STC_MM0>;
+			reg_bank_offset = <0x100A00 0x2D>;
+			BIT = <8 12>;
+			mux_shift = <2>;
+			mux_width = <3>;
+			gate_shift = <0>;
+			parents = "clk_syn_stc0", "clk_syn_stc1", "dummy_clk", "dummy_clk", "dummy_clk", "dummy_clk", "dummy_clk", "clk_27_buf";
+		};
+
+		clk_stc_pvr1 {
+			id = <CLK_SUBSYS_MG_STC_PVR1>;
+			reg_bank_offset = <0x100A00 0x2E>;
+			BIT = <6 10>;
+			mux_shift = <2>;
+			mux_width = <3>;
+			gate_shift = <0>;
+			parents = "clk_syn_stc0", "clk_syn_stc1", "dummy_clk", "dummy_clk", "dummy_clk", "dummy_clk", "dummy_clk", "clk_27_buf";
+		};
+
+		clk_stc_pvr2 {
+			id = <CLK_SUBSYS_MG_STC_PVR2>;
+			reg_bank_offset = <0x100A00 0x2F>;
+			BIT = <0 4>;
+			mux_shift = <2>;
+			mux_width = <3>;
+			gate_shift = <0>;
+			parents = "clk_syn_stc0", "clk_syn_stc1", "dummy_clk", "dummy_clk", "dummy_clk", "dummy_clk", "dummy_clk", "clk_27_buf";
+		};
+
+		clk_stc_fiq0 {
+			id = <CLK_SUBSYS_MG_STC_FIQ0>;
+			reg_bank_offset = <0x100A00 0x2F>;
+			BIT = <6 10>;
+			mux_shift = <2>;
+			mux_width = <3>;
+			gate_shift = <0>;
+			parents = "clk_syn_stc0", "clk_syn_stc1", "dummy_clk", "dummy_clk", "dummy_clk", "dummy_clk", "dummy_clk", "clk_27_buf";
+		};
+
+		clk_tsp_force_en0 {
+			id = <CLK_SUBSYS_MG_TSP_FORCE_EN0>;
+			reg_bank_offset = <0x370400 0x7>;
+			BIT = <0 0>;
+			mux_shift = <17>;
+			mux_width = <0>;
+			gate_shift = <0>;
+			parents = "dummy";
+		};
+
+		clk_tsp_force_en1 {
+			id = <CLK_SUBSYS_MG_TSP_FORCE_EN1>;
+			reg_bank_offset = <0x370400 0x7>;
+			BIT = <1 1>;
+			mux_shift = <17>;
+			mux_width = <0>;
+			gate_shift = <0>;
+			parents = "dummy";
+		};
+
+		clk_tso_force_en0 {
+			id = <CLK_SUBSYS_MG_TSO_FORCE_EN0>;
+			reg_bank_offset = <0x370400 0x6>;
+			BIT = <0 0>;
+			mux_shift = <17>;
+			mux_width = <0>;
+			gate_shift = <0>;
+			parents = "dummy";
+		};
+
+		clk_tso_force_en1 {
+			id = <CLK_SUBSYS_MG_TSO_FORCE_EN1>;
+			reg_bank_offset = <0x370400 0x6>;
+			BIT = <1 1>;
+			mux_shift = <17>;
+			mux_width = <0>;
+			gate_shift = <0>;
+			parents = "dummy";
+		};
+
+		clk_tsp_gating {
+			id = <CLK_SUBSYS_MG_TSP_GATING>;
+			reg_bank_offset = <0x110A00 0x70>;
+			BIT = <0 0>;
+			mux_shift = <17>;
+			mux_width = <0>;
+			gate_shift = <0>;
+			parents = "dummy";
+		};
+
+		clk_tsp_miu_gating {
+			id = <CLK_SUBSYS_MG_TSP_MIU_GATING>;
+			reg_bank_offset = <0x110A00 0x70>;
+			BIT = <1 1>;
+			mux_shift = <17>;
+			mux_width = <0>;
+			gate_shift = <0>;
+			parents = "dummy";
+		};
+
+		clk_tso_gating {
+			id = <CLK_SUBSYS_MG_TSO_GATING>;
+			reg_bank_offset = <0x110A00 0x71>;
+			BIT = <0 0>;
+			mux_shift = <17>;
+			mux_width = <0>;
+			gate_shift = <0>;
+			parents = "dummy";
+		};
+
+		clk_tso_miu_gating {
+			id = <CLK_SUBSYS_MG_TSO_MIU_GATING>;
+			reg_bank_offset = <0x110A00 0x71>;
+			BIT = <1 1>;
+			mux_width = <0>;
+			gate_shift = <0>;
+			parents = "dummy";
+		};
+
+	};
+
+};

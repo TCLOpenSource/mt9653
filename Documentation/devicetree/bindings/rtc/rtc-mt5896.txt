@@ -1,0 +1,24 @@
+Device-Tree bindings for MediaTek MT5896 SoC based RTC
+
+Required properties:
+- compatible	    : Should be
+			"mediatek,mt5896-rtc" : for MT5896 SoC
+- reg 		    : Specifies base physical address and size of the registers;
+- interrupts	    : Should contain the interrupt for RTC alarm;
+- clocks	    : Specifies list of clock specifiers, corresponding to
+		      entries in clock-names property;
+- clock-names	    : Should contain "rtc" entries
+- default-cnt	    : Specifies the initial default time for RTC
+
+Example:
+
+rtc: rtc@1f002400 {
+	compatible = "mediatek,mt5896-rtc";
+	reg = <0 0x1c020600 0 0x200>,
+	      <0 0x1c020200 0 0x200>;
+	interrupt-parent = <&mtk_intc2_irq_high>;
+	interrupts = <0x0 0x18 0x4>;
+	xtal = <12000000>;
+	freq = <1>;
+	default-cnt = <946684800>;
+};

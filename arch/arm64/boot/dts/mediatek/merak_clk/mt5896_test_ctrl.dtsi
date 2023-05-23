@@ -1,0 +1,166 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+#define	REG_ADCPLL_TEST	0x3DC0
+#define	REG_AIA_TOP_TEST	0x3DC4
+#define	REG_DEMOD0_TEST	0x3DC8
+#define	REG_DEMOD1_TEST	0x3DCC
+#define	REG_VDEC_SOC_TEST	0x3DD0
+#define	REG_VDEC_CORE0_TEST	0x3DD4
+#define	REG_VDEC_CORE1_TEST	0x3DD8
+#define	REG_VDEC_CORE2_TEST	0x3DDC
+#define	REG_DRAMC0_TEST	0x3DE0
+#define	REG_DRAMC1_TEST	0x3DE4
+#define	REG_DRAMC2_TEST	0x3DE8
+#define	REG_TOP_TEST	0x3DEC
+#define	REG_MHEG5_TEST	0x3DF0
+#define	REG_GPU_DIE_TEST	0x3DF4
+#define	REG_GPU_NODIE_TEST	0x3DF8
+#define	REG_GPU_SHADER_TEST	0x3DFC
+#define	REG_HDMIRX_TEST	0x3E00
+#define	REG_IP_WRAP_TEST	0x3E04
+#define	REG_MCUSYS_TEST	0x3E08
+#define	REG_MOD_TEST	0x3E0C
+#define	REG_MOD_DOT_TEST	0x3E10
+#define	REG_LPLL_TEST	0x3E14
+#define	REG_VIVALDI9_TEST	0x3E18
+#define	REG_AUDIO_R2_TEST	0x3E1C
+#define	REG_RV55AUDIO_TEST	0x3E20
+#define	REG_TSP_TEST	0x3E24
+#define	REG_FRCIOPMRV55_TEST	0x3E28
+#define	REG_RV55FRC_TEST	0x3E2C
+#define	REG_RV55PQU_TEST	0x3E30
+#define	REG_FRCMEHALO_TEST	0x3E34
+#define	REG_FRCMEMLB_TEST	0x3E38
+#define	REG_FRCMI_TEST	0x3E3C
+#define	REG_SCACE_TEST	0x3E40
+#define	REG_SCDV_TEST	0x3E44
+#define	REG_SCIP_TEST	0x3E48
+#define	REG_SCMW_TEST	0x3E4C
+#define	REG_SCNR_TEST	0x3E50
+#define	REG_SCPQ_TEST	0x3E54
+#define	REG_SCSCL_TEST	0x3E58
+#define	REG_SCSR_TEST	0x3E5C
+#define	REG_SCTCON_TEST	0x3E60
+#define	REG_HDMIRX_DPHY_TEST	0x3E64
+#define	REG_HDMIRX_APHY_TEST	0x3E68
+#define	REG_AUSDM_TEST	0x3E6C
+#define	REG_AUR2PLL_TEST	0x3E70
+#define	REG_AUPLL_TEST	0x3E74
+#define	REG_MCUSYS_DIE_TEST	0x3E78
+#define	REG_DMD_ANA_MISC_TEST	0x3E7C
+#define	REG_ARMPLL_TEST	0x3E80
+#define	REG_ARM2PLL_TEST	0x3E84
+#define	REG_ARMPLL_GPU_TEST	0x3E88
+#define	REG_ARMPLL_APU_TEST	0x3E8C
+#define	REG_EARC_DMACRO_TEST	0x3E90
+#define	REG_USB_PHY_TEST	0x3E94
+#define	REG_PCIE_PHY_TEST	0x3E98
+#define	REG_UFS_PHY_TEST	0x3E9C
+#define	REG_FLASH_DMACRO_TEST	0x3EA0
+#define	REG_FLASH_32BIF_TEST	0x3EA4
+#define	REG_FLASH_8BIT_TEST	0x3EA8
+#define	REG_SD_SDR_MACRO_TEST	0x3EAC
+#define	REG_VDECPLL_DMACRO_TEST	0x3EB0
+#define	REG_SYS0PLL_DMACRO_TEST	0x3EB4
+#define	REG_SYS1PLL_DMACRO_TEST	0x3EB8
+#define	REG_SYS2PLL_DMACRO_TEST	0x3EBC
+#define	REG_RV55FRCPLL_DMACRO_TEST	0x3EC0
+#define	REG_XCPLL_DMACRO_TEST	0x3EC4
+#define	REG_XCSRSPLL_DMACRO_TEST	0x3EC8
+#define	REG_SYS3PLL_DMACRO_TEST	0x3ECC
+#define	REG_GPUBRDGPLL_DMACRO_TEST	0x3ED0
+#define REG_APUBUSPLL_DMACRO_TEST	0x3ED4
+
+#define TEST_CTRL_START_OFFSET  34
+
+#define clk_test_ctrl(x)	x
+#define	reg_clk_calc_src_sel clk_test_ctrl(0x00C0)
+#define reg_clk_calc_src_sel_s 0
+#define reg_clk_calc_src_sel_e 6
+#define reg_clk_calc_en clk_test_ctrl(0x00C4)
+#define reg_clk_calc_en_s 0
+#define reg_clk_calc_en_e 0
+#define reg_calc_done clk_test_ctrl(0x00C4)
+#define reg_calc_done_s 4
+#define reg_calc_done_e 4
+#define reg_calc_cnt_report clk_test_ctrl(0x00C8)
+#define reg_calc_cnt_report_s 0
+#define reg_calc_cnt_report_e 15
+
+
+/ {
+	test_ctrl_data {
+			<0 0x1c202200 0 0x200>;
+		test_ctrl_offset = <TEST_CTRL_START_OFFSET>;
+		reg_clk_calc_en_set = <reg_clk_calc_en reg_clk_calc_en_s>;
+		reg_src_sel = <reg_clk_calc_src_sel reg_clk_calc_src_sel_e>;
+		calc_done = <reg_calc_done reg_calc_done_s>;
+
+		subsys_reg =
+			<REG_TOP_TEST>,
+			<REG_ADCPLL_TEST>,
+			<REG_AIA_TOP_TEST>,
+			<REG_DEMOD0_TEST>,
+			<REG_DEMOD1_TEST>,
+			<REG_DRAMC0_TEST>,
+			<REG_DRAMC1_TEST>,
+			<REG_DRAMC2_TEST>,
+			<REG_FRCIOPMRV55_TEST>,
+			<REG_FRCMEMLB_TEST>,
+			<REG_FRCMEHALO_TEST>,
+			<REG_FRCMI_TEST>,
+			<REG_GPU_NODIE_TEST>,
+			<REG_HDMIRX_TEST>,
+			<REG_IP_WRAP_TEST>,
+			<REG_MCUSYS_TEST>,
+			<REG_MHEG5_TEST>,
+			<REG_MOD_TEST>,
+			<REG_SCACE_TEST>,
+			<REG_SCDV_TEST>,
+			<REG_SCIP_TEST>,
+			<REG_SCMW_TEST>,
+			<REG_SCNR_TEST>,
+			<REG_SCPQ_TEST>,
+			<REG_SCSCL_TEST>,
+			<REG_SCSR_TEST>,
+			<REG_SCTCON_TEST>,
+			<REG_TSP_TEST>,
+			<REG_VDEC_SOC_TEST>,
+			<REG_VIVALDI9_TEST>,
+			<0>,
+			<0>,
+			<0>,
+			<0>,
+			<REG_ARMPLL_TEST>,
+			<REG_ARM2PLL_TEST>,
+			<REG_ARMPLL_GPU_TEST>,
+			<REG_ARMPLL_APU_TEST>,
+			<REG_EARC_DMACRO_TEST>,
+			<REG_DMD_ANA_MISC_TEST>,
+			<0>,
+			<0>,
+			<REG_UFS_PHY_TEST>,
+			<REG_FLASH_DMACRO_TEST>,
+			<REG_SD_SDR_MACRO_TEST>,
+			<REG_AUPLL_TEST>,
+			<REG_AUR2PLL_TEST>,
+			<REG_AUSDM_TEST>,
+			<REG_VDECPLL_DMACRO_TEST>,
+			<REG_SYS0PLL_DMACRO_TEST>,
+			<REG_SYS1PLL_DMACRO_TEST>,
+			<REG_SYS2PLL_DMACRO_TEST>,
+			<REG_RV55FRCPLL_DMACRO_TEST>,
+			<REG_XCPLL_DMACRO_TEST>,
+			<REG_XCSRSPLL_DMACRO_TEST>,
+			<0>,
+			<0>,
+			<REG_RV55FRC_TEST>,
+			<REG_RV55PQU_TEST>,
+			<REG_SYS3PLL_DMACRO_TEST>,
+			<REG_GPUBRDGPLL_DMACRO_TEST>,
+			<REG_APUBUSPLL_DMACRO_TEST>;
+	};
+};

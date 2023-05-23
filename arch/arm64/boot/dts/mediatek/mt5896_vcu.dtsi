@@ -1,0 +1,15 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	vcu: vcu {
+		compatible = "mediatek,tv-vcu";
+		iommus = <&iommu 0>;
+		iommu_lax_node = <&vdec_fb>;
+		iommu_core_node = <&vdec_fb>;
+		iommu_venc_node = <&venc_work>;
+		iommu_vdec_svp_shm_node = <&shm_buf_vdec>;
+	};
+};

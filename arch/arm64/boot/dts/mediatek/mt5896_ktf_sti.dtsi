@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	ktf_irq: dummy_irq_0 {
+		compatible = "mediatek,dummy-irq";
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupts = <0x0 13 0x4>;
+	};
+
+	ktf_nonpm_gpio0: ktf_nonpm_gpio_0 {
+		compatible = "mediatek,ktf-nonpm-gpio";
+		reg = <0x0 0x1c2e6a00 0x0 0x200>; /* gpio intr */
+	};
+
+	ktf_riubase: ktf_riubase {
+		compatible = "mediatek,ktf-riubase";
+		reg = <0x0 0x1c482000 0x0 0x200>; /*ge riu base */
+	};
+
+	ktf_sti_mbox_to_pm51: ktf_sti_mbox_to_pm51 {
+		compatible = "mediatek,ktf-sti-mbox";
+		mboxes = <&mailbox_to_pm51 MBOX_CHAN_ID_POSTMAN>;
+	};
+};

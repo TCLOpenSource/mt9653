@@ -1,0 +1,25 @@
+#
+# Makefile for Mediatek Tuner drivers.
+#
+
+ccflags-y += -Idrivers/media/dvb-frontends
+ccflags-y += -Idrivers/media/dvb-frontends/cfm
+
+obj-m            := mtk-merak-demod.o
+
+mtk-merak-demod-objs    += demod_drv_dvbt_t2.o
+mtk-merak-demod-objs    += demod_drv_dvbc.o
+mtk-merak-demod-objs    += demod_drv_dvbs.o
+mtk-merak-demod-objs    += demod_drv_atsc.o
+mtk-merak-demod-objs    += demod_drv_isdbt.o
+mtk-merak-demod-objs    += demod_drv_vif.o
+mtk-merak-demod-objs    += demod_drv_dtmb.o
+mtk-merak-demod-objs    += demod_hal_dvbt_t2.o
+mtk-merak-demod-objs    += demod_hal_dvbc.o
+mtk-merak-demod-objs    += demod_hal_dvbs.o
+mtk-merak-demod-objs    += demod_hal_atsc.o
+mtk-merak-demod-objs    += demod_hal_isdbt.o
+mtk-merak-demod-objs    += demod_hal_vif.o
+mtk-merak-demod-objs    += demod_hal_dtmb.o
+mtk-merak-demod-objs    += demod_common.o
+mtk-merak-demod-objs    += demod_core.o

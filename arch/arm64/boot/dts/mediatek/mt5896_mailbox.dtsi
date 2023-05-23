@@ -1,0 +1,60 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	mailbox_to_pm51: mailbox_to_pm51 {
+		compatible = "mediatek,mt5896-mbox";
+		/* mailbox msg, control for trigger remote intr */
+		reg = <0x0 0x1c606000 0x0 0x40>, <0x0 0x1c620084 0x0 0x1>;
+		/* interrupt from remote */
+		interrupt-parent = <&mtk_intc1_fiq_high>;
+		interrupts = <0x0 0x8 0x4>;
+		#mbox-cells = <1>;
+		/* fire bit# in reg host1/arm to host0/pm51 */
+		ipi-fire = <0>;
+		/* one mbox packet size include header(2) + data, default is 16 bytes */
+		packet-size = <16>;
+	};
+
+	mailbox_to_cm4: mailbox_to_cm4 {
+		compatible = "mediatek,mt5896-mbox";
+		/* mailbox msg, control for trigger remote intr */
+		reg = <0x0 0x1c606040 0x0 0x100>, <0x0 0x1c620084 0x0 0x1>;
+		/* interrupt from remote */
+		interrupt-parent = <&mtk_intc1_fiq_high>;
+		interrupts = <0x0 0x1e 0x4>;
+		#mbox-cells = <1>;
+		/* fire bit# in reg host1/arm to host3/cm4 */
+		ipi-fire = <2>;
+		/* one mbox packet size include header(2) + data, default is 16 bytes */
+		packet-size = <64>;
+	};
+
+	mailbox_to_frcr2: mailbox_to_frcr2 {
+		compatible = "mediatek,mt5896-mbox";
+		/* mailbox msg, control for trigger remote intr */
+		reg = <0x0 0x1c606200 0x0 0x100>, <0x0 0x1c620084 0x0 0x1>;
+		/* interrupt from remote */
+		interrupt-parent = <&mtk_intc2_fiq_low>;
+		interrupts = <0x0 0xc 0x4>;
+		#mbox-cells = <1>;
+		/* fire bit# in reg host1/arm to host5/frcr2 */
+		ipi-fire = <4>;
+		/* one mbox packet size include header(2) + data, default is 16 bytes */
+		packet-size = <64>;
+	};
+
+	mailbox_mexico_to_pm51: mailbox_mexico_to_pm51 {
+		compatible = "mediatek,mt5896-mbox-mexico";
+		/* args in mboxes here is to recognize the remote target for wrapper driver */
+		mboxes = <&mailbox_to_pm51 MBOX_REMOTE_PM51>;
+	};
+
+	mailbox_mexico_to_frcr2: mailbox_mexico_to_frcr2 {
+		compatible = "mediatek,mt5896-mbox-mexico";
+		/* args in mboxes here is to recognize the remote target for wrapper driver */
+		mboxes = <&mailbox_to_frcr2 MBOX_REMOTE_FRCR2>;
+	};
+};

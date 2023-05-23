@@ -1,0 +1,5 @@
+config MEDIATEK_G2D
+	tristate  "Mediatek G2D"
+	default n
+	help
+	To enable support for mediatek g2d device drivers.

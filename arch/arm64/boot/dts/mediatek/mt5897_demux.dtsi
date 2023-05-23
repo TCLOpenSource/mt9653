@@ -1,0 +1,298 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2021 MediaTek Inc.
+ */
+
+/ {
+	#address-cells = <2>;
+	#size-cells = <2>;
+
+	mtk_demux:mtk-demux {
+		compatible = "mediatek,demux";
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupts = <0x0 0x9 0x4>,
+		<0x0 0x0 0x4>,
+		<0x0 0x12 0x4>,
+		<0x0 0x13 0x4>,
+		<0x0 0x14 0x4>,
+		<0x0 0x15 0x4>,
+		<0x0 0x16 0x4>;
+		iommus = <&iommu 0>;
+		memory-region = <&MI_TSP_FW_BUF &MI_TSP_VQ_BUF &MI_TSP_SECT_BUF &MI_TSP_SVQ_BUF>;
+		reg = <0x0 0x1C444000 0x0 0x200>, /* tsp banks */
+			<0x0 0x1C444200 0x0 0x200>,
+			<0x0 0x1C444400 0x0 0x200>,
+			<0x0 0x1C444600 0x0 0x200>,
+			<0x0 0x1C444800 0x0 0x200>,
+			<0x0 0x1C444a00 0x0 0x200>,
+			<0x0 0x1C444c00 0x0 0x200>,
+			<0x0 0x1C444e00 0x0 0x200>,
+			<0x0 0x1C446000 0x0 0x200>, /* tso banks */
+			<0x0 0x1C446200 0x0 0x200>,
+			<0x0 0x1C446400 0x0 0x200>,
+			<0x0 0x1C466000 0x0 0x200>, /* video parser banks */
+			<0x0 0x1C445800 0x0 0x200>, /* tlv banks */
+			<0x0 0x1C445400 0x0 0x200>,
+			<0x0 0x1C445C00 0x0 0x200>, /* ts_sample */
+			<0x0 0x1C462000 0x0 0x200>, /* cilink_soc_if */
+			<0x0 0x1C445600 0x0 0x200>, /* alp banks */
+			<0x0 0x1C445200 0x0 0x200>,
+			<0x0 0x1D2A1600 0x0 0x200>,	/* MAD: 950B00 */
+			<0x0 0x1D2A1800 0x0 0x200>;	/* MAD: 950C00 */
+		clocks = <&tsp_mux_gate CLK_TSP_TSP_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_PARSER_INT_CK>,
+				 <&topgen_mux_gate CLK_TOPGEN_SMI_CK>,
+				 <&tsp_mux_gate CLK_TSP_SMI_TSP_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_STAMP_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_SYN_STC0_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_SYN_STC1_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_SYN_STC2_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_SYN_STC3_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_TSO_OUT_DIV_MN_SRC_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_SYS_TIME0_27M_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_SYS_TIME1_27M_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_SYS_TIME2_27M_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_SYS_TIME3_27M_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_TSIF0_27M_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_MM0_27M_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_PVR1_27M_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_PVR2_27M_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_PVR3_27M_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_PVR4_27M_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_FIQ0_27M_INT_CK>,
+				 <&tsp_sw_en CLK_TSP_EN_MCU_NONPM2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_SMI_TSP2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_IMI2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_SMI2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_SMI2TSO>,
+				 <&tsp_sw_en CLK_TSP_EN_SMI2TSO2>,
+				 <&tsp_sw_en CLK_TSP_EN_PARSER2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_PARSER2VD_PES_PARSER>,
+				 <&tsp_sw_en CLK_TSP_EN_VIVA_PARSER2PARSER>,
+				 <&tsp_sw_en CLK_TSP_EN_SMI2VD_PES_PARSER>,
+				 <&tsp_sw_en CLK_TSP_EN_FIQ0_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_MM0_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_MM1_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_PVR1_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_PVR2_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_PVR3_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_PVR4_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_STAMP2TSO>,
+				 <&tsp_sw_en CLK_TSP_EN_STAMP2TSO2>,
+				 <&tsp_sw_en CLK_TSP_EN_STAMP2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_SYN_STC02TS_SAMPLE>,
+				 <&tsp_sw_en CLK_TSP_EN_SYN_STC12TS_SAMPLE>,
+				 <&tsp_sw_en CLK_TSP_EN_SYN_STC22TS_SAMPLE>,
+				 <&tsp_sw_en CLK_TSP_EN_SYN_STC32TS_SAMPLE>,
+				 <&tsp_sw_en CLK_TSP_EN_SYS_TIME0_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_SYS_TIME1_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_SYS_TIME2_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_SYS_TIME3_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_TLV0_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_TLV1_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_TLV2_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_TS_ALP02TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_TS_ALP12TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_TS_SAMPLE2TS_SAMPLE>,
+				 <&tsp_sw_en CLK_TSP_EN_TS_TX_C12CILINK>,
+				 <&tsp_sw_en CLK_TSP_EN_TS_TX_C22CILINK>,
+				 <&tsp_sw_en CLK_TSP_EN_TS0_IN_DFT2TS_SAMPLE>,
+				 <&tsp_sw_en CLK_TSP_EN_TS02TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_TS1_IN_DFT2TS_SAMPLE>,
+				 <&tsp_sw_en CLK_TSP_EN_TS12TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_TS2_IN_DFT2TS_SAMPLE>,
+				 <&tsp_sw_en CLK_TSP_EN_TS22TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_TS3_IN_DFT2TS_SAMPLE>,
+				 <&tsp_sw_en CLK_TSP_EN_TS4_IN_DFT2TS_SAMPLE>,
+				 <&tsp_sw_en CLK_TSP_EN_TS5_IN_DFT2TS_SAMPLE>,
+				 <&tsp_sw_en CLK_TSP_EN_TSFI2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_TSIF0_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO_CH1_27M2TSO>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO_CH12TSO>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO_CH5_27M2TSO>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO_CH52TSO>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO_CH6_27M2TSO>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO_CH62TSO>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO_OUT_DIV_MN_SRC2TS_SAMPLE>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO_OUT2TSO>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO_S2P12TSO>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO_S2P2TSO>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO_TRACE_IN2TSO>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO_TRACE2TSO>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO2_CH1_27M2TSO2>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO2_CH12TSO2>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO2_CH5_27M2TSO2>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO2_CH52TSO2>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO2_CH6_27M2TSO2>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO2_CH62TSO2>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO2_OUT_DIV_MN_SRC2TS_SAMPLE>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO2_OUT2TSO2>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO2_S2P12TSO2>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO2_S2P2TSO2>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO2_TRACE_IN2TSO2>,
+				 <&tsp_sw_en CLK_TSP_EN_TSO2_TRACE2TSO2>,
+				 <&tsp_sw_en CLK_TSP_EN_TSP2DSCRMB>,
+				 <&tsp_sw_en CLK_TSP_EN_TSP2TSO>,
+				 <&tsp_sw_en CLK_TSP_EN_TSP2TSO2>,
+				 <&tsp_sw_en CLK_TSP_EN_TSP2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_TS_TLV02TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_TS_TLV12TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_TS_TLV22TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_PATH0_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_PATH1_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_PATH2_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_PATH_FI_27M2TSP>,
+				 <&tsp_sw_en CLK_TSP_EN_CILINK_2B_RX2CILINK>,
+				 <&tsp_sw_en CLK_TSP_EN_CILINK_2B_TX2CILINK>,
+				 <&tsp_sw_en CLK_TSP_EN_CILINK_IF2CILINK>;
+		clock-names = "clk_tsp",
+					  "clk_parser",
+					  "clk_top_mg_smi_ck",
+					  "clk_smi_tsp",
+					  "clk_stamp",
+					  "clk_sync_stc0",
+					  "clk_sync_stc1",
+					  "clk_sync_stc2",
+					  "clk_sync_stc3",
+					  "clk_tso_out_div_mn_src",
+					  "clk_stc0",
+					  "clk_stc1",
+					  "clk_stc2",
+					  "clk_stc3",
+					  "clk_stc_tsif0",
+					  "clk_stc_mm0",
+					  "clk_stc_pvr1",
+					  "clk_stc_pvr2",
+					  "clk_stc_pvr3",
+					  "clk_stc_pvr4",
+					  "clk_stc_fiq0",
+					  "clk_tsp_en_mcu_nonpm2tsp",
+					  "clk_tsp_en_smi_tsp2tsp",
+					  "clk_tsp_en_imi2tsp",
+					  "clk_tsp_en_smi2tsp",
+					  "clk_tsp_en_smi2tso",
+					  "clk_tsp_en_smi2tso2",
+					  "clk_tsp_en_parser2tsp",
+					  "clk_tsp_en_parser2vd_pes_parser",
+					  "clk_tsp_en_viva_parser2parser",
+					  "clk_tsp_en_smi2vd_pes_parser",
+					  "clk_tsp_en_fiq0_27m2tsp",
+					  "clk_tsp_en_mm0_27m2tsp",
+					  "clk_tsp_en_mm1_27m2tsp",
+					  "clk_tsp_en_pvr1_27m2tsp",
+					  "clk_tsp_en_pvr2_27m2tsp",
+					  "clk_tsp_en_pvr3_27m2tsp",
+					  "clk_tsp_en_pvr4_27m2tsp",
+					  "clk_tsp_en_stamp2tso",
+					  "clk_tsp_en_stamp2tso2",
+					  "clk_tsp_en_stamp2tsp",
+					  "clk_tsp_en_syn_stc02ts_sample",
+					  "clk_tsp_en_syn_stc12ts_sample",
+					  "clk_tsp_en_syn_stc22ts_sample",
+					  "clk_tsp_en_syn_stc32ts_sample",
+					  "clk_tsp_en_sys_time0_27m2tsp",
+					  "clk_tsp_en_sys_time1_27m2tsp",
+					  "clk_tsp_en_sys_time2_27m2tsp",
+					  "clk_tsp_en_sys_time3_27m2tsp",
+					  "clk_tsp_en_tlv0_27m2tsp",
+					  "clk_tsp_en_tlv1_27m2tsp",
+					  "clk_tsp_en_tlv2_27m2tsp",
+					  "clk_tsp_en_ts_alp02tsp",
+					  "clk_tsp_en_ts_alp12tsp",
+					  "clk_tsp_en_ts_sample2ts_sample",
+					  "clk_tsp_en_ts_tx_c12cilink",
+					  "clk_tsp_en_ts_tx_c22cilink",
+					  "clk_tsp_en_ts0_in_dft2ts_sample",
+					  "clk_tsp_en_ts02tsp",
+					  "clk_tsp_en_ts1_in_dft2ts_sample",
+					  "clk_tsp_en_ts12tsp",
+					  "clk_tsp_en_ts2_in_dft2ts_sample",
+					  "clk_tsp_en_ts22tsp",
+					  "clk_tsp_en_ts3_in_dft2ts_sample",
+					  "clk_tsp_en_ts4_in_dft2ts_sample",
+					  "clk_tsp_en_ts5_in_dft2ts_sample",
+					  "clk_tsp_en_tsfi2tsp",
+					  "clk_tsp_en_tsif0_27m2tsp",
+					  "clk_tsp_en_tso_ch1_27m2tso",
+					  "clk_tsp_en_tso_ch12tso",
+					  "clk_tsp_en_tso_ch5_27m2tso",
+					  "clk_tsp_en_tso_ch52tso",
+					  "clk_tsp_en_tso_ch6_27m2tso",
+					  "clk_tsp_en_tso_ch62tso",
+					  "clk_tsp_en_tso_out_div_mn_src2ts_sample",
+					  "clk_tsp_en_tso_out2tso",
+					  "clk_tsp_en_tso_s2p12tso",
+					  "clk_tsp_en_tso_s2p22tso",
+					  "clk_tsp_en_tso_trace_in2tso",
+					  "clk_tsp_en_tso_trace2tso",
+					  "clk_tsp_en_tso2_ch1_27m2tso2",
+					  "clk_tsp_en_tso2_ch12tso2",
+					  "clk_tsp_en_tso2_ch5_27m2tso2",
+					  "clk_tsp_en_tso2_ch52tso2",
+					  "clk_tsp_en_tso2_ch6_27m2tso2",
+					  "clk_tsp_en_tso2_ch62tso2",
+					  "clk_tsp_en_tso2_out_div_mn_src2ts_sample",
+					  "clk_tsp_en_tso2_out2tso2",
+					  "clk_tsp_en_tso2_s2p12tso2",
+					  "clk_tsp_en_tso2_s2p22tso2",
+					  "clk_tsp_en_tso2_trace_in2tso2",
+					  "clk_tsp_en_tso2_trace2tso2",
+					  "clk_tsp_en_tsp2dscrmb",
+					  "clk_tsp_en_tsp2tso",
+					  "clk_tsp_en_tsp2tso2",
+					  "clk_tsp_en_tsp2tsp",
+					  "clk_tsp_en_ts_tlv02tsp",
+					  "clk_tsp_en_ts_tlv12tsp",
+					  "clk_tsp_en_ts_tlv22tsp",
+					  "clk_tsp_en_path0_27m2tsp",
+					  "clk_tsp_en_path1_27m2tsp",
+					  "clk_tsp_en_path2_27m2tsp",
+					  "clk_tsp_en_path_fi_27m2tsp",
+					  "clk_tsp_en_cilink_2b_rx2cilink",
+					  "clk_tsp_en_cilink_2b_tx2cilink",
+					  "clk_tsp_en_cilink_if2cilink";
+		banks {
+			tsp_bank_num = <8>;
+			tso_bank_num = <3>;
+			video_parser_bank_num = <1>;
+			tlv_bank_num = <2>;
+			ts_sample_bank_num = <1>;
+			cilink_bank_num = <1>;
+			alp_bank_num = <2>;
+			mad_parser_bank_num = <2>;
+		};
+		hwcaps {
+			pid_filter_num = <256>;
+			sec_filter_num = <192>;
+			pcr_filter_num = <2>;
+			mmfi_filter_num = <6>;
+			ip_filter_num = <12>;
+			ntp_filter_num = <3>;
+			alp_filter_num = <32>;
+			stc_num = <4>;
+			vfifo_num = <2>;
+			afifo_num = <4>;
+			pvr_num = <4>;
+			vq_num = <7>;
+			svq_num = <3>;
+			livein_num = <4>;
+			filein_num = <1>;
+			filein_cmdQ_num = <16>;
+			merge_stream_num = <8>;
+			mmfi_num = <2>;
+			mmfi_cmdQ_num = <8>;
+			fiq_num = <1>;
+			tso_num = <2>;
+			tso_tsif_num = <3>;
+			tlv_num = <3>;
+			alp_num = <2>;
+			cilink_num = <2>;
+			ca_num = <3>;
+			parser_ck_rate = <216>;
+		};
+		swcaps {
+			rpm_en = <0>;
+		};
+	};
+};
+

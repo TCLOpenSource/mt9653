@@ -1,0 +1,15 @@
+Mediatek DTV ASOC MACHINE for mt5870
+
+Required properties:
+- compatible: "mediatek,mtk-snd-machine"
+- mediatek DTV,platform: MT5870 ASoC platform
+- pre_init_table: audio pre-init table path
+- init_table: audio init table path
+
+Example:
+
+mtk-sound-machine {
+		compatible = "mediatek,mtk-snd-machine";
+		pre_init_table = "/config/audio/audio_pre_init.ini";
+		init_table = "/config/audio/audio_init.ini";
+	};

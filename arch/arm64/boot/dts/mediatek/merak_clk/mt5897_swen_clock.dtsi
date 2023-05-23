@@ -1,0 +1,163 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/{
+	xc_OOXX: xc_swen {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_gate_en";
+		num = <CLK_XC_EN_NR>;
+
+		frc_fclk_2x2frccore1 {
+			id = <CLK_XC_EN_FRC_FCLK_2X2FRCCORE1>;
+			parent = "FRC_FCLK_2X_INT_CK";
+		};
+
+		frc_fclk_2xplus2frccore1 {
+			id = <CLK_XC_EN_FRC_FCLK_2XPLUS2FRCCORE1>;
+			parent = "FRC_FCLK_2XPLUS_INT_CK";
+		};
+
+		smi2frccore1 {
+			id = <CLK_XC_EN_SMI2FRCCORE1>;
+			parent = "SMI_INT_CK";
+		};
+
+		smi2smi_frccore1 {
+			id = <CLK_XC_EN_SMI2SMI_FRCCORE1>;
+			parent = "SMI_INT_CK";
+		};
+
+		xtal_24m2frccore1 {
+			id = <CLK_XC_EN_XTAL_24M2FRCCORE1>;
+			parent = "XTAL_24M_INT_CK";
+		};
+
+		frc_fclk2frccore2 {
+			id = <CLK_XC_EN_FRC_FCLK2FRCCORE2>;
+			parent = "FRC_FCLK_INT_CK";
+		};
+
+		smi2frccore2 {
+			id = <CLK_XC_EN_SMI2FRCCORE2>;
+			parent = "SMI_INT_CK";
+		};
+
+		xtal_24m2frccore2 {
+			id = <CLK_XC_EN_XTAL_24M2FRCCORE2>;
+			parent = "XTAL_24M_INT_CK";
+		};
+
+		frc_fclk_2x2frccore3 {
+			id = <CLK_XC_EN_FRC_FCLK_2X2FRCCORE3>;
+			parent = "FRC_FCLK_2X_INT_CK";
+		};
+
+		smi2frccore3 {
+			id = <CLK_XC_EN_SMI2FRCCORE3>;
+			parent = "SMI_INT_CK";
+		};
+
+		xtal_24m2frccore3 {
+			id = <CLK_XC_EN_XTAL_24M2FRCCORE3>;
+			parent = "XTAL_24M_INT_CK";
+		};
+
+		dap2frcmisc {
+			id = <CLK_XC_EN_DAP2FRCMISC>;
+			parent = "DAP_INT_CK";
+		};
+
+		frc_fuart02frcmisc {
+			id = <CLK_XC_EN_FRC_FUART02FRCMISC>;
+			parent = "FRC_FUART0_INT_CK";
+		};
+
+		frc_mspi02frcmisc {
+			id = <CLK_XC_EN_FRC_MSPI02FRCMISC>;
+			parent = "FRC_MSPI0_INT_CK";
+		};
+
+		frc_uart02frcmisc {
+			id = <CLK_XC_EN_FRC_UART02FRCMISC>;
+			parent = "FRC_UART0_INT_CK";
+		};
+
+		frc_uart12frcmisc {
+			id = <CLK_XC_EN_FRC_UART12FRCMISC>;
+			parent = "FRC_UART1_INT_CK";
+		};
+
+		rv55dap_jtag_tck2frcmisc {
+			id = <CLK_XC_EN_RV55DAP_JTAG_TCK2FRCMISC>;
+			parent = "RV55DAP_JTAG_TCK_INT_CK";
+		};
+
+		smi2frcmisc {
+			id = <CLK_XC_EN_SMI2FRCMISC>;
+			parent = "SMI_INT_CK";
+		};
+
+		xtal_12m2frcmisc {
+			id = <CLK_XC_EN_XTAL_12M2FRCMISC>;
+			parent = "XTAL_12M_INT_CK";
+		};
+
+		smi2scace {
+			id = <CLK_XC_EN_SMI2SCACE>;
+			parent = "SMI_INT_CK";
+		};
+
+		smi2scdisp {
+			id = <CLK_XC_EN_SMI2SCDISP>;
+			parent = "SMI_INT_CK";
+		};
+
+		smi2scdv {
+			id = <CLK_XC_EN_SMI2SCDV>;
+			parent = "SMI_INT_CK";
+		};
+
+		smi2scip {
+			id = <CLK_XC_EN_SMI2SCIP>;
+			parent = "SMI_INT_CK";
+		};
+
+		smi2scmw {
+			id = <CLK_XC_EN_SMI2SCMW>;
+			parent = "SMI_INT_CK";
+		};
+
+		smi2smi_larb_scmw {
+			id = <CLK_XC_EN_SMI2SMI_LARB_SCMW>;
+			parent = "SMI_INT_CK";
+		};
+
+		smi2scnr {
+			id = <CLK_XC_EN_SMI2SCNR>;
+			parent = "SMI_INT_CK";
+		};
+
+		smi2scpq {
+			id = <CLK_XC_EN_SMI2SCPQ>;
+			parent = "SMI_INT_CK";
+		};
+
+		smi2scscl {
+			id = <CLK_XC_EN_SMI2SCSCL>;
+			parent = "SMI_INT_CK";
+		};
+
+		smi2scsr {
+			id = <CLK_XC_EN_SMI2SCSR>;
+			parent = "SMI_INT_CK";
+		};
+
+		smi2sctcon {
+			id = <CLK_XC_EN_SMI2SCTCON>;
+			parent = "SMI_INT_CK";
+		};
+
+	};
+};

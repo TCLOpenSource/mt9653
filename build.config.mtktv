@@ -1,0 +1,39 @@
+LLVM=1
+LLVM_IAS=1
+CC=clang
+LD=ld.lld
+HOSTCC="${CC} -Werror"
+OBJCOPY=llvm-objcopy
+DEPMOD=depmod
+KERNEL_DIR=${KERNEL_VER}
+CLANG_PREBUILT_BIN=prebuilts-master/clang/host/linux-x86/clang-r416183b/bin
+LD_LIBRARY_PATH=prebuilts-master/clang/host/linux-x86/clang-r416183b/lib64:$$LD_LIBRARY_PATH
+BUILDTOOLS_PREBUILT_BIN=build/build-tools/path/linux-x86
+
+DEFCONFIG=gki_defconfig
+ABI_DEFINITION=android/abi_gki_aarch64_android12-5.4.147-1021_2138e7367558.xml
+
+MAKE_GOALS="${MAKE_GOALS}
+dtbs
+headers_install
+"
+
+PRE_DEFCONFIG_CMDS="
+unset DTC_FLAGS;
+export DTC_FLAGS=-@;
+"
+
+POST_DEFCONFIG_CMDS="
+pushd ${KERNEL_DIR} && \
+KCONFIG_CONFIG=${OUT_DIR}/${KERNEL_DIR}/.config scripts/kconfig/merge_config.sh -m -r ${OUT_DIR}/${KERNEL_DIR}/.config arch/${ARCH}/configs/${KERNEL_CONFIG_FILENAME} && \
+make -f ${KERNEL_MK_PATH}/build_patch.mk O=${OUT_DIR}/${KERNEL_DIR} cdiff && \
+popd
+"
+
+FILES="vmlinux"
+
+DO_NOT_STRIP_MODULES=1
+
+# Remove below lines after TV KMI is ready
+TRIM_NONLISTED_KMI=""
+KMI_SYMBOL_LIST_STRICT_MODE=""

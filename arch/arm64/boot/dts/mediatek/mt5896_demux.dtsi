@@ -1,0 +1,54 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2021 MediaTek Inc.
+ */
+
+/ {
+	#address-cells = <2>;
+	#size-cells = <2>;
+
+	mtk_demux2:mtk-demux2 {
+		compatible = "mediatek,demux2";
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupts = <0x0 0x9 0x4>,
+		<0x0 0x0 0x4>,
+		<0x0 0x12 0x4>,
+		<0x0 0x13 0x4>,
+		<0x0 0x14 0x4>,
+		<0x0 0x15 0x4>,
+		<0x0 0x16 0x4>;
+		clocks = <&topgen_mux_gate CLK_TOPGEN_TSP_CK>,
+				 <&topgen_mux_gate CLK_TOPGEN_PARSER_CK>,
+				 <&topgen_mux_gate CLK_TOPGEN_SMI_CK>,
+				 <&tsp_mux_gate CLK_TSP_SMI_TSP_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_STAMP_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_SYN_STC0_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_SYN_STC1_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_SYN_STC2_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_SYN_STC3_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_SYS_TIME0_27M_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_SYS_TIME1_27M_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_SYS_TIME2_27M_INT_CK>,
+				 <&tsp_mux_gate CLK_TSP_SYS_TIME3_27M_INT_CK>;
+		clock-names = "clk_tsp",
+					  "clk_parser",
+					  "clk_top_mg_smi_ck",
+					  "clk_smi_tsp",
+					  "clk_stamp",
+					  "clk_sync_stc0",
+					  "clk_sync_stc1",
+					  "clk_sync_stc2",
+					  "clk_sync_stc3",
+					  "clk_stc0",
+					  "clk_stc1",
+					  "clk_stc2",
+					  "clk_stc3";
+		hwcaps {
+		};
+		swen {
+		};
+		ck_rate {
+		};
+	};
+};
+

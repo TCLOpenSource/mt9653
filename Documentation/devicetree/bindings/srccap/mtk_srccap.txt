@@ -1,0 +1,120 @@
+Mediatek Srccap Documentation
+
+Required properties:
+	- compatible: shall be one of the following:
+	"mediatek,srccap0":
+		mediatek srccap0 group
+	"mediatek,srccap1":
+		mediatek srccap1 group
+
+Optional properties:
+	- unique-id : unique-id of the device
+	- interrupts : interrupt numbers
+	- reg : reg base and size
+	- capability : hw capability
+	- port_map : input source and input port mapping
+
+Example device nodes:
+	mtk_srccap0: mtk_srccap0@0x1F000000 {
+		compatible = "mediatek,srccap0";
+
+		unique-id = <3000>;
+		interrupts = <35>;
+		reg = <0x0 0x0>;
+		capability = <0x24111100>;
+		port_map {
+			input_num = <8>;
+			input0 {
+				source = <10>;
+				data_port = <130>;
+				sync_port = <0>;
+			};
+			input1 {
+				source = <11>;
+				data_port = <131>;
+				sync_port = <0>;
+			};
+			input2 {
+				source = <12>;
+				data_port = <132>;
+				sync_port = <0>;
+			};
+			input3 {
+				source = <13>;
+				data_port = <133>;
+				sync_port = <0>;
+			};
+			input4 {
+				source = <20>;
+				data_port = <50>;
+				sync_port = <0>;
+			};
+			input5 {
+				source = <30>;
+				data_port = <51>;
+				sync_port = <110>;
+			};
+			input6 {
+				source = <40>;
+				data_port = <10>;
+				sync_port = <0>;
+			};
+			input7 {
+				source = <50>;
+				data_port = <11>;
+				sync_port = <31>;
+			};
+		};
+	};
+
+	mtk_srccap1: mtk_srccap1@0x1F000000 {
+		compatible = "mediatek,srccap0";
+
+		unique-id = <3000>;
+		interrupts = <35>;
+		reg = <0x0 0x0>;
+		capability = <0x24111100>;
+		port_map {
+			input_num = <8>;
+			input0 {
+				source = <10>;
+				data_port = <130>;
+				sync_port = <0>;
+			};
+			input1 {
+				source = <11>;
+				data_port = <131>;
+				sync_port = <0>;
+			};
+			input2 {
+				source = <12>;
+				data_port = <132>;
+				sync_port = <0>;
+			};
+			input3 {
+				source = <13>;
+				data_port = <133>;
+				sync_port = <0>;
+			};
+			input4 {
+				source = <20>;
+				data_port = <50>;
+				sync_port = <0>;
+			};
+			input5 {
+				source = <30>;
+				data_port = <51>;
+				sync_port = <110>;
+			};
+			input6 {
+				source = <40>;
+				data_port = <10>;
+				sync_port = <0>;
+			};
+			input7 {
+				source = <50>;
+				data_port = <11>;
+				sync_port = <31>;
+			};
+		};
+	};

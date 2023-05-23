@@ -1,0 +1,405 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+#include <dt-bindings/memory/mtk-bw-client.h>
+#include <dt-bindings/memory/mt5896-bw-client.h>
+
+/ {
+	dram_config: dram_config {
+		dram_clock = <4266>; /* MHz */
+		dram_penalty = <84>; /* Refresh/hopping/QoS */
+		emi_clock = <533>; /* MHz */
+		smi_clock = <533>; /* MHz */
+	};
+	emi_arch: emi_arch {
+		emi_port_cnt = <8>;
+	};
+	bw_vdec: bw_vdec {
+		status = "disabled";
+		bw_vdec_c0: bw_vdec_c0 {
+			status = "disabled";
+			vdec_c0_larb0: vdec_c0_larb0 {
+				status = "disabled";
+			};
+			vdec_c0_larb1: vdec_c0_larb1 {
+				status = "disabled";
+			};
+			vdec_c0_larb2: vdec_c0_larb2 {
+				status = "disabled";
+			};
+		};
+		bw_vdec_c1: bw_vdec_c1 {
+			status = "disabled";
+			vdec_c1_larb3: vdec_c1_larb3 {
+				status = "disabled";
+			};
+			vdec_c1_larb4: vdec_c1_larb4 {
+				status = "disabled";
+			};
+			vdec_c1_larb5: vdec_c1_larb5 {
+				status = "disabled";
+			};
+		};
+		bw_vdec_c2: bw_vdec_c2 {
+			status = "disabled";
+			vdec_c2_larb6: vdec_c2_larb6 {
+				status = "disabled";
+			};
+			vdec_c2_larb30: vdec_c2_larb30 {
+				status = "disabled";
+			};
+			vdec_c2_larb31: vdec_c2_larb31 {
+				status = "disabled";
+			};
+		};
+		bw_vdec_soc: bw_vdec_soc {
+			status = "disabled";
+			vdec_soc_common2: vdec_soc_common2 {
+				status = "disabled";
+			};
+			vdec_soc_common5: vdec_soc_common5 {
+				status = "disabled";
+			};
+		};
+		vdec_larb3: vdec_larb3 {
+			status = "disabled";
+		};
+		vdec_larb10: vdec_larb10 {
+			status = "disabled";
+		};
+
+	};
+	bw_vsd: bw_vsd {
+		status = "disabled";
+		vsd_larb2: vsd_larb2 {
+			status = "disabled";
+		};
+		vsd_larb4: vsd_larb4 {
+			status = "disabled";
+		};
+		vsd_larb31: vsd_larb31 {
+			status = "disabled";
+		};
+	};
+	bw_venc: bw_venc {
+		status = "disabled";
+		venc_larb9: venc_larb9 {
+			status = "disabled";
+		};
+	};
+	bw_hdmi_w: bw_hdmi_w {
+		status = "disabled";
+		hdmi_w_larb14: hdmi_w_larb14 {
+			status = "disabled";
+		};
+		hdmi_w_larb15: hdmi_w_larb15 {
+			status = "disabled";
+		};
+		hdmi_w_larb16: hdmi_w_larb16 {
+			status = "disabled";
+		};
+		hdmi_w_larb17: hdmi_w_larb17 {
+			status = "disabled";
+		};
+	};
+	bw_hdmi_sd_w: bw_hdmi_sd_w {
+		status = "disabled";
+		hdmi_sd_w_larb22: hdmi_sd_w_larb22 {
+			status = "disabled";
+		};
+	};
+	bw_b2r: bw_b2r {
+		status = "disabled";
+		b2r_larb1: b2r_larb1 {
+			status = "disabled";
+		};
+		b2r_larb15: b2r_larb15 {
+			status = "disabled";
+		};
+		b2r_larb16: b2r_larb16 {
+			status = "disabled";
+		};
+		b2r_larb17: b2r_larb17 {
+			status = "disabled";
+		};
+		b2r_larb23: b2r_larb23 {
+			status = "disabled";
+		};
+	};
+	bw_hdmi_r: bw_hdmi_r {
+		status = "disabled";
+		hdmi_r_larb14: hdmi_r_larb14 {
+			status = "disabled";
+		};
+		hdmi_r_larb15: hdmi_r_larb15 {
+			status = "disabled";
+		};
+	};
+	bw_dv: bw_dv {
+		status = "disabled";
+		dv_larb22: dv_larb22 {
+			status = "disabled";
+		};
+		dv_larb23: dv_larb23 {
+			status = "disabled";
+		};
+	};
+	bw_scaler: bw_scaler {
+		status = "disabled";
+		scaler_larb1: scaler_larb1 {
+			status = "disabled";
+		};
+		scaler_larb2: scaler_larb2 {
+			status = "disabled";
+		};
+		scaler_larb8: scaler_larb8 {
+			status = "disabled";
+		};
+		scaler_larb18: scaler_larb18 {
+			status = "disabled";
+		};
+		scaler_larb19: scaler_larb19 {
+			status = "disabled";
+		};
+		scaler_larb24: scaler_larb24 {
+			status = "disabled";
+		};
+		scaler_larb25: scaler_larb25 {
+			status = "disabled";
+		};
+	};
+	bw_znr: bw_znr {
+		status = "disabled";
+		znr_larb1: znr_larb1 {
+			status = "disabled";
+		};
+		znr_larb25: znr_larb25 {
+			status = "disabled";
+		};
+		znr_larb26: znr_larb26 {
+			status = "disabled";
+		};
+		znr_larb27: znr_larb27 {
+			status = "disabled";
+		};
+	};
+	bw_mdwin: bw_mdwin {
+		status = "disabled";
+		mdwin_larb37: mdwin_larb37 {
+			status = "disabled";
+		};
+		mdwin_larb38: mdwin_larb38 {
+			status = "disabled";
+		};
+	};
+	bw_mgwin: bw_mgwin {
+		status = "disabled";
+		mgwin_larb37: mgwin_larb37 {
+			status = "disabled";
+		};
+		mgwin_larb38: mgwin_larb38 {
+			status = "disabled";
+		};
+		mgwin_larb39: mgwin_larb39 {
+			status = "disabled";
+		};
+		mgwin_larb40: mgwin_larb40 {
+			status = "disabled";
+		};
+		mgwin_larb45: mgwin_larb45 {
+			status = "disabled";
+		};
+		mgwin_larb46: mgwin_larb46 {
+			status = "disabled";
+		};
+	};
+	bw_frc: bw_frc {
+		status = "disabled";
+		frc_larb0: frc_larb0 {
+			status = "disabled";
+		};
+		frc_larb20: frc_larb20 {
+			status = "disabled";
+		};
+		frc_larb28: frc_larb28 {
+			status = "disabled";
+		};
+		frc_larb43: frc_larb43 {
+			status = "disabled";
+		};
+		frc_larb44: frc_larb44 {
+			status = "disabled";
+		};
+		frc_larb52: frc_larb52 {
+			status = "disabled";
+		};
+	};
+	bw_dip: bw_dip {
+		status = "disabled";
+		dip_larb2: dip_larb2 {
+			status = "disabled";
+		};
+		dip_larb39: dip_larb39 {
+			status = "disabled";
+		};
+		dip_larb40: dip_larb40 {
+			status = "disabled";
+		};
+		dip_larb41: dip_larb41 {
+			status = "disabled";
+		};
+		dip_larb42: dip_larb42 {
+			status = "disabled";
+		};
+		dip_larb45: dip_larb45 {
+			status = "disabled";
+		};
+	};
+	bw_demod: bw_demod {
+		status = "disabled";
+		demod_larb7: demod_larb7 {
+			status = "disabled";
+		};
+		demod_larb12: demod_larb12 {
+			status = "disabled";
+		};
+	};
+	bw_bist: bw_bist {
+		status = "disabled";
+		bist_larb0: bist_larb0 {
+			status = "disabled";
+		};
+		bist_larb1: bist_larb1 {
+			status = "disabled";
+		};
+		bist_larb2: bist_larb2 {
+			status = "disabled";
+		};
+		bist_larb5: bist_larb5 {
+			status = "disabled";
+		};
+		bist_larb6: bist_larb6 {
+			status = "disabled";
+		};
+		bist_larb8: bist_larb8 {
+			status = "disabled";
+		};
+		bist_larb11: bist_larb11 {
+			status = "disabled";
+		};
+		bist_larb12: bist_larb12 {
+			status = "disabled";
+		};
+		bist_larb13: bist_larb13 {
+			status = "disabled";
+		};
+		bist_larb19: bist_larb19 {
+			status = "disabled";
+		};
+		bist_larb21: bist_larb21 {
+			status = "disabled";
+		};
+		bist_larb29: bist_larb29 {
+			status = "disabled";
+		};
+		bist_larb44: bist_larb44 {
+			status = "disabled";
+		};
+		bist_larb52: bist_larb52 {
+			status = "disabled";
+		};
+	};
+	bw_aud_dsp: bw_aud_dsp {
+		status = "disabled";
+		aud_dsp_larb4: aud_dsp_larb4 {
+			status = "disabled";
+		};
+		aud_dsp_larb7: aud_dsp_larb7 {
+			status = "disabled";
+		};
+		aud_dsp_larb12: aud_dsp_larb12 {
+			status = "disabled";
+		};
+	};
+	bw_apu: bw_apu {
+		status = "disabled";
+		apu_common3: apu_common3 {
+			status = "disabled";
+		};
+		apu_common4: apu_common4 {
+			status = "disabled";
+		};
+	};
+	bw_od: bw_od {
+		status = "disabled";
+		od_larb8: od_larb8 {
+			status = "disabled";
+		};
+	};
+	bw_cpu: bw_cpu {
+		status = "disabled";
+	};
+	bw_gop: bw_gop {
+		status = "disabled";
+		gop_larb8: gop_larb8 {
+			status = "disabled";
+		};
+		gop_larb48: gop_larb48 {
+			status = "disabled";
+		};
+		gop_larb49: gop_larb49 {
+			status = "disabled";
+		};
+		gop_larb50: gop_larb50 {
+			status = "disabled";
+		};
+		gop_larb51: gop_larb51 {
+			status = "disabled";
+		};
+	};
+	bw_gpd: bw_gpd {
+		status = "disabled";
+		gpd_larb5: gpd_larb5 {
+			status = "disabled";
+		};
+	};
+
+	bw_gpu: bw_gpu {
+		status = "disabled";
+	};
+	bw_graphic: bw_graphic {
+		status = "disabled";
+		graphic_larb5: graphic_larb5 {
+			status = "disabled";
+		};
+		graphic_larb6: graphic_larb6 {
+			status = "disabled";
+		};
+	};
+	bw_peri: bw_peri {
+		status = "disabled";
+		peri_larb2: peri_larb2 {
+			status = "disabled";
+		};
+		peri_larb5: peri_larb5 {
+			status = "disabled";
+		};
+		peri_larb6: peri_larb6 {
+			status = "disabled";
+		};
+		peri_larb11: peri_larb11 {
+			status = "disabled";
+		};
+		peri_larb12: peri_larb12 {
+			status = "disabled";
+		};
+	};
+	bw_ref_emi: bw_ref_emi {
+		status = "disabled";
+	};
+	bw_sum: bw_sum {
+		status = "disabled";
+	};
+};

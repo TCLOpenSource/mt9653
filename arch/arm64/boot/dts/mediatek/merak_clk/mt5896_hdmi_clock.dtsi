@@ -1,0 +1,39 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+
+/ {
+	hdmi_mux_gate: hdmi {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_mux_gate";
+		num = <CLK_HDMI_NR>;
+
+		mcu_hdmi_int_ck {
+			id = <CLK_HDMI_MCU_HDMI_INT_CK>;
+			parents = "xtal_24m_ck","mcu_hdmi_ck";
+		};
+
+	};
+	hdmirx_clkmg: hdmirx_swen {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_gate_en";
+		num = <CLK_HDMI_EN_NR>;
+
+		clk_xtal_hdmi_122mac {
+			id = <CLK_HDMI_EN_CLK_XTAL_HDMI_122MAC>;
+			parent = "clk_xtal_hdmi_122mac_int_ck";
+		};
+
+		clk_r2_hdmi2mac {
+			id = <CLK_HDMI_EN_CLK_R2_HDMI2MAC>;
+			parent = "clk_r2_hdmi2mac_int_ck";
+		};
+
+		smi2mac {
+			id = <CLK_HDMI_EN_SMI2MAC>;
+			parent = "smi2mac_int_ck";
+		};
+	};
+};

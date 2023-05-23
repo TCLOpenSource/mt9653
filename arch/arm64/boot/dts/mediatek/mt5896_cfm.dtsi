@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: GPL-2.0
+//
+// Copyright (c) 2020 MediaTek Inc.
+//
+
+/ {
+
+	mtk_cfm: mtk-cfm {
+		compatible = "mediatek,cfm";
+		vritual_fe_id = <0>;
+		vritual_fe_num = <2>;
+		/* null == 0xffff */
+		cfm_group = <&cfm_node0 &cfm_node1>;
+
+		cfm_node0: cfm_node0 {
+			demods = <0x0000 0xffff>;
+			tuners = <0x6056 0x6057>;
+			lnbs = <0x5678>;
+		};
+
+		cfm_node1: cfm_node1 {
+			demods = <0x0001 0xffff>;
+			tuners = <0x6058 0xffff>;
+			lnbs = <0xffff>;
+		};
+	};
+
+};

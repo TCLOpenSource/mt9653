@@ -1,0 +1,16 @@
+Device-Tree bindings for MediaTek MT5896 SoC based SARADC
+
+Required properties:
+- compatible	    : Should be
+			"mt5896,saradc" : for MT5896 SoC
+- reg 		    : Specifies base physical address and size of the registers;
+
+
+Example:
+
+	saradc {
+		compatible = "mt5896,saradc";
+		interrupt-parent = <&mtk_intc2_irq_high>;
+		reg = <0 0x1f020a00 0 0x200>;
+		interrupts = <0x0 0x10 0x4>;
+	};

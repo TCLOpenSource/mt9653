@@ -1,0 +1,8 @@
+. ${ROOT_DIR}/${KERNEL_VER}/build.config.aarch64
+. ${ROOT_DIR}/${KERNEL_VER}/build.config.mtktv
+
+POST_DEFCONFIG_CMDS="
+pushd ${KERNEL_DIR} && \
+KCONFIG_CONFIG=${OUT_DIR}/${KERNEL_DIR}/.config scripts/kconfig/merge_config.sh -m -r ${OUT_DIR}/${KERNEL_DIR}/.config arch/${ARCH}/configs/${KERNEL_CONFIG_FILENAME} && \
+make CC=${CC} LD=${LD} O=${OUT_DIR}/${KERNEL_DIR} olddefconfig && popd
+"

@@ -1,0 +1,99 @@
+config MTK_THERMAL
+	tristate "Mediatek thermal drivers"
+	depends on THERMAL_OF
+	help
+	  This is the option for Mediatek thermal software
+	  solutions. Please enable corresponding options to
+	  get temperature information from thermal sensors or
+	  turn on throttle mechaisms for thermal mitigation.
+
+if MTK_THERMAL
+
+config MTK_SOC_THERMAL
+	tristate "Temperature sensor driver for mediatek SoCs"
+	depends on HAS_IOMEM
+	depends on NVMEM
+	depends on RESET_CONTROLLER
+	help
+	  Enable this option if you want to get SoC temperature
+	  information for Mediatek platforms. This driver
+	  configures thermal controllers to collect temperature
+	  via AUXADC interface.
+
+config MTK_SOC_THERMAL_LVTS
+        tristate "LVTS (Low voltage thermal sensor) driver for Mediatek SoCs"
+        depends on HAS_IOMEM
+        depends on NVMEM
+        depends on RESET_TI_SYSCON
+        help
+          Enable this option if you want to get SoC temperature
+          information for Mediatek platforms. This driver
+          configures LVTS thermal controllers to collect temperatures
+          via ASIF interface.
+
+config MTK_PMIC_THERMAL
+	tristate "PMIC thermal sensor driver for Mediatek SoCs"
+	depends on MT635X_EFUSE
+	depends on MEDIATEK_MT635X_AUXADC
+	help
+	  Enable this option if you want to get PMIC temperature
+	  for Mediatek platforms.
+	  This driver reads the voltage value from PMIC AUXADC channels,
+	  and converts raw value to PMIC temperature via PMIC efuse data.
+
+config MTK_MD_THERMAL
+	tristate "Mediatek Modem cooling framework"
+	depends on MTK_ECCCI_DRIVER
+	help
+	  Enable this option to turn on modem throttle mechanisms
+	  for Mediatek platforms.
+	  This option depends on MTK_ECCCI_DRIVER which is the
+	  IPC interface between AP SoC and modem.
+
+if MTK_MD_THERMAL
+
+config MTK_MD_THERMAL_MUTT
+	tristate "Mediatek modem uplink throughput throttle driver"
+	help
+	  Enable this option if you want to use modem
+	  uplink throughput throttle cooler for Mediatek
+	  platforms.
+	  The throttling levels are defined in modem.
+
+config MTK_MD_THERMAL_TX_POWER
+	tristate "Mediatek modem TX power throttle driver"
+	help
+	  Enable this option if you want use modem TX power
+	  throttle cooler for Mediatek platforms.
+	  This feature is only supported for mt6297 or later
+	  modem platforms.
+
+config MTK_MD_THERMAL_SCG_OFF
+	tristate "Mediatek modem SCG cell off driver"
+	help
+	  Enable this option if you want use modem SCG cell
+	  throttle cooler for Mediatek platforms.
+	  This feature is only supported for mt6297 or later
+	  modem platforms.
+
+config MTK_MD_THERMAL_DEBUGFS
+	bool "Mediatek modem throttle debugfs driver"
+	depends on DEBUG_FS
+	help
+	  Enable this option if you want to use Mediatek
+	  modem coolers debugfs.
+	  This option should be enabled only for HW power
+	  evaluation purpose.
+endif
+
+config MTK_THERMAL_TRACE
+	tristate "Mediatek thermal ftrace driver"
+	depends on FTRACE
+	depends on NET
+	help
+	  Enable this option if you want use ftrace for thermal
+	  driver debugging on Mediatek platforms.
+	  This driver creates trace points and a periodical timer
+	  for network throughput calculation.
+
+endif

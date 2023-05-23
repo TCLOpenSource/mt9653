@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# Counter devices
+#
+
+menuconfig MTKTV_WS_TSF
+	tristate "ws_tsf support"
+	default m
+	help
+	  This enables wireless speaker getting tsf time feature.

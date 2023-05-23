@@ -1,0 +1,129 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+
+/ {
+	/* for merak clk, overlay by dto */
+	miic_mux_gate: miic_mg {
+	};
+
+	miic_nonpm_OOXX: miic_nonpm_swen {
+	};
+
+	/* mheg5 mux gate */
+	miic_mheg5_mux_gate: miic2miic_int_ck {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_mux_gate";
+		num = <CLK_MHEG5GEN_MIIC_MUX_GATE_NR>;
+
+		miic0_int_ck {
+			id = <CLK_MHEG5GEN_MIIC0_INT_CK>;
+			parents = "miic0_ck";
+		};
+
+		miic1_int_ck {
+			id = <CLK_MHEG5GEN_MIIC1_INT_CK>;
+			parents = "miic1_ck";
+		};
+
+		miic2_int_ck {
+			id = <CLK_MHEG5GEN_MIIC2_INT_CK>;
+			parents = "miic2_ck";
+		};
+
+		miic3_int_ck {
+			id = <CLK_MHEG5GEN_MIIC3_INT_CK>;
+			parents = "miic3_ck";
+		};
+	};
+
+	/* sw_en */
+	miic_enable_clock_list: miic_enable_clock_swen {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_gate_en";
+		num = <CLK_MIIC_NONPM_EN_NR>;
+
+		smi2mcu_miic0 {
+			id = <CLK_MIIC_NONPM_EN_SMI2MCU_MIIC0>;
+			parent = "mheg5_smi_int_ck";
+		};
+
+		smi2mcu_miic1 {
+			id = <CLK_MIIC_NONPM_EN_SMI2MCU_MIIC1>;
+			parent = "mheg5_smi_int_ck";
+		};
+
+		smi2mcu_miic2 {
+			id = <CLK_MIIC_NONPM_EN_SMI2MCU_MIIC2>;
+			parent = "mheg5_smi_int_ck";
+		};
+
+		smi2mcu_miic3 {
+			id = <CLK_MIIC_NONPM_EN_SMI2MCU_MIIC3>;
+			parent = "mheg5_smi_int_ck";
+		};
+
+		xtal_12m2mcu_miic0 {
+			id = <CLK_MIIC_NONPM_EN_XTAL_12M2MCU_MIIC0>;
+			parent = "mheg5_xtal_12m_int_ck";
+		};
+
+		xtal_12m2mcu_miic1 {
+			id = <CLK_MIIC_NONPM_EN_XTAL_12M2MCU_MIIC1>;
+			parent = "mheg5_xtal_12m_int_ck";
+		};
+
+		xtal_12m2mcu_miic2 {
+			id = <CLK_MIIC_NONPM_EN_XTAL_12M2MCU_MIIC2>;
+			parent = "mheg5_xtal_12m_int_ck";
+		};
+
+		xtal_12m2mcu_miic3 {
+			id = <CLK_MIIC_NONPM_EN_XTAL_12M2MCU_MIIC3>;
+			parent = "mheg5_xtal_12m_int_ck";
+		};
+
+		mcu_nonpm2mcu_miic0 {
+			id = <CLK_MIIC_NONPM_EN_MCU_NONPM2MCU_MIIC0>;
+			parent = "mheg5_mcu_nonpm_int_ck";
+		};
+
+		mcu_nonpm2mcu_miic1 {
+			id = <CLK_MIIC_NONPM_EN_MCU_NONPM2MCU_MIIC1>;
+			parent = "mheg5_mcu_nonpm_int_ck";
+		};
+
+		mcu_nonpm2mcu_miic2 {
+			id = <CLK_MIIC_NONPM_EN_MCU_NONPM2MCU_MIIC2>;
+			parent = "mheg5_mcu_nonpm_int_ck";
+		};
+
+		mcu_nonpm2mcu_miic3 {
+			id = <CLK_MIIC_NONPM_EN_MCU_NONPM2MCU_MIIC3>;
+			parent = "mheg5_mcu_nonpm_int_ck";
+		};
+
+		miic02mcu_miic0 {
+			id = <CLK_MIIC_NONPM_EN_MIIC02MCU_MIIC0>;
+			parent = "miic0_int_ck";
+		};
+
+		miic12mcu_miic1 {
+			id = <CLK_MIIC_NONPM_EN_MIIC12MCU_MIIC1>;
+			parent = "miic1_int_ck";
+		};
+
+		miic22mcu_miic2 {
+			id = <CLK_MIIC_NONPM_EN_MIIC22MCU_MIIC2>;
+			parent = "miic2_int_ck";
+		};
+
+		miic32mcu_miic3 {
+			id = <CLK_MIIC_NONPM_EN_MIIC32MCU_MIIC3>;
+			parent = "miic3_int_ck";
+		};
+	};
+};
+

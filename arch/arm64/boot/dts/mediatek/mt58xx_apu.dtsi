@@ -1,0 +1,81 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	mdla_opp_table0: mdla_opp_table0 {
+		compatible = "operating-points-v2";
+	};
+
+	mdla_opp_table1: mdla_opp_table1 {
+		compatible = "operating-points-v2";
+	};
+
+	apusys_debug: apusys_debug {
+		compatible = "mediatek,mt6885-debug";
+	};
+
+	mtk_apusys: apusys_sysfs {
+	};
+
+	apusys_power: apusys_power {
+		compatible = "mediatek,apusys_power";
+		mdla: APUMDLA {
+			compatible = "mtk688x,apumdla";
+			/*vmdla-supply = <&mt6359p_vproc2_reg>;*/
+			operating-points-v2 = <&mdla_opp_table0>, <&mdla_opp_table1>;
+			sys-mux = <&topgen_mux_gate CLK_TOPGEN_AIA_MDLA_CK>;
+			top-mux = <&topgen_mux_gate 1>;
+			top-pll = <&topgen_mux_gate 2>;
+			/*devfreq = <&apuiommu>;*/
+			gov = "apupassive";
+			depth = <1>;
+			power_ctrl = <1>;
+			APUMDLA@0 {
+				compatible = "mtk688x,apumdla0";
+				operating-points-v2 = <&mdla_opp_table0>, <&mdla_opp_table1>;
+				top-mux = <&topgen_mux_gate CLK_TOPGEN_AIA_MDLA_CK>;
+				devfreq = <&mdla>;
+				gov = "apupassive-pe";
+				io-channels = <&saradc 14>;
+				io-channel-names = "adc14";
+				set_regul = <0>;
+				depth = <0>;
+			};
+			user: APUCB {
+				compatible = "mediatek,apusys_cb";
+			};
+		};
+	};
+
+	apusys_comm: apusys_comm {
+		compatible = "mediatek,apusys_comm";
+		iommus = <&iommu 0>;
+	};
+
+	mtk_mdla: mdla {
+		compatible = "mtk,mt5896-mdla";
+		reg =	<0x0 0x1c506000 0x0 0x1000>,    /* mdla config	*/
+			<0x0 0x1c508000 0x0 0x2000>,    /* mdla command	*/
+			<0x0 0x1c507000 0x0 0x0800>,    /* mdla biu	*/
+			<0x0 0x1a200000 0x0 0x100000>,  /* GSM		*/
+			<0x0 0x1d000000 0x0 0x100000>;  /* GSM		*/
+		interrupt-parent = <&mtk_intc1_irq_high>;
+		interrupts = <0x0 0x10 0x4>;
+	};
+
+	mtk_edmc: edmc {
+		compatible = "mtk,edma";
+		sub_nr = <0x1>;
+		mediatek,edma-sub = <&mtk_edmc0>;
+	};
+
+	mtk_edmc0: edmc0@1c504000 {
+		compatible = "mtk,edma-sub";
+		reg = <0x0 0x1c504000 0x0 0x1000>;
+		interrupt-parent = <&mtk_intc1_irq_high >;
+		interrupts = <0x0 0x12 0x4>;
+	};
+
+};

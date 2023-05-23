@@ -1,0 +1,6 @@
+config MEDIATEK_DVB_CI
+	tristate "Mediatek DVB CI device"
+	default n
+	help
+	  To enable support for mediatek DVB CI device drivers.
+

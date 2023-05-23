@@ -1,0 +1,53 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+	/ {
+	earc_fix: earc_fix {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_fix";
+		num = <CLK_EARC_FIX_N>;
+
+		earc_atop_txpll_ck {
+			id = <CLK_EARC_EARC_ATOP_TXPLL_CK>;
+			clock-frequency = <4294>;
+		};
+
+		earc_atop_audio_ck {
+			id = <CLK_EARC_EARC_ATOP_AUDIO_CK>;
+			clock-frequency = <4294>;
+		};
+
+	};
+
+	earc_mux_gate: earc {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_mux_gate";
+		num = <CLK_EARC_NR>;
+
+		hdmirx_earc_debounce_int_ck {
+			id = <CLK_HDMIRX_EARC_DEBOUNCE_INT_CK>;
+			parents = "mpll_vcod4_216m_ck";
+		};
+
+		hdmirx_earc_dm_prbs_int_ck {
+			id = <CLK_HDMIRX_EARC_DM_PRBS_INT_CK>;
+			parents = "earc_atop_txpll_ck","mpll_vcod8_108m_ck";
+		};
+
+		hdmirx_earc_cm_int_ck {
+			id = <CLK_HDMIRX_EARC_CM_INT_CK>;
+			parents = "xtal_12m_ck","mpll_vcod4_216m_ck";
+		};
+
+		hdmirx_earc_audio_int_ck {
+			id = <CLK_HDMIRX_EARC_AUDIO_INT_CK>;
+			parents = "earc_atop_txpll_ck","mpll_vcod8_108m_ck";
+		};
+
+		earc_earc_audio_int_ck {
+			id = <CLK_EARC_EARC_AUDIO_INT_CK>;
+			parents = "xtal_12m_ck","earc_atop_audio_ck";
+		};
+	};
+};

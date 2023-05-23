@@ -1,0 +1,8 @@
+// SPDX-License-Identifier: GPL-2.0
+
+/ {
+	extcon_gpio: extcon-headset {
+		compatible = "mediatek,extcon-headset";
+		extcon-id = <21>; /* EXTCON_JACK_HEADPHONE */
+	};
+};

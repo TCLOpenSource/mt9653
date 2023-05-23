@@ -1,0 +1,46 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	mtk_earc {
+		compatible = "mediatek,earc";
+		earc_port_sel = <0x2>;
+		earc_bank_num = <0x2>;
+		ioremap = <0x0 0x1DC48000 0x0 0x200>,	/* 0xE240 */
+				<0x0 0x1DC4E400 0x0 0x200>;	/* adc_dtop(2401H)*/
+		test_earc = <0xAA>;
+		fixed_dd_index = <0x8>; /*specify device num  0xff:not specify*/
+		support_mode = <0x1>; /* None(0), eARC(1), ARC(2) */
+		clocks =
+				<&earc_OOXX CLK_EARC_EN_EARC_AUDIO2EARC_DMACRO>,
+				<&earc_OOXX CLK_EARC_EN_EARC_AUDIO2EARC>,
+				<&earc_OOXX CLK_EARC_EN_EARC_CM2EARC>,
+				<&earc_OOXX CLK_EARC_EN_EARC_DEBOUNCE2EARC>,
+				<&earc_OOXX CLK_EARC_EN_EARC_DM_PRBS2EARC>,
+				<&earc_fix CLK_EARC_EARC_ATOP_TXPLL_CK>,
+				<&earc_fix CLK_EARC_EARC_ATOP_AUDIO_CK>,
+				<&earc_mux_gate CLK_HDMIRX_EARC_DEBOUNCE_INT_CK>,
+				<&earc_mux_gate CLK_HDMIRX_EARC_DM_PRBS_INT_CK>,
+				<&earc_mux_gate CLK_HDMIRX_EARC_CM_INT_CK>,
+				<&earc_mux_gate CLK_HDMIRX_EARC_AUDIO_INT_CK>,
+				<&earc_mux_gate CLK_EARC_EARC_AUDIO_INT_CK>;
+		clock-names =
+				"EARC_EN_EARC_AUDIO2EARC_DMACRO",
+				"EARC_EN_EARC_AUDIO2EARC",
+				"EARC_EN_EARC_CM2EARC",
+				"EARC_EN_EARC_DEBOUNCE2EARC",
+				"EARC_EN_EARC_DM_PRBS2EARC",
+				"EARC_EARC_ATOP_TXPLL_CK",
+				"EARC_EARC_ATOP_AUDIO_CK",
+				"HDMIRX_EARC_DEBOUNCE_INT_CK",
+				"HDMIRX_EARC_DM_PRBS_INT_CK",
+				"HDMIRX_EARC_CM_INT_CK",
+				"HDMIRX_EARC_AUDIO_INT_CK",
+				"EARC_EARC_AUDIO_INT_CK";
+		earc_capability: capability {
+		};
+	};
+
+};

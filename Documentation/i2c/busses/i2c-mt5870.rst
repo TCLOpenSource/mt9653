@@ -1,0 +1,37 @@
+========================
+Kernel driver i2c-mt5870
+========================
+
+Supported adapters:
+  * MediaTek DTV SOC mt5870
+
+Authors:
+	MediaTek DTV BSP team
+
+Description
+-----------
+
+This is the driver for the I2C host controller of MediaTek DTV SOC chip mt5870.
+
+Features
+--------
+
+This host controller have specific parameters
+1. Start condition count, ie. clock(s) between SDA falling and SCL falling.
+2. Stop condition count, ie. clock(s) between SCL rising and SDA rising
+3. SDA hold time, ie. clock(s) between falling edge SCL and SDA output
+4. Data latch timing
+5. Scl stretch en/dis-able, this parameter only setup according dts property.
+
+These parameters may setup by properties of device node in device tree or
+attribute files in following path:
+1. For start condition count:
+	/sys/class/i2c-adapter/i2c-N/device/start_count
+2. For Stop condition count:
+	/sys/class/i2c-adapter/i2c-N/device/stop_count
+3. For SDA hold time
+	/sys/class/i2c-adapter/i2c-N/device/sda_count
+4. For Data latch timing
+	/sys/class/i2c-adapter/i2c-1/device/latch_count
+5. For Scl stretch (read only for checking property)
+        /sys/class/i2c-adapter/i2c-N/device/scl_stretch

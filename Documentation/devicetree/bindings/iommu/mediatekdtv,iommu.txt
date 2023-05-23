@@ -1,0 +1,29 @@
+SOC MACHINE for mt5870
+
+Required properties:
+- compatible: "mediatek,dtv-iommu"
+- iommu-cells : must be 1
+
+Example:
+	iommu: iommu {
+		compatible = "mediatek,dtv-iommu";
+		#iommu-cells = <1>;
+	};
+
+Example for a client device:
+	iommu_test: iommu_test {
+		compatible = "mediatek,dtv-iommu-test";
+		iommus = <&iommu 0>;
+	};
+
+	ion_iommu: ion {
+		compatible = "mediatek,dtv-iommu-ion";
+		iommus = <&iommu 0>;
+	};
+Example for iommu cma:
+	iommu-cma0 {
+		compatible = "mediatek,dtv-iommu-cma0";
+	};
+	iommu-cma1 {
+		compatible = "mediatek,dtv-iommu-cma1";
+	};

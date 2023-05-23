@@ -1,0 +1,17 @@
+* MTK IR_IN device tree bindings
+
+Registers a ir_in device as irda input device.
+
+Required properties:
+- compatible: should be "mtk-ir"
+- reg: ir_in register bank to the physical ir_in device
+- interrupts: ir_in irq number.
+
+Example:
+	ir_in: ir_in@1c008000{
+		compatible = "mtk-ir";
+		reg = <0x0 0x1c008000 0 0x80>;
+		interrupt-parent = <&mtk_intc2_fiq_high>;
+		interrupts = <0x0 0x15 0x4>;
+	};
+

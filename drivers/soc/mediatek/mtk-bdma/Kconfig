@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: GPL-2.0-only
+
+config MTK_BDMA
+	tristate "MediaTek BYTE DMA controller support"
+	help
+	  Enable support for Byte DMA controller on MediaTek
+	  SoCs.
+
+	  This controller provides the channels which is dedicated to
+	  memory to memory or pattern search.

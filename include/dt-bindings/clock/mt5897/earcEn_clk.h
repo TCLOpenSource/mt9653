@@ -1,0 +1,9 @@
+/* SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause) *//* * Copyright (c) 2020 MediaTek Inc. */
+
+#define CLK_EARC_EN_EARC_AUDIO2EARC_DMACRO	1
+#define CLK_EARC_EN_EARC_AUDIO2EARC	2
+#define CLK_EARC_EN_EARC_CM2EARC	3
+#define CLK_EARC_EN_EARC_DEBOUNCE2EARC	4
+#define CLK_EARC_EN_EARC_DM_PRBS2EARC	5
+#define CLK_EARC_EN_NR	6
+

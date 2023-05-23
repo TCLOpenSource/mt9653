@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+
+config DVB_M7332
+	tristate "MTK M7332 tuner + demodulator"
+#	depends on DVB_CORE && SPI
+	default m
+#	default m if !MEDIA_SUBDRV_AUTOSELECT
+	help
+	  Say Y when you want to support this frontend.

@@ -1,0 +1,8 @@
+config MTK_REALTIME_FRAMEWORK
+	tristate "MTK Realtime Framework Kernel Module"
+	help
+	Say yes here to add support for the MediaTek realtime framework fuunctions.
+
+
+
+

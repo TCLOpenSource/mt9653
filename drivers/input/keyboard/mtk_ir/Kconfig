@@ -1,0 +1,63 @@
+config MTK_TV_IR_IN
+	tristate "MTK IR_IN Driver"
+	default y
+	help
+	  Say Y here, MTK IR decoder driver function.
+
+	  Say N if you do not use mtk-ir.
+
+	  This will make mrk-ir to hook input
+	  subsystem and support input event.
+
+menu "MTK TV IR_IN Config"
+	depends on MTK_TV_IR_IN
+
+config MTK_TV_IR_DYNAMIC_CONFIG
+	depends on MTK_TV_MIRC_INPUT_DEVICE
+	tristate "load ir config(header,protocol,keymap)"
+	default n
+	help
+	  Say Y here to support external keymap.
+
+	  Say N if you do not use ir_config.ini.
+
+	  Add ir_config.ini for customer keymap
+	  and support data separation.
+
+config MTK_TV_IR_CONFIG_PATH
+	depends on MTK_TV_IR_DYNAMIC_CONFIG
+	string "path to ir config"
+	default "/config/ir_config.ini"
+	help
+	  Please set the path to ir_config.ini.
+
+	  for example, add file path to
+	  /application/config/ir_config.ini.
+
+config MTK_TV_MIRC_INPUT_DEVICE
+	bool "IR Key send to input subsystem"
+	default y
+        help
+	  Say Y hefe, MTK ir will support input subsystem.
+
+	  Say N if you do not use input event.
+
+	  A event node will be created at /dev/input/eventX
+	  and the input event of mtk-ir is enabled.
+
+config MTK_TV_IR_DISABLE_REPEAT
+	bool "Disable IR repeat key"
+	default n
+	help
+	  Set Y to bypass repeat key.
+
+	  Say N if you need to setup repeat in input event.
+
+	  It will disable repeat bit of this event node
+	  from input subsystem.
+
+if MTK_TV_MIRC_INPUT_DEVICE
+source "drivers/input/keyboard/mtk_ir/keymaps/Kconfig"
+endif
+
+endmenu

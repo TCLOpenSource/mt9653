@@ -1,0 +1,82 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+/ {
+	scsr_mux_gate: scsr {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_mux_gate";
+		num = <CLK_SCSR_NR>;
+
+		scsr_xtal_12m_int_ck {
+			id = <CLK_SCSR_XTAL_12M_INT_CK>;
+			parents = "xtal_12m_ck";
+		};
+
+		scsr_xtal_24m_int_ck {
+			id = <CLK_SCSR_XTAL_24M_INT_CK>;
+			parents = "xtal_24m_ck";
+		};
+
+		scsr_mcu_nonpm_int_ck {
+			id = <CLK_SCSR_MCU_NONPM_INT_CK>;
+			parents = "mcu_nonpm_ck";
+		};
+
+		scsr_smi_int_ck {
+			id = <CLK_SCSR_SMI_INT_CK>;
+			parents = "smi_ck";
+		};
+
+		scsr_mcu_xc_int_ck {
+			id = <CLK_SCSR_MCU_XC_INT_CK>;
+			parents = "mcu_sc_ck";
+		};
+
+		scsr_xc_fs_int_ck {
+			id = <CLK_SCSR_XC_FS_INT_CK>;
+			parents = "xc_fs_ck";
+		};
+
+		scsr_xc_fn_int_ck {
+			id = <CLK_SCSR_XC_FN_INT_CK>;
+			parents = "xc_fn_ck";
+		};
+
+		xc_aisr_int_ck {
+			id = <CLK_SCSR_XC_AISR_INT_CK>;
+			parents = "xc_fn_ck","xc_630m_ck";
+		};
+
+		xc_srs_int_ck {
+			id = <CLK_SCSR_XC_SRS_INT_CK>;
+			parents = "xc_srs_ck";
+		};
+
+		xc_sr_sram_share_int_ck {
+			id = <CLK_SCSR_XC_SR_SRAM_SHARE_INT_CK>;
+			parents = "xc_srs_ck","xc_fn_ck","xc_630m_ck","DUMMY_MIMI";
+		};
+
+		xc_sr_alai_int_ck {
+			id = <CLK_SCSR_XC_SR_ALAI_INT_CK>;
+			parents = "smi_ck","xc_fs_ck";
+		};
+
+		aisr_sram_int_ck {
+			id = <CLK_SCSR_AISR_SRAM_INT_CK>;
+			parents = "xc_fn_ck","smi_ck","xc_630m_ck","DUMMY_MIMI";
+		};
+
+		aisr_sram_ph_1_int_ck {
+			id = <CLK_SCSR_AISR_SRAM_PH_1_INT_CK>;
+			parents = "xc_fn_ck","smi_ck","xc_630m_ck","DUMMY_MIMI";
+		};
+
+		aisr_hvsp_sram_int_ck {
+			id = <CLK_SCSR_AISR_HVSP_SRAM_INT_CK>;
+			parents = "xc_fn_ck","smi_ck","xc_630m_ck","DUMMY_MIMI";
+		};
+
+		};
+};

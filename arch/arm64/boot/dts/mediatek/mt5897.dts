@@ -1,0 +1,175 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+/dts-v1/;
+
+#include "mt5897.dtsi"
+
+/ {
+	model = "MediaTek MT5897";
+	compatible = "mediatek,mt5897";
+
+	chosen {
+		bootargs = "console=ttyS0,38400 root=/dev/mmcblk0p5 rootfstype=ext4 \
+		rootflags=noblock_validity rw rootwait init=/init LX_MEM=0x11D00000 \
+		EMAC_MEM=0x00100000 DRAM_LEN=0x40000000 LX_MEM2=0x43000000,0x1B500000 \
+		BOOT_MODE=EMMC FLASH_TYPE=EMMC";
+	};
+
+	lx_mem: lx_memory {
+		device_type = "memory";
+	};
+
+	lx_mem2: lx_memory2 {
+		device_type = "memory";
+	};
+
+	lx_mem3: lx_memory3 {
+		device_type = "memory";
+	};
+
+	lx_mem4: lx_memory4 {
+		device_type = "memory";
+	};
+
+	memory_info: memory_info {
+		cpu_emi0_base = <0x20000000>;
+		emi0_base_addr = <0x00000000>;
+	};
+
+	reserved_memory: reserved-memory {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+
+		reserve-optee-entry {
+			compatible = "reserve-memory-optee-entry";
+			reg = <0 0x20201000 0 0x4000>;
+		};
+
+		default_cma_range: default_cma {
+			compatible = "shared-dma-pool";
+			reusable;
+			linux,cma-default;
+		};
+
+		cma_16: cma_16 {
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+		cma_17: cma_17 {
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+		cma_18: cma_18 {
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+		cma_19: cma_19 {
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+		cma_20: cma_20 {
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+		cma_21: cma_21 {
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+		cma_22: cma_22 {
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+		cma_23: cma_23 {
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+		cma_24: cma_24 {
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+		cma_25: cma_25 {
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+		cma_26: cma_26 {
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+		cma_27: cma_27 {
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+		cma_28: cma_28 {
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+		cma_29: cma_29 {
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+		cma_30: cma_30 {
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+		cma_31: cma_31 {
+			compatible = "shared-dma-pool";
+			reusable;
+		};
+
+		hwi2c_mem: hwi2c_mem {
+		};
+
+		pmu_vdev0vring0: vdev0vring0@pmu0 {
+		};
+
+		pmu_vdev0vring1: vdev0vring1@pmu1 {
+		};
+
+		pmu_vdev0buffer: vdev0buffer@pmu2 {
+		};
+
+		pmu_rscshm: rscshm@pmu3 {
+		};
+
+		pmu_mspi_shm: pmu_mspi_shm@pmu4 {
+		};
+
+		pqu_dma_pool: pqu_dma_pool@pqu0 {
+		};
+
+		frc_dma_pool: frc_dma_pool@frc0 {
+		};
+
+		ramoops: ramoops@24000000 {
+			compatible = "ramoops";
+			reg = <0 0x24000000 0 0x100000>;
+			console-size = <0x80000>;
+			ftrace-size  = <0x10000>;
+			pmsg-size    = <0x40000>;
+			record-size  = <0x10000>;
+		};
+
+	};
+
+	odm: odm {
+		/* reserved for overlay by odm */
+	};
+};

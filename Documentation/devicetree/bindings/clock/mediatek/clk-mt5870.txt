@@ -1,0 +1,133 @@
+Device Tree Clock bindings for MediaTek mt5870
+
+This binding uses the common clock binding[1].
+
+[1] Documentation/devicetree/bindings/clock/clock-bindings.txt
+
+Required properties:
+- compatible: shall be one of the following:
+	"mediatek,dtv_clk_fix":
+		mediatek dtv fix rate clk group
+
+	"mediatek,dtv_clk_fix_factor":
+		mediatek dtv fix factor clk group
+
+	"mediatek,dtv_clk_mux_gate":
+		mediatek dtv mux-gate composite clk group
+
+	"mediatek,mtk_dtv_clk_gate_en":
+		mediatek dtv enable gate clk group
+
+- #clock-cells: shall be 1
+
+- num: clock number in the group
+
+Required child node for fix rate clk group:
+
+	Each child node indicates a fix rate clk in this group
+
+	Required properties:
+	- clock-frequency: clk freq(MHz) of the clock. The MAX num is 4294.
+	- id: identity number of clock in corresponding provider
+
+For example:
+	topgen_fix: top-gen_fix {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_fix";
+		num = <5>;
+
+		dmdpll_clk {
+			id = <12>;
+			clock-frequency = <864>;
+		};
+	};
+
+Required child node for fix factor clk group:
+
+	Each child node indicates the parent clock with some different outputs of specific fix
+	factor dividers. The outputs, shown as child nodes of the parent clock node, are the
+	fix factor clocks of the group.
+
+	Required properties of fix factor clk node:
+	- id: identity number of clock in corresponding provider
+	- div_factor: the multiplier and divisor
+
+For example:
+	topgen_fix_factor: top-gen_fix_factor {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_fix_factor";
+		num = <3>;
+
+		dmdpll_clk {
+			clk_432_buf {
+				id = <CLK_TOP_DMDPLL_D2>;
+				div_factor = <1 2>;
+			};
+		};
+	};
+
+	This shows that group top-gen_fix_factor has a fix-factor clock clk_432_buf with
+	parent dmdpll_clk and divider 1/2.
+
+
+Required child node for mux-gate composite clk group:
+
+	Each child node indicates a mux_gate clk in this group
+
+	Required properties:
+	- id: identity number of clock in corresponding provider
+	- reg_bank_offset: reg bank offset info
+	- BIT: control bit indicator
+	- mux_shift: start bit of mux control
+	- mux_width: bit number of mux control
+	- gate_shift: start_bit of gate conctrol
+	- parents: name list of parent clocks in order
+
+For example:
+
+	subsys_mux_gate: subsys_mg {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_mux_gate";
+		num = <CLK_SUBSYS_MG_NR>;
+
+		clk_subsys_mg_test {
+			id = <CLK_SUBSYS_MG_TEST>;
+			reg_bank_offset = <0x600 0x1>; /* bank: 0x6, 16-bit addr : 0x1 */
+			BIT = <8 15>; /* control bit 8 to 15 */
+			mux_shift = <2>; /* --> start bit of mux control */
+			mux_width = <3>; /* --> bit number of mux control */
+			gate_shift = <0>; /* --> start_bit of gate conctrol */
+			parents = "clk_172_buf", "clk_36_buf", "clk_123_buf", "clk_192_buf",
+			"clk_375k_buf", "clk_5p4_buf", "clk_evdpll_div2p5_buf";
+		};
+	};
+
+
+Required child node for enable gate clk group:
+
+	Each child node indicates a enable gate clock in this group
+
+	Required properties:
+	- id: identity number of clock in corresponding provider
+	- reg_bank_offset: reg bank offset info
+	- gate_shift: start_bit of gate conctrol
+	- parent: the parent of clock
+
+For example:
+
+	enable_test: clktest_clk_enable {
+		#clock-cells = <1>;
+		compatible = "mediatek,mtk_dtv_clk_gate_en";
+		num = <TEST_SIZE>;
+		clk_enable_ok {
+			id = <TEST_OK_INDEX>;
+			reg_bank_offset = <0x600 0x7>; /* bank: 0x6, 16-bit addr : 0x9 */
+			gate_shift = <3>;
+			parent = "clk_27_buf";
+		};
+	};
+
+
+The clock consumer should specify the desired clock by having the clock
+ID in its "clocks" phandle cell. See include/dt-bindings/clock/mt5870-clk.h
+for the full list of mt5870 clock IDs.

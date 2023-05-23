@@ -1,0 +1,15 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	gpu: gpu0@1c5e0000{
+		ip-version = /bits/ 16 <0x0200>;
+		compatible = "mtk,mali-mt5897";
+		interrupt-parent = <&mtk_intc1_irq_high>;
+		interrupts = <0x0 0x1a 0x4>, <0x0 0x1a 0x4>, <0x0 0x1a 0x4>;
+		interrupt-names = "JOB", "MMU", "GPU";
+		reg = <0x0 0x1c5e0000 0x0 0x4000>;
+	};
+};

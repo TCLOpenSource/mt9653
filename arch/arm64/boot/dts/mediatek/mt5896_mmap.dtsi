@@ -1,0 +1,295 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+
+/ {
+	mtk_mmap_device {
+		compatible = "mediatek,tv-reserved-memory";
+		cmas = <0>;
+		mtk_cma_id = <0>;
+		memory-region = <&default_cma_range &MI_TSP_SVQ_BUF>;
+	};
+
+	mtk_utopia_cma_device_1 {
+		compatible = "mediatek,tv-reserved-memory";
+		cmas = <0>;
+		mtk_cma_id = <0>;
+		memory-region = <&default_cma_range>;
+	};
+
+	mtk_utopia_cma_device_3 {
+		compatible = "mediatek,tv-reserved-memory";
+		cmas = <0>;
+		mtk_cma_id = <23>;
+		memory-region = <&cma_23>;
+	};
+
+	mtk_mmap: mmap_info {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+
+		MI_EFUSE: MI_EFUSE {
+		};
+
+		MI_ROMTABLE_BUF: MI_ROMTABLE_BUF {
+		};
+
+		MI_DRAMC_HW_TRACKING: MI_DRAMC_HW_TRACKING {
+		};
+
+		MI_TEE_LOADER: MI_TEE_LOADER {
+		};
+
+		MI_TSP_FW_BUF: MI_TSP_FW_BUF {
+		};
+
+		MI_PQU_SHMCTRL: MI_PQU_SHMCTRL {
+		};
+
+		MI_ADL_B2R: MI_ADL_B2R {
+		};
+
+		MI_GE_VQCMD_BUF: MI_GE_VQCMD_BUF {
+		};
+
+		MI_KERNEL_POOL1: MI_KERNEL_POOL1 {
+		};
+
+		MI_KERNEL1_RANGE0: MI_KERNEL1_RANGE0 {
+		};
+
+		MI_KERNEL1_RANGE1: MI_KERNEL1_RANGE1 {
+		};
+
+		MI_KERNEL1_RANGE2: MI_KERNEL1_RANGE2 {
+		};
+
+		MI_DISP_PHOTO_BUF: MI_DISP_PHOTO_BUF {
+		};
+
+		MI_MBOOT_MEM_USAGE: MI_MBOOT_MEM_USAGE {
+		};
+
+		MI_JPD_OUT: MI_JPD_OUT {
+		};
+
+		MI_JPD_READ_BUF: MI_JPD_READ_BUF {
+		};
+
+		MI_JPD_INTER_BUF: MI_JPD_INTER_BUF {
+		};
+
+		MI_HWI2C_MEM: MI_HWI2C_MEM {
+		};
+
+		EMAC_MEM: EMAC_MEM {
+		};
+
+		MI_VDEC_FRAME_BUF: MI_VDEC_FRAME_BUF {
+		};
+
+		MI_MAD_ADV_BUF: MI_MAD_ADV_BUF {
+		};
+
+		MI_MAD_SE_BUF: MI_MAD_SE_BUF {
+		};
+
+		MI_MAD_DEC_BUF: MI_MAD_DEC_BUF {
+		};
+
+		MI_AUDIO_CPU_1: MI_AUDIO_CPU_1 {
+		};
+
+		MI_AUDIO_CPU_2: MI_AUDIO_CPU_2 {
+		};
+
+		MI_PQU_FW_MEM: MI_PQU_FW_MEM {
+		};
+
+		MI_FRC_FW_MEM: MI_FRC_FW_MEM {
+		};
+
+		MI_PMU_RPMSG_VRING0: MI_PMU_RPMSG_VRING0 {
+		};
+
+		MI_PMU_RPMSG_VRING1: MI_PMU_RPMSG_VRING1 {
+		};
+
+		MI_PMU_RPMSG_VDEV: MI_PMU_RPMSG_VDEV {
+		};
+
+		MI_PMU_RPMSG_RSCTABLE: MI_PMU_RPMSG_RSCTABLE {
+		};
+
+		MI_PMU_MSPI_MEM: MI_PMU_MSPI_MEM {
+		};
+
+		MI_PQU_RPMSG_VRING0: MI_PQU_RPMSG_VRING0 {
+		};
+
+		MI_PQU_RPMSG_VRING1: MI_PQU_RPMSG_VRING1 {
+		};
+
+		MI_PQU_RPMSG_VDEV: MI_PQU_RPMSG_VDEV {
+		};
+
+		MI_PQU_SHM: MI_PQU_SHM {
+		};
+
+		MI_FRC_SHM: MI_FRC_SHM {
+		};
+
+		MI_TSP_VQ_BUF: MI_TSP_VQ_BUF {
+		};
+
+		MI_TSP_SVQ_BUF: MI_TSP_SVQ_BUF {
+		};
+
+		MI_TSP_SECT_BUF: MI_TSP_SECT_BUF {
+		};
+
+		MI_DISP_AUTO_DOWNLOAD: MI_DISP_AUTO_DOWNLOAD {
+		};
+
+		MI_MENULOAD_BUF: MI_MENULOAD_BUF {
+		};
+
+		MI_GOP_REGDMA_BASE: MI_GOP_REGDMA_BASE {
+		};
+
+		MI_MCU_DS: MI_MCU_DS {
+		};
+
+		MI_VDEC_CC_RAW_DATA: MI_VDEC_CC_RAW_DATA {
+		};
+
+		MI_VDEC_SHARE_MEM: MI_VDEC_SHARE_MEM {
+		};
+
+		MI_DISP_PQ_MEMORY: MI_DISP_PQ_MEMORY {
+		};
+
+		MI_DISP_PQ_DF_MEMORY_LAYER: MI_DISP_PQ_DF_MEMORY_LAYER {
+		};
+
+		MI_VE_FRAME_BUF: MI_VE_FRAME_BUF {
+		};
+
+		MI_MCDI_BUF: MI_MCDI_BUF {
+		};
+
+		MI_DISP_AUTO_UPLOAD: MI_DISP_AUTO_UPLOAD {
+		};
+
+		MI_ABF_BUF: MI_ABF_BUF {
+		};
+
+		MI_ZNR_BUF: MI_ZNR_BUF {
+		};
+
+		MI_CMDQ_BUF: MI_CMDQ_BUF {
+		};
+
+		MI_STR_LDR_BUF: MI_STR_LDR_BUF {
+		};
+
+		MI_ONLY_STR_BUF: MI_ONLY_STR_BUF {
+		};
+
+		MI_DISP_SRS_MEMORY: MI_DISP_SRS_MEMORY {
+		};
+
+		MI_METADATA_BUF: MI_METADATA_BUF {
+		};
+
+		MI_PQMAP_BUF: MI_PQMAP_BUF {
+		};
+
+		MI_CONTROLMAP_BUF: MI_CONTROLMAP_BUF {
+		};
+
+		MI_GOP_RPMSG: MI_GOP_RPMSG {
+		};
+
+		MI_VBI_BUF: MI_VBI_BUF {
+		};
+
+		MI_DISPOUT_DEMURA: MI_DISPOUT_DEMURA {
+		};
+
+		MI_CM4_VOICE: MI_CM4_VOICE {
+		};
+
+		MI_VOC_OWL: MI_VOC_OWL {
+		};
+
+		MI_DISPOUT_LOCAL_DIMMING: MI_DISPOUT_LOCAL_DIMMING {
+		};
+
+		MI_BOOTLOGO_BUF: MI_BOOTLOGO_BUF {
+		};
+
+		MI_EXTIN_VD_COMB_BUF: MI_EXTIN_VD_COMB_BUF {
+		};
+
+		E_MMAP_ID_IOMMU_MPU_TABLE: E_MMAP_ID_IOMMU_MPU_TABLE {
+		};
+
+		MI_HDMIRX_MEM_SHM: MI_HDMIRX_MEM_SHM {
+		};
+
+		MI_PQPARAM_METADATA: MI_PQPARAM_METADATA {
+		};
+
+		MI_STREAMON_METADATA: MI_STREAMON_METADATA {
+		};
+
+		MI_RENDER_METADATA: MI_RENDER_METADATA {
+		};
+
+		MI_MEMC_REALDATA: MI_MEMC_REALDATA {
+		};
+
+		MI_MEMC_MV_BUFFER: MI_MEMC_MV_BUFFER {
+		};
+
+		MI_PQU_DOLBY_CONFIG_MEM: MI_PQU_DOLBY_CONFIG_MEM {
+		};
+
+		MI_DV_DMA_BUF: MI_DV_DMA_BUF {
+		};
+
+		MI_DV_PYR_BUF: MI_DV_PYR_BUF{
+		};
+
+		MI_DISP_GUCD_DMA: MI_DISP_GUCD_DMA {
+		};
+
+		MI_DISP_LOCALCOLOR_DMA: MI_DISP_LOCALCOLOR_DMA {
+		};
+
+		MI_AN_RECOVERY_BUF: MI_AN_RECOVERY_BUF {
+		};
+
+		MI_KERNEL_POOL2: MI_KERNEL_POOL2 {
+		};
+
+		MI_DMD_DVBT: MI_DMD_DVBT {
+		};
+
+		E_MMAP_ID_ARMFW_MEM: E_MMAP_ID_ARMFW_MEM {
+		};
+
+		E_MMAP_ID_OPTEE_MEM: E_MMAP_ID_OPTEE_MEM {
+		};
+
+		E_MMAP_ID_HW_AES_BUF: E_MMAP_ID_HW_AES_BUF {
+		};
+
+		E_MMAP_ID_OPTEE_MEM_SHM: E_MMAP_ID_OPTEE_MEM_SHM {
+		};
+	};
+};

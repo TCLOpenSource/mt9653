@@ -1,0 +1,125 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+#include "mt5896_mmap.dtsi"
+
+/ {
+	cpuint: syscon@1c620000 {
+		compatible = "syscon";
+		reg = <0 0x1c620000 0 0x100>;
+	};
+
+	pqu_ckgen: syscon@1c204000 {
+		compatible = "syscon";
+		#pqu-clk-cells = <3>;
+		reg = <0 0x1c204000 0 0x4000>;
+	};
+
+	/*
+	 * frcpll: syscon@1c200c00 {
+	 *	compatible = "syscon";
+	 *	reg = <0 0x1c200c00 0 0x100>;
+	 *};
+	 */
+	vad_rproc: vad_rproc {
+	};
+
+	pmu_rproc: pmu_rproc {
+	};
+
+	pmu_rpmsg: pmu_rpmsg {
+		compatible = "mediatek,pmu";
+		interrupt-parent = <&mtk_intc1_fiq_high>;
+		interrupts = <0x0 0x1e 0x4>;
+		memory-region = <&pmu_vdev0vring0>, <&pmu_vdev0vring1>,
+				<&pmu_vdev0buffer>, <&pmu_rscshm>;
+		mtk,ipi = <&cpuint 0x84 2>;
+		version = <3>;
+		id = <7>;
+		number = <1>;
+		type = <3>;
+		dfeatures = <1>;
+		gfeatures = <1>;
+		nr-vrings = <2>;
+		vring0-align = <4096>;
+		vring0-nr = <64>;
+		vring1-align = <4096>;
+		vring1-nr = <64>;
+		status = "okay";
+	};
+
+	pmu_mcs51_rproc: pmu_mcs51_rproc {
+	};
+
+	pmu_ini: pmu_ini {
+	};
+
+	mtk_pqu: pqu {
+		compatible = "mediatek,pqu";
+		interrupt-parent = <&mtk_intc2_fiq_low>;
+		interrupts = <0x0 0x5 0x4>;
+		memory-region = <&pqu_dma_pool>,
+				<&MI_PQU_FW_MEM>;
+		firmware-name = "pqu_mt5897_2048.elf";
+		reg =	<0 0x1d024200 0 0x200>,
+			<0 0x1c200c00 0 0x100>;
+		reg-names = "intg", "frcpll";
+		mtk,ipi = <&cpuint 0x84 3>;
+		pqu-clk-bank = <&pqu_ckgen>;
+		mediatek,auto-boot;
+		mediatek,pqu-support-suspend;
+
+		pqu-clk = <&pqu_ckgen 0x1d8 0xc00 0>, /* reg_ckg_smi_frciopmrv55[11:10] */
+			  <&pqu_ckgen 0x14e4 0x200 0x200>, /* reg_sw_en_smi2frciopmrv55[9] */
+			  <&pqu_ckgen 0x4 0xf 0>, /* reg_ckg_frc_imi[3:0] */
+			  <&pqu_ckgen 0x4 0x300 0x200>, /* reg_ckg_frc_imi_frciopmrv55[9:8] */
+			  <&pqu_ckgen 0x4 0xc00 0>, /* reg_ckg_frc_imi_rv55frc[11:10] */
+			  <&pqu_ckgen 0x4 0x3000 0>, /* reg_ckg_frc_imi_rv55pqu[13:12] */
+			  <&pqu_ckgen 0x1520 0x1 0x1>, /* reg_sw_en_frc_imi2frciopm[0] */
+			  <&pqu_ckgen 0x1520 0x2 0x2>, /* reg_sw_en_frc_imi2frciopmrv55[1] */
+			  <&pqu_ckgen 0x31b8 0x300 0>, /* reg_ckg_mcu_bus_frciopmrv55[9:8] */
+			  <&pqu_ckgen 0x3128 0x300 0>, /* reg_ckg_mcu_frc_frciopmrv55[9:8] */
+			  <&pqu_ckgen 0x3b74 0x40 0x40>, /* reg_sw_en_mcu_nonpm2frciopmrv55[6] */
+			  <&pqu_ckgen 0x3b7c 0x800 0x800>, /* reg_sw_en_mcu_nonpm2rv55pqu[11] */
+			  <&pqu_ckgen 0x3b7c 0x400 0x400>, /* reg_sw_en_mcu_nonpm2rv55frc[10] */
+			  <&pqu_ckgen 0x3bb4 0x1 0x1>, /* reg_sw_en_mcu_sc2rv55frc[0] */
+			  <&pqu_ckgen 0x3bb4 0x2 0x2>, /* reg_sw_en_mcu_sc2rv55pqu[1] */
+			  <&pqu_ckgen 0x35b4 0x2 0x2>, /* reg_sw_en_xtal_12m2frciopmrv55[1] */
+			  <&pqu_ckgen 0x3ae8 0x2 0x2>, /* reg_sw_en_frc_uart02frciopmrv55[1] */
+			  <&pqu_ckgen 0x3af0 0x2 0x2>, /* reg_sw_en_frc_uart12frciopmrv55[1] */
+			  <&pqu_ckgen 0x35c0 0x80 0x80>, /* reg_sw_en_xtal_24m2rv55pqu [7] */
+			  <&pqu_ckgen 0x2220 0x7 0x4>, /* reg_ckg_rv55pqu [2:0] */
+			  <&pqu_ckgen 0x2220 0x300 0>, /* reg_ckg_rv55pqu_frciopmrv55 [9:8] */
+			  <&pqu_ckgen 0x2218 0x1f 0x4>, /* reg_ckg_rv55pqu_rv55pqu [4:0] */
+			  <&pqu_ckgen 0x35a8 0x1 0x1>, /* reg_sw_en_rv55pqu2rv55pqu [0] */
+			  <&pqu_ckgen 0x1e8 0x3000 0>, /* reg_ckg_smi_rv55pqu[13:12] */
+			  <&pqu_ckgen 0x14e8 0x2000 0x2000>, /* reg_sw_en_smi2rv55pqu[13] */
+			  <&pqu_ckgen 0x1520 0x8 0x8>, /* reg_sw_en_frc_imi2rv55pqu[3] */
+			  <&pqu_ckgen 0x31c0 0x300 0>, /* reg_ckg_mcu_bus_rv55pqu[9:8] */
+			  <&pqu_ckgen 0x3b4c 0x1 0x1>, /* reg_sw_en_mcu_bus2frciopm[0] */
+			  <&pqu_ckgen 0x3b4c 0x2 0x2>, /* reg_sw_en_mcu_bus2frciopmrv55[1] */
+			  <&pqu_ckgen 0x3b4c 0x100 0x100>, /* reg_sw_en_mcu_bus2rv55pqu[8] */
+			  <&pqu_ckgen 0x3128 0x3000 0>, /* reg_ckg_mcu_frc_rv55pqu [13:12] */
+			  <&pqu_ckgen 0x3b64 0x8 0x8>; /* reg_sw_en_mcu_frc2rv55pqu[3] */
+	};
+
+	memcu: memcu {
+		mediatek,auto-boot;
+		compatible = "mediatek,pqu";
+		interrupt-parent = <&mtk_intc2_fiq_low>;
+		interrupts = <0x0 12 0x4>;
+		memory-region = <&frc_dma_pool>,
+				<&MI_FRC_FW_MEM>;
+		firmware-name = "frc_mt5897_2048.elf";
+		reg =	<0 0x1d020200 0 0x200>,
+			<0 0x1c200c00 0 0x100>;
+		reg-names = "intg", "frcpll";
+		mtk,ipi = <&cpuint 0x84 4>;
+	};
+
+	pwm0: pmu_pmpwm0 {
+		compatible = "mediatek,mt5896-rpmsg-pwm";
+		status = "okay";
+	};
+};

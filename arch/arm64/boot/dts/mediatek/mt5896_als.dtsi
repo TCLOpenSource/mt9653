@@ -1,0 +1,19 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2021 MediaTek Inc.
+ */
+
+&i2c3{
+	als_jsa1136: als-jsa1136@45 {
+		compatible = "mediatek,jsa1136";
+		reg = <0x45>;
+		#io-channel-cells = <1>;
+	};
+};
+
+/ {
+	mtk_als: mtk-als {
+		compatible = "mediatek,als";
+		#io-channel-cells = <1>;
+	};
+};

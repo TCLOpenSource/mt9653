@@ -1,0 +1,8 @@
+config EXTCON_MTK_HEADSET
+	tristate "MediaTek Headset Detection Support"
+	select EXTCON
+	help
+	  This option enables extcon support for headset detection
+	  on Mediatek DTV platfom with Mediatek headset driver.
+	  You will also need to select EXTCON to Y.
+	  Say Y here if Mediatek platform need headset detection.

@@ -1,0 +1,13 @@
+config VIDEO_MEDIATEK_JPD
+	tristate "Mediatek JPD driver"
+	depends on VIDEO_DEV && VIDEO_V4L2
+	select VIDEOBUF2_VMALLOC
+	select V4L2_MEM2MEM_DEV
+	default n
+	help
+	    Mediatek JPD driver will provide
+	    HW capability to decode multiple video formats
+	    This driver relys on UTPA driver.
+
+	    To compile this driver as a module, choose M here: the
+	    module will be mtk-jpd

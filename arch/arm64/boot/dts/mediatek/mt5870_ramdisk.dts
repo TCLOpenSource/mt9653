@@ -1,0 +1,301 @@
+/*
+ * ARM Ltd.
+ *
+ * ARMv8 Foundation model DTS
+ */
+
+/dts-v1/;
+
+#include "mt5870_nontee.dtsi"
+
+/ {
+	chosen {
+		bootargs = "root=/dev/ram0 rw init=/sbin/init ip=dhcp console=ttyS0,38400,LX_MEM=0x03000000";
+	};
+
+	serflash {
+		compatible = "mst,serflash";
+		speed-Mhz = <0x36>;
+		read-mode = <0x5>;
+	};
+
+	switch_gpio {
+		compatible = "mstar,switch-gpio";
+		switch-name = "h2w";
+		switch-gpio = <60>;
+		switch-inverse = <0>;
+	};
+
+	gpio: gpio {
+		compatible = "mstar,gpio";
+		gpio-controller;
+		#gpio-cells = <1>;
+		interrupt-controller;
+		skip-save-status = <6 44 4>;
+		#interrupt-cells = <2>; /* cell name GPIO_PAD, trigger-type*/
+	};
+
+	gpio_wifi_ctl {
+		compatible = "mstar,gpio-wifi-ctl";
+		wifi-ctl-gpio = <15>;
+	};
+
+	backlight {
+		compatible = "backlight";
+		brightness-levels = <0 255>;
+		default-brightness-level = <255>;
+		bl_ctrl = <6>;
+		bl_ctrl_inverse = <0>;
+		vcc_gpio = <44>;
+		vcc_gpio_invert = <0>;
+		led_gpio = <4>;
+		led_gpio_invert = <0>;
+		/* led-pwm-control-support; */
+		/* led-pwm-control-channel = <0>; */
+		/* led-pwm-control-resume-period = <0xb71a>; */
+		/* led-pwm-control-resume-duty = <0xb71a>; */
+		/* led-pwm-control-resume-div = <0xff>; */
+		/* led-pwm-control-resume-polarity = <0>; */
+		/* led-pwm-control-suspend-period = <0xb71a>; */
+		/* led-pwm-control-suspend-duty = <0xb71a>; */
+		/* led-pwm-control-suspend-div = <0xff>; */
+		/* led-pwm-control-suspend-polarity = <0>; */
+	};
+
+	i2c0: i2c@0 {
+		compatible = "mstar,swi2c";
+		iic-mode = <1>;	 /* i2c-mode: 0:swi2c; 1:hwi2c */
+		bus-index = <0>;	/* swi2c setting: bus index */
+		sda-gpio = <55>;	/* swi2c setting: sda pad */
+		scl-gpio = <54>;	/* swi2c setting: scl pad */
+		def-delay = <100>;  /* swi2c setting: clk */
+		hw-port = <3>;	  /* hwi2c setting: port */
+		pad-mux = <25>;	 /* hwi2c setting: pad mux */
+		speed-khz = <100>;  /* hwi2c setting: clk */
+		retries = <5>;	  /* Unused */
+		status = "okay";	/* Unused */
+	};
+
+	i2c1: i2c@1 {
+		compatible = "mstar,swi2c";
+		iic-mode = <0>;	 /* i2c-mode: 0:swi2c; 1:hwi2c */
+		bus-index = <1>;	/* swi2c setting: bus index */
+		sda-gpio = <143>;   /* swi2c setting: sda pad */
+		scl-gpio = <142>;   /* swi2c setting: scl pad */
+		def-delay = <100>;  /* swi2c setting: clk */
+		hw-port = <0>;	  /* hwi2c setting: port */
+		pad-mux = <0>;	  /* hwi2c setting: pad mux */
+		speed-khz = <100>;  /* hwi2c setting: clk */
+		retries = <5>;	  /* Unused */
+		status = "okay";	/* Unused */
+	};
+
+	saradc: saradc@0 {
+		compatible = "mediatek,saradc";
+		reg = <0 0x1f002800 0 0x200>;
+	};
+	mtktv_regulator: mtktv-regulator {
+		compatible = "mtktv-regulator";
+		regulator-min-microvolt = <800000>;
+		regulator-max-microvolt = <1250000>;
+		regulator-default = <1000000>;
+
+		/* prado regulator */
+
+		regulator-type = "prado";
+		regulator-id = <0x9A>;
+		regulator-step = <3>;
+		regulator-shift = <68>;
+		regulator-port = <3>;
+		regulator-addr = <0x80>;
+
+		/* pwm regulator */
+		/*
+		regulator-type = "pwm";
+		regulator-channel = <0>;
+		regulator-offset = <0>;
+		regulator-auto = <1>;
+		*/
+
+		/* gpio regulator */
+		/*
+		regulator-type = "gpio";
+		regulator-level = <2>;
+		regulator-parm {
+			control_0 {
+				power = <95>;
+				pins = <2>;
+				gpio_num = <51 52>;
+				gpio_mode = <0 1>;
+			};
+			control_1 {
+				power = <100>;
+				pins = <2>;
+				gpio_num = <51 52>;
+				gpio_mode = <1 1>;
+			};
+		};
+		*/
+	};
+
+	mtk_sensor0: mtk-sensor@0 {
+		compatible = "cpu-thermal";
+		#thermal-sensor-cells = <1>;
+	};
+
+	thermal-zones {
+		mtk_thermal: mtk-thermal {
+			polling-delay = <1000>;
+			polling-delay-passive = <1000>;
+
+			thermal-sensors = <&mtk_sensor0 0>;
+			trips {
+				overtemp_point: trip-point@1 {
+					temperature = <135000>; /* millicelsius */
+					hysteresis = <1000>; /* millicelsius */
+					type = "passive";
+				};
+                                reset_point: trip-point@2 {
+                                        temperature = <150000>; /* millicelsius */
+                                        hysteresis = <1000>; /* millicelsius */
+                                        type = "hot";
+                                };
+			};
+			cooling-maps {
+				map0 {
+					trip = <&overtemp_point>;
+					contribution = <1024>;
+					cooling-device = <&cpu0 0xffffffff 0xffffffff>;
+				};
+
+			};
+		};
+	};
+
+	buf_tag {
+	/* heaptype: HEAP_TYPE_IOMMU = 0, HEAP_TYPE_CMA= 1,  HEAP_TYPE_NON_MMA = 2*/
+	/* miutype:  UMA_OR_MIU0 = 0, MIU_1 = 1 */
+		vdec_fb {
+			heaptype = <0>;
+			max_size = <0x0 0xec00000>;
+			miu = <0>;
+		};
+		vdec_es {
+			heaptype = <0>;
+			max_size = <0x0 0x01000000>;
+			miu = <0>;
+		};
+		xc_main {
+			heaptype = <0>;
+			max_size = <0x0 0x5800000>;
+			miu = <0>;
+		};
+		xc_hse {
+			heaptype = <0>;
+			max_size = <0x0 0x1000000>;
+			miu = <0>;
+		};
+		mali_gop_dma {
+			heaptype = <0>;
+			max_size = <0x0 0x6000000>;
+			normal_zone = <0>;
+		};
+		mali_gop {
+			heaptype = <0>;
+			max_size = <0x0 0xc800000>;
+			normal_zone = <1>;
+		};
+		xc_frc_pq {
+			heaptype = <0>;
+			max_size = <0x0 0xf00000>;
+			miu = <0>;
+		};
+		xc_frc_l {
+			heaptype = <0>;
+			max_size = <0x0 0x5a00000>;
+			miu = <0>;
+		};
+		img_frame {
+			heaptype = <0>;
+			max_size = <0x0 0x2000000>;
+			miu = <0>;
+		};
+		jpd_write {
+			heaptype = <0>;
+			max_size = <0x0 0x400000>;
+			miu = <0>;
+		};
+		directfb_frame0 {
+			heaptype = <0>;
+			max_size = <0x0 0x8000000>;
+			miu = <0>;
+		};
+		directfb_frame1 {
+			heaptype = <0>;
+			max_size = <0x0 0x1200000>;
+			miu = <0>;
+		};
+		tsp_pvr {
+			heaptype = <0>;
+			max_size = <0x0 0x0D80000>;
+			miu = <0>;
+		};
+		tsp_filein {
+			heaptype = <0>;
+			max_size = <0x0 0x0240000>;
+			miu = <0>;
+		};
+		tsp_fiq {
+			heaptype = <0>;
+			max_size = <0x0 0x402000>;
+			miu = <0>;
+		};
+		tsp_alppvr {
+			heaptype = <0>;
+			max_size = <0x0 0x0C00000>;
+			miu = <0>;
+		};
+	};
+
+	cpu_opp_table: opp-table {
+		compatible = "operating-points-v2";
+		opp-shared;
+
+		boost-0 = <1450000000>;
+		boost-1 = <1450000000>;
+		boost-2 = <1550000000>;
+		boost-3 = <1450000000>;
+		boost-4 = <1450000000>;
+
+		opp-850000000 {
+			opp-hz = /bits/ 64 <850000000>;
+			opp-microvolt = <900000>;
+			opp-corner-offset = <0>;
+		};
+
+		opp-1150000000 {
+			opp-hz = /bits/ 64 <1150000000>;
+			opp-microvolt = <1000000>;
+			opp-corner-offset = <50000>;
+		};
+
+		opp-1350000000 {
+			opp-hz = /bits/ 64 <1350000000>;
+			opp-microvolt = <1100000>;
+			opp-corner-offset = <50000>;
+		};
+
+		opp-1450000000 {
+			opp-hz = /bits/ 64 <1450000000>;
+			opp-microvolt = <1150000>;
+			opp-corner-offset = <50000>;
+		};
+
+                opp-1550000000 {
+                        opp-hz = /bits/ 64 <1550000000>;
+                        opp-microvolt = <1200000>;
+                        opp-corner-offset = <50000>;
+                };
+
+	};
+};

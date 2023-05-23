@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: GPL-2.0-only
+config NET_VENDOR_MEDIATEK
+	bool "MediaTek ethernet driver"
+	depends on ARCH_MEDIATEK || SOC_MT7621 || SOC_MT7620 || ARCH_MEDIATEK_DTV
+	---help---
+	  If you have a Mediatek SoC with ethernet, say Y.
+
+if NET_VENDOR_MEDIATEK
+
+config NET_MEDIATEK_SOC
+	tristate "MediaTek SoC Gigabit Ethernet support"
+	select PHYLINK
+	---help---
+	  This driver supports the gigabit ethernet MACs in the
+	  MediaTek SoC family.
+
+config NET_MEDIATEK_MT5896
+	tristate "MediaTek MT5896 Gigabit Ethernet support"
+	select MII
+	help
+	  This driver supports the gigabit ethernet MACs in the
+	  MediaTek MT5896.
+
+	  This drive can also be built as a module. If so, the module
+	  will be called mtk_gmac_mt5896.
+endif #NET_VENDOR_MEDIATEK

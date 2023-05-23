@@ -1,0 +1,18 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+/ {
+
+	mic_mute: mic_mute {
+		compatible = "mediatek,mic-mute";
+		status = "disabled";
+		mic {
+			label = "MicMute";
+			linux,code = <0x0e>;//<SW_MUTE_DEVICE>;
+			linux,input-type = <0x05>;//<EV_SW>;
+			gpios = <&gpio0 0 0>;
+		};
+
+	};
+};

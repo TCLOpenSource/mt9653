@@ -1,0 +1,20 @@
+Mediatek MT5870 spi controller
+
+Required properties:
+
+- compatible: must be "mediatek,mt5870-spi"
+- reg: physical base address and length for this controller
+- #address-cells: should be 1.
+- #size-cells: should be 0.
+- clocks: XTAL
+
+Example:
+
+spi@0x1f2a7400 {
+	compatible = "mediatek,mt5870-spi";
+	reg = <0 0x1f2a7400 0 0x200>;
+	interrupts = <0x0 0x43 0x4>;
+	mspi_channel = <0>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+};

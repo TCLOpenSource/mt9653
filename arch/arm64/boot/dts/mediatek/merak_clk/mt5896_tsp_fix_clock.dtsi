@@ -1,0 +1,161 @@
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+#define CLOCK_FREQ_DUMMY	0
+/ {
+	tsp_fix: tsp_fix {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_fix";
+		num = <CLK_TSP_FIX_N>;
+		tsp_clk_432_ck {
+			id = <CLK_TSP_CLK_432_CK>;
+			clock-frequency = <432>;
+		};
+		tsp_clk_352_ck {
+			id = <CLK_TSP_CLK_352_CK>;
+			clock-frequency = <352>;
+		};
+		tsp_clk_288_ck {
+			id = <CLK_TSP_CLK_288_CK>;
+			clock-frequency = <288>;
+		};
+		tsp_sys2pll_vcod6_240m_ck {
+			id = <CLK_TSP_SYS2PLL_VCOD6_240M_CK>;
+			clock-frequency = <240>;
+		};
+		tsp_clk_216_ck {
+			id = <CLK_TSP_CLK_216_CK>;
+			clock-frequency = <216>;
+		};
+		tsp_clk_172_ck {
+			id = <CLK_TSP_CLK_172_CK>;
+			clock-frequency = <172>;
+		};
+		tsp_clk_144_ck {
+			id = <CLK_TSP_CLK_144_CK>;
+			clock-frequency = <144>;
+		};
+		tsp_clk_123_ck {
+			id = <CLK_TSP_CLK_123_CK>;
+			clock-frequency = <123>;
+		};
+		tsp_sys2pll_vcod12_120m_ck {
+			id = <CLK_TSP_SYS2PLL_VCOD12_120M_CK>;
+			clock-frequency = <120>;
+		};
+		tsp_sys2pll_vcod12_120m_div2_ck {
+			id = <CLK_TSP_SYS2PLL_VCOD12_120M_DIV2_CK>;
+			clock-frequency = <60>;
+		};
+		tsp_clk_36_ck {
+			id = <CLK_TSP_CLK_36_CK>;
+			clock-frequency = <36>;
+		};
+		tsp_sys2pll_vcod48_30m_ck {
+			id = <CLK_TSP_SYS2PLL_VCOD48_30M_CK>;
+			clock-frequency = <30>;
+		};
+		tsp_clk_27_ck {
+			id = <CLK_TSP_CLK_27_CK>;
+			clock-frequency = <27>;
+		};
+		tsp_clk_dummy_ck {
+			id = <CLK_TSP_CLK_DUMMY_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		clk_ts0_in {
+			id = <CLK_TSP_CLK_TS0_IN_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		clk_ts1_in {
+			id = <CLK_TSP_CLK_TS1_IN_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		clk_ts2_in {
+			id = <CLK_TSP_CLK_TS2_IN_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		clk_ts3_in {
+			id = <CLK_TSP_CLK_TS3_IN_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		clk_ts4_in {
+			id = <CLK_TSP_CLK_TS4_IN_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		clk_ts5_in {
+			id = <CLK_TSP_CLK_TS5_IN_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		demod_ts_internal_ck {
+			id = <CLK_TSP_DEMOD_TS_INT_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		demod_ts_ck {
+			id = <CLK_TSP_DEMOD_TS_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		clk_tso_out_div {
+			id = <CLK_TSP_TSO_OUT_DIV_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		clk_tso_out_div_mn {
+			id = <CLK_TSP_TSO_OUT_DIVMN_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		clk_tso_out_div_topad {
+			id = <CLK_TSP_TSO_OUT_DIV2PAD_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		tso_ts_src_sel_div8 {
+			id = <CLK_TSP_TSO_SRCSEL_DIV8_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		tso_s2p_out_clk {
+			id = <CLK_TSP_TSO_S2P_OUT_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		tso_s2p1_out_clk {
+			id = <CLK_TSP_TSO_S2P1_OUT_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		clk_tso2_out_div {
+			id = <CLK_TSP_TSO2_OUT_DIV_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		clk_tso2_out_div_mn {
+			id = <CLK_TSP_TSO2_OUT_DIVMN_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		clk_tso2_out_div_topad {
+			id = <CLK_TSP_TSO2_OUT_DIV2PAD_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		tso2_ts_src_sel_div8 {
+			id = <CLK_TSP_TSO2_SRCSEL_DIV8_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		tso2_s2p_out_clk {
+			id = <CLK_TSP_TSO2_S2P_OUT_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		tso2_s2p1_out_clk {
+			id = <CLK_TSP_TSO2_S2P1_OUT_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		clk_ts_tx_c1_ext_div8 {
+			id = <CLK_TSP_CILINK_C1_EXT_DIV8_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		clk_ts_tx_c2_ext_div8 {
+			id = <CLK_TSP_CILINK_C2_EXT_DIV8_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+		clk_2b_rx_in {
+			id = <CLK_TSP_CILINK_2B_RX_IN_CK>;
+			clock-frequency = <CLOCK_FREQ_DUMMY>;
+		};
+	};
+};
+

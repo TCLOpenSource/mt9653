@@ -1,0 +1,39 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+
+/ {
+	usb_nonpm_ssusb: usb_nonpm_ssusb_swen {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_gate_en";
+		num = <CLK_USB_NONPM_EN_NR>;
+
+		mcu_nonpm2ssusb {
+			id = <CLK_USB_NONPM_EN_MCU_NONPM2SSUSB>;
+			parent = "mcu_nonpm2ssusb_int_ck";
+		};
+
+		smi2ssusb {
+			id = <CLK_USB_NONPM_EN_SMI2SSUSB>;
+			parent = "smi2ssusb_int_ck";
+		};
+
+		ssusb_sys2ssusb {
+			id = <CLK_USB_NONPM_EN_SSUSB_SYS2SSUSB>;
+			parent = "ssusb_sys2ssusb_int_ck";
+		};
+
+		xtal_24m2tsp_mbist {
+			id = <CLK_USB_NONPM_EN_XTAL_24M2TSP_MBIST>;
+			parent = "xtal_24m2tsp_mbist_int_ck";
+		};
+
+		/* PCIe clock */
+		smi2pextp {
+			id = <CLK_USB_NONPM_EN_SMI2PEXTP>;
+			parent = "smi2pextp_int_ck";
+		};
+	};
+};

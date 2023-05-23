@@ -1,0 +1,39 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+	/ {
+
+	earc_OOXX: earc_swen {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_gate_en";
+		num = <CLK_EARC_EN_NR>;
+
+		earc_audio2earc_dmacro {
+			id = <CLK_EARC_EN_EARC_AUDIO2EARC_DMACRO>;
+			parent = "earc_audio_int_ck";
+		};
+
+		earc_audio2earc {
+			id = <CLK_EARC_EN_EARC_AUDIO2EARC>;
+			parent = "earc_audio_int_ck";
+		};
+
+		earc_cm2earc {
+			id = <CLK_EARC_EN_EARC_CM2EARC>;
+			parent = "earc_cm_int_ck";
+		};
+
+		earc_debounce2earc {
+			id = <CLK_EARC_EN_EARC_DEBOUNCE2EARC>;
+			parent = "earc_debounce_int_ck";
+		};
+
+		earc_dm_prbs2earc {
+			id = <CLK_EARC_EN_EARC_DM_PRBS2EARC>;
+			parent = "earc_dm_prbs_int_ck";
+		};
+
+		};
+	};

@@ -1,0 +1,22 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+/ {
+	gmac: gmac@1c700000 {
+		compatible = "mediatek,mt5896-gmac";
+		reg = <0 0x1c700000 0 0x200>, /* x32 gmac0 */
+		      <0 0x1c700800 0 0x800>, /* x16 ogmac1 */
+		      <0 0x1c084000 0 0x600>,
+		      <0 0x1c204000 0 0x4000>,
+		      <0 0x1c022000 0 0x200>,
+		      <0 0x1c001800 0 0x200>,
+		      <0 0x1c240600 0 0x200>, /* tzpc_aid_0 */
+		      <0 0x1c021200 0 0x200>, /* pm_misc */
+		      <0 0x1c200400 0 0x200>; /* mpll */
+		local-mac-address = [00 99 88 77 66 00];
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupts = <0x0 0x37 0x4>;
+	};
+};
+

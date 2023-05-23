@@ -1,0 +1,19 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+#include <dt-bindings/clock/merak_mix-clk.h>
+
+#include "merak_clk/mt5896_top_clock.dtsi"
+#include "merak_clk/mt5896_tsp_fix_clock.dtsi"
+#include "merak_clk/mixed_mode_clk_list.dtsi"
+#include "merak_clk/mt5879_vdec_swen_clock.dtsi"
+
+/* clock defined in main */
+#include "merak_clk/merak_test_clock.dtsi"
+#include "merak_clk/mt5896_fcie_clock.dtsi"
+#include "merak_clk/mt5896_venc_swen_clock.dtsi"
+#include "merak_clk/mt5896_pwm_nonpm_clock.dtsi"
+#include "merak_clk/mt5876_venc_mg_clock.dtsi"
+

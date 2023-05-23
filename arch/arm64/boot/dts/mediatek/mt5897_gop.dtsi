@@ -1,0 +1,42 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+/ {
+	mediatek_drm_gop_drvconfig: mediatek-drm-gop-drvconfig {
+		compatible = "mtk-drm-gop-drvconfig";
+		GOP_MAPLAYER_TO_MUX = <0x0 0x1 0x2 0x3 0x4>;
+		GOP_SUPPORT_BNKFORCEWRITE = <1>;
+		GOP_SUPPORT_PIXELMODE = <1>;
+		GOP_SUPPORT_2PTO1P = <0>;
+	};
+	mtk_gop0: mtk-gop0 {
+		unique-id = <3600>;
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupts = <0x0 0x1e 0x4>;
+		compatible = "mediatek,mtk-dtv-gop0";
+	};
+	mtk_gop1: mtk-gop1 {
+		unique-id = <3601>;
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupts = <0x0 0x1e 0x4>;
+		compatible = "mediatek,mtk-dtv-gop1";
+	};
+	mtk_gop2: mtk-gop2 {
+		unique-id = <3602>;
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupts = <0x0 0x1e 0x4>;
+		compatible = "mediatek,mtk-dtv-gop2";
+	};
+	mtk_gop3: mtk-gop3 {
+		unique-id = <3603>;
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupts = <0x0 0x1e 0x4>;
+		compatible = "mediatek,mtk-dtv-gop3";
+	};
+	mtk_gop4: mtk-gop4 {
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupts = <0x0 0x25 0x4>;
+		compatible = "mediatek,mtk-dtv-gop4";
+	};
+};

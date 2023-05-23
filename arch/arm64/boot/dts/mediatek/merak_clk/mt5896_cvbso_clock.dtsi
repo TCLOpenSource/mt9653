@@ -1,0 +1,22 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+/ {
+	cvbso_mux_gate: cvbso {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_mux_gate";
+		num = <CLK_ADC_CVBSO_NR>;
+
+		adc_daca2_int_ck  {
+			id = <CLK_ADC_DACA2_INT_CK>;
+			parents = "adc_vif",
+						"adc_clk_vd",
+						"adc_clk_dac_external",
+						"adc_clk_vd2x",
+						"adc_clk_vd_32fsc",
+						"adc_clk_vd_adc",
+						"DUMMY_MIMI", "DUMMY_MIMI";
+		};
+	};
+};

@@ -1,0 +1,477 @@
+/* SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause) */
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ * Author Owen Tseng <Owen.Tseng@mediatek.com>
+ */
+#ifndef _SCANPWM_MT5896_CODA_H_
+#define _SCANPWM_MT5896_CODA_H_
+
+#define REG_0000_PWM_SCAN0 (0x000)
+#define REG_PWM0_PERIOD_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_0004_PWM_SCAN0 (0x004)
+#define REG_PWM0_PERIOD_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0008_PWM_SCAN0 (0x008)
+#define REG_PWM0_DUTY_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_000C_PWM_SCAN0 (0x00C)
+#define REG_PWM0_DUTY_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0010_PWM_SCAN0 (0x010)
+#define REG_PWM0_SHIFT_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_0014_PWM_SCAN0 (0x014)
+#define REG_PWM0_SHIFT_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0018_PWM_SCAN0 (0x018)
+#define REG_PWM0_DIV Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_001C_PWM_SCAN0 (0x01C)
+#define REG_FORCE_SHIFT_SET_EN0 Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM0_SHIFT_GAT Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PROC_ST0 Fld(1, 4, AC_MSKB0)//[4:4]
+#define REG_PWM0_POLARITY Fld(1, 8, AC_MSKB1)//[8:8]
+#define REG_PWM0_VDBEN Fld(1, 9, AC_MSKB1)//[9:9]
+#define REG_PWM0_RESET_EN Fld(1, 10, AC_MSKB1)//[10:10]
+#define REG_PWM0_DBEN Fld(1, 11, AC_MSKB1)//[11:11]
+#define REG_PWM0_IMPULSE_EN Fld(1, 12, AC_MSKB1)//[12:12]
+#define REG_PWM0_ODDEVEN_SYNC Fld(1, 13, AC_MSKB1)//[13:13]
+#define REG_PWM0_VDBEN_SW Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_0020_PWM_SCAN0 (0x020)
+#define REG_PWM0_OFFSET_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_0024_PWM_SCAN0 (0x024)
+#define REG_PWM0_OFFSET_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0028_PWM_SCAN0 (0x028)
+#define REG_PWM0_DB_SRC Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM0_LR_SRC Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PWM0_LR_SYNC_RP Fld(1, 2, AC_MSKB0)//[2:2]
+#define REG_PWM0_LR_SYNC_FP Fld(1, 3, AC_MSKB0)//[3:3]
+#define REG_EN_RP_L_INT0 Fld(1, 4, AC_MSKB0)//[4:4]
+#define REG_EN_FP_L_INT0 Fld(1, 5, AC_MSKB0)//[5:5]
+#define REG_EN_RP_R_INT0 Fld(1, 6, AC_MSKB0)//[6:6]
+#define REG_EN_FP_R_INT0 Fld(1, 7, AC_MSKB0)//[7:7]
+#define REG_HS_RST_CNT0 Fld(4, 8, AC_MSKB1)//[11:8]
+#define REG_RST_MUX0 Fld(1, 12, AC_MSKB1)//[12:12]
+#define REG_NVS_RST_EN0 Fld(1, 13, AC_MSKB1)//[13:13]
+#define REG_NVS_ALIGN_INV0 Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_NVS_ALIGN_EN0 Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_002C_PWM_SCAN0 (0x02C)
+#define REG_PWM0_CKEN Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM0_PD_VALUE Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PWM0_LEFT_MASK Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_PWM0_INV_LEFT Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_0030_PWM_SCAN0 (0x030)
+#define REG_PWM0_EN_MASK Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_PWM0_HIT_CNT_ST Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_0034_PWM_SCAN0 (0x034)
+#define REG_PWM0_HIT_CNT_END Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_0038_PWM_SCAN0 (0x038)
+#define REG_PWM0_EN_LR_MASK Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_PWM0_HIT_CNT_ST2 Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_003C_PWM_SCAN0 (0x03C)
+#define REG_PWM0_HIT_CNT_END2 Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_0040_PWM_SCAN0 (0x040)
+#define REG_PWM1_PERIOD_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_0044_PWM_SCAN0 (0x044)
+#define REG_PWM1_PERIOD_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0048_PWM_SCAN0 (0x048)
+#define REG_PWM1_DUTY_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_004C_PWM_SCAN0 (0x04C)
+#define REG_PWM1_DUTY_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0050_PWM_SCAN0 (0x050)
+#define REG_PWM1_SHIFT_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_0054_PWM_SCAN0 (0x054)
+#define REG_PWM1_SHIFT_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0058_PWM_SCAN0 (0x058)
+#define REG_PWM1_DIV Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_005C_PWM_SCAN0 (0x05C)
+#define REG_FORCE_SHIFT_SET_EN1 Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM1_SHIFT_GAT Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PROC_ST1 Fld(1, 4, AC_MSKB0)//[4:4]
+#define REG_PWM1_POLARITY Fld(1, 8, AC_MSKB1)//[8:8]
+#define REG_PWM1_VDBEN Fld(1, 9, AC_MSKB1)//[9:9]
+#define REG_PWM1_RESET_EN Fld(1, 10, AC_MSKB1)//[10:10]
+#define REG_PWM1_DBEN Fld(1, 11, AC_MSKB1)//[11:11]
+#define REG_PWM1_IMPULSE_EN Fld(1, 12, AC_MSKB1)//[12:12]
+#define REG_PWM1_ODDEVEN_SYNC Fld(1, 13, AC_MSKB1)//[13:13]
+#define REG_PWM1_VDBEN_SW Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_0060_PWM_SCAN0 (0x060)
+#define REG_PWM1_OFFSET_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_0064_PWM_SCAN0 (0x064)
+#define REG_PWM1_OFFSET_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0068_PWM_SCAN0 (0x068)
+#define REG_PWM1_DB_SRC Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM1_LR_SRC Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PWM1_LR_SYNC_RP Fld(1, 2, AC_MSKB0)//[2:2]
+#define REG_PWM1_LR_SYNC_FP Fld(1, 3, AC_MSKB0)//[3:3]
+#define REG_EN_RP_L_INT1 Fld(1, 4, AC_MSKB0)//[4:4]
+#define REG_EN_FP_L_INT1 Fld(1, 5, AC_MSKB0)//[5:5]
+#define REG_EN_RP_R_INT1 Fld(1, 6, AC_MSKB0)//[6:6]
+#define REG_EN_FP_R_INT1 Fld(1, 7, AC_MSKB0)//[7:7]
+#define REG_HS_RST_CNT1 Fld(4, 8, AC_MSKB1)//[11:8]
+#define REG_RST_MUX1 Fld(1, 12, AC_MSKB1)//[12:12]
+#define REG_NVS_RST_EN1 Fld(1, 13, AC_MSKB1)//[13:13]
+#define REG_NVS_ALIGN_INV1 Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_NVS_ALIGN_EN1 Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_006C_PWM_SCAN0 (0x06C)
+#define REG_PWM1_CKEN Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM1_PD_VALUE Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PWM1_LEFT_MASK Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_PWM1_INV_LEFT Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_0070_PWM_SCAN0 (0x070)
+#define REG_PWM1_EN_MASK Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_PWM1_HIT_CNT_ST Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_0074_PWM_SCAN0 (0x074)
+#define REG_PWM1_HIT_CNT_END Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_0078_PWM_SCAN0 (0x078)
+#define REG_PWM1_EN_LR_MASK Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_PWM1_HIT_CNT_ST2 Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_007C_PWM_SCAN0 (0x07C)
+#define REG_PWM1_HIT_CNT_END2 Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_0080_PWM_SCAN0 (0x080)
+#define REG_PWM2_PERIOD_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_0084_PWM_SCAN0 (0x084)
+#define REG_PWM2_PERIOD_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0088_PWM_SCAN0 (0x088)
+#define REG_PWM2_DUTY_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_008C_PWM_SCAN0 (0x08C)
+#define REG_PWM2_DUTY_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0090_PWM_SCAN0 (0x090)
+#define REG_PWM2_SHIFT_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_0094_PWM_SCAN0 (0x094)
+#define REG_PWM2_SHIFT_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0098_PWM_SCAN0 (0x098)
+#define REG_PWM2_DIV Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_009C_PWM_SCAN0 (0x09C)
+#define REG_FORCE_SHIFT_SET_EN2 Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM2_SHIFT_GAT Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PROC_ST2 Fld(1, 4, AC_MSKB0)//[4:4]
+#define REG_PWM2_POLARITY Fld(1, 8, AC_MSKB1)//[8:8]
+#define REG_PWM2_VDBEN Fld(1, 9, AC_MSKB1)//[9:9]
+#define REG_PWM2_RESET_EN Fld(1, 10, AC_MSKB1)//[10:10]
+#define REG_PWM2_DBEN Fld(1, 11, AC_MSKB1)//[11:11]
+#define REG_PWM2_IMPULSE_EN Fld(1, 12, AC_MSKB1)//[12:12]
+#define REG_PWM2_ODDEVEN_SYNC Fld(1, 13, AC_MSKB1)//[13:13]
+#define REG_PWM2_VDBEN_SW Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_00A0_PWM_SCAN0 (0x0A0)
+#define REG_PWM2_OFFSET_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_00A4_PWM_SCAN0 (0x0A4)
+#define REG_PWM2_OFFSET_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_00A8_PWM_SCAN0 (0x0A8)
+#define REG_PWM2_DB_SRC Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM2_LR_SRC Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PWM2_LR_SYNC_RP Fld(1, 2, AC_MSKB0)//[2:2]
+#define REG_PWM2_LR_SYNC_FP Fld(1, 3, AC_MSKB0)//[3:3]
+#define REG_EN_RP_L_INT2 Fld(1, 4, AC_MSKB0)//[4:4]
+#define REG_EN_FP_L_INT2 Fld(1, 5, AC_MSKB0)//[5:5]
+#define REG_EN_RP_R_INT2 Fld(1, 6, AC_MSKB0)//[6:6]
+#define REG_EN_FP_R_INT2 Fld(1, 7, AC_MSKB0)//[7:7]
+#define REG_HS_RST_CNT2 Fld(4, 8, AC_MSKB1)//[11:8]
+#define REG_RST_MUX2 Fld(1, 12, AC_MSKB1)//[12:12]
+#define REG_NVS_RST_EN2 Fld(1, 13, AC_MSKB1)//[13:13]
+#define REG_NVS_ALIGN_INV2 Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_NVS_ALIGN_EN2 Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_00AC_PWM_SCAN0 (0x0AC)
+#define REG_PWM2_CKEN Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM2_PD_VALUE Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PWM2_LEFT_MASK Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_PWM2_INV_LEFT Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_00B0_PWM_SCAN0 (0x0B0)
+#define REG_PWM2_EN_MASK Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_PWM2_HIT_CNT_ST Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_00B4_PWM_SCAN0 (0x0B4)
+#define REG_PWM2_HIT_CNT_END Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_00B8_PWM_SCAN0 (0x0B8)
+#define REG_PWM2_EN_LR_MASK Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_PWM2_HIT_CNT_ST2 Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_00BC_PWM_SCAN0 (0x0BC)
+#define REG_PWM2_HIT_CNT_END2 Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_00C0_PWM_SCAN0 (0x0C0)
+#define REG_PWM3_PERIOD_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_00C4_PWM_SCAN0 (0x0C4)
+#define REG_PWM3_PERIOD_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_00C8_PWM_SCAN0 (0x0C8)
+#define REG_PWM3_DUTY_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_00CC_PWM_SCAN0 (0x0CC)
+#define REG_PWM3_DUTY_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_00D0_PWM_SCAN0 (0x0D0)
+#define REG_PWM3_SHIFT_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_00D4_PWM_SCAN0 (0x0D4)
+#define REG_PWM3_SHIFT_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_00D8_PWM_SCAN0 (0x0D8)
+#define REG_PWM3_DIV Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_00DC_PWM_SCAN0 (0x0DC)
+#define REG_FORCE_SHIFT_SET_EN3 Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM3_SHIFT_GAT Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PROC_ST3 Fld(1, 4, AC_MSKB0)//[4:4]
+#define REG_PWM3_POLARITY Fld(1, 8, AC_MSKB1)//[8:8]
+#define REG_PWM3_VDBEN Fld(1, 9, AC_MSKB1)//[9:9]
+#define REG_PWM3_RESET_EN Fld(1, 10, AC_MSKB1)//[10:10]
+#define REG_PWM3_DBEN Fld(1, 11, AC_MSKB1)//[11:11]
+#define REG_PWM3_IMPULSE_EN Fld(1, 12, AC_MSKB1)//[12:12]
+#define REG_PWM3_ODDEVEN_SYNC Fld(1, 13, AC_MSKB1)//[13:13]
+#define REG_PWM3_VDBEN_SW Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_00E0_PWM_SCAN0 (0x0E0)
+#define REG_PWM3_OFFSET_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_00E4_PWM_SCAN0 (0x0E4)
+#define REG_PWM3_OFFSET_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_00E8_PWM_SCAN0 (0x0E8)
+#define REG_PWM3_DB_SRC Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM3_LR_SRC Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PWM3_LR_SYNC_RP Fld(1, 2, AC_MSKB0)//[2:2]
+#define REG_PWM3_LR_SYNC_FP Fld(1, 3, AC_MSKB0)//[3:3]
+#define REG_EN_RP_L_INT3 Fld(1, 4, AC_MSKB0)//[4:4]
+#define REG_EN_FP_L_INT3 Fld(1, 5, AC_MSKB0)//[5:5]
+#define REG_EN_RP_R_INT3 Fld(1, 6, AC_MSKB0)//[6:6]
+#define REG_EN_FP_R_INT3 Fld(1, 7, AC_MSKB0)//[7:7]
+#define REG_HS_RST_CNT3 Fld(4, 8, AC_MSKB1)//[11:8]
+#define REG_RST_MUX3 Fld(1, 12, AC_MSKB1)//[12:12]
+#define REG_NVS_RST_EN3 Fld(1, 13, AC_MSKB1)//[13:13]
+#define REG_NVS_ALIGN_INV3 Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_NVS_ALIGN_EN3 Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_00EC_PWM_SCAN0 (0x0EC)
+#define REG_PWM3_CKEN Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM3_PD_VALUE Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PWM3_LEFT_MASK Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_PWM3_INV_LEFT Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_00F0_PWM_SCAN0 (0x0F0)
+#define REG_PWM3_EN_MASK Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_PWM3_HIT_CNT_ST Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_00F4_PWM_SCAN0 (0x0F4)
+#define REG_PWM3_HIT_CNT_END Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_00F8_PWM_SCAN0 (0x0F8)
+#define REG_PWM3_EN_LR_MASK Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_PWM3_HIT_CNT_ST2 Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_00FC_PWM_SCAN0 (0x0FC)
+#define REG_PWM3_HIT_CNT_END2 Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_0100_PWM_SCAN0 (0x100)
+#define REG_PWM4_PERIOD_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_0104_PWM_SCAN0 (0x104)
+#define REG_PWM4_PERIOD_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0108_PWM_SCAN0 (0x108)
+#define REG_PWM4_DUTY_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_010C_PWM_SCAN0 (0x10C)
+#define REG_PWM4_DUTY_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0110_PWM_SCAN0 (0x110)
+#define REG_PWM4_SHIFT_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_0114_PWM_SCAN0 (0x114)
+#define REG_PWM4_SHIFT_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0118_PWM_SCAN0 (0x118)
+#define REG_PWM4_DIV Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_011C_PWM_SCAN0 (0x11C)
+#define REG_FORCE_SHIFT_SET_EN4 Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM4_SHIFT_GAT Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PROC_ST4 Fld(1, 4, AC_MSKB0)//[4:4]
+#define REG_PWM4_POLARITY Fld(1, 8, AC_MSKB1)//[8:8]
+#define REG_PWM4_VDBEN Fld(1, 9, AC_MSKB1)//[9:9]
+#define REG_PWM4_RESET_EN Fld(1, 10, AC_MSKB1)//[10:10]
+#define REG_PWM4_DBEN Fld(1, 11, AC_MSKB1)//[11:11]
+#define REG_PWM4_IMPULSE_EN Fld(1, 12, AC_MSKB1)//[12:12]
+#define REG_PWM4_ODDEVEN_SYNC Fld(1, 13, AC_MSKB1)//[13:13]
+#define REG_PWM4_VDBEN_SW Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_0120_PWM_SCAN0 (0x120)
+#define REG_PWM4_OFFSET_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_0124_PWM_SCAN0 (0x124)
+#define REG_PWM4_OFFSET_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0128_PWM_SCAN0 (0x128)
+#define REG_PWM4_DB_SRC Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM4_LR_SRC Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PWM4_LR_SYNC_RP Fld(1, 2, AC_MSKB0)//[2:2]
+#define REG_PWM4_LR_SYNC_FP Fld(1, 3, AC_MSKB0)//[3:3]
+#define REG_EN_RP_L_INT4 Fld(1, 4, AC_MSKB0)//[4:4]
+#define REG_EN_FP_L_INT4 Fld(1, 5, AC_MSKB0)//[5:5]
+#define REG_EN_RP_R_INT4 Fld(1, 6, AC_MSKB0)//[6:6]
+#define REG_EN_FP_R_INT4 Fld(1, 7, AC_MSKB0)//[7:7]
+#define REG_HS_RST_CNT4 Fld(4, 8, AC_MSKB1)//[11:8]
+#define REG_RST_MUX4 Fld(1, 12, AC_MSKB1)//[12:12]
+#define REG_NVS_RST_EN4 Fld(1, 13, AC_MSKB1)//[13:13]
+#define REG_NVS_ALIGN_INV4 Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_NVS_ALIGN_EN4 Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_012C_PWM_SCAN0 (0x12C)
+#define REG_PWM4_CKEN Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM4_PD_VALUE Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PWM4_LEFT_MASK Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_PWM4_INV_LEFT Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_0130_PWM_SCAN0 (0x130)
+#define REG_PWM4_EN_MASK Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_PWM4_HIT_CNT_ST Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_0134_PWM_SCAN0 (0x134)
+#define REG_PWM4_HIT_CNT_END Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_0138_PWM_SCAN0 (0x138)
+#define REG_PWM4_EN_LR_MASK Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_PWM4_HIT_CNT_ST2 Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_013C_PWM_SCAN0 (0x13C)
+#define REG_PWM4_HIT_CNT_END2 Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_0140_PWM_SCAN0 (0x140)
+#define REG_PWM5_PERIOD_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_0144_PWM_SCAN0 (0x144)
+#define REG_PWM5_PERIOD_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0148_PWM_SCAN0 (0x148)
+#define REG_PWM5_DUTY_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_014C_PWM_SCAN0 (0x14C)
+#define REG_PWM5_DUTY_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0150_PWM_SCAN0 (0x150)
+#define REG_PWM5_SHIFT_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_0154_PWM_SCAN0 (0x154)
+#define REG_PWM5_SHIFT_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0158_PWM_SCAN0 (0x158)
+#define REG_PWM5_DIV Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_015C_PWM_SCAN0 (0x15C)
+#define REG_FORCE_SHIFT_SET_EN5 Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM5_SHIFT_GAT Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PROC_ST5 Fld(1, 4, AC_MSKB0)//[4:4]
+#define REG_PWM5_POLARITY Fld(1, 8, AC_MSKB1)//[8:8]
+#define REG_PWM5_VDBEN Fld(1, 9, AC_MSKB1)//[9:9]
+#define REG_PWM5_RESET_EN Fld(1, 10, AC_MSKB1)//[10:10]
+#define REG_PWM5_DBEN Fld(1, 11, AC_MSKB1)//[11:11]
+#define REG_PWM5_IMPULSE_EN Fld(1, 12, AC_MSKB1)//[12:12]
+#define REG_PWM5_ODDEVEN_SYNC Fld(1, 13, AC_MSKB1)//[13:13]
+#define REG_PWM5_VDBEN_SW Fld(1, 14, AC_MSKB1)//[14:14]
+
+//Page PWM_SCAN0_2
+#define REG_0160_PWM_SCAN0 (0x160)
+#define REG_PWM5_OFFSET_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_0164_PWM_SCAN0 (0x164)
+#define REG_PWM5_OFFSET_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0168_PWM_SCAN0 (0x168)
+#define REG_PWM5_DB_SRC Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM5_LR_SRC Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PWM5_LR_SYNC_RP Fld(1, 2, AC_MSKB0)//[2:2]
+#define REG_PWM5_LR_SYNC_FP Fld(1, 3, AC_MSKB0)//[3:3]
+#define REG_EN_RP_L_INT5 Fld(1, 4, AC_MSKB0)//[4:4]
+#define REG_EN_FP_L_INT5 Fld(1, 5, AC_MSKB0)//[5:5]
+#define REG_EN_RP_R_INT5 Fld(1, 6, AC_MSKB0)//[6:6]
+#define REG_EN_FP_R_INT5 Fld(1, 7, AC_MSKB0)//[7:7]
+#define REG_HS_RST_CNT5 Fld(4, 8, AC_MSKB1)//[11:8]
+#define REG_RST_MUX5 Fld(1, 12, AC_MSKB1)//[12:12]
+#define REG_NVS_RST_EN5 Fld(1, 13, AC_MSKB1)//[13:13]
+#define REG_NVS_ALIGN_INV5 Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_NVS_ALIGN_EN5 Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_016C_PWM_SCAN0 (0x16C)
+#define REG_PWM5_CKEN Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM5_PD_VALUE Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PWM5_LEFT_MASK Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_PWM5_INV_LEFT Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_0170_PWM_SCAN0 (0x170)
+#define REG_PWM5_EN_MASK Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_PWM5_HIT_CNT_ST Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_0174_PWM_SCAN0 (0x174)
+#define REG_PWM5_HIT_CNT_END Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_0178_PWM_SCAN0 (0x178)
+#define REG_PWM5_EN_LR_MASK Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_PWM5_HIT_CNT_ST2 Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_017C_PWM_SCAN0 (0x17C)
+#define REG_PWM5_HIT_CNT_END2 Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_0180_PWM_SCAN0 (0x180)
+#define REG_PWM6_PERIOD_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_0184_PWM_SCAN0 (0x184)
+#define REG_PWM6_PERIOD_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0188_PWM_SCAN0 (0x188)
+#define REG_PWM6_DUTY_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_018C_PWM_SCAN0 (0x18C)
+#define REG_PWM6_DUTY_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0190_PWM_SCAN0 (0x190)
+#define REG_PWM6_SHIFT_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_0194_PWM_SCAN0 (0x194)
+#define REG_PWM6_SHIFT_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_0198_PWM_SCAN0 (0x198)
+#define REG_PWM6_DIV Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_019C_PWM_SCAN0 (0x19C)
+#define REG_FORCE_SHIFT_SET_EN6 Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM6_SHIFT_GAT Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PROC_ST6 Fld(1, 4, AC_MSKB0)//[4:4]
+#define REG_PWM6_POLARITY Fld(1, 8, AC_MSKB1)//[8:8]
+#define REG_PWM6_VDBEN Fld(1, 9, AC_MSKB1)//[9:9]
+#define REG_PWM6_RESET_EN Fld(1, 10, AC_MSKB1)//[10:10]
+#define REG_PWM6_DBEN Fld(1, 11, AC_MSKB1)//[11:11]
+#define REG_PWM6_IMPULSE_EN Fld(1, 12, AC_MSKB1)//[12:12]
+#define REG_PWM6_ODDEVEN_SYNC Fld(1, 13, AC_MSKB1)//[13:13]
+#define REG_PWM6_VDBEN_SW Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_01A0_PWM_SCAN0 (0x1A0)
+#define REG_PWM6_OFFSET_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_01A4_PWM_SCAN0 (0x1A4)
+#define REG_PWM6_OFFSET_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_01A8_PWM_SCAN0 (0x1A8)
+#define REG_PWM6_DB_SRC Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM6_LR_SRC Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PWM6_LR_SYNC_RP Fld(1, 2, AC_MSKB0)//[2:2]
+#define REG_PWM6_LR_SYNC_FP Fld(1, 3, AC_MSKB0)//[3:3]
+#define REG_EN_RP_L_INT6 Fld(1, 4, AC_MSKB0)//[4:4]
+#define REG_EN_FP_L_INT6 Fld(1, 5, AC_MSKB0)//[5:5]
+#define REG_EN_RP_R_INT6 Fld(1, 6, AC_MSKB0)//[6:6]
+#define REG_EN_FP_R_INT6 Fld(1, 7, AC_MSKB0)//[7:7]
+#define REG_HS_RST_CNT6 Fld(4, 8, AC_MSKB1)//[11:8]
+#define REG_RST_MUX6 Fld(1, 12, AC_MSKB1)//[12:12]
+#define REG_NVS_RST_EN6 Fld(1, 13, AC_MSKB1)//[13:13]
+#define REG_NVS_ALIGN_INV6 Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_NVS_ALIGN_EN6 Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_01AC_PWM_SCAN0 (0x1AC)
+#define REG_PWM6_CKEN Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM6_PD_VALUE Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PWM6_LEFT_MASK Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_PWM6_INV_LEFT Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_01B0_PWM_SCAN0 (0x1B0)
+#define REG_PWM6_EN_MASK Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_PWM6_HIT_CNT_ST Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_01B4_PWM_SCAN0 (0x1B4)
+#define REG_PWM6_HIT_CNT_END Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_01B8_PWM_SCAN0 (0x1B8)
+#define REG_PWM6_EN_LR_MASK Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_PWM6_HIT_CNT_ST2 Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_01BC_PWM_SCAN0 (0x1BC)
+#define REG_PWM6_HIT_CNT_END2 Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_01C0_PWM_SCAN0 (0x1C0)
+#define REG_PWM7_PERIOD_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_01C4_PWM_SCAN0 (0x1C4)
+#define REG_PWM7_PERIOD_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_01C8_PWM_SCAN0 (0x1C8)
+#define REG_PWM7_DUTY_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_01CC_PWM_SCAN0 (0x1CC)
+#define REG_PWM7_DUTY_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_01D0_PWM_SCAN0 (0x1D0)
+#define REG_PWM7_SHIFT_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_01D4_PWM_SCAN0 (0x1D4)
+#define REG_PWM7_SHIFT_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_01D8_PWM_SCAN0 (0x1D8)
+#define REG_PWM7_DIV Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_01DC_PWM_SCAN0 (0x1DC)
+#define REG_FORCE_SHIFT_SET_EN7 Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM7_SHIFT_GAT Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PROC_ST7 Fld(1, 4, AC_MSKB0)//[4:4]
+#define REG_PWM7_POLARITY Fld(1, 8, AC_MSKB1)//[8:8]
+#define REG_PWM7_VDBEN Fld(1, 9, AC_MSKB1)//[9:9]
+#define REG_PWM7_RESET_EN Fld(1, 10, AC_MSKB1)//[10:10]
+#define REG_PWM7_DBEN Fld(1, 11, AC_MSKB1)//[11:11]
+#define REG_PWM7_IMPULSE_EN Fld(1, 12, AC_MSKB1)//[12:12]
+#define REG_PWM7_ODDEVEN_SYNC Fld(1, 13, AC_MSKB1)//[13:13]
+#define REG_PWM7_VDBEN_SW Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_01E0_PWM_SCAN0 (0x1E0)
+#define REG_PWM7_OFFSET_0 Fld(16, 0, AC_FULLW10)//[15:0]
+#define REG_01E4_PWM_SCAN0 (0x1E4)
+#define REG_PWM7_OFFSET_1 Fld(8, 0, AC_FULLB0)//[7:0]
+#define REG_01E8_PWM_SCAN0 (0x1E8)
+#define REG_PWM7_DB_SRC Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM7_LR_SRC Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PWM7_LR_SYNC_RP Fld(1, 2, AC_MSKB0)//[2:2]
+#define REG_PWM7_LR_SYNC_FP Fld(1, 3, AC_MSKB0)//[3:3]
+#define REG_EN_RP_L_INT7 Fld(1, 4, AC_MSKB0)//[4:4]
+#define REG_EN_FP_L_INT7 Fld(1, 5, AC_MSKB0)//[5:5]
+#define REG_EN_RP_R_INT7 Fld(1, 6, AC_MSKB0)//[6:6]
+#define REG_EN_FP_R_INT7 Fld(1, 7, AC_MSKB0)//[7:7]
+#define REG_HS_RST_CNT7 Fld(4, 8, AC_MSKB1)//[11:8]
+#define REG_RST_MUX7 Fld(1, 12, AC_MSKB1)//[12:12]
+#define REG_NVS_RST_EN7 Fld(1, 13, AC_MSKB1)//[13:13]
+#define REG_NVS_ALIGN_INV7 Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_NVS_ALIGN_EN7 Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_01EC_PWM_SCAN0 (0x1EC)
+#define REG_PWM7_CKEN Fld(1, 0, AC_MSKB0)//[0:0]
+#define REG_PWM7_PD_VALUE Fld(1, 1, AC_MSKB0)//[1:1]
+#define REG_PWM_CKEN_ALL Fld(1, 8, AC_MSKB1)//[8:8]
+#define REG_PWM7_LEFT_MASK Fld(1, 14, AC_MSKB1)//[14:14]
+#define REG_PWM7_INV_LEFT Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_01F0_PWM_SCAN0 (0x1F0)
+#define REG_PWM7_EN_MASK Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_PWM7_HIT_CNT_ST Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_01F4_PWM_SCAN0 (0x1F4)
+#define REG_PWM7_HIT_CNT_END Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_01F8_PWM_SCAN0 (0x1F8)
+#define REG_PWM7_EN_LR_MASK Fld(1, 15, AC_MSKB1)//[15:15]
+#define REG_PWM7_HIT_CNT_ST2 Fld(13, 0, AC_MSKW10)//[12:0]
+#define REG_01FC_PWM_SCAN0 (0x1FC)
+#define REG_PWM7_HIT_CNT_END2 Fld(13, 0, AC_MSKW10)//[12:0]
+
+#endif

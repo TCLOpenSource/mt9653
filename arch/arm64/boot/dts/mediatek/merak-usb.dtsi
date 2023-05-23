@@ -1,0 +1,130 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	ssusb: usb@1C7A3E00 {
+		compatible = "mediatek,mtk-dtv-mtu3";
+		reg = <0x0 0x1C7A3E00 0x0 0x100>,
+			<0x0 0x1C7A1000 0x0 0x2800>,
+			<0x0 0x1C7B0200 0x0 0x100>;
+		reg-names = "ippc","mac","misc";
+		interrupt-parent = <&mtk_intc1_irq_low>;
+		interrupts = <0x0 0x0 0x4>;
+		dr_mode = "otg";
+		enable-manual-drd;
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+		status ="okay";
+
+		usb_host0: xhci@1C7A0000 {
+			compatible = "mediatek,mtk-dtv-xhci";
+			reg = <0x0 0x1C7A0000 0x0 0x1000>;
+			reg-names = "mac";
+			interrupt-parent = <&mtk_intc0_irq>;
+			interrupts = <0x0 0x3f 0x4>;
+			status ="okay";
+		};
+	};
+
+	udc: usb-device@1C7A1000 {
+		compatible = "mediatek,mtk-dtv-usb-device";
+		reg = <0x0 0x1C7A3E00 0x0 0x100>,
+			<0x0 0x1C7A1000 0x0 0x2800>,
+			<0x0 0x1C7B0200 0x0 0x100>;
+		reg-names = "ippc","mac","misc";
+		interrupt-parent = <&mtk_intc1_irq_low>;
+		interrupts = <0x0 0x0 0x4>;
+		dr_mode = "otg";
+		enable-manual-drd;
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+		status ="okay";
+	};
+
+	u3phy0: usb-phy@1C780000 {
+		compatible = "mediatek,generic-tphy-v2";
+		reg = <0x0 0x1C790060 0x0 0x8>;
+		reg-names = "i2c_ctrl_reg";
+		#address-cells = <2>;
+		#size-cells = <2>;
+		mediatek,src_hw_capable;
+		ranges;
+		status = "okay";
+	};
+
+	ssusb1: usb@1C1B3E00 {
+		compatible = "mediatek,mtk-dtv-mtu3";
+		reg = <0x0 0x1C1B3E00 0x0 0x100>;
+		reg-names = "ippc";
+		dr_mode = "host";
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+		standbypower-domain;
+		status = "okay";
+
+		usb_host1: xhci@1C1B0000 {
+			compatible = "mediatek,mtk-dtv-xhci";
+			reg = <0x0 0x1C1B0000 0x0 0x1000>;
+			reg-names = "mac";
+			interrupt-parent = <&mtk_intc2_irq_high>;
+			interrupts = <0x0 0x1f 0x4>;
+			status = "okay";
+		};
+	};
+
+	u3phy1: usb-phy@1C1A0000 {
+		compatible = "mediatek,generic-tphy-v2";
+		reg = <0x0 0x1C0212E8 0x0 0x8>;
+		reg-names = "i2c_ctrl_reg";
+		#address-cells = <2>;
+		#size-cells = <2>;
+		mediatek,src_hw_capable;
+		ranges;
+		standbypower-domain;
+		status = "okay";
+	};
+	/*
+	 * ssusb_fpga: usb-fpga {
+	 *	compatible = "mediatek,mtk-dtv-mtu3";
+	 *	reg = <0x0 0x1C7A3E00 0x0 0x100>;
+	 *	reg-names = "ippc";
+	 *	interrupt-parent = <&mtk_intc1_irq_low>;
+	 *	interrupts = <0x0 0xa0 0x4>;
+	 *	phys = <&u2port0_fpga PHY_TYPE_USB2>;
+	 *	dr_mode = "host";
+	 *	#address-cells = <2>;
+	 *	#size-cells = <2>;
+	 *	ranges;
+	 *	mediatek,u3p-dis-msk = <0xf>;
+	 *	status = "disabled";
+	 *
+	 *	usb_host0_fpga: xhci-fpga {
+	 *		compatible = "mediatek,mtk-dtv-xhci";
+	 *		reg = <0x0 0x1C7A0000 0x0 0x1000>,
+	 *			<0x0 0x1C7B0200 0x0 0x100>;
+	 *		reg-names = "mac", "misc_1";
+	 *		interrupt-parent = <&mtk_intc0_irq>;
+	 *		interrupts = <0x0 0x3f 0x4>;
+	 *		imod-interval-ns = <125000>;
+	 *	};
+	 * };
+	 *
+	 * u3phy_fpga: usb-phy-fpga {
+	 *	compatible = "mediatek,fpga-u3phy";
+	 *	mediatek,ippc = <0x1C7A3E00>;
+	 *	status = "disabled";
+	 *
+	 *	u2port0_fpga: usb-phy-fpga {
+	 *		port = <0>;
+	 *		pclk_phase = <12>;
+	 *		chip-id = <0xa60931a>;
+	 *		#phy-cells = <1>;
+	 *	};
+	 * };
+	 */
+};

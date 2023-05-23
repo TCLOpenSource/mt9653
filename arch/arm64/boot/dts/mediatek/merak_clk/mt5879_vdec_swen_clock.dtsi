@@ -1,0 +1,6 @@
+/{
+	vdec_sw_en: vdec_swen {
+		#clock-cells = <1>;
+
+	};
+};

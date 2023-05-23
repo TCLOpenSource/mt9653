@@ -1,0 +1,29 @@
+config MTK_ZDEC
+        tristate "ZDEC"
+        help
+	Say yes here to add support for the MediaTek ZDEC Related driver.
+	MTK ZDEC Related driver
+	includes ZDEC-drive.
+	The MTK ZDEC device is used.
+config MTK_ZDEC_ASYNC_MODE
+	bool "ZDEC_SYNC_ASYNC"
+ 	depends on MTK_ZDEC
+	help
+	Say yes here to add support for the MediaTek ZDEC async mode.
+	MTK ZDEC is a hardware decoder based zilb which
+	perfroms better than origin.
+	The MTK ZDEC device is used for decoding.
+config MTK_ACP_MODE
+	bool "ACP Switch"
+	depends on MTK_ZDEC
+	help
+	Say yes here to add support for the MediaTek ZDEC acp mode.
+	MTK ZDEC, which is build for zlib decoder
+	reducing unnecessary overhead.
+	Say yes here to add support for ACP Mode.
+config MTKZDEC_KO
+	tristate "MTK zdec kernel driver support"
+	help
+		Say yes here to add support for the externel MediaTek ZDEC driver.
+		Say yes here to add support for the externel MediaTek ZDEC driver.
+		Say yes here to add support for the externel MediaTek ZDEC driver.

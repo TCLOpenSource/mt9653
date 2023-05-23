@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2021 MediaTek Inc.
+ */
+
+/ {
+	bdma:bdma {
+		compatible = "mediatek,mt5896-bdma";
+		interrupt-parent = <&mtk_intc2_irq_low>;
+		interrupts = <0x0 0x3 0x4>;
+		reg = <0 0x1c603000 0 0x200>,<0 0x1c2054E8 0 0x10>;
+		mediatek,channel = "bdma_ch0";
+	};
+	frc_bdma:frc_bdma {
+		compatible = "mediatek,mt5896-bdma";
+		interrupt-parent = <&mtk_intc1_irq_high>;
+		interrupts = <0x0 0x1f 0x4>;
+		reg = <0 0x1D004C00 0 0x200>,<0 0x1c207B64 0 0x10>;
+		mediatek,channel = "bdma_ch2";
+	};
+	vdec_bdma:vdec_bdma {
+		compatible = "mediatek,mt5896-bdma";
+		interrupt-parent = <&mtk_intc2_irq_low>;
+		interrupts = <0x0 0xb 0x4>;
+		reg = <0 0x1c603200 0 0x200>,<0 0x1c207FE0 0 0x10>;
+		mediatek,channel = "bdma_ch3";
+	};
+};

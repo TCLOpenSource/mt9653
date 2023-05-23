@@ -1,0 +1,75 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+
+/ {
+	smart_OOXX: smart_swen {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_gate_en";
+		num = <5>;
+		reg = <0 0x1c204000 0 0x4000>;
+
+		smart2piu {
+			id = <CLK_SMART_EN_SMART2PIU>;
+			gate_shift = <0>;
+			parent = "smart_int_ck";
+			ctrl_reg = <0x1A38>;
+		};
+
+		smart_synth_272piu {
+			id = <CLK_SMART_EN_SMART_SYNTH_272PIU>;
+			gate_shift = <0>;
+			parent = "smart_synth_27_int_ck";
+			ctrl_reg = <0x1A24>;
+		};
+
+		smart_synth_4322piu {
+			id = <CLK_SMART_EN_SMART_SYNTH_4322PIU>;
+			gate_shift = <0>;
+			parent = "smart_synth_432_int_ck";
+			ctrl_reg = <0x1A28>;
+		};
+
+		mcu_nonpm2smart0 {
+			id = <CLK_SMART_EN_MCU_NONPM2SMART0>;
+			parent = "mcu_nonpm2smart0_int_ck";
+		};
+
+	};
+
+	smart2_OOXX: smart2_swen {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_gate_en";
+		num = <5>;
+		reg = <0 0x1c204000 0 0x4000>;
+
+		smart22piu {
+			id = <CLK_SMART2_EN_SMART22PIU>;
+			gate_shift = <0>;
+			parent = "smart2_int_ck";
+			ctrl_reg = <0x1A34>;
+		};
+
+		smart2_synth_272piu {
+			id = <CLK_SMART2_EN_SMART2_SYNTH_272PIU>;
+			gate_shift = <0>;
+			parent = "smart2_synth_27_int_ck";
+			ctrl_reg = <0x1A2C>;
+		};
+
+		smart2_synth_4322piu {
+			id = <CLK_SMART2_EN_SMART2_SYNTH_4322PIU>;
+			gate_shift = <0>;
+			parent = "smart2_synth_432_int_ck";
+			ctrl_reg = <0x1A30>;
+		};
+
+		mcu_nonpm2smart1 {
+			id = <CLK_SMART2_EN_MCU_NONPM2SMART1>;
+			parent = "mcu_nonpm2smart1_int_ck";
+		};
+	};
+
+};

@@ -1,0 +1,11 @@
+#
+# Makefile for Mediatek cfm drivers.
+#
+LOCAL_PATH ?= $(M)
+
+# general options
+ccflags-y      +=  -Idrivers/media/dvb-frontends/cfm/
+
+obj-m            := mtk-cfm.o
+
+mtk-cfm-objs    += cfm.o

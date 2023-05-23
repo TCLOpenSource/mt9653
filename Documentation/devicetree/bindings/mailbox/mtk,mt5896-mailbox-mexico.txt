@@ -1,0 +1,18 @@
+MediaTek Mailbox Wrapper
+===============
+
+Mailbox Wrapper for mailbox client who does not have dts node
+to request mbox channel.
+
+Required properties:
+- compatible: should be "mediatek,mt5896-mbox-mexico".
+- mboxes: List of phandle and mailbox channel specifiers. Args
+	  in mboxes here is to recognize the remote target for
+	  wrapper driver.
+
+Example:
+	mailbox_mexico_to_pm51: mailbox_mexico_to_pm51 {
+		compatible = "mediatek,mt5896-mbox-mexico";
+		mboxes = <&mailbox_to_pm51 MBOX_REMOTE_PM51>;
+	};
+

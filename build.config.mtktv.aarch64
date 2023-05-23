@@ -1,0 +1,2 @@
+. ${ROOT_DIR}/${KERNEL_VER}/build.config.aarch64
+. ${ROOT_DIR}/${KERNEL_VER}/build.config.mtktv

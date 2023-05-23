@@ -1,0 +1,93 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2021 MediaTek Inc.
+ */
+
+/ {
+	pwm0@1c487200 {
+		compatible = "mediatek,mt5896-pwm";
+		reg = <0 0x1c087800 0 0x40>,<0 0x1c001b84 0 0x10>;
+	};
+	scanpwm0:pwm@1c487600 {
+		compatible = "mediatek,mt5896-scanpwm";
+		reg = <0 0x1c487600 0 0x40>,<0 0x1c4877C0 0 0x40>,
+			<0 0x1c487200 0 0x40>;
+		div = <0>;
+		clocks = <&pwm_clk 2>,
+				 <&pwm_clk 1>;
+		clock-names = "xtal_12m2pwm", "pwm_ck";
+		period_time = <6250000>;
+		pol = <0>;
+		channel = <0>;
+	};
+	scanpwm1:pwm_bl@0{
+		compatible = "mediatek,mt5896-scanpwm";
+		reg = <0 0x1c487640 0 0x40>,<0 0x1c4877C0 0 0x40>,
+			<0 0x1c487200 0 0x40>;
+		#pwm-cells = <2>;
+		div = <0>;
+		clocks = <&pwm_clk 2>,
+				 <&pwm_clk 1>;
+		clock-names = "xtal_12m2pwm", "pwm_ck";
+		pol = <0>;
+		channel = <1>;
+	};
+	scanpwm2:pwm2@1c487680 {
+		compatible = "mediatek,mt5896-scanpwm";
+		reg = <0 0x1c487680 0 0x40>,<0 0x1c4877C0 0 0x40>,
+			<0 0x1c487200 0 0x40>;
+		div = <0>;
+		clocks = <&pwm_clk 2>,
+				 <&pwm_clk 1>;
+		clock-names = "xtal_12m2pwm", "pwm_ck";
+		period_time = <6250000>;
+		channel = <2>;
+	};
+	scanpwm3:pwm3@1c4876c0 {
+		compatible = "mediatek,mt5896-scanpwm";
+		reg = <0 0x1c4876C0 0 0x40>,<0 0x1c4877C0 0 0x40>,
+			<0 0x1c487200 0 0x40>;
+		div = <0>;
+		clocks = <&pwm_clk 2>,
+				 <&pwm_clk 1>;
+		clock-names = "xtal_12m2pwm", "pwm_ck";
+		period_time = <6250000>;
+		channel = <3>;
+	};
+	scanpwm4:pwm4@1c487700 {
+		compatible = "mediatek,mt5896-scanpwm";
+		reg = <0 0x1c487700 0 0x40>,<0 0x1c4877C0 0 0x40>,
+			<0 0x1c487200 0 0x40>;
+		div = <0>;
+		clocks = <&pwm_clk 2>,
+				 <&pwm_clk 1>;
+		clock-names = "xtal_12m2pwm", "pwm_ck";
+		period_time = <6250000>;
+		channel = <4>;
+	};
+	pwmadc:pwmadc {
+		compatible = "mediatek,mt5896-adcpwm";
+		reg = <0 0x1c487000 0 0x40>,<0 0x1c2074A0 0 0x10>,
+				<0 0x1c206198 0 0x10>, <0 0x1c2e40d0 0 0x10>;
+		#pwm-cells = <2>;
+		dben;
+		div = <0>;
+		clk-sel = <1>;
+		puls-minus = <0>;
+		auto-correct = <0>;
+	};
+	pwmseg0:pwmseg0 {
+		compatible = "mediatek,mt5896-segpwm";
+		reg = <0 0x1c4874DC 0 0x10>,<0 0x1c487560 0 0x10>,
+			<0 0x1c487400 0 0x40>,<0 0x1c487800 0 0x20>,<0 0x1c487200 0 0x40>;
+		clocks = <&pwm_clk 2>,
+				 <&pwm_clk 1>;
+		clock-names = "xtal_12m2pwm", "pwm_ck";
+		channel = <0>;
+		vsync-freq = <60>;
+	};
+	/* uboot usage, disabled in kernel */
+	pwm:pwm {
+		status = "disabled";
+	};
+};

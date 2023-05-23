@@ -1,0 +1,67 @@
+# SPDX-License-Identifier: GPL-2.0-only
+config DRM_MEDIATEK
+	tristate "DRM Support for Mediatek SoCs"
+	depends on DRM
+	depends on ARCH_MEDIATEK || (ARM && COMPILE_TEST)
+	depends on COMMON_CLK
+	depends on HAVE_ARM_SMCCC
+	depends on OF
+	select DRM_GEM_CMA_HELPER
+	select DRM_KMS_HELPER
+	select DRM_MIPI_DSI
+	select DRM_PANEL
+	select MEMORY
+	select MTK_SMI
+	select VIDEOMODE_HELPERS
+	help
+	  Choose this option if you have a Mediatek SoCs.
+	  The module will be called mediatek-drm
+	  This driver provides kernel mode setting and
+	  buffer management to userspace.
+
+config DRM_MEDIATEK_HDMI
+	tristate "DRM HDMI Support for Mediatek SoCs"
+	depends on DRM_MEDIATEK
+	select SND_SOC_HDMI_CODEC if SND_SOC
+	select GENERIC_PHY
+	help
+	  DRM/KMS HDMI driver for Mediatek SoCs
+
+config DRM_MEDIATEK_TV
+	tristate "DRM Support for Mediatek TV SoCs"
+	depends on DRM
+	depends on (ARM && COMPILE_TEST)
+	depends on COMMON_CLK
+	depends on HAVE_ARM_SMCCC
+	depends on OF
+	select DRM_GEM_CMA_HELPER
+	select DRM_KMS_HELPER
+	select DRM_PANEL
+	select MEMORY
+	help
+		Choose this option if you have a Mediatek SoCs.
+		The module will be called mediatek-drm
+		This driver provides kernel mode setting and
+		buffer management to userspace.
+
+#config DRM_MEDIATEK_TV_MERAK
+#	tristate "Mediatek Video Display DRM SW MERAK Architecture"
+#	depends on VIDEO_DEV && VIDEO_V4L2
+#	select V4L2_MEM2MEM_DEV
+#	default n
+#	help
+#		Mediatek Video Display DRM SW MERAK Architecture. STI standard
+#		interface.
+#		To use merak sw architecture, choose y here: the module
+#		will be mtk-drm
+
+config CONFIG_DRM_MEDIATEK_TV_LEGACY
+	tristate "Mediatek Video Display DRM SW LEGACY Architecture"
+	default n
+        	help
+		Mediatek Video Display DRM SW Legacy Architecture. STI standard
+		interface.
+		To use legacy sw architecture, choose y here: the module
+		will be mtk-drm
+
+source "drivers/gpu/drm/mediatek/mediatek_v2/Kconfig"

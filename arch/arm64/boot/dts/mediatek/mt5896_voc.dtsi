@@ -1,0 +1,74 @@
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+#include "mt5896_mmap.dtsi"
+
+/ {
+	voc_audio: voc-audio {
+		compatible = "mediatek,mtk-mic-machine";
+		memory-region = <&MI_CM4_VOICE>,
+						<&MI_VOC_OWL>;
+		imi-base = <0x0 0x43800 0x0 0x200>,
+				<0 0x1C000000 0 0xA00000>;
+		vbdma-ch = <1>;
+		miu-base = <0x20000000>;
+		status = "okay";
+	};
+
+	voc_platform: voc-platform {
+		compatible = "mediatek,mtk-mic-dma";
+		voc-buf-info = <0x0071703000> ,<0x200000>;
+		voc-pcm-size = <0x17D800>;
+		voc-communication-path = <0>; // 0 :rpmsg ,1:paganini ,2: mailbox
+		mboxes = <&mailbox_to_cm4 MBOX_CHAN_ID_VOICE>;
+		power-saving = <0>;
+		interrupt-parent = <&mtk_intc2_irq_high>;
+		interrupts = <0x0 0x15 0x4>;
+		reg = <0x0 0x1C086400 0x0 0x200>,
+			  <0x0 0x1C020200 0x0 0x200>,
+			  <0x0 0x1C021000 0x0 0x200>,
+			  <0x0 0x1C021200 0x0 0x200>,
+			  <0x0 0x1C620080 0x0 0x2>,
+			  <0x0 0x1C620880 0x0 0x2>,
+			  <0x0 0x1D206000 0x0 0x200>,
+			  <0x0 0x1D2A0800 0x0 0x200>,
+			  <0x0 0x1C022000 0x0 0x200>,
+			  <0x0 0x1D2A0400 0x0 0x200>,
+			  <0x0 0x1C606000 0x0 0x200>,
+			  <0x0 0x1C001800 0x0 0x200>,
+			  <0x0 0x1C001A00 0x0 0x200>,
+			  <0x0 0x1C086000 0x0 0x200>,
+			  <0x0 0x1C086200 0x0 0x200>,
+			  <0x0 0x1C087200 0x0 0x200>,
+			  <0x0 0x1D280000 0x0 0x200>,
+			  <0x0 0x1C087000 0x0 0x200>;
+		/*
+		reg-names = "paganini",
+					"pm_sleep",
+					"pm_top",
+					"pm_misc",
+					"cpu_int",
+					"inturrpt",
+					"viv_bdma",
+					"vivaldi4",
+					"block_arbiter_gp1",
+					"vivaldi2",
+					"MALIBOX",
+					"ckgen00_pm",
+					"ckgen01_pm",
+					"vad_0",
+					"vrec",
+					"coin_cpu",
+					"vad_1",
+					"pm_imi";
+		*/
+		status = "okay";
+	};
+
+	voc_cpu_dai: voc-cpu-dai {
+		compatible = "mediatek,mtk-mic-dai";
+		reg = <0 0x1D206000 0 0x40>;
+		status = "okay";
+	};
+};

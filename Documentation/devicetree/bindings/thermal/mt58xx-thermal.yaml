@@ -1,0 +1,57 @@
+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/thermal/mt58xx-thermal.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+
+title: mt58xx thermal sensor controller bindings
+
+maintainers:
+  - Mark-PK Tsai <mark-pk.tsai@mediatek.com>
+
+description: |+
+  Mediatek TV SoCs contain multiple thermal sensors.
+  The driver is similar to generic-adc except the value read from ADC
+  can't use voltage-thermal look-up table to calculate the temperature.
+  Instead, use the below equation to get the temperature.
+    Tj = (Vref - V) * Vslope + Tref
+
+properties:
+  compatible:
+    const: mt58xx-thermal
+
+  "#thermal-sensor-cells":
+    const: 1
+
+  io-channels:
+    description:
+      From common IIO binding.
+
+  io-channel-names:
+    const: thermal
+
+  mediatek,thermal-config:
+    description: |
+      mt58xx thermal sensor configuraiton. <Vref Tref Vslope>
+    $ref: /schemas/types.yaml#/definitions/uint32-matrix
+    items:
+      minItems: 3
+      maxItems: 3
+
+required:
+  - compatible
+  - io-channels
+  - io-channel-names
+  - "#thermal-sensor-cells"
+  - mediatek,thermal-config
+
+examples:
+  - |
+	tsensor_apu: mtk-sensor@14 {
+		compatible = "mt58xx-thermal";
+		#thermal-sensor-cells = <1>;
+		io-channels = <&saradc 14>;
+		io-channel-names = "thermal";
+		mediatek,thermal-config = <772 24000 770>;
+	};
+...

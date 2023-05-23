@@ -1,0 +1,6 @@
+config MEDIATEK_DVB_SC
+	tristate "Mediatek DVB SC device"
+	default n
+	help
+	  To enable support for mediatek DVB SC device drivers.
+

@@ -1,0 +1,11 @@
+CONFIG_MSTAR_CHIP_NAME := $(subst ",,$(CONFIG_MSTAR_CHIP_NAME))
+EXTRA_CFLAGS    +=  -Iarch/$(SRCARCH)/
+EXTRA_CFLAGS := -DMSOS_TYPE_LINUX_KERNEL
+EXTRA_CFLAGS += -DSTI_PLATFORM_BRING_UP
+mtk_zram-m  := mtk_zram_drv.o
+mtk_zram-y  += mtk_zcomp.o
+obj-$(CONFIG_MTKZRAM_KO) += mzc-mtk.o
+obj-$(CONFIG_MTKZRAM_KO) += mzc_hybrid.o
+obj-$(CONFIG_MTKZRAM_KO) += mzc.o
+obj-$(CONFIG_MTKZRAM_KO) += mtk_zram.o
+obj-$(CONFIG_MTKZSMALLOC_KO)    += mtk_zsmalloc.o

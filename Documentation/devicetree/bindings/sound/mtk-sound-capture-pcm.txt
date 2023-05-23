@@ -1,0 +1,14 @@
+Mediatek DTV DSP CAPTURE PCM Controller for mt5870
+
+Required properties:
+- compatible: "mediatek,mtk-capture-platform"
+- mediatek DTV,platform: MT5870 ASoC platform
+
+Example:
+
+mtk-sound-capture-platform {
+		compatible = "mediatek,mtk-capture-platform";
+		interrupt-parent = <&mtk_intc1>;
+		interrupts = <0x0 0x6 0x4>,
+		<0x0 0x7 0x4>;
+	};

@@ -1,0 +1,23 @@
+Device-Tree bindings for MediaTek DTV SoC based Memory
+
+Required properties:
+- compatible : must be:
+	"mediatek,mtk-miup"
+- reg : the register and size of the miu protect base.
+- interrupts : Should contain the interrupt for memory protect hit log.
+- mediatek,max_prot_blk : Maximum number of protect block of memory protect.
+- mediatek,max_cid_group : Maximum number of client group.
+- mediatek,max_cid_number : Maximum number of client number of each client group.
+
+Example:
+	mtk_miup: miup@1f603400 {
+		compatible = "mediatek,mtk-miup";
+		reg = <0 0x1f603400 0 0x200>,
+		  <0 0x1f620E00 0 0x200>,
+		  <0 0x1f621000 0 0x200>,
+		  <0 0x1f621200 0 0x200>;
+		interrupts = <0x0 0x22 0x4>;
+		mediatek,max_prot_blk = <8>;
+		mediatek,max_cid_group = <2>;
+		mediatek,max_cid_number = <16>;
+	};

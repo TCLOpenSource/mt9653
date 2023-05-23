@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/{
+	vdec_sw_en: vdec_swen {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_gate_en";
+		num = <CLK_VDEC_EN_NR>;
+
+		xtal_24m2core0 {
+			id = <CLK_VDEC_EN_XTAL_24M2CORE0>;
+			parent = "xtal_24m_int_ck";
+		};
+
+		gce_f26m2gce_biu {
+			id = <CLK_VDEC_EN_GCE_F26M2GCE_BIU>;
+			parent = "gce_f26m_int_ck";
+		};
+
+		smi2gce {
+			id = <CLK_VDEC_EN_SMI2GCE>;
+			parent = "smi_int_ck";
+		};
+
+	};
+};

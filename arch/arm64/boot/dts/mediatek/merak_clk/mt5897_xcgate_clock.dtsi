@@ -1,0 +1,29 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	xcgate_mux_gate: xcgate_mg {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_mux_gate";
+		num = <MT5897_XCGATE_NR>;
+
+		xcgate_xc_ed_ck {
+			id = <CLK_XCGATE_XC_ED_CK>;
+			parents = "dummy";
+		};
+		xcgate_xc_fd_ck {
+			id = <CLK_XCGATE_XC_FD_CK>;
+			parents = "dummy";
+		};
+		xcgate_xc_fn_ck {
+			id = <CLK_XCGATE_XC_FN_CK>;
+			parents = "dummy";
+		};
+		xcgate_xc_fs_ck {
+			id = <CLK_XCGATE_XC_FS_CK>;
+			parents = "dummy";
+		};
+	};
+};

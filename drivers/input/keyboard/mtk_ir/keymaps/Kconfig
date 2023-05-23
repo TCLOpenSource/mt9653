@@ -1,0 +1,88 @@
+menu "MTK IR Keymap Select"
+	depends on MTK_TV_MIRC_INPUT_DEVICE
+
+	config MTK_TV_IR_KEYMAP_MTK_NEC
+		bool "Mtk tv NEC keymaps"
+		default y
+		help
+		  Say Y here, and a keymap of mtk rc will be supported.
+		  This option doesn't affect the kernel.
+
+		  If unsure, say Y.
+
+	config IR_KEYMAP_TCL_RCA
+		bool "TCL RCA keymaps"
+		default n
+		help
+		TCL RCA keymaps
+	config IR_KEYMAP_TCL
+		bool "TCL keymaps"
+		default n
+		help
+		TCL tv keymaps
+	config IR_KEYMAP_GOME_NEC
+		bool "GOME keymaps"
+		default n
+		help
+		GOME tv keymaps
+	config IR_KEYMAP_CHANGHONG
+		bool "Changhong IR keymaps"
+		default n
+		help
+		Changhong tv keymaps
+	config IR_KEYMAP_HISENSE
+		bool "Hisense IR keymaps"
+		default n
+		help
+		Hisense tv keymaps
+	config IR_KEYMAP_HAIER
+		bool "Haier IR keymaps"
+		default n
+		help
+		Haier tv keymaps
+	config IR_KEYMAP_KONKA
+		bool "Konka IR keymaps"
+		default n
+		help
+		Konka tv keymaps
+	config IR_KEYMAP_SKYWORTH
+		bool "Skyworth IR keymaps"
+		default n
+		help
+		Skyworth tv keymaps
+	config IR_KEYMAP_PANASONIC_7051
+		bool "Pnasonic 7051 IR keymaps"
+		default n
+		help
+		panasonic tv keymaps
+	config IR_KEYMAP_KATHREIN
+		bool "Kathrein RC6 MODE_6A IR keymaps"
+		default n
+		help
+		Kathrein tv keymaps
+	config IR_KEYMAP_RC5
+		bool "RC5 IR keymaps"
+		default n
+		help
+		RC5 tv keymaps
+	config IR_KEYMAP_METZ
+		bool "metz IR keymaps"
+		default n
+		help
+		metz tv keymaps
+	config IR_KEYMAP_SAMPO
+		bool "Sampo IR keymaps"
+		default n
+		help
+		Sampo tv keymaps
+	config IR_KEYMAP_BEKO_RC5
+		bool "Beko RC5 IR keymaps"
+		default n
+		help
+		Beko RC5 tv keymaps
+	config MTK_TV_IR_KEYMAP_SONY
+		bool "sony tv keymaps"
+		default n
+		help
+		Sony tv keymaps
+endmenu

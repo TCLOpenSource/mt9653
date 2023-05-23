@@ -1,0 +1,19 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+
+/{
+	ufs_swEN: ufs_swen {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_gate_en";
+		num = <CLK_UFS_EN_NR>;
+
+		smi2ufs {
+			id = <CLK_UFS_EN_SMI2UFS>;
+			parent = "smi2ufs_int_ck";
+		};
+
+	};
+};

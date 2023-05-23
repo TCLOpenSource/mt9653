@@ -1,0 +1,15 @@
+Mediatek mt5870 SoC WDT controller
+
+Required properties:
+
+- compatible: must be "mediatek,mt5870-wdt"
+- reg: physical base address and length for this controller
+- clocks: XTAL
+
+
+Example:
+
+	wdt{
+	   compatible = "mediatek,mt5870-wdt";
+	   reg = <0 0x1f006000 0 0x200>;
+	};

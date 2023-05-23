@@ -1,0 +1,997 @@
+#include <dt-bindings/clock/mt5870-clk.h>
+
+/ {
+
+	topgen_fix: top-gen_fix {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_fix";
+		num = <CLK_TOP_FIX_RATE_NR>;
+
+		dmdpll_clk {
+			id = <CLK_TOP_DMDPLL>;
+			clock-frequency = <864>;
+		};
+		scpll_clk {
+			id = <CLK_TOP_SCPLL>;
+			clock-frequency = <690>;
+		};
+		upll_clk {
+			id = <CLK_TOP_UPLL>;
+			clock-frequency = <960>;
+		};
+		xtal_clk {
+			id = <CLK_TOP_XTAL>;
+			clock-frequency = <12>;
+		};
+		evdpll_clk {
+			id = <CLK_TOP_EVDPLL>;
+			clock-frequency = <1248>;
+		};
+		xtal_24m_clk {
+			id = <CLK_TOP_XTAL_24M>;
+			clock-frequency = <24>;
+		};
+		miu_128bus_pll_clk {
+			id = <CLK_TOP_MIU_128BUS_PLL>;
+			clock-frequency = <672>;
+		};
+		miu_256bus_pll_clk {
+			id = <CLK_TOP_MIU_256BUS_PLL>;
+			clock-frequency = <576>;
+		};
+		ddr_pll_a_clk {
+			id = <CLK_TOP_DDR_PLL_A>;
+			clock-frequency = <777>;
+		};
+		ddr_pll_b_clk {
+			id = <CLK_TOP_DDR_PLL_B>;
+			clock-frequency = <777>;
+		};
+
+	};
+
+	topgen_fix_factor: top-gen_fix_factor {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_fix_factor";
+		num = <CLK_TOP_FIX_FACTOR_NR>;
+
+		dmdpll_clk {
+			clk_432_buf {
+				id = <CLK_TOP_DMDPLL_D2>;
+				div_factor = <1 2>;
+			};
+			clk_345_buf {
+				id = <CLK_TOP_DMDPLL_D2P5>;
+				div_factor = <5 2>;
+			};
+			clk_288_buf {
+				id = <CLK_TOP_DMDPLL_D3>;
+				div_factor = <1 3>;
+			};
+			clk_216_buf {
+				id = <CLK_TOP_DMDPLL_D4>;
+				div_factor = <1 4>;
+			};
+			clk_172_buf {
+				id = <CLK_TOP_DMDPLL_D5>;
+				div_factor = <1 5>;
+			};
+			clk_144_buf {
+				id = <CLK_TOP_DMDPLL_D6>;
+				div_factor = <1 6>;
+			};
+
+			clk_123_buf {
+				id = <CLK_TOP_DMDPLL_D7>;
+				div_factor = <1 7>;
+			};
+			clk_108_buf {
+				id = <CLK_TOP_DMDPLL_D8>;
+				div_factor = <1 8>;
+			};
+			clk_86_buf {
+				id = <CLK_TOP_DMDPLL_D10>;
+				div_factor = <1 10>;
+			};
+			clk_72_buf {
+				id = <CLK_TOP_DMDPLL_D12>;
+				div_factor = <1 12>;
+			};
+			clk_62_buf {
+				id = <CLK_TOP_DMDPLL_D14>;
+				div_factor = <1 14>;
+			};
+			clk_54_buf {
+				id = <CLK_TOP_DMDPLL_D16>;
+				div_factor = <1 16>;
+			};
+			clk_43_2_buf {
+				id = <CLK_TOP_DMDPLL_D20>;
+				div_factor = <1 20>;
+			};
+			clk_36_buf {
+				id = <CLK_TOP_DMDPLL_D24>;
+				div_factor = <1 24>;
+			};
+			clk_27_buf {
+				id = <CLK_TOP_DMDPLL_D32>;
+				div_factor = <1 32>;
+			};
+			clk_5p4_buf {
+				id = <CLK_TOP_DMDPLL_D160>;
+				div_factor = <1 160>;
+			};
+
+		};
+
+		scpll_clk {
+			clk_690_ssc_buf {
+				id = <CLK_TOP_SCPLL_D1>;
+				div_factor = <1 1>;
+			};
+			clk_345_ssc_buf {
+				id = <CLK_TOP_SCPLL_D2>;
+				div_factor = <1 2>;
+			};
+		};
+
+		upll_clk {
+			clk_480_buf {
+				id = <CLK_TOP_UPLL_D2>;
+				div_factor = <1 2>;
+			};
+			clk_384_buf {
+				id = <CLK_TOP_UPLL_D2p5>;
+				div_factor = <5 2>;
+			};
+			clk_320_buf {
+				id = <CLK_TOP_UPLL_D3>;
+				div_factor = <1 3>;
+			};
+			clk_240_buf {
+				id = <CLK_TOP_UPLL_D4>;
+				div_factor = <1 4>;
+			};
+			clk_192_buf {
+				id = <CLK_TOP_UPLL_D5>;
+				div_factor = <1 5>;
+			};
+			clk_160_buf {
+				id = <CLK_TOP_UPLL_D6>;
+				div_factor = <1 6>;
+			};
+			clk_96_buf {
+				id = <CLK_TOP_UPLL_D10>;
+				div_factor = <1 10>;
+			};
+			clk_48_buf {
+				id = <CLK_TOP_UPLL_D20>;
+				div_factor = <1 20>;
+			};
+			clk_40_buf {
+				id = <CLK_TOP_UPLL_D24>;
+				div_factor = <1 24>;
+			};
+			clk_32_buf {
+				id = <CLK_TOP_UPLL_D30>;
+				div_factor = <1 30>;
+			};
+			clk_20_buf {
+				id = <CLK_TOP_UPLL_D48>;
+				div_factor = <1 48>;
+			};
+
+		};
+
+		xtal_clk {
+			clk_6_buf {
+				id = <CLK_TOP_XTAL_D2>;
+				div_factor = <1 2>;
+			};
+			clk_3_buf {
+				id = <CLK_TOP_XTAL_D4>;
+				div_factor = <1 4>;
+			};
+			clk_1p5_buf {
+				id = <CLK_TOP_XTAL_D8>;
+				div_factor = <1 8>;
+			};
+			clk_750k_buf {
+				id = <CLK_TOP_XTAL_D16>;
+				div_factor = <1 16>;
+			};
+			clk_375k_buf {
+				id = <CLK_TOP_XTAL_D32>;
+				div_factor = <1 32>;
+			};
+			clk_0p3_buf {
+				id = <CLK_TOP_XTAL_D40>;
+				div_factor = <1 40>;
+			};
+			clk_187p5k_buf {
+				id = <CLK_TOP_XTAL_D64>;
+				div_factor = <1 64>;
+			};
+			clk_93p75k_buf {
+				id = <CLK_TOP_XTAL_D128>;
+				div_factor = <1 128>;
+			};
+			clk_xtal_12M_buf {
+				id = <CLK_TOP_XTAL_12M_D1>;
+				div_factor = <1 1>;
+			};
+		};
+
+
+		evdpll_clk {
+			clk_evdpll_buf {
+				id = <CLK_TOP_EVDPLL_D1>;
+				div_factor = <1 1>;
+			};
+			clk_evdpll_div2p5_buf {
+				id = <CLK_TOP_EVDPLL_D2p5>;
+				div_factor = <2 5>;
+			};
+
+		};
+/*
+		xtal_clk {
+			clk_xtal_12M_buf {
+				id = <CLK_TOP_XTAL_12M_D1>;
+				div_factor = <1 1>;
+			};
+
+		};
+*/
+		xtal_24m_clk {
+			clk_xtal_24M_buf {
+				id = <CLK_TOP_XTAL_24M_D1>;
+				div_factor = <1 1>;
+			};
+
+		};
+		miu_128bus_pll_clk {
+			MIU_128BUS_PLL_CLK_OUT_buf {
+				id = <CLK_TOP_MIU_128BUS_PLL_D1>;
+				div_factor = <1 1>;
+			};
+			MIU_128BUS_PLL_CLK_OUT_D2_buf {
+				id = <CLK_TOP_MIU_128BUS_PLL_D2>;
+				div_factor = <1 2>;
+			};
+
+		};
+		miu_256bus_pll_clk {
+			MIU_256BUS_PLL_CLK_OUT_buf {
+				id = <CLK_TOP_MIU_256BUS_PLL_D1>;
+				div_factor = <1 1>;
+			};
+			MIU_256BUS_PLL_CLK_OUT_D2_buf {
+				id = <CLK_TOP_MIU_256BUS_PLL_D2>;
+				div_factor = <1 2>;
+			};
+
+		};
+		ddr_pll_a_clk {
+			clk_ddr_pll_A_2x_buf {
+				id = <CLK_TOP_DDR_PLL_A_D4>;
+				div_factor = <1 4>;
+			};
+			clk_ddr_pll_A_1x_buf {
+				id = <CLK_TOP_DDR_PLL_A_D8>;
+				div_factor = <1 8>;
+			};
+
+		};
+		ddr_pll_b_clk {
+			clk_ddr_pll_B_2x_buf {
+				id = <CLK_TOP_DDR_PLL_B_D4>;
+				div_factor = <1 4>;
+			};
+			clk_ddr_pll_B_1x_buf {
+				id = <CLK_TOP_DDR_PLL_B_D8>;
+				div_factor = <1 8>;
+			};
+
+		};
+
+	};
+
+	topgen_mux_gate: topgen_mg {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_mux_gate";
+		num = <CLK_TOP_MG_NR>;
+		reg = <0 0x1f000000 0 0xA00000>; /* this is riu start address */
+
+		CLKGEN_0_BANK = <0x100B00>;
+		CLKGEN_1_BANK = <0x103300>;
+		CLKGEN_2_BANK = <0x100A00>;
+		CHIP_BANK = <0x101E00>;
+
+		clk_sram_pwctl {
+			id = <CLK_SRAM_PWCTL>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x3>;
+			BIT = <8 13>;
+			mux_shift = <2>;
+			mux_width = <3>;
+			gate_shift = <0>;
+			parents = "clk_xtal_24M_buf", "clk_6_buf", "clk_3_buf" , "clk_1p5_buf" , "clk_750k_buf" , "clk_375k_buf" , "clk_187p5k_buf" ,"clk_93p75k_buf";
+		};
+
+		clk_miic0 {
+			id = <CLK_MIIC0>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x2>;
+			BIT = <0 3>;
+			mux_shift = <2>;
+			mux_width = <2>;
+			gate_shift = <0>;
+			parents = "clk_xtal_12M_buf" , "clk_72_buf" , "clk_36_buf" , "clk_54_buf";
+		};
+
+		clk_miic1 {
+			id = <CLK_MIIC1>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x2>;
+			BIT = <4 7>;
+			mux_shift = <2>;
+			mux_width = <2>;
+			gate_shift = <0>;
+			parents = "clk_xtal_12M_buf" , "clk_72_buf" , "clk_36_buf" , "clk_54_buf";
+		};
+
+		clk_miic2 {
+			id = <CLK_MIIC2>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x2>;
+			BIT = <8 11>;
+			mux_shift = <2>;
+			mux_width = <2>;
+			gate_shift = <0>;
+			parents = "clk_xtal_12M_buf" , "clk_72_buf" , "clk_36_buf" , "clk_54_buf";
+		};
+
+		clk_miic3 {
+			id = <CLK_MIIC3>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x2>;
+			BIT = <12 15>;
+			mux_shift = <2>;
+			mux_width = <2>;
+			gate_shift = <0>;
+			parents = "clk_xtal_12M_buf" , "clk_72_buf" , "clk_36_buf" , "clk_54_buf";
+		};
+
+		clk_miic4 {
+			id = <CLK_MIIC4>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x3>;
+			BIT = <0 3>;
+			mux_shift = <2>;
+			mux_width = <2>;
+			gate_shift = <0>;
+			parents = "clk_xtal_12M_buf" , "clk_72_buf" , "clk_36_buf" , "clk_54_buf";
+		};
+
+		clk_miic5 {
+			id = <CLK_MIIC5>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x3>;
+			BIT = <4 7>;
+			mux_shift = <2>;
+			mux_width = <2>;
+			gate_shift = <0>;
+			parents = "clk_xtal_12M_buf" , "clk_72_buf" , "clk_36_buf" , "clk_54_buf";
+		};
+
+		clk_zdec_vld {
+			id = <CLK_ZDEC_VLD>;
+			reg_bank_offset = <CLKGEN_2_BANK 0x70>;
+			BIT = <0 3>;
+			mux_shift = <2>;
+			mux_width = <2>;
+			gate_shift = <0>;
+			parents = "clk_160_buf" , "clk_144_buf" , "clk_123_buf" , "clk_72_buf";
+		};
+
+		clk_zdec_lzd {
+			id = <CLK_ZDEC_LZD>;
+			reg_bank_offset = <CLKGEN_2_BANK 0x70>;
+			BIT = <4 7>;
+			mux_shift = <2>;
+			mux_width = <2>;
+			gate_shift = <0>;
+			parents = "clk_192_buf" , "clk_160_buf" , "clk_123_buf" , "clk_72_buf";
+		};
+
+		clk_mfe {
+			id = <CLK_MFE>;
+			reg_bank_offset = <CLKGEN_1_BANK 0x18>;
+			BIT = <0 4>;
+			mux_shift = <2>;
+			mux_width = <3>;
+			gate_shift = <0>;
+			parents = "clk_240_buf" , "clk_123_buf" , "clk_192_buf" , "clk_288_buf" , "clk_384_buf" , "clk_432_buf" , "clk_480_buf";
+		};
+
+		clk_tsp {
+			id = <CLK_TSP>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x2a>;
+			BIT = <0 3>;
+			mux_shift = <2>;
+			mux_width = <2>;
+			gate_shift = <0>;
+			parents = "clk_172_buf" , "clk_144_buf" , "clk_192_buf" , "clk_216_buf";
+		};
+
+		clk_uart0 {
+			id = <CLK_UART0>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x13>;
+			BIT = <8 12>;
+			mux_shift = <2>;
+			mux_width = <3>;
+			gate_shift = <0>;
+			parents = "clk_172_buf" , "clk_160_buf" , "clk_144_buf" , "clk_123_buf" , "clk_108_buf" , "clk_xtal_24M_buf";
+		};
+
+		clk_uart1 {
+			id = <CLK_UART1>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x14>;
+			BIT = <0 4>;
+			mux_shift = <2>;
+			mux_width = <3>;
+			gate_shift = <0>;
+			parents = "clk_172_buf" , "clk_160_buf" , "clk_144_buf" , "clk_123_buf" , "clk_108_buf" , "clk_xtal_24M_buf";
+		};
+
+		clk_uart2 {
+			id = <CLK_UART2>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x14>;
+			BIT = <8 12>;
+			mux_shift = <2>;
+			mux_width = <3>;
+			gate_shift = <0>;
+			parents = "clk_172_buf" , "clk_160_buf" , "clk_144_buf" , "clk_123_buf" , "clk_108_buf" , "clk_xtal_24M_buf";
+		};
+
+		clk_uart3 {
+			id = <CLK_UART3>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x19>;
+			BIT = <0 4>;
+			mux_shift = <2>;
+			mux_width = <3>;
+			gate_shift = <0>;
+			parents = "clk_172_buf" , "clk_160_buf" , "clk_144_buf" , "clk_123_buf" , "clk_108_buf" , "clk_xtal_24M_buf";
+		};
+
+		clk_uart4 {
+			id = <CLK_UART4>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x19>;
+			BIT = <8 12>;
+			mux_shift = <2>;
+			mux_width = <3>;
+			gate_shift = <0>;
+			parents = "clk_172_buf" , "clk_160_buf" , "clk_144_buf" , "clk_123_buf" , "clk_108_buf" , "clk_xtal_24M_buf";
+		};
+
+		clk_ve {
+			id = <CLK_VE>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x24>;
+			BIT = <0 3>;
+			mux_shift = <2>;
+			mux_width = <2>;
+			gate_shift = <0>;
+			parents = "clk_27_buf" , "dummy_0" , "clk_xtal_12M_buf";
+		};
+
+		clk_njpd {
+			id = <CLK_NJPD>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x35>;
+			BIT = <8 11>;
+			mux_shift = <2>;
+			mux_width = <2>;
+			gate_shift = <0>;
+			parents = "clk_288_buf" , "clk_320_buf" , "clk_192_buf" , "clk_144_buf";
+		};
+
+		clk_vp8 {
+			id = <CLK_VP8>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x31>;
+			BIT = <8 11>;
+			mux_shift = <2>;
+			mux_width = <2>;
+			gate_shift = <0>;
+			parents = "clk_216_buf" , "clk_240_buf" , "clk_288_buf" , "clk_320_buf";
+		};
+
+		clk_hvd_aec {
+			id = <CLK_HVD_AEC>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x34>;
+			BIT = <0 4>;
+			mux_shift = <2>;
+			mux_width = <2>;
+			gate_shift = <0>;
+			parents = "clk_216_buf" , "clk_240_buf" , "clk_288_buf" , "clk_320_buf";
+		};
+
+		clk_hvd {
+			id = <CLK_HVD>;
+			reg_bank_offset = <CLKGEN_0_BANK 0x31>;
+			BIT = <0 3>;
+			mux_shift = <2>;
+			mux_width = <2>;
+			gate_shift = <0>;
+			parents = "clk_evdpll_div2p5_buf" , "MIU_256BUS_PLL_CLK_OUT_buf" , "clk_480_buf" , "clk_432_buf";
+		};
+
+	/*{}*/
+	/*{}*/
+	/*{}*/
+	clk_evd{
+		id = <CLK_EVD>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x34>;
+		BIT = <8 13>;
+		mux_shift = <2>;
+		mux_width = <2>;
+		gate_shift = <0>;
+		parents = "clk_evdpll_buf" , "clk_evdpll_div2p5_buf" , "MIU_256BUS_PLL_CLK_OUT_buf" , "clk_480_buf";
+	};
+  clk_evd_ppu{
+  	id = <CLK_EVD_PPU>;
+  	reg_bank_offset = <CLKGEN_0_BANK 0x33>;
+  	BIT = <8 13>;
+  	mux_shift = <2>;
+  	mux_width = <2>;
+  	parents = "clk_evdpll_div2p5_buf" , "MIU_256BUS_PLL_CLK_OUT_buf" , "clk_480_buf" , "clk_432_buf";
+  };
+  /*{}*/
+  /*{}*/
+	clk_vd_mheg5_dfs{
+		id = <CLK_VD_MHEG5_DFS>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x30>;
+		BIT = <0 4>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_evdpll_buf" , "clk_evdpll_div2p5_buf" , "MIU_256BUS_PLL_CLK_OUT_buf" , "clk_480_buf";
+	};
+	clk_dqmem_dma{
+		id = <CLK_DQMEM_DMA>;
+		reg_bank_offset = <CLKGEN_1_BANK 0x22>;
+		BIT = <0 3>;
+		mux_shift = <2>;
+		mux_width = <2>;
+		gate_shift = <0>;
+		parents = "MIU_128BUS_PLL_CLK_OUT_buf" , "clk_evdpll_buf" , "MIU_256BUS_PLL_CLK_OUT_buf" , "clk_xtal_12M_buf" , "clk_320_buf" , "clk_288_buf" , "clk_432_buf" , "clk_384_buf";
+	};
+	clk_ecc{
+		id = <CLK_ECC>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x67>;
+		BIT = <0 4>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_216_buf" , "clk_240_buf" , "clk_288_buf" , "clk_172_buf";
+	};
+	clk_gpd{
+		id = <CLK_GPD>;
+		reg_bank_offset = <CLKGEN_1_BANK 0x28>;
+		BIT = <0 4>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_xtal_12M_buf" , "clk_54_buf" , "clk_108_buf" , "clk_160_buf" , "clk_216_buf";
+	};
+	clk_r2_secure{
+		id = <CLK_R2_SECURE>;
+		reg_bank_offset = <CLKGEN_1_BANK 0x3d>;
+		BIT = <0 4>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_216_buf" , "clk_192_buf" , "clk_172_buf" , "clk_144_buf" , "clk_108_buf";
+	};
+	clk_mspi_mcard{
+		id = <CLK_MSPI_MCARD>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x17>;
+		BIT = <8 13>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_288_buf" , "clk_240_buf" , "clk_216_buf" , "clk_xtal_12M_buf" , "clk_192_buf" , "clk_320_buf" , "clk_384_buf" , "clk_432_buf";
+	};
+	clk_parser {
+		id = <CLK_PARSER>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x2a>;
+		BIT = <4 6>;
+		mux_shift = <2>;
+		mux_width = <1>;
+		gate_shift = <17>;
+		parents = "clk_192_buf", "clk_216_buf";
+	};
+	clk_stamp {
+		id = <CLK_STAMP>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x2b>;
+		BIT = <8 11>;
+		mux_shift = <2>;
+		mux_width = <2>;
+		gate_shift = <0>;
+		parents = "clk_27_buf", "dummy_clk", "dummy_clk", "dummy_clk";
+	};
+	clk_fclk{
+		id = <CLK_FCLK>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x52>;
+		BIT = <8 12>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_690_ssc_buf" , "clk_345_ssc_buf" , "clk_345_buf" , "clk_216_buf" , "clk_192_buf" , "clk_240_buf" , "clk_320_buf" , "clk_xtal_12M_buf";
+	};
+	clk_s2_fclk{
+		id = <CLK_S2_FCLK>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x57>;
+		BIT = <8 12>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_172_buf" , "clk_345_ssc_buf" , "clk_345_buf" , "clk_216_buf" , "clk_192_buf" , "clk_240_buf" , "clk_320_buf" , "clk_xtal_12M_buf";
+	};
+	clk_edclk_f1{
+		id = <CLK_EDCLK_F1>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x4e>;
+		BIT = <0 4>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_172_buf" , "clk_345_ssc_buf" , "clk_345_buf" , "clk_216_buf" , "clk_192_buf" , "clk_240_buf" , "clk_320_buf" , "clk_xtal_12M_buf";
+	};
+	clk_edclk_f2{
+		id = <CLK_EDCLK_F2>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x4e>;
+		BIT = <8 12>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_172_buf" , "clk_345_ssc_buf" , "clk_345_buf" , "clk_216_buf" , "clk_192_buf" , "clk_240_buf" , "clk_320_buf" , "clk_xtal_12M_buf";
+	};
+	clk_sc_slow{
+		id = <CLK_SC_SLOW>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x4f>;
+		BIT = <8 12>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_172_buf" , "clk_345_ssc_buf" , "clk_345_buf" , "clk_216_buf" , "clk_192_buf" , "clk_240_buf" , "clk_320_buf" , "clk_xtal_12M_buf";
+	};
+	clk_vdmcu{
+		id = <CLK_VDMCU>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x21>;
+		BIT = <0 4>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_172_buf" , "clk_160_buf" , "clk_144_buf" , "clk_123_buf" , "clk_108_buf" , "dummy_0" , "dummy_0" , "clk_xtal_12M_buf";
+	};
+	clk_dmdmcu{
+		id = <CLK_DMDMCU>;
+		reg_bank_offset = <CLKGEN_1_BANK 0xf>;
+		BIT = <0 4>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_172_buf" , "clk_160_buf" , "clk_144_buf" , "clk_123_buf" , "clk_108_buf" , "dummy_0" , "dummy_0" , "clk_xtal_12M_buf";
+	};
+	clk_pcm{
+		id = <CLK_PCM>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x1a>;
+		BIT = <0 3>;
+		mux_shift = <2>;
+		mux_width = <2>;
+		gate_shift = <0>;
+		parents = "clk_27_buf" , "clk_54_buf" , "clk_xtal_12M_buf";
+	};
+	clk_smart{
+		id = <CLK_SMART>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x6C>;
+		BIT = <0 4>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_172_buf" , "clk_160_buf" , "clk_144_buf" , "clk_123_buf" , "clk_108_buf";
+	};
+	clk_aesdma{
+		id = <CLK_AESDMA>;
+		reg_bank_offset = <CLKGEN_2_BANK 0x19>;
+		BIT = <8 12>;
+		mux_shift = <2>;
+		mux_width = <2>;
+		gate_shift = <0>;
+		parents = "clk_288_buf" , "clk_172_buf" , "clk_216_buf" , "clk_xtal_12M_buf";
+	};
+	/*{}*/
+	/*{}*/
+	clk_mcu_au{
+		id = <CLK_MCU_AU>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x16>;
+		BIT = <8 13>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_216_buf" , "clk_192_buf" , "clk_172_buf" , "clk_160_buf" , "clk_144_buf" , "clk_108_buf";
+	};
+	clk_mcu{
+		id = <CLK_MCU>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x10>;
+		BIT = <8 12>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_216_buf" , "clk_192_buf" , "clk_172_buf" , "clk_160_buf" , "clk_144_buf" , "clk_108_buf";
+	};
+	clk_miu{
+		id = <CLK_MIU>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x1d>;
+		BIT = <0 4>;
+		mux_shift = <2>;
+		mux_width = <2>;
+		gate_shift = <0>;
+		parents = "clk_288_buf" , "clk_240_buf" , "MIU_128BUS_PLL_CLK_OUT_D2_buf" , "MIU_256BUS_PLL_CLK_OUT_D2_buf";
+	};
+	/*{}*/
+	clk_miu_256bus{
+		id = <CLK_MIU_256BUS>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x1d>;
+		BIT = <8 12>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_288_buf" , "clk_240_buf" , "MIU_256BUS_PLL_CLK_OUT_D2_buf" , "MIU_128BUS_PLL_CLK_OUT_D2_buf" , "clk_ddr_pll_A_1x_buf" , "clk_ddr_pll_B_1x_buf";
+	};
+	/*{}*/
+	/*{}*/
+	clk_miu_rec{
+		id = <CLK_MIU_REC>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x1e>;
+		BIT = <0 3>;
+		mux_shift = <2>;
+		mux_width = <2>;
+		gate_shift = <0>;
+		parents = "clk_1p5_buf" , "clk_750k_buf" , "clk_187p5k_buf" , "clk_93p75k_buf";
+	};
+	clk_fuart0_synth_in{
+		id = <CLK_FUART0_SYNTH_IN>;
+		reg_bank_offset = <CLKGEN_2_BANK 0x7>;
+		BIT = <0 3>;
+		mux_shift = <2>;
+		mux_width = <2>;
+		gate_shift = <0>;
+		parents = "clk_432_buf" , "clk_216_buf" , "clk_xtal_12M_buf";
+	};
+
+	clk_syn_stc0 {
+		id = <CLK_SYN_STC0>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x2b>;
+		BIT = <0 2>;
+		mux_shift = <0>;
+		mux_width = <3>;
+		gate_shift = <17>;
+		parents = "clk_216_buf", "clk_432_buf", "clk_xtal_12M_buf", "dummy_clk", "clk_345_buf", "dummy_clk", "dummy_clk", "dummy_clk";
+	};
+	clk_syn_stc1 {
+		id = <CLK_SYN_STC1>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x2b>;
+		BIT = <4 6>;
+		mux_shift = <0>;
+		mux_width = <3>;
+		gate_shift = <17>;
+		parents = "clk_216_buf", "clk_432_buf", "clk_xtal_12M_buf", "dummy_clk", "clk_345_buf", "dummy_clk", "dummy_clk", "dummy_clk";
+	};
+/*
+	clk_syn_stc2 {
+		id = <CLK_SYN_STC2>;
+		reg_bank_offset = <CLKGEN_2_BANK 0x2c>;
+		BIT = <5 9>;
+		mux_shift = <0>;
+		mux_width = <3>;
+		gate_shift = <17>;
+		parents = "clk_stc0_buf", "clk_stc1_buf", "clk_stc2_buf", "clk_stc3_buf", "dummy_clk", "dummy_clk", "dummy_clk", "clk_27_buf";
+	};
+	clk_syn_stc3 {
+		id = <CLK_SYN_STC3>;
+		reg_bank_offset = <CLKGEN_2_BANK 0x2c>;
+		BIT = <10 14>;
+		mux_shift = <0>;
+		mux_width = <3>;
+		gate_shift = <17>;
+		parents = "clk_stc0_buf", "clk_stc1_buf", "clk_stc2_buf", "clk_stc3_buf", "dummy_clk", "dummy_clk", "dummy_clk", "clk_27_buf";
+	};
+*/
+/*
+	clk_ddr_syn {
+		id = <CLK_DDR_SYN>;
+		reg_bank_offset = <CLKGEN_2_BANK 0x7e>;
+		BIT = <0 1>;
+		mux_shift = <>;
+		gate_shift = <17>;
+	};
+*/
+
+		clk_fcie_syn {
+			id = <CLK_FCIE_SYN>;
+			reg_bank_offset = <CLKGEN_2_BANK 0xc>;
+			BIT = <0 1>;
+			mux_shift = <0>;
+			mux_width = <1>;
+			gate_shift = <17>;
+			parents = "clk_216_buf" , "clk_432_buf";
+		};
+/*
+	clk_ge {
+		id = <CLK_GE>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x48>;
+		BIT = <0 4>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_miu_p" , "clk_240_buf" , "clk_216_buf" , "clk_172_buf" , "clk_320_buf" , "clk_288_buf" ;
+	};
+*/
+	clk_spi {
+		id = <CLK_SPI>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x16>;
+		BIT = <0 6>;
+		mux_shift = <2>;
+		mux_width = <4>;
+		gate_shift = <0>;
+		parents = "clk_xtal_12M_buf" , "clk_54_buf" , "clk_86_buf" , "clk_108_buf" , "clk_5p4_buf" , "clk_27_buf" , "clk_43_2_buf" , "clk_62_buf" , "clk_72_buf" ;
+	};
+	clk_ausdm_3m {
+		id = <CLK_AUSDM_3M>;
+		reg_bank_offset = <CLKGEN_1_BANK 0x23>;
+		BIT = <0 3>;
+		mux_shift = <2>;
+		mux_width = <2>;
+		gate_shift = <0>;
+		parents = "clk_3_buf" , "clk_6_buf" , "clk_xtal_24M_buf" , "clk_1p5_buf" ;
+	};
+	clk_spi_m_pre {
+		id = <CLK_SPI_M_PRE>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x17>;
+		BIT = <0 5>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_27_buf" , "clk_48_buf" , "clk_62_buf" , "clk_72_buf" , "clk_86_buf" , "clk_108_buf" , "clk_123_buf" , "clk_160_buf" ;
+	};
+	clk_spi_m_1_pre {
+		id = <CLK_SPI_M_1_PRE>;
+		reg_bank_offset = <CLKGEN_1_BANK 0x21>;
+		BIT = <8 13>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_27_buf" , "clk_48_buf" , "clk_62_buf" , "clk_72_buf" , "clk_86_buf" , "clk_108_buf" , "clk_123_buf" , "clk_160_buf" ;
+	};
+	clk_spi_m_2_pre {
+		id = <CLK_SPI_M_2_PRE>;
+		reg_bank_offset = <CLKGEN_1_BANK 0x1d>;
+		BIT = <8 13>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_27_buf" , "clk_48_buf" , "clk_62_buf" , "clk_72_buf" , "clk_86_buf" , "clk_108_buf" , "clk_123_buf" , "clk_160_buf" ;
+	};
+	clk_bat {
+		id = <CLK_BAT>;
+		reg_bank_offset = <CLKGEN_2_BANK 0x74>;
+		BIT = <0 3>;
+		mux_shift = <2>;
+		mux_width = <2>;
+		gate_shift = <0>;
+		parents = "clk_xtal_12M_buf" , "clk_6_buf" , "clk_3_buf" , "clk_1p5_buf" ;
+	};
+	clk_frc_r2 {
+		id = <CLK_FRC_R2>;
+		reg_bank_offset = <CLKGEN_1_BANK 0x30>;
+		BIT = <0 4>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_216_buf" , "clk_144_buf" , "clk_345_buf" , "clk_108_buf" , "clk_54_buf" , "clk_172_buf" , "clk_320_buf" , "clk_xtal_12M_buf" ;
+	};
+	clk_mcu_frc {
+		id = <CLK_MCU_FRC>;
+		reg_bank_offset = <CLKGEN_1_BANK 0x30>;
+		BIT = <8 13>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_216_buf" , "clk_192_buf" , "clk_172_buf" , "clk_160_buf" , "clk_144_buf" , "clk_108_buf" ;
+	};
+	clk_fclk_frc_fsc {
+		id = <CLK_FCLK_FRC_FSC>;
+		reg_bank_offset = <CLKGEN_1_BANK 0x3b>;
+		BIT = <0 5>;
+		mux_shift = <2>;
+		mux_width = <2>;
+		gate_shift = <0>;
+		parents = "clk_345_buf" , "clk_345_ssc_buf" ;
+	};
+	clk_fdclk {
+		id = <CLK_FDCLK>;
+		reg_bank_offset = <CLKGEN_1_BANK 0x34>;
+		BIT = <8 12>;
+		mux_shift = <2>;
+		mux_width = <2>;
+		gate_shift = <0>;
+		parents = "clk_172_buf" , "clk_160_buf" , "clk_192_buf" ;
+	};
+	clk_miu_highway_a {
+		id = <CLK_MIU_HIGHWAY_A>;
+		reg_bank_offset = <CLKGEN_2_BANK 0x14>;
+		BIT = <0 4>;
+		mux_shift = <2>;
+		mux_width = <2>;
+		gate_shift = <0>;
+		parents = "clk_ddr_pll_A_2x_buf" , "clk_xtal_24M_buf" , "clk_216_buf" , "clk_432_buf" ;
+	};
+	clk_imi {
+		id = <CLK_IMI>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x1>;
+		BIT = <4 8>;
+		mux_shift = <2>;
+		mux_width = <2>;
+		gate_shift = <0>;
+		parents = "clk_108_buf" , "clk_86_buf" , "clk_62_buf" , "clk_xtal_24M_buf" ;
+	};
+
+
+	clk_topgen_mg_test {
+		id = <CLK_TOP_MG_TEST>;
+		reg_bank_offset = <0x600 0x9>; /* bank: 0x6, 16-bit addr : 0x9 */
+		BIT = <8 15>; /* control bit 0 to 7 */
+		mux_shift = <2>; /* --> start bit of mux control */
+		mux_width = <3>; /* --> bit number of mux control */
+		gate_shift = <0>; /* --> start_bit of gate conctrol */
+		parents = "clk_172_buf", "clk_36_buf", "clk_123_buf", "clk_192_buf", "clk_375k_buf", "clk_5p4_buf", "clk_evdpll_div2p5_buf";
+	};
+
+
+	clk_tso_out_div_mn_src {
+		id = <CLK_TSO_OUT_DIV_MN_SRC>;
+		reg_bank_offset = <CLKGEN_1_BANK 0x2d>;
+		BIT = <0 4>;
+		mux_shift = <2>;
+		mux_width = <3>;
+		gate_shift = <0>;
+		parents = "clk_432_buf" , "clk_144_buf" , "clk_123_buf" , "clk_108_buf" , "clk_96_buf" , "clk_86_buf" , "clk_72_buf" , "clk_62_buf" ;
+	};
+
+
+	clk_nfie {
+		id = <CLK_NFIE>;
+		reg_bank_offset = <CLKGEN_0_BANK 0x64>;
+		BIT = <0 5>;
+		mux_shift = <2>;
+		mux_width = <4>;
+		gate_shift = <0>;
+		parents = "clk_xtal_12M_buf", 	"clk_20_buf", 	"clk_32_buf", 	"clk_36_buf", 	"clk_40_buf", 	"clk_43_2_buf", 	"clk_54_buf", 	"clk_62_buf", 	"clk_72_buf", 	"clk_86_buf", 	"clk_emmc_pll_buf", 	"clk_nfie_1x_p",	"clk_nfie_2x_p",	"clk_0p3_buf", 	"clk_xtal_24M_buf", 	"clk_48_buf";
+	};
+
+/*
+	clk_lzma {
+		id = <CLK_LZMA>;
+		reg_bank_offset = <CLKGEN_1_BANK 0x19>;
+		BIT = <0 3>;
+		mux_shift = <2>;
+		mux_width = <2>;
+		gate_shift = <0>;
+		parents = "MIU_256BUS_PLL_CLK_OUT_buf" , "clk_evdpll_div2p5_buf" , "clk_480_buf" ;
+	};
+	clk_hdmirx_timestamp {
+		id = <CLK_HDMIRX_TIMESTAMP>;
+		reg_bank_offset = <CLKGEN_2_BANK 0x5>;
+		BIT = <8 11>;
+		mux_shift = <2>;
+		mux_width = <2>;
+		gate_shift = <0>;
+		parents = "clk_xtal_12M_buf";
+	};
+*/
+	};
+
+};

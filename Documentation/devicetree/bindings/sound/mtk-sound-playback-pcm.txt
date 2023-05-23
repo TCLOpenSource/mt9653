@@ -1,0 +1,11 @@
+Mediatek DTV DSP DMA PCM Controller for mt5870
+
+Required properties:
+- compatible: "mediatek,mtk-playback-platform"
+- mediatek DTV,platform: M7332 ASoC platform
+
+Example:
+
+mtk-sound-playback-platform {
+		compatible = "mediatek,mtk-playback-platform";
+	};

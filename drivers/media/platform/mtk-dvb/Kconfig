@@ -1,0 +1,81 @@
+# SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+config MEDIATEK_DVB
+	bool "Mediatek DVB platform devices"
+	depends on MEDIATEK_DVB_ADAPTER
+	select VIDEOBUF2_DMA_SG
+	select VIDEOBUF2_DMA_CONTIG
+	default y
+	help
+	  To enable mediatek DVB config when
+	  MEDIATEK_DVB_DEMUX and
+	  MEDIATEK_DVB_ADAPTER
+	  are selected.
+
+config MEDIATEK_DVB_ADAPTER
+	tristate "Mediatek DVB adapter"
+	depends on DVB_PLATFORM_DRIVERS
+	default n
+	help
+	  To enable
+	  support for
+	  mediatek DVB
+	  adapter
+
+config MEDIATEK_DVB_CI
+	tristate "Mediatek DVB CI device"
+	depends on DVB_PLATFORM_DRIVERS
+	default n
+	help
+	  To enable
+	  support for
+	  mediatek DVB CI
+	  device drivers.
+
+config MEDIATEK_DVB_DEMUX
+	tristate "Mediatek DVB demux device"
+	depends on DVB_PLATFORM_DRIVERS
+	default n
+	help
+	  To enable
+	  support for
+	  mediatek DVB demux
+	  device drivers.
+
+config MEDIATEK_DVB_DEMUX2
+    tristate "Mediatek DVB demux2 device"
+    depends on DVB_PLATFORM_DRIVERS
+    default n
+    help
+      To enable
+      support for
+      mediatek DVB demux2
+      device drivers.
+
+config MEDIATEK_DVB_DSCMB
+	tristate "Mediatek DVB DSCMB device"
+	depends on DVB_PLATFORM_DRIVERS
+	default n
+	help
+	  To enable
+	  support for
+	  mediatek DVB DSCMB
+	  device drivers.
+
+config MEDIATEK_DVB_SC
+	tristate "Mediatek DVB SC device"
+	depends on DVB_PLATFORM_DRIVERS
+	default n
+	help
+	  To enable support for mediatek DVB SC device drivers.
+	  This is suupport ISO 7816-3 spec,
+	  only suppourt T=1 for BCAS & ACAS
+	  for Japen TV
+
+config MEDIATEK_DVB_SCRAMBLER
+    tristate "Mediatek DVB SCRAMBLER device"
+    default n
+    help
+      To enable
+      support for mediatek
+      DVB SCRAMBLER
+      device drivers.

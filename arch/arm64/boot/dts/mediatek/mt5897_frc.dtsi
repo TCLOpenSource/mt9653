@@ -1,0 +1,11 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	mediatek_frc:mediatek-frc {
+		compatible = "mediatek,mediatek-frc";
+		FRC_IP_VERSION = <2>;        /*M6:1, M6L:2*/
+	};
+};

@@ -1,0 +1,140 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2021 MediaTek Inc.
+ */
+
+/ {
+	cpus {
+		#address-cells = <0x02>;
+		#size-cells = <0x00>;
+
+		cpu0: cpu@0 {
+			operating-points-v2 = <&cpu_opp_table>;
+			#cooling-cells = <0x2>;
+		};
+
+		cpu1: cpu@1 {
+			operating-points-v2 = <&cpu_opp_table>;
+			#cooling-cells = <0x2>;
+		};
+
+		cpu2: cpu@2 {
+			operating-points-v2 = <&cpu_opp_table>;
+			#cooling-cells = <0x2>;
+		};
+
+		cpu3: cpu@3 {
+			operating-points-v2 = <&cpu_opp_table>;
+			#cooling-cells = <0x2>;
+		};
+	};
+
+
+	cpu_opp_table: opp-table {
+		compatible = "operating-points-v2";
+		opp-shared;
+
+		boost-0 = <2000000000>;
+		boost-1 = <2000000000>;
+		boost-2 = <2000000000>;
+		boost-3 = <2000000000>;
+
+		opp-900000000 {
+			opp-hz = /bits/ 64 <900000000>;
+			opp-microvolt = <850000>;
+			opp-corner-offset = <0>;
+		};
+		opp-1600000000 {
+			opp-hz = /bits/ 64 <1600000000>;
+			opp-microvolt = <900000>;
+			opp-corner-offset = <0>;
+		};
+		opp-1800000000 {
+			opp-hz = /bits/ 64 <1800000000>;
+			opp-microvolt = <1000000>;
+			opp-corner-offset = <0>;
+		};
+		opp-2000000000 {
+			opp-hz = /bits/ 64 <2000000000>;
+			opp-microvolt = <1050000>;
+			opp-corner-offset = <0>;
+		};
+	};
+
+	mtktv_cpufreq: mtktv_cpufreq {
+		compatible = "mediatek,mtktv-cpufreq";
+		reg = <0x0 0x1C000000 0x0 0xA00000>;
+		status = "ok";
+	};
+
+	mt53xxregulator: mt53xxregulator {
+		compatible = "mediatek,mt53xx-regulator";
+		io-channels = <&saradc 16>,<&saradc 20>;
+		io-channel-names = "adc16","adc20";
+		mt53xx_vcpu_reg: buck_vcpu {
+			regulator-name = "mtk-cpu-regulator";
+			regulator-min-microvolt = < 800000>;
+			regulator-max-microvolt = < 1300000>;
+			regulator-ramp-delay = <12500>;
+			regulator-always-on;
+			regulator-boot-on;
+		};
+		mt53xx_vgpu_reg: buck_vgpu {
+			regulator-name = "vgpu";
+			regulator-min-microvolt = < 700000>;
+			regulator-max-microvolt = < 900000>;
+			regulator-ramp-delay = <12500>;
+			regulator-always-on;
+			regulator-boot-on;
+		};
+	};
+
+	mtk_sensor0: mtk-sensor {
+		compatible = "cpu-thermal";
+		#thermal-sensor-cells = <1>;
+		reg = <0 0x1C000000 0 0xA00000>;
+		io-channels = <&saradc 12>;
+		io-channel-names = "adc12";
+	};
+
+	pq_cdev: pq-cdev {
+		compatible = "mtk-pq-cdev";
+		#cooling-cells = <2>; /* min followed by max */
+	};
+
+	thermal-zones {
+		mtk_thermal: mtk-thermal {
+			polling-delay = <1000>;
+			polling-delay-passive = <1000>;
+
+			thermal-sensors = <&mtk_sensor0 0>;
+			trips {
+				cold2normal_point: trip-point@1 {
+					temperature = <85000>; /* millicelsius */
+					hysteresis = <1000>; /* millicelsius */
+					type = "passive";
+				};
+				normal2hot_point: trip-point@2 {
+					temperature = <107000>; /* millicelsius */
+					hysteresis = <1000>; /* millicelsius */
+					type = "passive";
+				};
+				reset_point: trip-point@3 {
+					temperature = <113000>; /* millicelsius */
+					hysteresis = <1000>; /* millicelsius */
+					type = "critical";
+				};
+			};
+			cooling-maps {
+				map0 {
+					trip = <&cold2normal_point>;
+					cooling-device = <&cpu0 2 2>;
+				};
+				map1 {
+					trip = <&normal2hot_point>;
+					cooling-device = <&cpu0 3 3>;
+				};
+			};
+		};
+	};
+};

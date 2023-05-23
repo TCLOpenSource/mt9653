@@ -1,0 +1,823 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	#address-cells = <2>;
+	#size-cells = <2>;
+
+	emi_cen0: emi_cen0 {
+		compatible = "mediatek,mt5896-emi-central";
+		reg = <0 0x1c340000 0 0x1000>;
+		mediatek,emi_cen-id = <0>;
+		mediatek,emi_cen-port-nr = <8>;
+	};
+
+	emi_cen1: emi_cen1 {
+		compatible = "mediatek,mt5896-emi-central";
+		reg = <0 0x1c341000 0 0x1000>;
+		mediatek,emi_cen-id = <1>;
+		mediatek,emi_cen-port-nr = <8>;
+	};
+
+	emi_cen2: emi_cen2 {
+		status = "disabled";
+	};
+
+	smi_common0: smi_common0 {
+		compatible = "mediatek,mt5896-smi-common";
+		reg = <0 0x1c315000 0 0x1000>;
+		mediatek,common-id = <0>;
+		input-port-nr = <8>;
+		output-port-nr = <2>;
+	};
+
+	smi_common1: smi_common1 {
+		compatible = "mediatek,mt5896-smi-common";
+		reg = <0 0x1c311000 0 0x1000>;
+		mediatek,common-id = <1>;
+		input-port-nr = <8>;
+		output-port-nr = <2>;
+	};
+
+	smi_common2: smi_common2 {
+		compatible = "mediatek,mt5896-smi-common";
+		reg = <0 0x1d9d5000 0 0x1000>;
+		mediatek,common-id = <2>;
+		input-port-nr = <8>;
+		output-port-nr = <2>;
+	};
+
+	smi_common3: smi_common3 {
+		compatible = "mediatek,mt5896-smi-common";
+		reg = <0 0x1c30a000 0 0x1000>;
+		mediatek,common-id = <3>;
+		input-port-nr = <8>;
+		output-port-nr = <1>;
+	};
+
+	smi_common4: smi_common4 {
+		compatible = "mediatek,mt5896-smi-common";
+		reg = <0 0x1c300000 0 0x1000>;
+		mediatek,common-id = <4>;
+		input-port-nr = <8>;
+		output-port-nr = <1>;
+	};
+
+	smi_common5: smi_common5 {
+		status = "disabled";
+	};
+
+	smi_common6: smi_common6 {
+		compatible = "mediatek,mt5896-smi-common";
+		reg = <0 0x1c336000 0 0x1000>;
+		mediatek,common-id = <6>;
+		input-port-nr = <8>;
+		output-port-nr = <2>;
+	};
+
+	smi_common7: smi_common7 {
+		compatible = "mediatek,mt5896-smi-common";
+		reg = <0 0x1c337000 0 0x1000>;
+		mediatek,common-id = <7>;
+		input-port-nr = <8>;
+		output-port-nr = <2>;
+	};
+
+	larb14: larb14 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common0>;
+		mediatek,smi-port-id = <0>;
+		reg = <0 0x1c312000 0 0x1000>;
+		mediatek,larb-id = <14>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb15: larb15 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common0>;
+		mediatek,smi-port-id = <1>;
+		reg = <0 0x1c313000 0 0x1000>;
+		mediatek,larb-id = <15>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb16: larb16 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common0>;
+		mediatek,smi-port-id = <2>;
+		reg = <0 0x1c314000 0 0x1000>;
+		mediatek,larb-id = <16>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb17: larb17 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common0>;
+		mediatek,smi-port-id = <3>;
+		reg = <0 0x1c31b000 0 0x1000>;
+		mediatek,larb-id = <17>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb18: larb18 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common0>;
+		mediatek,smi-port-id = <4>;
+		reg = <0 0x1c31c000 0 0x1000>;
+		mediatek,larb-id = <18>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb19: larb19 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common0>;
+		mediatek,smi-port-id = <5>;
+		reg = <0 0x1c31d000 0 0x1000>;
+		mediatek,larb-id = <19>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb20: larb20 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common0>;
+		mediatek,smi-port-id = <6>;
+		reg = <0 0x1c30b000 0 0x1000>;
+		mediatek,larb-id = <20>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb21: larb21 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common0>;
+		mediatek,smi-port-id = <7>;
+		reg = <0 0x1c30c000 0 0x1000>;
+		mediatek,larb-id = <21>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb22: larb22 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common1>;
+		mediatek,smi-port-id = <0>;
+		reg = <0 0x1c316000 0 0x1000>;
+		mediatek,larb-id = <22>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb23: larb23 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common1>;
+		mediatek,smi-port-id = <1>;
+		reg = <0 0x1c317000 0 0x1000>;
+		mediatek,larb-id = <23>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb24: larb24 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common1>;
+		mediatek,smi-port-id = <2>;
+		reg = <0 0x1c318000 0 0x1000>;
+		mediatek,larb-id = <24>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb25: larb25 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common1>;
+		mediatek,smi-port-id = <3>;
+		reg = <0 0x1c319000 0 0x1000>;
+		mediatek,larb-id = <25>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb26: larb26 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common1>;
+		mediatek,smi-port-id = <4>;
+		reg = <0 0x1c31a000 0 0x1000>;
+		mediatek,larb-id = <26>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb27: larb27 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common1>;
+		mediatek,smi-port-id = <5>;
+		reg = <0 0x1c31e000 0 0x1000>;
+		mediatek,larb-id = <27>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb28: larb28 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common1>;
+		mediatek,smi-port-id = <6>;
+		reg = <0 0x1c31f000 0 0x1000>;
+		mediatek,larb-id = <28>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb35: larb35 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common1>;
+		mediatek,smi-port-id = <7>;
+		reg = <0 0x1c323000 0 0x1000>;
+		mediatek,larb-id = <35>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb0: larb0 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common2>;
+		mediatek,smi-port-id = <0>;
+		reg = <0 0x1d97c000 0 0x1000>;
+		mediatek,larb-id = <0>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb1: larb1 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common2>;
+		mediatek,smi-port-id = <1>;
+		reg = <0 0x1d97d000 0 0x1000>;
+		mediatek,larb-id = <1>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb2: larb2 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common2>;
+		mediatek,smi-port-id = <2>;
+		reg = <0 0x1d97e000 0 0x1000>;
+		mediatek,larb-id = <2>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb6: larb6 {
+		status = "disabled";
+	};
+
+	larb31: larb31 {
+		status = "disabled";
+	};
+
+	larb7: larb7 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common3>;
+		mediatek,smi-port-id = <0>;
+		reg = <0 0x1c321000 0 0x1000>;
+		mediatek,larb-id = <7>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb12: larb12 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common3>;
+		mediatek,smi-port-id = <3>;
+		reg = <0 0x1c308000 0 0x1000>;
+		mediatek,larb-id = <12>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb36: larb36 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common3>;
+		mediatek,smi-port-id = <7>;
+		reg = <0 0x1c325000 0 0x1000>;
+		mediatek,larb-id = <36>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb8: larb8 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common4>;
+		mediatek,smi-port-id = <0>;
+		reg = <0 0x1c30F000 0 0x1000>;
+		mediatek,larb-id = <8>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb9: larb9 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common4>;
+		mediatek,smi-port-id = <1>;
+		reg = <0 0x1c310000 0 0x1000>;
+		mediatek,larb-id = <9>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb29: larb29 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common4>;
+		mediatek,smi-port-id = <2>;
+		reg = <0 0x1c30e000 0 0x1000>;
+		mediatek,larb-id = <29>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb10: larb10 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common4>;
+		mediatek,smi-port-id = <4>;
+		reg = <0 0x1c301000 0 0x1000>;
+		mediatek,larb-id = <10>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb11: larb11 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common4>;
+		mediatek,smi-port-id = <5>;
+		reg = <0 0x1c302000 0 0x1000>;
+		mediatek,larb-id = <11>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb13: larb13 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common4>;
+		mediatek,smi-port-id = <6>;
+		reg = <0 0x1c303000 0 0x1000>;
+		mediatek,larb-id = <13>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb3: larb3 {
+		status = "disabled";
+	};
+
+	larb4: larb4 {
+		status = "disabled";
+	};
+
+	larb5: larb5 {
+		status = "disabled";
+	};
+
+	larb30: larb30 {
+		status = "disabled";
+	};
+
+	larb32: larb32 {
+		status = "disabled";
+	};
+
+	larb33: larb33 {
+		status = "disabled";
+	};
+
+	larb34: larb34 {
+		status = "disabled";
+	};
+
+	larb37: larb37 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common6>;
+		mediatek,smi-port-id = <0>;
+		reg = <0 0x1c326000 0 0x1000>;
+		mediatek,larb-id = <37>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb38: larb38 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common6>;
+		mediatek,smi-port-id = <1>;
+		reg = <0 0x1c327000 0 0x1000>;
+		mediatek,larb-id = <38>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb39: larb39 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common6>;
+		mediatek,smi-port-id = <2>;
+		reg = <0 0x1c328000 0 0x1000>;
+		mediatek,larb-id = <39>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb40: larb40 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common6>;
+		mediatek,smi-port-id = <3>;
+		reg = <0 0x1c329000 0 0x1000>;
+		mediatek,larb-id = <40>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb41: larb41 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common6>;
+		mediatek,smi-port-id = <4>;
+		reg = <0 0x1c32a000 0 0x1000>;
+		mediatek,larb-id = <41>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb42: larb42 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common6>;
+		mediatek,smi-port-id = <5>;
+		reg = <0 0x1c32b000 0 0x1000>;
+		mediatek,larb-id = <42>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb43: larb43 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common6>;
+		mediatek,smi-port-id = <6>;
+		reg = <0 0x1c32c000 0 0x1000>;
+		mediatek,larb-id = <43>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb44: larb44 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common6>;
+		mediatek,smi-port-id = <7>;
+		reg = <0 0x1c32d000 0 0x1000>;
+		mediatek,larb-id = <44>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb45: larb45 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common7>;
+		mediatek,smi-port-id = <0>;
+		reg = <0 0x1c32e000 0 0x1000>;
+		mediatek,larb-id = <45>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb46: larb46 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common7>;
+		mediatek,smi-port-id = <1>;
+		reg = <0 0x1c32f000 0 0x1000>;
+		mediatek,larb-id = <46>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb47: larb47 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common7>;
+		mediatek,smi-port-id = <2>;
+		reg = <0 0x1c330000 0 0x1000>;
+		mediatek,larb-id = <47>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb48: larb48 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common7>;
+		mediatek,smi-port-id = <3>;
+		reg = <0 0x1c331000 0 0x1000>;
+		mediatek,larb-id = <48>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb49: larb49 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common7>;
+		mediatek,smi-port-id = <4>;
+		reg = <0 0x1c332000 0 0x1000>;
+		mediatek,larb-id = <49>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb50: larb50 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common7>;
+		mediatek,smi-port-id = <5>;
+		reg = <0 0x1c333000 0 0x1000>;
+		mediatek,larb-id = <50>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb51: larb51 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common7>;
+		mediatek,smi-port-id = <6>;
+		reg = <0 0x1c334000 0 0x1000>;
+		mediatek,larb-id = <51>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	larb52: larb52 {
+		compatible = "mediatek,mt5896-smi-larb";
+		mediatek,smi = <&smi_common7>;
+		mediatek,smi-port-id = <7>;
+		reg = <0 0x1c335000 0 0x1000>;
+		mediatek,larb-id = <52>;
+		init-power-on;
+		decentralized-m4u;
+	};
+
+	emi_dispatch0: emi_dispatch0 {
+		reg = <0 0x1c37e600 0 0x1000>;
+	};
+
+	effi_monitor0: effi_monitor0 {
+		compatible = "mediatek,mt5896-effi-mon";
+		reg = <0 0x1c37ea00 0 0x30>;
+	};
+
+	effi_monitor1: effi_monitor1 {
+		compatible = "mediatek,mt5896-effi-mon";
+		reg = <0 0x1c37ec00 0 0x30>;
+	};
+
+	effi_monitor2: effi_monitor2 {
+		compatible = "mediatek,mt5896-effi-mon";
+		reg = <0 0x1c37ee00 0 0x30>;
+	};
+
+	effi_monitor3: effi_monitor3 {
+		compatible = "mediatek,mt5896-effi-mon";
+		reg = <0 0x1c37f000 0 0x30>;
+	};
+
+	effi_monitor4: effi_monitor4 {
+		compatible = "mediatek,mt5896-effi-mon";
+		reg = <0 0x1c37f200 0 0x30>;
+	};
+
+	effi_monitor5: effi_monitor5 {
+		compatible = "mediatek,mt5896-effi-mon";
+		reg = <0 0x1c37f400 0 0x30>;
+	};
+
+	effi_monitor6: effi_monitor6 {
+		compatible = "mediatek,mt5896-effi-mon";
+		reg = <0 0x1c37f600 0 0x30>;
+	};
+
+	effi_monitor7: effi_monitor7 {
+		compatible = "mediatek,mt5896-effi-mon";
+		reg = <0 0x1c37f800 0 0x30>;
+	};
+
+	effi_monitor8: effi_monitor8 {
+		compatible = "mediatek,mt5896-effi-mon";
+		reg = <0 0x1c37c000 0 0x30>;
+	};
+
+	effi_monitor9: effi_monitor9 {
+		compatible = "mediatek,mt5896-effi-mon";
+		reg = <0 0x1c37c200 0 0x30>;
+	};
+
+	effi_monitor10: effi_monitor10 {
+		compatible = "mediatek,mt5896-effi-mon";
+		reg = <0 0x1c37c400 0 0x30>;
+	};
+
+	effi_monitor11: effi_monitor11 {
+		compatible = "mediatek,mt5896-effi-mon";
+		reg = <0 0x1c37c600 0 0x30>;
+	};
+
+	effi_monitor12: effi_monitor12 {
+		compatible = "mediatek,mt5896-effi-mon";
+		reg = <0 0x1c37c800 0 0x30>;
+	};
+
+	effi_monitor13: effi_monitor13 {
+		compatible = "mediatek,mt5896-effi-mon";
+		reg = <0 0x1c37ca00 0 0x30>;
+	};
+
+	miu2gmc0: miu2gmc0 {
+		status = "disabled";
+	};
+
+	miu2gmc1: miu2gmc1 {
+		status = "disabled";
+	};
+
+	miu2gmc2: miu2gmc2 {
+		status = "disabled";
+	};
+
+	miu2gmc5: miu2gmc5 {
+		status = "disabled";
+	};
+
+	miu2gmc6: miu2gmc6 {
+		status = "disabled";
+	};
+
+	miu2gmc7: miu2gmc7 {
+		reg = <0 0x1c280000 0 0x30>;
+	};
+
+	miu2gmc8: miu2gmc8 {
+		reg = <0 0x1c280200 0 0x30>;
+	};
+
+	miu2gmc10: miu2gmc10 {
+		reg = <0 0x1c280400 0 0x30>;
+	};
+
+	miu2gmc11: miu2gmc11 {
+		reg = <0 0x1c280600 0 0x30>;
+	};
+
+	miu2gmc12: miu2gmc12 {
+		reg = <0 0x1c280800 0 0x30>;
+	};
+
+	miu2gmc13: miu2gmc13 {
+		reg = <0 0x1c280a00 0 0x30>;
+	};
+
+	miu2gmc14: miu2gmc14 {
+		reg = <0 0x1c280c00 0 0x30>;
+	};
+
+	miu2gmc15: miu2gmc15 {
+		reg = <0 0x1c280e00 0 0x30>;
+	};
+
+	miu2gmc16: miu2gmc16 {
+		reg = <0 0x1c281000 0 0x30>;
+	};
+
+	miu2gmc17: miu2gmc17 {
+		reg = <0 0x1c281200 0 0x30>;
+	};
+
+	miu2gmc18: miu2gmc18 {
+		reg = <0 0x1c281400 0 0x30>;
+	};
+
+	miu2gmc19: miu2gmc19 {
+		reg = <0 0x1c281600 0 0x30>;
+	};
+
+	miu2gmc20: miu2gmc20 {
+		reg = <0 0x1c281800 0 0x30>;
+	};
+
+	miu2gmc21: miu2gmc21 {
+		reg = <0 0x1c281a00 0 0x30>;
+	};
+
+	miu2gmc22: miu2gmc22 {
+		reg = <0 0x1c281c00 0 0x30>;
+	};
+
+	miu2gmc23: miu2gmc23 {
+		reg = <0 0x1c281e00 0 0x30>;
+	};
+
+	miu2gmc24: miu2gmc24 {
+		reg = <0 0x1c282000 0 0x30>;
+	};
+
+	miu2gmc25: miu2gmc25 {
+		reg = <0 0x1c282200 0 0x30>;
+	};
+
+	miu2gmc26: miu2gmc26 {
+		reg = <0 0x1c282400 0 0x30>;
+	};
+
+	miu2gmc27: miu2gmc27 {
+		reg = <0 0x1c282600 0 0x30>;
+	};
+
+	miu2gmc28: miu2gmc28 {
+		reg = <0 0x1c282800 0 0x30>;
+	};
+
+	miu2gmc29: miu2gmc29 {
+		reg = <0 0x1c282a00 0 0x30>;
+	};
+
+	miu2gmc35: miu2gmc35 {
+		reg = <0 0x1c282c00 0 0x30>;
+	};
+
+	miu2gmc36: miu2gmc36 {
+		reg = <0 0x1c282e00 0 0x30>;
+	};
+
+	miu2gmc37: miu2gmc37 {
+		reg = <0 0x1c283000 0 0x30>;
+	};
+
+	miu2gmc38: miu2gmc38 {
+		reg = <0 0x1c283200 0 0x30>;
+	};
+
+	miu2gmc39: miu2gmc39 {
+		reg = <0 0x1c283400 0 0x30>;
+	};
+
+	miu2gmc40: miu2gmc40 {
+		reg = <0 0x1c283600 0 0x30>;
+	};
+
+	miu2gmc41: miu2gmc41 {
+		reg = <0 0x1c283800 0 0x30>;
+	};
+
+	miu2gmc42: miu2gmc42 {
+		reg = <0 0x1c283a00 0 0x30>;
+	};
+
+	miu2gmc43: miu2gmc43 {
+		reg = <0 0x1c283c00 0 0x30>;
+	};
+
+	miu2gmc44: miu2gmc44 {
+		reg = <0 0x1c283e00 0 0x30>;
+	};
+
+	miu2gmc45: miu2gmc45 {
+		reg = <0 0x1c284000 0 0x30>;
+	};
+
+	miu2gmc46: miu2gmc46 {
+		reg = <0 0x1c284200 0 0x30>;
+	};
+
+	miu2gmc47: miu2gmc47 {
+		reg = <0 0x1c284400 0 0x30>;
+	};
+
+	miu2gmc48: miu2gmc48 {
+		reg = <0 0x1c284600 0 0x30>;
+	};
+
+	miu2gmc49: miu2gmc49 {
+		reg = <0 0x1c284800 0 0x30>;
+	};
+
+	miu2gmc50: miu2gmc50 {
+		reg = <0 0x1c284a00 0 0x30>;
+	};
+
+	miu2gmc51: miu2gmc51 {
+		reg = <0 0x1c284c00 0 0x30>;
+	};
+
+	miu2gmc52: miu2gmc52 {
+		reg = <0 0x1c284e00 0 0x30>;
+	};
+
+	cpu_pri: cpu_pri {
+		compatible = "mediatek,mt5896-emi-cpupri";
+		reg = <0 0x1c37fa00 0 0x200>;
+	};
+
+};

@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	mtk_pq: mtk-pq {
+		compatible = "mediatek,pq";
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupts = <0x0 0x24 0x4>,/*mvop_int*/
+				<0x0 0x23 0x4>;/*xc_int*/
+		interrupt-names = "b2r","pq";
+	};
+};
+
+/{
+	scaler {
+		compatible = "mstar-scaler";
+		//reg = <0x0 0x1C000000 0x0 0xA00000>;
+	};
+};

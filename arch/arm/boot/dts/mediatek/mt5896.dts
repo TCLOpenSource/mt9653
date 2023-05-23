@@ -1,0 +1,28 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+/dts-v1/;
+#include "../../../../arm64/boot/dts/mediatek/mt5896.dts"
+
+&firmware {
+	optee {
+		compatible = "linaro,optee-tz";
+		method = "smc";
+	};
+
+	android {
+		compatible = "android,firmware";
+		hardware = "mt5896";
+		revision = "1234";
+		Serial = "0000000000000000";
+		Processor = "AArch32 Processor rev 3 (aarch32)";
+		mode = "123456789";
+		baseband = "123456789";
+		bootloader = "123456789";
+	};
+};
+
+&arm_pmu {
+	compatible = "arm,cortex-a15-pmu";
+};

@@ -1,0 +1,22 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2021 MediaTek Inc.
+ */
+/ {
+	mtk-jpd {
+		compatible = "mediatek,merak-jpd";
+		reg = <0x0 0x1C465200 0x0 0x200>,
+			<0x0 0x1C465000 0x0 0x100>;
+		clocks = <&topgen_mux_gate CLK_TOPGEN_NJPD_CK>,
+			<&jpd_OOXX CLK_JPD_EN_CLK_SMI2JPD>,
+			<&jpd_OOXX CLK_JPD_EN_CLK_NJPD2JPD>;
+		clock-names = "clk_njpd",
+			"clk_smi2jpd",
+			"clk_njpd2jpd";
+		iommus = <&iommu 0>;
+		INT_NUM = <1>;
+		interrupt-parent = <&mtk_intc0_irq>;
+		interrupt-names = "jpd_int";
+		interrupts = <0x0 0x2b 0x4>; /*jpd_int*/
+	};
+};

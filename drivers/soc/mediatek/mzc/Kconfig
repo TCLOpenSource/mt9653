@@ -1,0 +1,23 @@
+config MTK_MZCCMDQ_HW
+        bool "HW MZC + CMDQ"
+        help
+	Say yes here to add support for the MediaTek ZRAM Related driver.
+	MTK ZRAM Related driver
+	includes MZC-drive, MTK-ZRAM and MTK-ZSMALLOC.
+	The MTK ZRAM device is used as swap-device.
+config MTKZRAM_KO
+	tristate "MTK Compressed RAM block device kernel driver support"
+	help
+	Say yes here to add support for the MediaTek ZRAM driver.
+	MTK ZRAM is a hardware codec based zram driver which
+	perfroms better than origin.
+	The MTK ZRAM device is used as swap-device.
+config MTKZSMALLOC_KO
+	tristate "MTK Memory allocator kernel driver for compressed pages"
+	help
+	Say yes here to add support for the MediaTek ZSMALLOC driver.
+	MTK ZSMALLOC, which is build for MZC codec
+	reducing unnecessary overhead.
+	The MTK ZSMALLOC device is used as zs allocator.
+
+

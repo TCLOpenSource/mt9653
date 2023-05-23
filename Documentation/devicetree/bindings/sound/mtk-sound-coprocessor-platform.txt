@@ -1,0 +1,13 @@
+Mediatek DTV DSP platform Controller for mt5870
+
+Required properties:
+- compatible: "mediatek,mtk-coprocessor-platform"
+- mediatek DTV,platform: MT5870 ASoC platform
+
+Example:
+
+mtk-sound-coprocessor-platform {
+		compatible = "mediatek,mtk-coprocessor-platform";
+		dsp_name = "dsp.bin";
+		miu_bank = <0>;
+	};

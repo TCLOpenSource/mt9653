@@ -1,0 +1,16 @@
+// SPDX-License-Identifier: GPL-2.0
+//
+// Copyright (c) 2020 MediaTek Inc.
+//
+
+/ {
+
+	dish_rt5047: dish-rt5047 {
+		compatible = "mtk, rt5047";
+		unique_id = <0x5678>;
+		i2c_slave_id = <0x60>;
+		/* describe hw board capability, please reference Frontend.h fe_delivery_system */
+		delivery_system = <5 6>;
+	};
+
+};

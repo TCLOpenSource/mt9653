@@ -1,0 +1,11 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2021 MediaTek Inc.
+ */
+
+/ {
+	ws_tsf:ws_tsf{
+		compatible = "mediatek.ws_tsf";
+	};
+
+};

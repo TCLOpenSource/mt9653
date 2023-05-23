@@ -1,0 +1,60 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+/ {
+	xiu_timeout_int {
+		compatible = "xiu_timeout_int";
+		interrupt-parent = <&mtk_intc1_fiq_high>;
+		reg = <0x0 0x1c200200 0 0x100>;
+		interrupts = <0x0 0x0 0x4>;
+	};
+	m2_xiu_timeout_int {
+		compatible = "m2_xiu_timeout_int";
+		interrupt-parent = <&mtk_intc1_fiq_high>;
+		reg = <0x0 0x1cc00200 0 0x100>;
+		interrupts = <0x0 0x1 0x4>;
+	};
+	dmd_xiu_timeout_int {
+		compatible = "dmd_xiu_timeout_int";
+		interrupt-parent = <&mtk_intc1_fiq_high>;
+		reg = <0x0 0x1ce00200 0 0x100>;
+		interrupts = <0x0 0x2 0x4>;
+	};
+	frc_xiu_timeout_int {
+		compatible = "frc_xiu_timeout_int";
+		interrupt-parent = <&mtk_intc1_fiq_high>;
+		reg = <0x0 0x1d000200 0 0x100>;
+		interrupts = <0x0 0x3 0x4>;
+	};
+	au_xiu_timeout_int {
+		compatible = "au_xiu_timeout_int";
+		interrupt-parent = <&mtk_intc1_fiq_high>;
+		reg = <0x0 0x1d200200 0 0x100>;
+		interrupts = <0x0 0x4 0x4>;
+	};
+	sc_xiu_timeout_int {
+		compatible = "sc_xiu_timeout_int";
+		interrupt-parent = <&mtk_intc1_fiq_high>;
+		reg = <0x0 0x1d400200 0 0x100>;
+		interrupts = <0x0 0x5 0x4>;
+	};
+	codec_xiu_timeout_int {
+		compatible = "codec_xiu_timeout_int";
+		interrupt-parent = <&mtk_intc1_fiq_high>;
+		reg = <0x0 0x1d800200 0 0x100>;
+		interrupts = <0x0 0x6 0x4>;
+	};
+	hdmi_xiu_timeout_int {
+		compatible = "hdmi_xiu_timeout_int";
+		interrupt-parent = <&mtk_intc1_fiq_high>;
+		interrupts = <0x0 0x7 0x4>;
+		reg = <0x0 0x1dc00200 0 0x100>;
+	};
+	PM_FIQ31 {
+		compatible = "pm_xiu_timeout_int";
+		interrupt-parent = <&mtk_intc2_fiq_high>;
+		reg = <0x0 0x1c000200 0 0x100>;
+		interrupts = <0x0 0x1f 0x4>;
+	};
+};

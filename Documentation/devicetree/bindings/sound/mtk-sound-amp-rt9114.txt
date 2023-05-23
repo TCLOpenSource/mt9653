@@ -1,0 +1,25 @@
+Mediatek DTV AMP RT9114 Controller
+
+Required properties:
+- compatible: "mediatek,amp","mediatek, rt9114"
+- reg: i2c slave address
+- ampmute-gpios: amp mute gpio
+- ampreset-gpios: amp reset gpio
+- ampreset-reg: amp reset register when gpio not register at dts
+- reset-invertor: gpio reset invertor
+- mute-invertor: gpio mute invertor
+
+Example:
+
+mtk-amp@1B {
+	#address-cells = <1>;
+	#size-cells = <1>;
+	compatible = "mediatek,amp","mediatek, rt9114";
+	reg = <0x1B>;
+	status = "okay";
+	ampreset-gpios = <&gpio_sar0 3 GPIO_ACTIVE_HIGH>;
+	ampmute-gpios = <&gpio_pm_gpio0 7 GPIO_ACTIVE_HIGH>;
+	ampreset-reg = <0x322b16>;
+	reset-invertor = <1>;
+	mute-invertor = <1>;
+};

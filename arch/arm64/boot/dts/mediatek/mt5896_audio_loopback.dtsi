@@ -1,0 +1,80 @@
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+#include "mt5896_mmap.dtsi"
+
+/ {
+	mtk_audio_loopback: mtk-audio-loopback {
+		compatible = "mediatek,mtk-audio-loopback";
+		loopback_name = "Loopback Capture_I2S";
+		riu_base = <0x1C000000>;
+		memory-region = <&MI_CM4_VOICE>;
+		memory_bus_base = <0x0 0x20000000>;
+		interrupt-parent = <&mtk_intc2_irq_high>;
+		interrupts = <0x0 0x1e 0x4>;
+		dsp_mixing_mode = <0>;
+		dsp_timer_irq_idx = <2>;
+		dsp_channels_num = <2>;
+		dsp_channel_list = <2 8>;
+		aec_bypass = <0>;
+		aec_regen_bypass = <1>;
+		aec_max_channel = <8>;
+		audio_loopback_bank_num = <6>;
+		reg = <0x0 0x1C086200 0x0 0x200>,
+			<0x0 0x1C086400 0x0 0x200>,
+			<0x0 0x1D280000 0x0 0x200>,
+			<0x0 0x1D2A0200 0x0 0x200>,
+			<0x0 0x1D2A0400 0x0 0x200>,
+			<0x0 0x1D2A0600 0x0 0x200>;
+
+		reg_dsp_pb_dma_ctrl = <0x950386>;
+		reg_dsp_pb_dma_wptr = <0x950396>;
+		reg_dsp_pb_dma_ddr_level = <0x950368>;
+		reg_aec_src_ctrl = <0x940000>;
+		reg_aec_src_cfg = <0x940002>;
+		reg_aec_src_mch_ctrl = <0x94000e>;
+		reg_aec_src_mch_cfg = <0x940040>;
+		reg_aec_dma_addr_lo = <0x0432C2>;
+		reg_aec_dma_addr_hi = <0x0432C4>;
+		reg_aec_dma_wr_size = <0x0432C6>;
+		reg_aec_dma_ctrl = <0x0432C0>;
+		reg_aec_dma_rptr = <0x0432C8>;
+		reg_aec_dma_wptr = <0x0432D4>;
+		reg_aec_dma_regen = <0x043284>;
+		reg_aec_dma_timer_ctrl = <0x043292>;
+		reg_aec_dma_paga_ctrl = <0x043224>;
+		reg_aec_dma_rec_ctrl = <0x043104>;
+		reg_aec_dma_test_ctrl = <0x0432DA>;
+		reg_aec_dma_test_cfg = <0x0432CC>;
+		reg_slt_test_ctrl = <0x9503CE>;
+
+		aec_dma_offset = <0x180000>;
+		aec_dma_size = <0x5A000>;
+		dsp_pb_dma_offset = <0x618000>;
+		dsp_pb_dma_size = <0x30000>;
+
+		//mixing mode
+		reg_mix_aec_ctrl = <0x9503CA>;
+		reg_mix_i2s_input_cfg = <0x950202>;
+		reg_mix_i2s_out2_cfg = <0x9502D2>;
+
+		//I2S in format, (0:standard, 1:Left-justified)
+		i2s_input_format = <0>;
+		//I2S in channel
+		i2s_input_channel = <2>;
+		//I2S out(BCK and WS) clock bypass to I2S in
+		i2s_out_clk = <1>;
+
+		//SLT test bit
+		slt_test_ctrl_bit = <8>;
+
+		status = "disabled";
+
+		swen {
+		};
+
+		timeren {
+		};
+	};
+};

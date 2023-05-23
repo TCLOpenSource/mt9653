@@ -1,0 +1,418 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+
+/ {
+	tsp_sw_en: tsp_swen {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_gate_en";
+		num = <CLK_TSP_EN_NR>;
+
+		mcu_nonpm2tsp {
+			id = <CLK_TSP_EN_MCU_NONPM2TSP>;
+			parent = "p_dummy";
+		};
+
+		smi_tsp2tsp {
+			id = <CLK_TSP_EN_SMI_TSP2TSP>;
+			parent = "p_dummy";
+		};
+
+		fiq0_27m2tsp {
+			id = <CLK_TSP_EN_FIQ0_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		mm0_27m2tsp {
+			id = <CLK_TSP_EN_MM0_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		mm1_27m2tsp {
+			id = <CLK_TSP_EN_MM1_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		parser2tsp {
+			id = <CLK_TSP_EN_PARSER2TSP>;
+			parent = "p_dummy";
+		};
+
+		parser2vd_pes_parser {
+			id = <CLK_TSP_EN_PARSER2VD_PES_PARSER>;
+			parent = "p_dummy";
+		};
+
+		viva_parser2parser {
+			id = <CLK_TSP_EN_VIVA_PARSER2PARSER>;
+			parent = "p_dummy";
+		};
+
+		pvr1_27m2tsp {
+			id = <CLK_TSP_EN_PVR1_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		pvr2_27m2tsp {
+			id = <CLK_TSP_EN_PVR2_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		pvr3_27m2tsp {
+			id = <CLK_TSP_EN_PVR3_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		pvr4_27m2tsp {
+			id = <CLK_TSP_EN_PVR4_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		stamp2tso {
+			id = <CLK_TSP_EN_STAMP2TSO>;
+			parent = "p_dummy";
+		};
+
+		stamp2tso2 {
+			id = <CLK_TSP_EN_STAMP2TSO2>;
+			parent = "p_dummy";
+		};
+
+		stamp2tsp {
+			id = <CLK_TSP_EN_STAMP2TSP>;
+			parent = "p_dummy";
+		};
+
+		syn_stc02ts_sample {
+			id = <CLK_TSP_EN_SYN_STC02TS_SAMPLE>;
+			parent = "p_dummy";
+		};
+
+		syn_stc12ts_sample {
+			id = <CLK_TSP_EN_SYN_STC12TS_SAMPLE>;
+			parent = "p_dummy";
+		};
+
+		syn_stc22ts_sample {
+			id = <CLK_TSP_EN_SYN_STC22TS_SAMPLE>;
+			parent = "p_dummy";
+		};
+
+		syn_stc32ts_sample {
+			id = <CLK_TSP_EN_SYN_STC32TS_SAMPLE>;
+			parent = "p_dummy";
+		};
+
+		sys_time0_27m2tsp {
+			id = <CLK_TSP_EN_SYS_TIME0_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		sys_time1_27m2tsp {
+			id = <CLK_TSP_EN_SYS_TIME1_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		sys_time2_27m2tsp {
+			id = <CLK_TSP_EN_SYS_TIME2_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		sys_time3_27m2tsp {
+			id = <CLK_TSP_EN_SYS_TIME3_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		tlv0_27m2tsp {
+			id = <CLK_TSP_EN_TLV0_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		tlv1_27m2tsp {
+			id = <CLK_TSP_EN_TLV1_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		tlv2_27m2tsp {
+			id = <CLK_TSP_EN_TLV2_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		ts_alp02tsp {
+			id = <CLK_TSP_EN_TS_ALP02TSP>;
+			parent = "p_dummy";
+		};
+
+		ts_alp12tsp {
+			id = <CLK_TSP_EN_TS_ALP12TSP>;
+			parent = "p_dummy";
+		};
+
+		ts_sample2ts_sample {
+			id = <CLK_TSP_EN_TS_SAMPLE2TS_SAMPLE>;
+			parent = "p_dummy";
+		};
+
+		ts_tx_c12cilink {
+			id = <CLK_TSP_EN_TS_TX_C12CILINK>;
+			parent = "p_dummy";
+		};
+
+		ts_tx_c22cilink {
+			id = <CLK_TSP_EN_TS_TX_C22CILINK>;
+			parent = "p_dummy";
+		};
+
+		ts0_in_dft2ts_sample {
+			id = <CLK_TSP_EN_TS0_IN_DFT2TS_SAMPLE>;
+			parent = "p_dummy";
+		};
+
+		ts02tsp {
+			id = <CLK_TSP_EN_TS02TSP>;
+			parent = "p_dummy";
+		};
+
+		ts1_in_dft2ts_sample {
+			id = <CLK_TSP_EN_TS1_IN_DFT2TS_SAMPLE>;
+			parent = "p_dummy";
+		};
+
+		ts12tsp {
+			id = <CLK_TSP_EN_TS12TSP>;
+			parent = "p_dummy";
+		};
+
+		ts2_in_dft2ts_sample {
+			id = <CLK_TSP_EN_TS2_IN_DFT2TS_SAMPLE>;
+			parent = "p_dummy";
+		};
+
+		ts22tsp {
+			id = <CLK_TSP_EN_TS22TSP>;
+			parent = "p_dummy";
+		};
+
+		ts3_in_dft2ts_sample {
+			id = <CLK_TSP_EN_TS3_IN_DFT2TS_SAMPLE>;
+			parent = "p_dummy";
+		};
+
+		ts4_in_dft2ts_sample {
+			id = <CLK_TSP_EN_TS4_IN_DFT2TS_SAMPLE>;
+			parent = "p_dummy";
+		};
+
+		ts5_in_dft2ts_sample {
+			id = <CLK_TSP_EN_TS5_IN_DFT2TS_SAMPLE>;
+			parent = "p_dummy";
+		};
+
+		tsfi2tsp {
+			id = <CLK_TSP_EN_TSFI2TSP>;
+			parent = "p_dummy";
+		};
+
+		tsif0_27m2tsp {
+			id = <CLK_TSP_EN_TSIF0_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		tso_ch1_27m2tso {
+			id = <CLK_TSP_EN_TSO_CH1_27M2TSO>;
+			parent = "p_dummy";
+		};
+
+		tso_ch12tso {
+			id = <CLK_TSP_EN_TSO_CH12TSO>;
+			parent = "p_dummy";
+		};
+
+		tso_ch5_27m2tso {
+			id = <CLK_TSP_EN_TSO_CH5_27M2TSO>;
+			parent = "p_dummy";
+		};
+
+		tso_ch52tso {
+			id = <CLK_TSP_EN_TSO_CH52TSO>;
+			parent = "p_dummy";
+		};
+
+		tso_ch6_27m2tso {
+			id = <CLK_TSP_EN_TSO_CH6_27M2TSO>;
+			parent = "p_dummy";
+		};
+
+		tso_ch62tso {
+			id = <CLK_TSP_EN_TSO_CH62TSO>;
+			parent = "p_dummy";
+		};
+
+		tso_out_div_mn_src2ts_sample {
+			id = <CLK_TSP_EN_TSO_OUT_DIV_MN_SRC2TS_SAMPLE>;
+			parent = "p_dummy";
+		};
+
+		tso_out2tso {
+			id = <CLK_TSP_EN_TSO_OUT2TSO>;
+			parent = "p_dummy";
+		};
+
+		tso_s2p12tso {
+			id = <CLK_TSP_EN_TSO_S2P12TSO>;
+			parent = "p_dummy";
+		};
+
+		tso_s2p2tso {
+			id = <CLK_TSP_EN_TSO_S2P2TSO>;
+			parent = "p_dummy";
+		};
+
+		tso_trace_in2tso {
+			id = <CLK_TSP_EN_TSO_TRACE_IN2TSO>;
+			parent = "p_dummy";
+		};
+
+		tso_trace2tso {
+			id = <CLK_TSP_EN_TSO_TRACE2TSO>;
+			parent = "p_dummy";
+		};
+
+		tso2_ch1_27m2tso2 {
+			id = <CLK_TSP_EN_TSO2_CH1_27M2TSO2>;
+			parent = "p_dummy";
+		};
+
+		tso2_ch12tso2 {
+			id = <CLK_TSP_EN_TSO2_CH12TSO2>;
+			parent = "p_dummy";
+		};
+
+		tso2_ch5_27m2tso2 {
+			id = <CLK_TSP_EN_TSO2_CH5_27M2TSO2>;
+			parent = "p_dummy";
+		};
+
+		tso2_ch52tso2 {
+			id = <CLK_TSP_EN_TSO2_CH52TSO2>;
+			parent = "p_dummy";
+		};
+
+		tso2_ch6_27m2tso2 {
+			id = <CLK_TSP_EN_TSO2_CH6_27M2TSO2>;
+			parent = "p_dummy";
+		};
+
+		tso2_ch62tso2 {
+			id = <CLK_TSP_EN_TSO2_CH62TSO2>;
+			parent = "p_dummy";
+		};
+
+		tso2_out_div_mn_src2ts_sample {
+			id = <CLK_TSP_EN_TSO2_OUT_DIV_MN_SRC2TS_SAMPLE>;
+			parent = "p_dummy";
+		};
+
+		tso2_out2tso2 {
+			id = <CLK_TSP_EN_TSO2_OUT2TSO2>;
+			parent = "p_dummy";
+		};
+
+		tso2_s2p12tso2 {
+			id = <CLK_TSP_EN_TSO2_S2P12TSO2>;
+			parent = "p_dummy";
+		};
+
+		tso2_s2p2tso2 {
+			id = <CLK_TSP_EN_TSO2_S2P2TSO2>;
+			parent = "p_dummy";
+		};
+
+		tso2_trace_in2tso2 {
+			id = <CLK_TSP_EN_TSO2_TRACE_IN2TSO2>;
+			parent = "p_dummy";
+		};
+
+		tso2_trace2tso2 {
+			id = <CLK_TSP_EN_TSO2_TRACE2TSO2>;
+			parent = "p_dummy";
+		};
+
+		tsp2dscrmb {
+			id = <CLK_TSP_EN_TSP2DSCRMB>;
+			parent = "p_dummy";
+		};
+
+		tsp2tso {
+			id = <CLK_TSP_EN_TSP2TSO>;
+			parent = "p_dummy";
+		};
+
+		tsp2tso2 {
+			id = <CLK_TSP_EN_TSP2TSO2>;
+			parent = "p_dummy";
+		};
+
+		tsp2tsp {
+			id = <CLK_TSP_EN_TSP2TSP>;
+			parent = "p_dummy";
+		};
+
+		ts_tlv02tsp {
+			id = <CLK_TSP_EN_TS_TLV02TSP>;
+			parent = "p_dummy";
+		};
+
+		ts_tlv12tsp {
+			id = <CLK_TSP_EN_TS_TLV12TSP>;
+			parent = "p_dummy";
+		};
+
+		ts_tlv22tsp {
+			id = <CLK_TSP_EN_TS_TLV22TSP>;
+			parent = "p_dummy";
+		};
+
+		path0_27m2tsp {
+			id = <CLK_TSP_EN_PATH0_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		path1_27m2tsp {
+			id = <CLK_TSP_EN_PATH1_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		path2_27m2tsp {
+			id = <CLK_TSP_EN_PATH2_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		path_fi_27m2tsp {
+			id = <CLK_TSP_EN_PATH_FI_27M2TSP>;
+			parent = "p_dummy";
+		};
+
+		smi2vd_pes_parser {
+			id = <CLK_TSP_EN_SMI2VD_PES_PARSER>;
+			parent = "p_dummy";
+		};
+
+		cilink_2b_rx2cilink {
+			id = <CLK_TSP_EN_CILINK_2B_RX2CILINK>;
+			parent = "p_dummy";
+		};
+
+		cilink_2b_tx2cilink {
+			id = <CLK_TSP_EN_CILINK_2B_TX2CILINK>;
+			parent = "p_dummy";
+		};
+
+		cilink_if2cilink {
+			id = <CLK_TSP_EN_CILINK_IF2CILINK>;
+			parent = "p_dummy";
+		};
+	};
+};

@@ -1,0 +1,214 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+
+/ {
+	mheg5_mux_gate: mheg5 {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_mux_gate";
+		num = <CLK_MHEG5_NR>;
+
+		mheg5_xtal_24m_int_ck {
+			id = <CLK_MHEG5_XTAL_24M_INT_CK>;
+			parents = "xtal_24m_ck";
+		};
+
+		mheg5_xtal_12m_int_ck {
+			id = <CLK_MHEG5_XTAL_12M_INT_CK>;
+			parents = "xtal_12m_ck";
+		};
+
+		mheg5_smi_int_ck {
+			id = <CLK_MHEG5_SMI_INT_CK>;
+			parents = "smi_ck";
+		};
+
+		mheg5_mcu_bus_int_ck {
+			id = <CLK_MHEG5_MCU_BUS_INT_CK>;
+			parents = "mcu_bus_ck";
+		};
+
+		mheg5_mcu_nonpm_int_ck {
+			id = <CLK_MHEG5_MCU_NONPM_INT_CK>;
+			parents = "mcu_nonpm_ck";
+		};
+
+		mcu_vd_int_ck {
+			id = <CLK_MHEG5_MCU_VD_INT_CK>;
+			parents = "mcu_vd_ck";
+		};
+
+		riu_vd_int_ck {
+			id = <CLK_MHEG5_RIU_VD_INT_CK>;
+			parents = "riu_vd_ck";
+		};
+
+		spi_int_ck {
+			id = <CLK_MHEG5_SPI_INT_CK>;
+			parents = "spi_ck";
+		};
+
+		mspi0_int_ck {
+			id = <CLK_MHEG5_MSPI0_INT_CK>;
+			parents = "mspi0_ck";
+		};
+
+		mspi1_int_ck {
+			id = <CLK_MHEG5_MSPI1_INT_CK>;
+			parents = "mspi1_ck";
+		};
+
+		mspi2_int_ck {
+			id = <CLK_MHEG5_MSPI2_INT_CK>;
+			parents = "mspi2_ck";
+		};
+
+		mspi3_int_ck {
+			id = <CLK_MHEG5_MSPI3_INT_CK>;
+			parents = "mspi3_ck";
+		};
+
+		mspi4_int_ck {
+			id = <CLK_MHEG5_MSPI4_INT_CK>;
+			parents = "mspi4_ck";
+		};
+
+		mspi5_int_ck {
+			id = <CLK_MHEG5_MSPI5_INT_CK>;
+			parents = "mspi5_ck";
+		};
+
+		mspi6_int_ck {
+			id = <CLK_MHEG5_MSPI6_INT_CK>;
+			parents = "mspi6_ck";
+		};
+
+		mspi7_int_ck {
+			id = <CLK_MHEG5_MSPI7_INT_CK>;
+			parents = "mspi7_ck";
+		};
+
+		mspi_cilink_int_ck {
+			id = <CLK_MHEG5_MSPI_CILINK_INT_CK>;
+			parents = "mspi_cilink_ck";
+		};
+
+		uart0_int_ck {
+			id = <CLK_MHEG5_UART0_INT_CK>;
+			parents = "uart0_ck";
+		};
+
+		uart1_int_ck {
+			id = <CLK_MHEG5_UART1_INT_CK>;
+			parents = "uart1_ck";
+		};
+
+		uart2_int_ck {
+			id = <CLK_MHEG5_UART2_INT_CK>;
+			parents = "uart2_ck";
+		};
+
+		fuart0_int_ck {
+			id = <CLK_MHEG5_FUART0_INT_CK>;
+			parents = "fuart0_ck";
+		};
+
+		adcplb_mpll_int_ck {
+			id = <CLK_MHEG5_ADCPLB_MPLL_INT_CK>;
+			parents = "adcplb_mpll_ck";
+		};
+
+		gpd_int_ck {
+			id = <CLK_MHEG5_GPD_INT_CK>;
+			parents = "gpd_ck";
+		};
+
+		venc_int_ck {
+			id = <CLK_MHEG5_VENC_INT_CK>;
+			parents = "venc_ck";
+		};
+
+		gmac_ahb_int_ck {
+			id = <CLK_MHEG5_GMAC_AHB_INT_CK>;
+			parents = "gmac_ahb_ck";
+		};
+
+		smart_int_ck {
+			id = <CLK_MHEG5_SMART_INT_CK>;
+			parents = "smart_ck";
+		};
+
+		smart_synth_432_int_ck {
+			id = <CLK_MHEG5_SMART_SYNTH_432_INT_CK>;
+			parents = "smart_synth_432_ck";
+		};
+
+		smart_synth_27_int_ck {
+			id = <CLK_MHEG5_SMART_SYNTH_27_INT_CK>;
+			parents = "smart_synth_27_ck";
+		};
+
+		smart2_int_ck {
+			id = <CLK_MHEG5_SMART2_INT_CK>;
+			parents = "smart2_ck";
+		};
+
+		smart2_synth_432_int_ck {
+			id = <CLK_MHEG5_SMART2_SYNTH_432_INT_CK>;
+			parents = "smart2_synth_432_ck";
+		};
+
+		smart2_synth_27_int_ck {
+			id = <CLK_MHEG5_SMART2_SYNTH_27_INT_CK>;
+			parents = "smart2_synth_27_ck";
+		};
+
+		mheg5_vd_int_ck {
+			id = <CLK_MHEG5_VD_INT_CK>;
+			parents = "vd_ck";
+		};
+
+		vd2x_int_ck {
+			id = <CLK_MHEG5_VD2X_INT_CK>;
+			parents = "vd2x_ck";
+		};
+
+		vd_32fsc_int_ck {
+			id = <CLK_MHEG5_VD_32FSC_INT_CK>;
+			parents = "vd_32fsc_ck";
+		};
+
+		cmbai_int_ck {
+			id = <CLK_MHEG5_CMBAI_INT_CK>;
+			parents = "smi_ck","vd_ck","vd_tie1_ck","vd_tie0_ck";
+		};
+
+		cmbbi_int_ck {
+			id = <CLK_MHEG5_CMBBI_INT_CK>;
+			parents = "smi_ck","vd_ck","vd_tie1_ck","vd_tie0_ck";
+		};
+
+		cmbao_int_ck {
+			id = <CLK_MHEG5_CMBAO_INT_CK>;
+			parents = "smi_ck","vd_ck","vd_tie1_ck","vd_tie0_ck";
+		};
+
+		cmbbo_int_ck {
+			id = <CLK_MHEG5_CMBBO_INT_CK>;
+			parents = "smi_ck","vd_ck","vd_tie1_ck","vd_tie0_ck";
+		};
+
+		mcu_mail0_int_ck {
+			id = <CLK_MHEG5_MCU_MAIL0_INT_CK>;
+			parents = "mcu_nonpm_ck","mcu_vd_ck";
+		};
+
+		mcu_mail1_int_ck {
+			id = <CLK_MHEG5_MCU_MAIL1_INT_CK>;
+			parents = "mcu_vd_ck","mcu_nonpm_ck";
+		};
+
+	};
+};

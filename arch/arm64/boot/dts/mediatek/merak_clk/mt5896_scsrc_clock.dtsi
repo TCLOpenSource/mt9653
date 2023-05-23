@@ -1,0 +1,80 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+
+/ {
+	sc_fix: sc_fix {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_fix";
+		num = <CLK_SC_FIX_NR>;
+
+		xtal_48m_ck {
+			id = <CLK_XC_XTAL_48M_CK>;
+			clock-frequency = <48>;
+		};
+
+		adc_ck {
+			id = <CLK_XC_ADC_CK>;
+			clock-frequency = <4294>;
+		};
+
+		hdmi0_ck {
+			id = <CLK_XC_HDMI0_CK>;
+			clock-frequency = <4294>;
+		};
+
+		hdmi1_ck {
+			id = <CLK_XC_HDMI1_CK>;
+			clock-frequency = <4294>;
+		};
+
+		hdmi2_ck {
+			id = <CLK_XC_HDMI2_CK>;
+			clock-frequency = <4294>;
+		};
+
+		hdmi3_ck {
+			id = <CLK_XC_HDMI3_CK>;
+			clock-frequency = <4294>;
+		};
+
+		xc_od_src_ck {
+			id = <CLK_XC_XC_OD_SRC_CK>;
+			clock-frequency = <4294>;
+		};
+
+		hd2miu_m_ck {
+			id = <CLK_XC_HD2MIU_M_CK>;
+			clock-frequency = <4294>;
+		};
+
+		hd2miu_s_ck {
+			id = <CLK_XC_HD2MIU_S_CK>;
+			clock-frequency = <4294>;
+		};
+
+		clk_144_buf_ck {
+			id = <CLK_XC_CLK_144_BUF_CK>;
+			clock-frequency = <144>;
+		};
+
+		xc_630m_ck {
+			id = <CLK_XC_XC_630M_CK>;
+			clock-frequency = <480>;
+		};
+
+		xc_od_div2_ck {
+			id = <CLK_XC_XC_OD_DIV2_CK>;
+			clock-frequency = <4294>;
+		};
+
+		xc_od_div4_ck {
+			id = <CLK_XC_XC_OD_DIV4_CK>;
+			clock-frequency = <4294>;
+		};
+
+	};
+};
+

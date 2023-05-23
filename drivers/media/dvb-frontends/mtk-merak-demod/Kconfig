@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config CONFIG_DEMOD_MERAK
+	tristate "MTK MERAK tuner + demodulator"
+#	depends on DVB_CORE && SPI
+	default m
+#	default m if !MEDIA_SUBDRV_AUTOSELECT
+	help
+	  Say Y when you want to support this frontend.

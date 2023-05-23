@@ -1,0 +1,1009 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+
+/ {
+
+	tsp_mux_gate: tsp {
+		#clock-cells = <1>;
+		compatible = "mediatek,dtv_clk_mux_gate";
+		num = <CLK_TSP_NR>;
+
+		tsp_xtal_24m_int_ck {
+			id = <CLK_TSP_XTAL_24M_INT_CK>;
+			parents = "xtal_24m_ck";
+		};
+
+		tsp_smi_int_ck {
+			id = <CLK_TSP_SMI_INT_CK>;
+			parents = "smi_ck";
+		};
+
+		tsp_mcu_nonpm_int_ck {
+			id = <CLK_TSP_MCU_NONPM_INT_CK>;
+			parents = "mcu_nonpm_ck";
+		};
+
+		tsp_imi_int_ck {
+			id = <CLK_TSP_IMI_INT_CK>;
+			parents = "imi_ck";
+		};
+
+		usbphy30_int_ck {
+			id = <CLK_TSP_USBPHY30_INT_CK>;
+			parents = "clk_usbphy30","tsp_sys2pll_vcod48_30m_ck";
+		};
+
+		usbphy240_mux_int_ck {
+			id = <CLK_TSP_USBPHY240_MUX_INT_CK>;
+			parents = "clk_usbphy240_mux","tsp_sys2pll_vcod6_240m_ck";
+		};
+
+		usbphy240_int_ck {
+			id = <CLK_TSP_USBPHY240_INT_CK>;
+			parents = "shbg_mac_clk","tsp_sys2pll_vcod6_240m_ck";
+		};
+
+		smi_uhc_int_ck {
+			id = <CLK_TSP_SMI_UHC_INT_CK>;
+			parents = "xtal_24m_ck","imi_ck","smi_ck","tsp_clk_dummy_ck";
+		};
+
+		smi_fcie_int_ck {
+			id = <CLK_TSP_SMI_FCIE_INT_CK>;
+			parents = "xtal_24m_ck","imi_ck","smi_ck","tsp_clk_dummy_ck";
+		};
+
+		smi_aesdma_int_ck {
+			id = <CLK_TSP_SMI_AESDMA_INT_CK>;
+			parents = "xtal_24m_ck","imi_ck","smi_ck","tsp_clk_dummy_ck";
+		};
+
+		smi_tsp_int_ck {
+			id = <CLK_TSP_SMI_TSP_INT_CK>;
+			parents = "xtal_24m_ck","imi_ck","smi_ck","tsp_clk_dummy_ck";
+		};
+
+		fcie_int_ck {
+			id = <CLK_TSP_FCIE_INT_CK>;
+			parents = "fcie_ck","flash_dmacro_2x_p_ck","flash_dmacro_1x_p_ck",
+			"tsp_clk_dummy_ck";
+		};
+
+		ecc_int_ck {
+			id = <CLK_TSP_ECC_INT_CK>;
+			parents = "ecc_ck";
+		};
+
+		aesdma_int_ck {
+			id = <CLK_TSP_AESDMA_INT_CK>;
+			parents = "aesdma_ck";
+		};
+
+		rc_int_ck {
+			id = <CLK_TSP_RC_INT_CK>;
+			parents = "clk_src_rc100_ck";
+		};
+
+		njpd_int_ck {
+			id = <CLK_TSP_NJPD_INT_CK>;
+			parents = "njpd_ck";
+		};
+
+		tsp_int_ck {
+			id = <CLK_TSP_TSP_INT_CK>;
+			parents = "tsp_ck";
+		};
+
+		parser_int_ck {
+			id = <CLK_TSP_PARSER_INT_CK>;
+			parents = "parser_ck";
+		};
+
+		stamp_int_ck {
+			id = <CLK_TSP_STAMP_INT_CK>;
+			parents = "xtal_24m_ck","tsp_clk_27_ck";
+		};
+
+		tsif0_27m_int_ck {
+			id = <CLK_TSP_TSIF0_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		mm0_27m_int_ck {
+			id = <CLK_TSP_MM0_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		mm1_27m_int_ck {
+			id = <CLK_TSP_MM1_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		path_fi_27m_int_ck {
+			id = <CLK_TSP_PATH_FI_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		path0_27m_int_ck {
+			id = <CLK_TSP_PATH0_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		path1_27m_int_ck {
+			id = <CLK_TSP_PATH1_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		path2_27m_int_ck {
+			id = <CLK_TSP_PATH2_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		pvr1_27m_int_ck {
+			id = <CLK_TSP_PVR1_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		pvr2_27m_int_ck {
+			id = <CLK_TSP_PVR2_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		pvr3_27m_int_ck {
+			id = <CLK_TSP_PVR3_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		pvr4_27m_int_ck {
+			id = <CLK_TSP_PVR4_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		fiq0_27m_int_ck {
+			id = <CLK_TSP_FIQ0_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		sys_time0_27m_int_ck {
+			id = <CLK_TSP_SYS_TIME0_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		sys_time1_27m_int_ck {
+			id = <CLK_TSP_SYS_TIME1_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		sys_time2_27m_int_ck {
+			id = <CLK_TSP_SYS_TIME2_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		sys_time3_27m_int_ck {
+			id = <CLK_TSP_SYS_TIME3_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		tlv0_27m_int_ck {
+			id = <CLK_TSP_TLV0_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		tlv1_27m_int_ck {
+			id = <CLK_TSP_TLV1_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		tlv2_27m_int_ck {
+			id = <CLK_TSP_TLV2_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		ts0_l_int_ck {
+			id = <CLK_TSP_TS0_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		ts0_h_int_ck {
+			id = <CLK_TSP_TS0_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		ts0_int_ck {
+			id = <CLK_TSP_TS0_INT_CK>;
+			parents = "ts0_l_int_ck","ts0_h_int_ck";
+		};
+
+		ts1_l_int_ck {
+			id = <CLK_TSP_TS1_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		ts1_h_int_ck {
+			id = <CLK_TSP_TS1_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		ts1_int_ck {
+			id = <CLK_TSP_TS1_INT_CK>;
+			parents = "ts1_l_int_ck","ts1_h_int_ck";
+		};
+
+		ts2_l_int_ck {
+			id = <CLK_TSP_TS2_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		ts2_h_int_ck {
+			id = <CLK_TSP_TS2_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		ts2_int_ck {
+			id = <CLK_TSP_TS2_INT_CK>;
+			parents = "ts2_l_int_ck","ts2_h_int_ck";
+		};
+
+		tsfi_l_int_ck {
+			id = <CLK_TSP_TSFI_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		tsfi_h_int_ck {
+			id = <CLK_TSP_TSFI_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		tsfi_int_ck {
+			id = <CLK_TSP_TSFI_INT_CK>;
+			parents = "tsfi_l_int_ck","tsfi_h_int_ck";
+		};
+
+		ts_alp0_l_int_ck {
+			id = <CLK_TSP_TS_ALP0_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		ts_alp0_h_int_ck {
+			id = <CLK_TSP_TS_ALP0_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		ts_alp0_int_ck {
+			id = <CLK_TSP_TS_ALP0_INT_CK>;
+			parents = "ts_alp0_l_int_ck","ts_alp0_h_int_ck";
+		};
+
+		ts_alp1_l_int_ck {
+			id = <CLK_TSP_TS_ALP1_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		ts_alp1_h_int_ck {
+			id = <CLK_TSP_TS_ALP1_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		ts_alp1_int_ck {
+			id = <CLK_TSP_TS_ALP1_INT_CK>;
+			parents = "ts_alp1_l_int_ck","ts_alp1_h_int_ck";
+		};
+
+		ts_tlv0_l_int_ck {
+			id = <CLK_TSP_TS_TLV0_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		ts_tlv0_h_int_ck {
+			id = <CLK_TSP_TS_TLV0_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		ts_tlv0_int_ck {
+			id = <CLK_TSP_TS_TLV0_INT_CK>;
+			parents = "ts_tlv0_l_int_ck","ts_tlv0_h_int_ck";
+		};
+
+		ts_tlv1_l_int_ck {
+			id = <CLK_TSP_TS_TLV1_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		ts_tlv1_h_int_ck {
+			id = <CLK_TSP_TS_TLV1_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		ts_tlv1_int_ck {
+			id = <CLK_TSP_TS_TLV1_INT_CK>;
+			parents = "ts_tlv1_l_int_ck","ts_tlv1_h_int_ck";
+		};
+
+		ts_tlv2_l_int_ck {
+			id = <CLK_TSP_TS_TLV2_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		ts_tlv2_h_int_ck {
+			id = <CLK_TSP_TS_TLV2_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		ts_tlv2_int_ck {
+			id = <CLK_TSP_TS_TLV2_INT_CK>;
+			parents = "ts_tlv2_l_int_ck","ts_tlv2_h_int_ck";
+		};
+
+		tso_trace_int_ck {
+			id = <CLK_TSP_TSO_TRACE_INT_CK>;
+			parents = "xtal_24m_ck","tsp_clk_216_ck";
+		};
+
+		tso_trace_in_l_int_ck {
+			id = <CLK_TSP_TSO_TRACE_IN_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		tso_trace_in_h_int_ck {
+			id = <CLK_TSP_TSO_TRACE_IN_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		tso_trace_in_int_ck {
+			id = <CLK_TSP_TSO_TRACE_IN_INT_CK>;
+			parents = "tso_trace_in_l_int_ck","tso_trace_in_h_int_ck";
+		};
+
+		tso_ch1_l_int_ck {
+			id = <CLK_TSP_TSO_CH1_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		tso_ch1_h_int_ck {
+			id = <CLK_TSP_TSO_CH1_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		tso_ch1_int_ck {
+			id = <CLK_TSP_TSO_CH1_INT_CK>;
+			parents = "tso_ch1_l_int_ck","tso_ch1_h_int_ck";
+		};
+
+		tso_ch5_l_int_ck {
+			id = <CLK_TSP_TSO_CH5_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		tso_ch5_h_int_ck {
+			id = <CLK_TSP_TSO_CH5_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		tso_ch5_int_ck {
+			id = <CLK_TSP_TSO_CH5_INT_CK>;
+			parents = "tso_ch5_l_int_ck","tso_ch5_h_int_ck";
+		};
+
+		tso_ch6_l_int_ck {
+			id = <CLK_TSP_TSO_CH6_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		tso_ch6_h_int_ck {
+			id = <CLK_TSP_TSO_CH6_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		tso_ch6_int_ck {
+			id = <CLK_TSP_TSO_CH6_INT_CK>;
+			parents = "tso_ch6_l_int_ck","tso_ch6_h_int_ck";
+		};
+
+		tso_s2p_l_int_ck {
+			id = <CLK_TSP_TSO_S2P_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		tso_s2p_h_int_ck {
+			id = <CLK_TSP_TSO_S2P_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		tso_s2p_int_ck {
+			id = <CLK_TSP_TSO_S2P_INT_CK>;
+			parents = "tso_s2p_l_int_ck","tso_s2p_h_int_ck";
+		};
+
+		tso_s2p1_l_int_ck {
+			id = <CLK_TSP_TSO_S2P1_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		tso_s2p1_h_int_ck {
+			id = <CLK_TSP_TSO_S2P1_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		tso_s2p1_int_ck {
+			id = <CLK_TSP_TSO_S2P1_INT_CK>;
+			parents = "tso_s2p1_l_int_ck","tso_s2p1_h_int_ck";
+		};
+
+		tso_ts_src_sel_int_ck {
+			id = <CLK_TSP_TSO_TS_SRC_SEL_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		tso_out_div_sel_int_ck {
+			id = <CLK_TSP_TSO_OUT_DIV_SEL_INT_CK>;
+			parents = "xtal_24m_ck","tsp_clk_172_ck","tsp_clk_288_ck",
+			"tsp_clk_dummy_ck";
+		};
+
+		tso_out_int_ck {
+			id = <CLK_TSP_TSO_OUT_INT_CK>;
+			parents = "xtal_24m_ck","tsp_clk_dummy_ck","clk_tso_out_div",
+			"tso_ts_src_sel_int_ck","tso_ts_src_sel_div8","tsp_clk_27_ck",
+			"clk_tso_out_div_mn","demod_ts_internal_ck";
+		};
+
+		tso_out2pad_int_ck {
+			id = <CLK_TSP_TSO_OUT2PAD_INT_CK>;
+			parents = "xtal_24m_ck","tsp_clk_dummy_ck","clk_tso_out_div_topad",
+			"tso_ts_src_sel_int_ck","tso_ts_src_sel_div8","tsp_clk_27_ck",
+			"clk_tso_out_div_mn","demod_ts_ck";
+		};
+
+		tso_s2p2pad_int_ck {
+			id = <CLK_TSP_TSO_S2P2PAD_INT_CK>;
+			parents = "tso_s2p_out_clk";
+		};
+
+		tso_s2p12pad_int_ck {
+			id = <CLK_TSP_TSO_S2P12PAD_INT_CK>;
+			parents = "tso_s2p1_out_clk";
+		};
+
+		tso_ch1_27m_int_ck {
+			id = <CLK_TSP_TSO_CH1_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		tso_ch5_27m_int_ck {
+			id = <CLK_TSP_TSO_CH5_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		tso_ch6_27m_int_ck {
+			id = <CLK_TSP_TSO_CH6_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		tso2_trace_int_ck {
+			id = <CLK_TSP_TSO2_TRACE_INT_CK>;
+			parents = "xtal_24m_ck","tsp_clk_216_ck";
+		};
+
+		tso2_trace_in_l_int_ck {
+			id = <CLK_TSP_TSO2_TRACE_IN_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		tso2_trace_in_h_int_ck {
+			id = <CLK_TSP_TSO2_TRACE_IN_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		tso2_trace_in_int_ck {
+			id = <CLK_TSP_TSO2_TRACE_IN_INT_CK>;
+			parents = "tso2_trace_in_l_int_ck","tso2_trace_in_h_int_ck";
+		};
+
+		tso2_ch1_l_int_ck {
+			id = <CLK_TSP_TSO2_CH1_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		tso2_ch1_h_int_ck {
+			id = <CLK_TSP_TSO2_CH1_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		tso2_ch1_int_ck {
+			id = <CLK_TSP_TSO2_CH1_INT_CK>;
+			parents = "tso2_ch1_l_int_ck","tso2_ch1_h_int_ck";
+		};
+
+		tso2_ch5_l_int_ck {
+			id = <CLK_TSP_TSO2_CH5_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		tso2_ch5_h_int_ck {
+			id = <CLK_TSP_TSO2_CH5_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		tso2_ch5_int_ck {
+			id = <CLK_TSP_TSO2_CH5_INT_CK>;
+			parents = "tso2_ch5_l_int_ck","tso2_ch5_h_int_ck";
+		};
+
+		tso2_ch6_l_int_ck {
+			id = <CLK_TSP_TSO2_CH6_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		tso2_ch6_h_int_ck {
+			id = <CLK_TSP_TSO2_CH6_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		tso2_ch6_int_ck {
+			id = <CLK_TSP_TSO2_CH6_INT_CK>;
+			parents = "tso2_ch6_l_int_ck","tso2_ch6_h_int_ck";
+		};
+
+		tso2_s2p_l_int_ck {
+			id = <CLK_TSP_TSO2_S2P_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		tso2_s2p_h_int_ck {
+			id = <CLK_TSP_TSO2_S2P_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		tso2_s2p_int_ck {
+			id = <CLK_TSP_TSO2_S2P_INT_CK>;
+			parents = "tso2_s2p_l_int_ck","tso2_s2p_h_int_ck";
+		};
+
+		tso2_s2p1_l_int_ck {
+			id = <CLK_TSP_TSO2_S2P1_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		tso2_s2p1_h_int_ck {
+			id = <CLK_TSP_TSO2_S2P1_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		tso2_s2p1_int_ck {
+			id = <CLK_TSP_TSO2_S2P1_INT_CK>;
+			parents = "tso2_s2p1_l_int_ck","tso2_s2p1_h_int_ck";
+		};
+
+		tso2_ts_src_sel_int_ck {
+			id = <CLK_TSP_TSO2_TS_SRC_SEL_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		tso2_out_div_sel_int_ck {
+			id = <CLK_TSP_TSO2_OUT_DIV_SEL_INT_CK>;
+			parents = "xtal_24m_ck","tsp_clk_172_ck","tsp_clk_288_ck",
+			"tsp_clk_dummy_ck";
+		};
+
+		tso2_out_int_ck {
+			id = <CLK_TSP_TSO2_OUT_INT_CK>;
+			parents = "xtal_24m_ck","tsp_clk_dummy_ck","clk_tso2_out_div",
+			"tso2_ts_src_sel_int_ck","tso2_ts_src_sel_div8","tsp_clk_27_ck",
+			"clk_tso2_out_div_mn","demod_ts_internal_ck";
+		};
+
+		tso2_out2pad_int_ck {
+			id = <CLK_TSP_TSO2_OUT2PAD_INT_CK>;
+			parents = "xtal_24m_ck","tsp_clk_dummy_ck","clk_tso2_out_div_topad",
+			"tso2_ts_src_sel_int_ck","tso2_ts_src_sel_div8","tsp_clk_27_ck",
+			"clk_tso2_out_div_mn","demod_ts_ck";
+		};
+
+		tso2_s2p2pad_int_ck {
+			id = <CLK_TSP_TSO2_S2P2PAD_INT_CK>;
+			parents = "tso2_s2p_out_clk";
+		};
+
+		tso2_s2p12pad_int_ck {
+			id = <CLK_TSP_TSO2_S2P12PAD_INT_CK>;
+			parents = "tso2_s2p1_out_clk";
+		};
+
+		tso2_ch1_27m_int_ck {
+			id = <CLK_TSP_TSO2_CH1_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		tso2_ch5_27m_int_ck {
+			id = <CLK_TSP_TSO2_CH5_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		tso2_ch6_27m_int_ck {
+			id = <CLK_TSP_TSO2_CH6_27M_INT_CK>;
+			parents = "xtal_24m_ck","syn_stc0_int_ck","syn_stc1_int_ck",
+			"syn_stc2_int_ck","syn_stc3_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_27_ck";
+		};
+
+		ts_tx_c1_l_int_ck {
+			id = <CLK_TSP_TS_TX_C1_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		ts_tx_c1_h_int_ck {
+			id = <CLK_TSP_TS_TX_C1_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		ts_tx_c1_int_ck {
+			id = <CLK_TSP_TS_TX_C1_INT_CK>;
+			parents = "ts_tx_c1_l_int_ck","ts_tx_c1_h_int_ck";
+		};
+
+		ts_tx_c1_l_ext_pre_int_ck {
+			id = <CLK_TSP_TS_TX_C1_L_EXT_PRE_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		ts_tx_c1_h_ext_pre_int_ck {
+			id = <CLK_TSP_TS_TX_C1_H_EXT_PRE_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out2pad_int_ck",
+			"tso2_out2pad_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_ck";
+		};
+
+		ts_tx_c1_ext_pre_int_ck {
+			id = <CLK_TSP_TS_TX_C1_EXT_PRE_INT_CK>;
+			parents = "ts_tx_c1_l_ext_pre_int_ck","ts_tx_c1_h_ext_pre_int_ck";
+		};
+
+		ts_tx_c1_ext_int_ck {
+			id = <CLK_TSP_TS_TX_C1_EXT_INT_CK>;
+			parents = "xtal_24m_ck","ts_tx_c1_ext_pre_int_ck","clk_ts_tx_c1_ext_div8",
+			"tsp_clk_dummy_ck";
+		};
+
+		ts_tx_c2_l_int_ck {
+			id = <CLK_TSP_TS_TX_C2_L_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		ts_tx_c2_h_int_ck {
+			id = <CLK_TSP_TS_TX_C2_H_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out_int_ck",
+			"tso2_out_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_internal_ck";
+		};
+
+		ts_tx_c2_int_ck {
+			id = <CLK_TSP_TS_TX_C2_INT_CK>;
+			parents = "ts_tx_c2_l_int_ck","ts_tx_c2_h_int_ck";
+		};
+
+		ts_tx_c2_l_ext_pre_int_ck {
+			id = <CLK_TSP_TS_TX_C2_L_EXT_PRE_INT_CK>;
+			parents = "xtal_24m_ck","clk_ts0_in","clk_ts1_in","clk_ts2_in","clk_ts3_in",
+			"clk_ts4_in","clk_ts5_in","tsp_clk_dummy_ck";
+		};
+
+		ts_tx_c2_h_ext_pre_int_ck {
+			id = <CLK_TSP_TS_TX_C2_H_EXT_PRE_INT_CK>;
+			parents = "tsp_clk_dummy_ck","tsp_clk_dummy_ck","tso_out2pad_int_ck",
+			"tso2_out2pad_int_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck",
+			"tsp_clk_dummy_ck","demod_ts_ck";
+		};
+
+		ts_tx_c2_ext_pre_int_ck {
+			id = <CLK_TSP_TS_TX_C2_EXT_PRE_INT_CK>;
+			parents = "ts_tx_c2_l_ext_pre_int_ck","ts_tx_c2_h_ext_pre_int_ck";
+		};
+
+		ts_tx_c2_ext_int_ck {
+			id = <CLK_TSP_TS_TX_C2_EXT_INT_CK>;
+			parents = "xtal_24m_ck","ts_tx_c2_ext_pre_int_ck","clk_ts_tx_c2_ext_div8",
+			"tsp_clk_dummy_ck";
+		};
+
+		cilink_if_int_ck {
+			id = <CLK_TSP_CILINK_IF_INT_CK>;
+			parents = "xtal_24m_ck","tsp_clk_36_ck","tsp_clk_27_ck","tsp_clk_dummy_ck";
+		};
+
+		cilink_2b_tx_int_ck {
+			id = <CLK_TSP_CILINK_2B_TX_INT_CK>;
+			parents = "xtal_24m_ck","clk_2b_rx_in","tsp_clk_144_ck","tsp_clk_172_ck";
+		};
+
+		cilink_2b_tx_ext_int_ck {
+			id = <CLK_TSP_CILINK_2B_TX_EXT_INT_CK>;
+			parents = "cilink_2b_tx_int_ck";
+		};
+
+		cilink_2b_rx_int_ck {
+			id = <CLK_TSP_CILINK_2B_RX_INT_CK>;
+			parents = "xtal_24m_ck","clk_2b_rx_in","tsp_clk_144_ck","tsp_clk_172_ck";
+		};
+
+		ts0_in_dft_int_ck {
+			id = <CLK_TSP_TS0_IN_DFT_INT_CK>;
+			parents = "clk_ts0_in";
+		};
+
+		ts1_in_dft_int_ck {
+			id = <CLK_TSP_TS1_IN_DFT_INT_CK>;
+			parents = "clk_ts1_in";
+		};
+
+		ts2_in_dft_int_ck {
+			id = <CLK_TSP_TS2_IN_DFT_INT_CK>;
+			parents = "clk_ts2_in";
+		};
+
+		ts3_in_dft_int_ck {
+			id = <CLK_TSP_TS3_IN_DFT_INT_CK>;
+			parents = "clk_ts3_in";
+		};
+
+		ts4_in_dft_int_ck {
+			id = <CLK_TSP_TS4_IN_DFT_INT_CK>;
+			parents = "clk_ts4_in";
+		};
+
+		ts5_in_dft_int_ck {
+			id = <CLK_TSP_TS5_IN_DFT_INT_CK>;
+			parents = "clk_ts5_in";
+		};
+
+		ts_sample_dft_int_ck {
+			id = <CLK_TSP_TS_SAMPLE_DFT_INT_CK>;
+			parents = "tsp_clk_dummy_ck";
+		};
+
+		tso_out_div_mn_src_int_ck {
+			id = <CLK_TSP_TSO_OUT_DIV_MN_SRC_INT_CK>;
+			parents = "tso_out_div_mn_src_ck";
+		};
+
+		tso2_out_div_mn_src_int_ck {
+			id = <CLK_TSP_TSO2_OUT_DIV_MN_SRC_INT_CK>;
+			parents = "tso2_out_div_mn_src_ck";
+		};
+
+		ts_sample_int_ck {
+			id = <CLK_TSP_TS_SAMPLE_INT_CK>;
+			parents = "xtal_24m_ck","tsp_clk_432_ck","tsp_clk_216_ck",
+			"tsp_clk_dummy_ck";
+		};
+
+		syn_stc0_int_ck {
+			id = <CLK_TSP_SYN_STC0_INT_CK>;
+			parents = "xtal_24m_ck","tsp_clk_216_ck","xtal_12m_ck","tsp_clk_432_ck",
+			"tsp_clk_dummy_ck","tsp_clk_352_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck";
+		};
+
+		syn_stc1_int_ck {
+			id = <CLK_TSP_SYN_STC1_INT_CK>;
+			parents = "xtal_24m_ck","tsp_clk_216_ck","xtal_12m_ck","tsp_clk_432_ck",
+			"tsp_clk_dummy_ck","tsp_clk_352_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck";
+		};
+
+		syn_stc2_int_ck {
+			id = <CLK_TSP_SYN_STC2_INT_CK>;
+			parents = "xtal_24m_ck","tsp_clk_216_ck","xtal_12m_ck","tsp_clk_432_ck",
+			"tsp_clk_dummy_ck","tsp_clk_352_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck";
+		};
+
+		syn_stc3_int_ck {
+			id = <CLK_TSP_SYN_STC3_INT_CK>;
+			parents = "xtal_24m_ck","tsp_clk_216_ck","xtal_12m_ck","tsp_clk_432_ck",
+			"tsp_clk_dummy_ck","tsp_clk_352_ck","tsp_clk_dummy_ck","tsp_clk_dummy_ck";
+		};
+
+		ufs_int_ck {
+			id = <CLK_TSP_UFS_INT_CK>;
+			parents = "ufs_ck";
+		};
+
+		ufs_aes_int_ck {
+			id = <CLK_TSP_UFS_AES_INT_CK>;
+			parents = "ufs_aes_ck";
+		};
+
+		ufs_rx_symbol_int_ck {
+			id = <CLK_TSP_UFS_RX_SYMBOL_INT_CK>;
+			parents = "ufs_RX_Symbol_ck","tsp_clk_144_ck";
+		};
+
+		ufs_tx_symbol_int_ck {
+			id = <CLK_TSP_UFS_TX_SYMBOL_INT_CK>;
+			parents = "ufs_TX_Symbol_ck","tsp_clk_144_ck";
+		};
+
+		ufs_unipro_cg_syn_int_ck {
+			id = <CLK_TSP_UFS_UNIPRO_CG_SYN_INT_CK>;
+			parents = "ufs_unipro_cg_syn_ck";
+		};
+
+		ufs_mp_sap_cfg_int_ck {
+			id = <CLK_TSP_UFS_MP_SAP_CFG_INT_CK>;
+			parents = "ufs_mp_sap_cfg_ck";
+		};
+
+		ssusb_xhci_int_ck {
+			id = <CLK_TSP_SSUSB_XHCI_INT_CK>;
+			parents = "tsp_clk_123_ck";
+		};
+
+		ssusb_sys_int_ck {
+			id = <CLK_TSP_SSUSB_SYS_INT_CK>;
+			parents = "tsp_clk_123_ck";
+		};
+
+		ssusb_frmcnt_int_ck {
+			id = <CLK_TSP_SSUSB_FRMCNT_INT_CK>;
+			parents = "ssusb_frmcnt_ck","tsp_sys2pll_vcod12_120m_div2_ck";
+		};
+
+		ssusb_pclk_int_ck {
+			id = <CLK_TSP_SSUSB_PCLK_INT_CK>;
+			parents = "ssusb_pclk_ck","tsp_sys2pll_vcod12_120m_ck";
+		};
+
+		ssusb_pclk_1p_int_ck {
+			id = <CLK_TSP_SSUSB_PCLK_1P_INT_CK>;
+			parents = "ssusb_pclk_1p_ck","tsp_sys2pll_vcod12_120m_ck";
+		};
+
+		ssusb_usb20_phy_clk_int_ck {
+			id = <CLK_TSP_SSUSB_USB20_PHY_CLK_INT_CK>;
+			parents = "ssusb_USB20_PHY_CLK_ck","tsp_sys2pll_vcod48_30m_ck";
+		};
+
+		ssusb_usb20_phy_clk_1p_int_ck {
+			id = <CLK_TSP_SSUSB_USB20_PHY_CLK_1P_INT_CK>;
+			parents = "ssusb_USB20_PHY_CLK_1P_ck","tsp_sys2pll_vcod48_30m_ck";
+		};
+
+		ssusb_usb20_phy_clk_2p_int_ck {
+			id = <CLK_TSP_SSUSB_USB20_PHY_CLK_2P_INT_CK>;
+			parents = "ssusb_USB20_PHY_CLK_2P_ck","tsp_sys2pll_vcod48_30m_ck";
+		};
+
+		pextp_tl_int_ck {
+			id = <CLK_TSP_PEXTP_TL_INT_CK>;
+			parents = "pextp_tl_clk_ck";
+		};
+
+		pextp_pl_pclk_int_ck {
+			id = <CLK_TSP_PEXTP_PL_PCLK_INT_CK>;
+			parents = "pextp_pl_pclk_ck","tsp_sys2pll_vcod6_240m_ck";
+		};
+
+		pextp_ahb_apb_int_ck {
+			id = <CLK_TSP_PEXTP_AHB_APB_INT_CK>;
+			parents = "mcu_nonpm_ck";
+		};
+	};
+};

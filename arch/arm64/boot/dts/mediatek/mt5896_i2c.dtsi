@@ -1,0 +1,115 @@
+// SPDX-License-Identifier: (GPL-2.0 OR BSD-3-Clause)
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+
+/ {
+	i2c0: I2C_0 {
+		compatible = "mediatek,mt5896-i2c";
+		reg = <0x0 0x1c644000 0x0 0x200>;
+		fifo-depth = <48>;
+		interrupt-parent = <&mtk_intc2_irq_low>;
+		interrupts = <0x0 0xf 0x4>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	i2c1: I2C_1 {
+		compatible = "mediatek,mt5896-i2c";
+		reg = <0x0 0x1c644400 0x0 0x200>;
+		fifo-depth = <48>;
+		interrupt-parent = <&mtk_intc2_irq_low>;
+		interrupts = <0x0 0x10 0x4>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	i2c2: I2C_2 {
+		compatible = "mediatek,mt5896-i2c";
+		reg = <0x0 0x1c644800 0x0 0x200>;
+		fifo-depth = <48>;
+		interrupt-parent = <&mtk_intc2_irq_low>;
+		interrupts = <0x0 0x11 0x4>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	i2c3: I2C_3 {
+		compatible = "mediatek,mt5896-i2c";
+		reg = <0x0 0x1c644c00 0x0 0x200>;
+		fifo-depth = <48>;
+		interrupt-parent = <&mtk_intc2_irq_low>;
+		interrupts = <0x0 0x12 0x4>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	i2c4: I2C_4 {
+		compatible = "mediatek,mt5896-i2c";
+		reg = <0x0 0x1c645000 0x0 0x200>;
+		fifo-depth = <48>;
+		interrupt-parent = <&mtk_intc2_irq_low>;
+		interrupts = <0x0 0x1e 0x4>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	pm_i2c0: PM_I2C_0 {
+		compatible = "mediatek,mt5896-i2c";
+		reg = <0x0 0x1c060800 0x0 0x200>;
+		fifo-depth = <48>;
+		interrupt-parent = <&mtk_intc2_irq_high>;
+		interrupts = <0x0 0x5 0x4>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	pm_i2c1: PM_I2C_1 {
+		compatible = "mediatek,mt5896-i2c";
+		reg = <0x0 0x1c060a00 0x0 0x200>;
+		fifo-depth = <48>;
+		interrupt-parent = <&mtk_intc2_irq_high>;
+		interrupts = <0x0 0x6 0x4>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+	};
+
+	aliases {
+		i2c64 = &softi2c0;
+		i2c65 = &softi2c1;
+		i2c66 = &softi2c2;
+		i2c67 = &softi2c3;
+		i2c68 = &softi2c4;
+		i2c69 = &softi2c5;
+	};
+
+	softi2c0: softi2c0 {
+		compatible = "i2c-gpio";
+		status = "disable";
+	};
+
+	softi2c1: softi2c1 {
+		compatible = "i2c-gpio";
+		status = "disable";
+	};
+
+	softi2c2: softi2c2 {
+		compatible = "i2c-gpio";
+		status = "disable";
+	};
+
+	softi2c3: softi2c3 {
+		compatible = "i2c-gpio";
+		status = "disable";
+	};
+
+	softi2c4: softi2c4 {
+		compatible = "i2c-gpio";
+		status = "disable";
+	};
+
+	softi2c5: softi2c5 {
+		compatible = "i2c-gpio";
+		status = "disable";
+	};
+};

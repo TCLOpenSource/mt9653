@@ -1,0 +1,20 @@
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Copyright (c) 2020 MediaTek Inc.
+ */
+#include "mt5896_mmap.dtsi"
+
+/ {
+	audio-mcu-audio {
+		compatible = "mediatek,mtk-audio-mcu-adv";
+		//memory-region = <&MI_AUCOMM_MEM>;
+		memory-region = <&MI_MAD_ADV_BUF>;
+		audio-mcu-parm-size = <0x100>;
+		audio-mcu-adec1-size = <0x600000>;
+		audio-mcu-adec2-size = <0x100000>;
+		audio-mcu-asnd-size = <0x600000>;
+		audio-mcu-advs-size = <0x100000>;
+		audio-mcu-aenc-size = <0x100000>;
+		status = "disabled";
+	};
+};
